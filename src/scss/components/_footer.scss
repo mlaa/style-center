@@ -1,0 +1,85 @@
+// Footer
+
+footer {
+
+  background-color: $footer-background-color;
+  background-image: url($mla-logo);
+  background-position: center 30px;
+  background-repeat: no-repeat;
+  background-size: 201px 45px;
+  color: $footer-text-color;
+  font-size: 0.8em;
+  padding: 95px 0 30px 0;
+  text-align: center;
+
+  p,
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: $footer-text-color;
+  }
+
+}
+
+
+
+.nav-social {
+
+  margin: 0;
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    display: inline-block;
+    height: 40px;
+    padding: 0 1em;
+    width: 25px;
+  }
+
+}
+
+.nav-pills {
+
+  li {
+
+    border-right: 1px solid $footer-text-color;
+    display: inline-block;
+
+    &:last-child {
+      border: 0;
+    }
+
+  }
+
+  a {
+    color: inherit;
+    padding: 0 1em;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+  }
+
+}
+
+.social-pill-facebook {
+  background-image: url($facebook-icon);
+}
+
+.social-pill-linkedin {
+  background-image: url($linkedin-icon);
+}
+
+.social-pill-twitter {
+  background-image: url($twitter-icon);
+}

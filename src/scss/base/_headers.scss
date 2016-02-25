@@ -1,0 +1,30 @@
+// Headers
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: $default-font-bold;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+h1 {
+  color: $header-level-1-color;
+}
+
+h2 {
+  color: $header-level-2-color;
+  font-weight: $default-font-normal;
+}
+
+h3 {
+  color: $header-level-3-color;
+}

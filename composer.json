@@ -1,0 +1,9 @@
+{
+  "name": "mlaa/mla-style-center",
+  "type": "wordpress-theme",
+  "license": "All rights reserved",
+  "require": {
+    "php": ">=5.4.0",
+    "composer/installers": "~1.0"
+  }
+}

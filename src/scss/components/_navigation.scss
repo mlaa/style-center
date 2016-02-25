@@ -1,0 +1,117 @@
+// Navigation
+
+// Page (non-homepage) navigation
+.page-banner {
+
+  background-color: $nav-background-color;
+  border-bottom: solid 2px $light-grey;
+  height: 90px;
+  margin: 0;
+  padding: 1em 1.5em 0.75em 1.5em;
+
+  @include breakpoint(md) {
+    height: 44px;
+  }
+
+}
+
+.page-menu {
+
+  float: right;
+  list-style: none;
+  margin: 0 0 0 1.5em;
+  padding: 0;
+
+  li {
+    display: inline-block;
+  }
+
+  &:hover,
+  &:active {
+    .page-sub-menu {
+      display: block;
+    }
+  }
+
+}
+
+.page-sub-menu-link {
+
+  background-color: darken($nav-background-color, 10%);
+  color: $black;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: $default-font-bold;
+  padding: 7px 0.75em 8px 0.75em;
+
+  &:hover {
+    color: $black;
+  }
+
+}
+
+.page-sub-menu {
+
+  background-color: $white;
+  border: solid 1px $light-grey;
+  box-shadow: 2px 2px 5px $lightest-grey;
+  display: none;
+  margin: 0;
+  min-width: 250px;
+  padding: 0.5em 0;
+  position: absolute;
+  right: 2em;
+  z-index: 300;
+
+  li {
+    display: block;
+  }
+
+  h4 {
+    padding: 0.5em 0.9em 0 0.9em;
+  }
+
+  a {
+
+    display: block;
+    padding: 0.25em 1em;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $lightest-grey;
+      font-weight: $default-font-bold;
+    }
+  }
+
+}
+
+.page-logo {
+
+  background-image: url($site-logo);
+  background-position: 0 5px;
+  background-repeat: no-repeat;
+  background-size: 300px 35px;
+  height: 50px;
+  margin: 0;
+  min-width: 300px;
+
+  @include breakpoint(md) {
+    background-position: 0 0;
+    background-size: 408px 50px;
+    float: left;
+    min-width: 408px;
+  }
+
+  a {
+
+    display: block;
+    height: 49px;
+    min-width: 300px;
+
+    span {
+      visibility: hidden;
+    }
+
+  }
+
+}

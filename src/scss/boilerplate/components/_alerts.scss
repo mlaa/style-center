@@ -1,0 +1,34 @@
+// Alerts and callouts
+
+// Colors
+$alert-caution-background-color: #ffe;
+$alert-info-background-color: #eef;
+$alert-notice-background-color: #efe;
+$alert-warning-background-color: #fdd;
+
+@mixin alert($color: $alert-info-background-color) {
+  background-color: $color;
+  border-color: darken($color, 10%);
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  margin: 1em 0;
+  padding: 1em;
+}
+
+.alert-info {
+  @include alert;
+}
+
+.alert-caution {
+  @include alert($alert-caution-background-color);
+}
+
+.alert-notice,
+.bbp-template-notice {
+  @include alert($alert-notice-background-color);
+}
+
+.alert-warning {
+  @include alert($alert-warning-background-color);
+}

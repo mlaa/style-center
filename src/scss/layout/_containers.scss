@@ -1,0 +1,16 @@
+// Layout containers
+
+.content {
+  display: flex;
+  padding: 2em;
+}
+
+.block-main {
+  flex-basis: 60%;
+}
+
+.sidebar {
+  flex-basis: 30%;
+  margin-left: 5%;
+  padding: 0.5em;
+}

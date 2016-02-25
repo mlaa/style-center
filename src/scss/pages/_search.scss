@@ -1,0 +1,175 @@
+// Search
+
+$search-field-background-color: $white;
+$hilite-background-color: #ff6;
+
+
+// Site search field
+
+.site-search-form {
+
+  margin: 0;
+
+  @include breakpoint(md) {
+    float: right;
+  }
+
+}
+
+.search-field {
+
+  background-color: $search-field-background-color;
+  background-image: url($search-icon);
+  background-position: 97% center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  border: solid 2px $input-border-color-light;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-weight: $default-font-normal;
+  max-width: 300px;
+  min-width: 220px;
+  padding: 7px 30px 7px 10px;
+  text-overflow: ellipsis;
+  width: 30%;
+
+  &:hover,
+  &:focus {
+    background-image: url($search-icon-active);
+    border-color: $input-border-color-active;
+    outline: none;
+  }
+
+}
+
+.search-submit {
+  display: none;
+}
+
+
+// Search results
+
+.main-search {
+
+  padding: 0 0.5em;
+
+  @include breakpoint(lg) {
+
+    background-color: $background-light-grey;
+    padding: 0 1em;
+
+    .overflow {
+      display: block;
+    }
+
+  }
+
+  h4 {
+    color: $dark-grey;
+    font-size: 2em;
+    line-height: 1.2em;
+    padding-top: 0.25em;
+  }
+
+  form,
+  fieldset {
+    margin: 0;
+  }
+
+  &:hover {
+    h4 {
+      color: $black;
+    }
+  }
+
+}
+
+.instructions {
+  font-size: 1.1em;
+  font-weight: $default-font-bold;
+  line-height: 1.25em;
+  margin: 0.75em 0 0 0;
+}
+
+.new {
+  margin-top: 1.25em;
+}
+
+
+.search-result {
+
+  border-bottom: solid 1px $border-light-grey;
+  margin: 0.5em 0;
+  padding: 1em 0 0.5em 0;
+
+  h3 {
+    margin-top: 0;
+  }
+
+}
+
+.search-results-from-the-book {
+
+  background-color: $background-light-grey;
+  margin-top: 0.75em;
+  padding: 0.5em 0.75em;
+
+  @include breakpoint(lg) {
+
+    background-color: $white;
+    border: solid 2px $border-light-grey;
+    margin: 1em;
+    padding: 1em;
+
+    h4 {
+      margin-top: 0;
+    }
+
+    .gloss {
+      font-size: 0.9em;
+    }
+
+    .underflow {
+      display: none;
+    }
+
+    .overflow {
+      display: block;
+    }
+
+  }
+
+  p {
+    margin: 0.5em 0 0.25em 0;
+  }
+
+  .buy-the-book {
+    margin-top: 1.5em;
+  }
+
+}
+
+.excerpt {
+  color: $dark-grey;
+}
+
+.hilite {
+  background-color: $hilite-background-color;
+}
+
+.page-reference {
+  color: $dark-grey;
+  white-space: nowrap;
+}
+
+.search-result-type {
+  color: $dark-grey;
+  font-size: 1em;
+  font-variant: small-caps;
+  white-space: nowrap;
+}
+
+.refine-search {
+  padding: 1.5em 0 1em 0;
+}
