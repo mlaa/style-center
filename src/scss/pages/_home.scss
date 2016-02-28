@@ -2,6 +2,11 @@
 
 $tile-link-color: $header-level-1-color;
 
+$tile-alpha-color-1: rgba(0, 0, 0, 0.12);
+$tile-alpha-color-2: rgba(0, 0, 0, 0.24);
+$tile-alpha-color-3: rgba(0, 0, 0, 0.2);
+$tile-alpha-color-4: rgba(0, 0, 0, 0.25);
+
 .home {
 
   background-color: $home-background-color;
@@ -32,9 +37,10 @@ $tile-link-color: $header-level-1-color;
 
   box-sizing: border-box;
   flex-basis: 100%;
+  height: 350px;
   margin: 0 0 2em 0;
-  min-height: 350px;
   padding: 0.5em;
+  position: relative;
 
   @include breakpoint(sm) {
     flex-basis: 48%;
@@ -51,115 +57,97 @@ $tile-link-color: $header-level-1-color;
 
   }
 
-  img {
-    height: auto;
-    max-width: 280px;
+}
+
+.tile-clickable {
+
+  box-shadow: 0 1px 3px $tile-alpha-color-1, 0 1px 2px $tile-alpha-color-2;
+  transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 5px 10px $tile-alpha-color-3, 0 3px 3px $tile-alpha-color-4;
   }
 
 }
 
-.sidebar-tile {
+.tile-featured {
 
-  margin-bottom: 1em;
-  padding: 1em;
-
-  img {
-    height: auto;
-    max-width: 280px;
+  .tile-link {
+    margin-top: 175px;
   }
 
-}
+  .tile-image {
+    background-image: url($tile-placeholder);
+    background-repeat: no-repeat;
+    bottom: 0;
+    left: 0;
+    margin-top: 0;
+    opacity: 0.9;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 50;
+  }
 
-.tile-link,
-.tile-content {
-  background-color: $white;
-  border: solid 2px $tile-link-color;
-  position: relative;
+  &:hover .tile-image {
+    opacity: 1;
+  }
+
 }
 
 .tile-link {
 
-  &:hover {
-
-    background-color: $tile-link-color;
-
-    .tile-link-head {
-      color: $white;
-      text-decoration: none;
-    }
-
-    .tile-body {
-      color: $white;
-    }
-
-  }
-
-}
-
-.tile-head,
-.tile-link-head {
-  font-size: 1.2em;
-  font-weight: $default-font-bold;
-  line-height: 1.2em;
-  margin: 0;
-  padding: 0.3em 0;
-}
-
-.tile-link-head {
+  background-color: $white;
   bottom: 0;
   color: $tile-link-color;
   display: block;
   left: 0;
-  padding: 0.75em 0.5em;
+  padding: 1.5em 1em 0.5em 1em;
   position: absolute;
   right: 0;
   top: 0;
   z-index: 100;
-}
 
-.tile-body {
-  bottom: 0;
-  color: $tile-link-color;
-  left: 1em;
-  position: absolute;
-  right: 1em;
-  z-index: 10;
-}
-
-.tile-content {
-
-  background-color: $light-grey;
-  border-color: $light-grey;
-
-  .tile-body {
+  h3 {
     color: $tile-link-color;
   }
 
-}
-
-.tile-alternate {
-
-  border-color: $tile-link-color;
-
-  .tile-link-head {
-    color: $tile-link-color;
-  }
-
-  .tile-body {
+  p {
     color: $tile-link-color;
   }
 
   &:hover {
-    background-color: $tile-link-color;
+    text-decoration: none;
+  }
 
-    .tile-link-head {
-      color: $white;
-    }
+}
 
-    .tile-body {
-      color: $white;
-    }
+.tile-wide {
 
+  .tile-link {
+    margin-top: 0;
+    right: 50%;
+  }
+
+  .tile-image {
+    background-position: right 0;
+  }
+
+}
+
+
+.tile-buy {
+
+  background-color: transparent;
+  background-image: url($handbook-cover);
+  background-position: center 0;
+  background-repeat: no-repeat;
+  background-size: 280px 280px;
+  text-align: center;
+
+  .tile-body {
+    color: $tile-link-color;
   }
 
 }
@@ -168,14 +156,4 @@ $tile-link-color: $header-level-1-color;
   @include breakpoint(lg) {
     flex-basis: 65%;
   }
-}
-
-.tile-buy {
-  background-color: transparent;
-  background-image: url($handbook-cover);
-  background-position: center 0;
-  background-repeat: no-repeat;
-  background-size: 280px 280px;
-  border: 0;
-  text-align: center;
 }
