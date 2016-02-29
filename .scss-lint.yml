@@ -1,4 +1,4 @@
-exclude: 'src/scss/**/vendor/**'
+exclude: 'src/**/vendor/**'
 linters:
   IdSelector:
     enabled: false
