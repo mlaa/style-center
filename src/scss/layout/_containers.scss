@@ -1,8 +1,14 @@
 // Layout containers
 
 .content {
+
   display: flex;
-  padding: 2em;
+  padding: 1em;
+
+  @include breakpoint(xs) {
+    padding: 2em;
+  }
+
 }
 
 .block-main {

@@ -11,20 +11,34 @@ $tile-alpha-color-4: rgba(0, 0, 0, 0.25);
 
   background-color: $home-background-color;
 
+  .block-main {
+    flex-basis: 100%;
+  }
+
   .content {
-    display: block;
+
     margin: 0 auto;
     max-width: 60em;
-    padding: 1.5em;
+    padding: 1em 0.5em;
+
+    @include breakpoint(xs) {
+      padding: 1em;
+    }
+
   }
 
   .page {
+
     align-items: stretch;
-    display: flex;
     flex-basis: 100%;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+
+    @include breakpoint(xs) {
+      display: flex;
+    }
+
   }
 
   .page-menu {
@@ -33,23 +47,21 @@ $tile-alpha-color-4: rgba(0, 0, 0, 0.25);
 
 }
 
-.homepage-tile {
+.tile,
+.tile-group {
 
   box-sizing: border-box;
-  flex-basis: 100%;
-  height: 350px;
-  margin: 0 0 2em 0;
-  padding: 0.5em;
+  margin: 0 0 1em 0;
   position: relative;
 
-  @include breakpoint(sm) {
-    flex-basis: 48%;
+  @include breakpoint(xs) {
+    flex-basis: 50%;
+    height: 320px;
   }
 
-  @include breakpoint(lg) {
+  @include breakpoint(md) {
 
-    flex-basis: 31%;
-    padding: 1em;
+    flex-basis: 33.3%;
 
     .overflow {
       display: block;
@@ -59,9 +71,32 @@ $tile-alpha-color-4: rgba(0, 0, 0, 0.25);
 
 }
 
-.tile-clickable {
+.tile-link,
+.tile-image,
+.tile-body {
 
+  bottom: 0;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  @include breakpoint(xs) {
+    position: absolute;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+}
+
+.tile-link {
+
+  border-top: solid 8px $tile-link-color;
   box-shadow: 0 1px 3px $tile-alpha-color-1, 0 1px 2px $tile-alpha-color-2;
+  left: 0.5em;
+  right: 0.5em;
   transition: box-shadow 0.2s ease-in-out;
 
   &:hover {
@@ -70,43 +105,21 @@ $tile-alpha-color-4: rgba(0, 0, 0, 0.25);
 
 }
 
-.tile-featured {
-
-  .tile-link {
-    margin-top: 175px;
-  }
-
-  .tile-image {
-    background-image: url($tile-placeholder);
-    background-repeat: no-repeat;
-    bottom: 0;
-    left: 0;
-    margin-top: 0;
-    opacity: 0.9;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: opacity 0.2s ease-in-out;
-    z-index: 50;
-  }
-
-  &:hover .tile-image {
-    opacity: 1;
-  }
-
+.tile-image {
+  background-image: url($tile-placeholder);
+  background-position: -15px 0;
+  background-repeat: no-repeat;
+  filter: grayscale(20%);
+  opacity: 0.85;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 50;
 }
 
-.tile-link {
+.tile-body {
 
   background-color: $white;
-  bottom: 0;
   color: $tile-link-color;
-  display: block;
-  left: 0;
-  padding: 1.5em 1em 0.5em 1em;
-  position: absolute;
-  right: 0;
-  top: 0;
+  padding: 1.3em 1em 0.5em 1em;
   z-index: 100;
 
   h3 {
@@ -117,25 +130,65 @@ $tile-alpha-color-4: rgba(0, 0, 0, 0.25);
     color: $tile-link-color;
   }
 
-  &:hover {
-    text-decoration: none;
+}
+
+.tile-featured {
+
+  @include breakpoint(xs) {
+
+    .tile-link {
+      border-top: 0;
+    }
+
+    .tile-body {
+      border-top: solid 1px $lightest-grey;
+      margin-top: 130px;
+    }
+
+    &:hover .tile-image {
+      filter: none;
+      opacity: 1;
+    }
+
   }
 
 }
 
 .tile-wide {
 
-  .tile-link {
-    margin-top: 0;
-    right: 50%;
-  }
+  @include breakpoint(md) {
 
-  .tile-image {
-    background-position: right 0;
+    .tile-body {
+      border-right: solid 1px $lightest-grey;
+      border-top: 0;
+      margin-right: 50%;
+      margin-top: 0;
+    }
+
+    .tile-image {
+      background-position: right 0;
+    }
+
   }
 
 }
 
+.tile-faq {
+  @include breakpoint(md) {
+    height: 200px;
+    margin-bottom: 10px;
+  }
+}
+
+.tile-submit {
+
+  height: 110px;
+
+  .tile-body {
+    padding-top: 1em;
+  }
+
+}
 
 .tile-buy {
 
@@ -143,7 +196,9 @@ $tile-alpha-color-4: rgba(0, 0, 0, 0.25);
   background-image: url($handbook-cover);
   background-position: center 0;
   background-repeat: no-repeat;
-  background-size: 280px 280px;
+  background-size: 260px 260px;
+  border-top: 0;
+  height: 320px;
   text-align: center;
 
   .tile-body {
@@ -153,7 +208,7 @@ $tile-alpha-color-4: rgba(0, 0, 0, 0.25);
 }
 
 .tile-citation {
-  @include breakpoint(lg) {
-    flex-basis: 65%;
+  @include breakpoint(md) {
+    flex-basis: 66.6%;
   }
 }
