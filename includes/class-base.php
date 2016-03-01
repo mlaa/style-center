@@ -11,7 +11,7 @@ use \add_action;
 use \add_filter;
 use \filter_has_input;
 use \filter_has_var;
-use \plugins_url;
+use \get_stylesheet_directory_uri;
 use \sanitize_text_field;
 use \wp_enqueue_script;
 use \wp_enqueue_style;

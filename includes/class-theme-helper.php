@@ -56,6 +56,7 @@ class ThemeHelper extends Base {
 		$this->add_action( 'after_setup_theme', $this, 'setup' );
 		$this->add_action( 'wp_enqueue_scripts', $this, 'assets', 100 );
 		$this->add_action( 'widgets_init', $this, 'register_sidebars' );
+		$this->add_filter( 'comment_form_default_fields', $this, 'disable_comment_url' );
 		$this->add_filter( 'body_class', $this, 'add_body_class' );
 		$this->add_filter( 'excerpt_more', $this, 'set_excerpt_more' );
 		$this->run();
@@ -114,6 +115,16 @@ class ThemeHelper extends Base {
 
 		return $classes;
 
+	}
+
+	/**
+	 * Disable URL comment field.
+	 *
+	 * @param array $fields Comments fields to modify.
+	 */
+	public function disable_comment_url( $fields ) {
+		unset( $fields['url'] );
+		return $fields;
 	}
 
 	/**
