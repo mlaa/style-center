@@ -11,6 +11,7 @@ use \add_theme_support;
 use \comments_open;
 use \get_option;
 use \get_permalink;
+use \get_query_var;
 use \get_search_query;
 use \get_template_directory;
 use \get_the_archive_title;
@@ -56,6 +57,7 @@ class ThemeHelper extends Base {
 		$this->add_action( 'wp_enqueue_scripts', $this, 'assets', 100 );
 		$this->add_action( 'widgets_init', $this, 'register_sidebars' );
 		$this->add_filter( 'body_class', $this, 'add_body_class' );
+		$this->add_filter( 'excerpt_more', $this, 'set_excerpt_more' );
 		$this->run();
 
 	}
@@ -173,5 +175,51 @@ class ThemeHelper extends Base {
 		if ( 'Behind the Style' === $categories[0]->name ) {
 			return 'blog-sidebar';
 		}
+	}
+
+
+	/**
+	 * Set the excerpt more text.
+	 */
+	public static function set_excerpt_more() {
+
+		return '&nbsp;.&nbsp;.&nbsp;.';
+	}
+
+	/**
+	 * Get the snippet for the search.
+	 *
+	 * @param string $content  Post content.
+	 * @param string $excerpt  Post excerpt.
+	 */
+	public static function get_search_snippet( $content, $excerpt ) {
+
+		if ( ! is_search() ) {
+			return $content;
+		}
+
+		$search_terms = array();
+		$search_string = get_query_var( 's' );
+		$stripped_content = strip_tags( $content );
+		$prefix = '.&nbsp;.&nbsp;.&nbsp;';
+		$suffix = '&nbsp;.&nbsp;.&nbsp;.';
+
+		// Check for double quotes wrapped around search phrase and strip. If no double quotes break into terms.
+		if ( 0 !== preg_match( '~^"(.*?)"$~', $search_string, $term_matches ) ) {
+			$search_match = $term_matches[1];
+		} else {
+			$search_terms = explode( ' ', $search_string );
+			$search_match = implode( '|', $search_terms );
+		}
+
+		// Find search terms or phrase in post content.
+		if ( 0 === preg_match( sprintf( '~((\w+\W+){0,27}(%1$s)(\W+\w+){0,27})~i', $search_match ), $stripped_content, $matches ) ) {
+			return $excerpt; // We must have matched on post_title.
+		} else {
+			if ( 0 === strpos( $stripped_content, $matches[0] ) ) { // Matched from the beginning of content?
+				$prefix = '';
+			}
+		}
+			return sprintf( '%1$s%2$s%3$s', $prefix, $matches[0], $suffix );
 	}
 }
