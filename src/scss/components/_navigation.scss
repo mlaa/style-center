@@ -1,16 +1,54 @@
 // Navigation
 
-// Page (non-homepage) navigation
+$sub-menu-color: $header-level-3-color;
+$sub-menu-highlight-color: #fec;
+
 .page-banner {
 
   background-color: $nav-background-color;
   border-bottom: solid 2px $light-grey;
-  height: 90px;
+  height: 100px;
   margin: 0;
-  padding: 1em 1.5em 0.75em 1.5em;
+  padding: 0 15px;
 
-  @include breakpoint(md) {
-    height: 44px;
+  @include breakpoint(sm) {
+    height: 66px;
+    padding: 0 15px 0 45px;
+  }
+
+  &::before {
+
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 115px 96px;
+    content: '';
+    height: 96px;
+    left: 0;
+    position: absolute;
+    top: 46px;
+    width: 115px;
+
+    @include breakpoint(sm) {
+      background-image: url($site-rainbow);
+    }
+
+    @include breakpoint(wp-toolbar) {
+      top: 32px;
+    }
+
+  }
+
+}
+
+.page-nav {
+
+  float: right;
+  width: 100%;
+
+  @include breakpoint(sm) {
+    margin-top: 14px;
+    text-align: right;
+    width: auto;
   }
 
 }
@@ -19,33 +57,45 @@
 
   float: right;
   list-style: none;
-  margin: 0 0 0 1.5em;
+  margin: 0 0 0 10px;
   padding: 0;
+
+  @include breakpoint(sm) {
+    margin: 0 0 0 10px;
+  }
 
   li {
     display: inline-block;
   }
 
-  &:hover,
-  &:active {
-    .page-sub-menu {
-      display: block;
-    }
+  .button {
+    margin: 0;
+    padding: 6px 0.75em;
   }
 
 }
 
+.buy-the-book-button {
+  @include breakpoint(sm) {
+    display: none;
+  }
+}
+
 .page-sub-menu-link {
 
-  background-color: darken($nav-background-color, 10%);
-  color: $black;
-  cursor: pointer;
-  font-size: 18px;
+  background-color: $white;
+  border: solid 1px $sub-menu-color;
+  color: $sub-menu-color;
   font-weight: $default-font-bold;
-  padding: 7px 0.75em 8px 0.75em;
 
   &:hover {
-    color: $black;
+    background-color: $sub-menu-color;
+    color: $white;
+  }
+
+  &.button {
+    padding-bottom: 5px;
+    padding-top: 5px;
   }
 
 }
@@ -53,14 +103,14 @@
 .page-sub-menu {
 
   background-color: $white;
-  border: solid 1px $light-grey;
-  box-shadow: 2px 2px 5px $lightest-grey;
+  border: solid 1px $sub-menu-color;
   display: none;
-  margin: 0;
-  min-width: 250px;
-  padding: 0.5em 0;
+  margin: -3px 0 0 0;
+  min-width: 280px;
+  padding: 0;
   position: absolute;
-  right: 2em;
+  right: 15px;
+  text-align: left;
   z-index: 300;
 
   li {
@@ -68,37 +118,57 @@
   }
 
   h4 {
-    padding: 0.5em 0.9em 0 0.9em;
+    background-color: $sub-menu-color;
+    color: $white;
+    padding: 0.4em 12px 0.25em 12px;
   }
 
   a {
 
     display: block;
-    padding: 0.25em 1em;
+    padding: 0.15em 12px;
     text-decoration: none;
 
     &:hover {
-      background-color: $lightest-grey;
+      background-color: $sub-menu-highlight-color;
       font-weight: $default-font-bold;
     }
   }
 
 }
 
+.page-menu-active {
+
+  .page-sub-menu {
+    display: block;
+  }
+
+  .page-sub-menu-link {
+    background-color: $sub-menu-color;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    color: $white;
+  }
+
+}
+
 .page-logo {
 
-  background-image: url($site-logo);
-  background-position: 0 5px;
+  background-image: url($site-logo-small);
+  background-position: 0 10px;
   background-repeat: no-repeat;
-  background-size: 300px 35px;
-  height: 50px;
+  background-size: 300px 36px;
+  height: 38px;
   margin: 0;
   min-width: 300px;
+  padding: 12px 0 0 0;
 
-  @include breakpoint(md) {
-    background-position: 0 0;
+  @include breakpoint(sm) {
+    background-image: url($site-logo);
+    background-position: 0 12px;
     background-size: 408px 50px;
     float: left;
+    height: 52px;
     min-width: 408px;
   }
 

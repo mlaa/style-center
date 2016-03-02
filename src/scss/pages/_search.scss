@@ -7,13 +7,8 @@ $hilite-background-color: #ff6;
 // Site search field
 
 .site-search-form {
-
+  float: left;
   margin: 0;
-
-  @include breakpoint(md) {
-    float: right;
-  }
-
 }
 
 .search-field {
@@ -26,13 +21,25 @@ $hilite-background-color: #ff6;
   border: solid 1px $input-border-color-light;
   border-radius: 8px;
   box-sizing: border-box;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: $default-font-normal;
-  max-width: 300px;
-  min-width: 220px;
-  padding: 7px 30px 7px 10px;
+  padding: 5px 30px 5px 10px;
   text-overflow: ellipsis;
-  width: 30%;
+  width: 65px;
+
+  @include breakpoint(xs) {
+    font-size: 18px;
+    padding: 7px 30px 7px 10px;
+    width: 180px;
+  }
+
+  @include breakpoint(sm) {
+    width: 120px;
+  }
+
+  @include breakpoint(md) {
+    width: 220px;
+  }
 
   &:hover,
   &:focus {

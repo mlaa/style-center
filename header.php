@@ -46,25 +46,30 @@ use \wp_nav_menu;
 				<a href="<?php echo( esc_url( home_url( '/' ) ) ); ?>"><span><?php bloginfo( 'name' ); ?></span></a>
 			</h1>
 
-			<ul class="page-menu">
-				<li><span class="page-sub-menu-link button">☰ Menu</span></li>
-				<ul class="page-sub-menu">
-					<li><h4>Sections</h4></li>
-					<li><a href="/about-the-handbook/">About the <em>Handbook</em></a></li>
-					<li><a href="/understanding-mla-style/">MLA Citation Template</a></li>
-					<li><a href="/category/ask-the-experts/">Ask the Experts</a></li>
-					<li><a href="/category/behind-the-style/">Behind the Style</a></li>
-					<li><a href="/plagiarism-and-academic-dishonesty/">From the book: “Plagiarism”</a></li>
-					<li><a href="/sample-papers/">Research Papers in MLA Style</a></li>
-					<li><a href="/teaching-resources/">Teaching MLA Style</a></li>
-				</ul>
-			</ul>
+			<div class="page-nav">
 
-			<form class="site-search-form">
-				<fieldset>
-					<?php get_search_form(); ?>
-				</fieldset>
-			</form>
+				<ul class="page-menu">
+					<li><span class="buy-the-book-button button">Buy the Book</span></li>
+					<li><span class="page-sub-menu-link button">☰ Menu</span></li>
+					<ul class="page-sub-menu">
+						<li><h4>Sections</h4></li>
+						<li><a href="/about-the-handbook/">About the <em>Handbook</em></a></li>
+						<li><a href="/understanding-mla-style/">MLA Citation Template</a></li>
+						<li><a href="/category/ask-the-experts/">Ask the Experts</a></li>
+						<li><a href="/category/behind-the-style/">Behind the Style</a></li>
+						<li><a href="/plagiarism-and-academic-dishonesty/">From the book: “Plagiarism”</a></li>
+						<li><a href="/sample-papers/">Research Papers in MLA Style</a></li>
+						<li><a href="/teaching-resources/">Teaching MLA Style</a></li>
+					</ul>
+				</ul>
+
+				<form class="site-search-form">
+					<fieldset>
+						<?php get_search_form(); ?>
+					</fieldset>
+				</form>
+
+			</div>
 
 		</nav>
 

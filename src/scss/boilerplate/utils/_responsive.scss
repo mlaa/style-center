@@ -10,6 +10,10 @@
     @media (min-width: 768px) {
       @content;
     }
+  } @else if $class == wp-toolbar {
+    @media (min-width: 783px) {
+      @content;
+    }
   } @else if $class == md {
     @media (min-width: 992px) {
       @content;

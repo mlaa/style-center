@@ -3,10 +3,10 @@
 .content {
 
   display: flex;
-  padding: 1em;
+  padding: 3em 1em 1em 1em;
 
   @include breakpoint(xs) {
-    padding: 2em;
+    padding: 3em 2em 2em 2em;
   }
 
 }

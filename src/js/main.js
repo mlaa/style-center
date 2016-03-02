@@ -22,6 +22,7 @@ App.addRegions({
 });
 
 // Load modules.
+require('./page-menu')(jQuery);
 require('./search-hints')(jQuery);
 App.module('Citations', require('./citations'));
 
