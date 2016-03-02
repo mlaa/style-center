@@ -22,16 +22,24 @@
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
   },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "jquery": "global:jQuery",
+    "underscore": "global:_",
+    "backbone": "global:Backbone"
+  },
   "dependencies": {
-    "backbone": "^1.2.3",
     "backbone.marionette": "^2.4.4",
-    "jquery": "^2.1.4",
     "modui-popup": "^2.0.1",
-    "typeahead.js": "^0.11.1",
-    "underscore": "^1.8.3"
+    "typeahead.js": "^0.11.1"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
+    "browserify-shim": "^3.8.12",
     "glob": "^7.0.0",
     "gulp": "^3.8.8",
     "gulp-autoprefixer": "^3.0.2",

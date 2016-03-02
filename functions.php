@@ -21,5 +21,5 @@ $sidebars = array(
 $theme_helper = new ThemeHelper( 'mla-style-center', $sidebars );
 
 $theme_helper->enqueue_style( 'main', 'assets/dist/main.css' );
-$theme_helper->enqueue_script( 'main', 'assets/dist/main.js', null, true );
+$theme_helper->enqueue_script( 'main', 'assets/dist/main.js', array( 'jquery', 'underscore', 'backbone' ), true );
 $theme_helper->enqueue_typekit( 'sho5lfw' );

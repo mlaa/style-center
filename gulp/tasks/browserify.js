@@ -13,6 +13,7 @@ var uglify = require('gulp-uglify');
 
 module.exports = function () {
   return browserify(config.source, {debug: true})
+    .transform('browserify-shim', {global: true})
     .transform('jstify')
     .bundle()
     .pipe(source(path.basename(config.source)))

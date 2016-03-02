@@ -34,6 +34,6 @@ App.on('start', function () {
 });
 
 // Start the application.
-if (jQuery('#citation-tool')) {
+if (jQuery('#citation-tool').length) {
   App.start();
 }
