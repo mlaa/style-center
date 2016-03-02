@@ -3,6 +3,17 @@
 $button-text-color: $white;
 $button-background-color: $mla-blue;
 
+@mixin material-plus-one {
+
+  box-shadow: 0 1px 3px $tile-alpha-color-1, 0 1px 2px $tile-alpha-color-2;
+  transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 5px 10px $tile-alpha-color-3, 0 3px 3px $tile-alpha-color-4;
+  }
+
+}
+
 @mixin button($color: $button-text-color, $background-color: $button-background-color) {
 
   background-color: $background-color;

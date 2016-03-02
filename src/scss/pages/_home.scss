@@ -92,17 +92,10 @@ $tile-alpha-color-4: rgba(0, 0, 0, 0.25);
 }
 
 .tile-link {
-
+  @include material-plus-one;
   border-top: solid 8px $tile-link-color;
-  box-shadow: 0 1px 3px $tile-alpha-color-1, 0 1px 2px $tile-alpha-color-2;
   left: 0.5em;
   right: 0.5em;
-  transition: box-shadow 0.2s ease-in-out;
-
-  &:hover {
-    box-shadow: 0 5px 10px $tile-alpha-color-3, 0 3px 3px $tile-alpha-color-4;
-  }
-
 }
 
 .tile-image {
@@ -191,9 +184,8 @@ $tile-alpha-color-4: rgba(0, 0, 0, 0.25);
 }
 
 .order-button {
-  box-shadow: 0 1px 3px $tile-alpha-color-1, 0 1px 2px $tile-alpha-color-2;
+  @include material-plus-one;
   font-weight: $default-font-bold;
-  transition: box-shadow 0.2s ease-in-out;
 }
 
 .tile-citation {
