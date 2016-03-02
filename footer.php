@@ -30,7 +30,7 @@ use \wp_footer;
 				<li class="item-3"><a class="social-pill-twitter" href="https://twitter.com/mlanews"></a></li>
 			</ul>
 
-			<p><a href="/terms-of-service/">Terms of Service</a> ● © 2016 Modern Language Association of America</p>
+			<p><span class="print-remove"><a href="/terms-of-service/">Terms of Service</a> ● </span>© 2016 Modern Language Association of America</p>
 
 		</footer>
 

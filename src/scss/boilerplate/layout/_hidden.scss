@@ -2,6 +2,10 @@
 
 .hidden,
 .overflow,
-.print-only {
+.print-show {
   display: none;
+}
+
+.print-visible {
+  visibility: hidden;
 }

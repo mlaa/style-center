@@ -3,16 +3,16 @@
 @media print {
 
   @page {
-    margin: 0.75in 0.5in;
+    margin: 0.25in;
+    padding: 0;
     size: 8.5in 11in;
   }
 
-  @page :first {
-    margin: 0.5in;
-  }
-
   body {
-    font-size: 90%;
+    height: 9.5in;
+    margin: 0 auto;
+    padding: 0.5in;
+    width: 7in;
   }
 
   thead {
@@ -37,9 +37,20 @@
     widows: 3;
   }
 
-  // Show print-only elements
-  .print-only {
+  .print-show {
     display: block;
+  }
+
+  .print-remove {
+    display: none;
+  }
+
+  .print-visible {
+    visibility: visible;
+  }
+
+  .print-hidden {
+    visibility: hidden;
   }
 
 }

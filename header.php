@@ -40,7 +40,7 @@ use \wp_nav_menu;
 
 		<?php do_action( 'get_header' ); ?>
 
-		<nav class="page-banner">
+		<nav class="page-banner print-remove">
 
 			<h1 class="page-logo">
 				<a href="<?php echo( esc_url( home_url( '/' ) ) ); ?>"><span><?php bloginfo( 'name' ); ?></span></a>

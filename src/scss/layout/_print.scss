@@ -1,0 +1,55 @@
+// Print
+
+@media print {
+
+  body {
+    background-color: transparent;
+    background-image: url($site-logo);
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: 300px 35px;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .content {
+    display: block;
+    margin-top: 1.5em;
+    padding: 0;
+  }
+
+  .nav-pills,
+  .nav-social,
+  .page-menu,
+  .site-search-form {
+    display: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: $black;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  h3 {
+    font-size: 1.1em;
+  }
+
+  footer {
+    background-color: transparent;
+    background-image: none;
+    color: $black;
+    font-size: 16px;
+    margin: 2em 0;
+    padding: 0;
+  }
+
+}

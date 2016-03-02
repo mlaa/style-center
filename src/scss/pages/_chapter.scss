@@ -1,8 +1,12 @@
 // Chapter
 
+$aside-color: #039;
+
 .chapter-aside {
-  border-bottom: solid 1px $grey;
-  border-top: solid 1px $grey;
+  border-bottom: solid 1px $aside-color;
+  border-top: solid 1px $aside-color;
+  color: $aside-color;
+  font-size: 0.95em;
   margin: 2em 0;
   padding: 1em;
 }
