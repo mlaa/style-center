@@ -10,10 +10,11 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 require_once( 'includes/loader.php' );
 
 $sidebars = array(
-	'faq' => 'Ask the Experts',
-	'blog' => 'Behind the Style',
+	'blog' => 'Blog',
+	'faq' => 'FAQ',
+	'formatting-papers' => 'Formatting papers',
 	'plagiarism-and-academic-dishonesty' => 'Sample chapter',
-	'research-papers' => 'Research papers',
+	'sample-papers' => 'Sample papers',
 	'teaching-resources' => 'Teaching resources',
 	'search' => 'Search results',
 );

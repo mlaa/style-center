@@ -166,11 +166,11 @@ class ThemeHelper extends Base {
 
 		$categories = get_the_category();
 
-		if ( 'Ask the Experts' === $categories[0]->name ) {
+		if ( 'Questions and Answers' === $categories[0]->name ) {
 			return 'faq-sidebar';
 		}
 
-		if ( 'Behind the Style' === $categories[0]->name ) {
+		if ( 'Editors’ Blog' === $categories[0]->name ) {
 			return 'blog-sidebar';
 		}
 	}
