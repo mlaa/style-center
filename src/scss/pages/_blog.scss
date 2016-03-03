@@ -35,6 +35,24 @@
   margin: 0 0 6em 0;
 }
 
+.figure {
+
+  margin: 1.5em 0;
+
+  figcaption {
+    border-top: solid 1px $palette-dark;
+    color: $palette-dark;
+    font-size: 0.9em;
+    margin-top: 0.5em;
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
+}
+
 .blog-title {
 
   .tag {
@@ -96,6 +114,31 @@
 
     &:hover {
       background-color: $dark-grey;
+    }
+
+  }
+
+}
+
+.category.category-ask-the-experts {
+
+  .category-ask-the-experts {
+
+    margin-bottom: 1.5em;
+
+    h2 {
+      font-size: 1.25em;
+      margin-top: 1.5em;
+    }
+
+    h4,
+    p,
+    blockquote,
+    br,
+    ol,
+    ul,
+    .blog-meta {
+      display: none;
     }
 
   }

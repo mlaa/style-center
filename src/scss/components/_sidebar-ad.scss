@@ -1,0 +1,23 @@
+// Handbook sidebar ad
+
+.handbook-sidebar-ad {
+
+  background-image: url($handbook-sidebar-ad);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 300px 124px;
+  height: 124px;
+  margin: 2em 0;
+  position: relative;
+  width: 300px;
+
+  .buy-the-book-button {
+    @include material-plus-one;
+    display: inline;
+    position: absolute;
+    right: 0;
+    top: 40px;
+  }
+
+}
+

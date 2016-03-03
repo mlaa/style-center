@@ -1,15 +1,25 @@
 // Sample papers
 
-.page-sample-papers {
-  max-width: 40em;
-}
-
 .sample-paper {
 
-  border: solid 1px $black;
+  clear: left;
 
-  img {
-    width: 100%;
+  a {
+    border: solid 3px $page-link-color;
+    display: block;
+    float: left;
+    font-weight: $default-font-bold;
+    height: 200px;
+    line-height: 200px;
+    margin: 0 1em 2em 0;
+    text-align: center;
+    width: 150px;
+  }
+
+  label {
+    font-size: 1em;
+    font-weight: $default-font-bold;
   }
 
 }
+

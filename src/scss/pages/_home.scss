@@ -50,7 +50,11 @@ $tile-link-color: $palette-blue;
 
   @include breakpoint(xs) {
     flex-basis: 50%;
-    height: 260px;
+    min-height: 320px;
+  }
+
+  @include breakpoint(sm) {
+    min-height: 260px;
   }
 
   @include breakpoint(md) {
@@ -87,15 +91,26 @@ $tile-link-color: $palette-blue;
 }
 
 .tile-link {
+
   @include material-plus-one;
   border-top: solid 8px $tile-link-color;
   left: 0.5em;
   right: 0.5em;
+
+  strong {
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  &:hover strong {
+    background-color: $palette-hilite;
+    border-radius: 4px;
+  }
+
 }
 
 .tile-image {
   background-image: url($tile-placeholder);
-  background-position: -15px 0;
+  background-position: 0 0;
   background-repeat: no-repeat;
   filter: grayscale(20%);
   opacity: 0.85;
@@ -130,7 +145,8 @@ $tile-link-color: $palette-blue;
 
     .tile-body {
       border-top: solid 1px $lightest-grey;
-      margin-top: 100px;
+      margin-top: 125px;
+      padding-top: 0.9em;
     }
 
     &:hover .tile-image {
@@ -162,12 +178,19 @@ $tile-link-color: $palette-blue;
 }
 
 .tile-buy {
+
   background-color: transparent;
   background-image: url($handbook-cover);
-  background-position: center 10px;
+  background-position: center 40px;
   background-repeat: no-repeat;
-  background-size: 300px 183px;
+  background-size: 250px 152px;
   border-top: 0;
+
+  @include breakpoint(sm) {
+    background-position: center 10px;
+    background-size: 300px 183px;
+  }
+
 }
 
 .order-button-container {
@@ -184,7 +207,40 @@ $tile-link-color: $palette-blue;
 }
 
 .tile-citation {
+
   @include breakpoint(md) {
     flex-basis: 66.6%;
   }
+
+  .tile-image {
+    background-image: url($tile-placeholder-understanding);
+  }
+
 }
+
+.tile-about {
+
+  .tile-image {
+    background-image: url($tile-placeholder-about);
+    background-position: 0 -80px;
+  }
+
+}
+
+.tile-blog {
+
+  .tile-image {
+    background-image: url($tile-placeholder-blog);
+  }
+
+}
+
+.tile-teaching {
+
+  .tile-image {
+    background-image: url($tile-placeholder-teaching);
+    background-position: -5px -140px;
+  }
+
+}
+
