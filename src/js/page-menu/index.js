@@ -6,7 +6,7 @@ module.exports = function ($) {
 
   'use strict';
 
-  var $button = $('.page-sub-menu-link, .page-sub-menu');
+  var $button = $('.page-sub-menu-link');
   var $targets = $('.page-sub-menu-link, .page-sub-menu');
   var $parent = $('.page-menu');
 
