@@ -53,24 +53,10 @@
   line-height: 2.3em;
   margin: 1.5em 0;
 
-  .post-date {
 
-    border: solid 1px $dark-grey;
-    border-radius: 3px;
-    color: $dark-grey;
-    margin-right: 5px;
-    padding: 3px 8px;
-    text-decoration: none;
-
-    &:hover {
-      background-color: $dark-grey;
-      color: $white;
-      text-decoration: none;
-    }
-
-  }
-
-  a {
+  .category,
+  .post-date,
+  [rel="tag"] {
 
     border: solid 1px $mla-blue;
     border-radius: 3px;
@@ -87,6 +73,29 @@
 
     .count {
       color: $light-mla-blue;
+    }
+
+  }
+
+  .category {
+
+    border-color: $palette-orange;
+    color: $palette-orange;
+    font-weight: $default-font-bold;
+
+    &:hover {
+      background-color: $palette-orange;
+    }
+
+  }
+
+  .post-date {
+
+    border-color: $dark-grey;
+    color: $dark-grey;
+
+    &:hover {
+      background-color: $dark-grey;
     }
 
   }
