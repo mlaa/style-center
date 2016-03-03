@@ -7,10 +7,6 @@
 
 namespace MLA\Commons\Theme\MLAStyleCenter;
 
-use \do_action;
-use \dynamic_sidebar;
-use \wp_footer;
-
 ?>
 		</main>
 

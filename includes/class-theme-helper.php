@@ -7,26 +7,6 @@
 
 namespace MLA\Commons\Theme\MLAStyleCenter;
 
-use \add_theme_support;
-use \comments_open;
-use \get_option;
-use \get_permalink;
-use \get_query_var;
-use \get_search_query;
-use \get_template_directory;
-use \get_the_archive_title;
-use \get_the_title;
-use \is_404;
-use \is_archive;
-use \is_front_page;
-use \is_home;
-use \is_page;
-use \is_search;
-use \is_single;
-use \load_theme_textdomain;
-use \wp_dequeue_style;
-use \wp_kses;
-
 /**
  * Theme helper class
  *
@@ -151,17 +131,24 @@ class ThemeHelper extends Base {
 
 		$title = __( 'Not Found', self::$name );
 
-		if ( is_archive() ) {
-			$title = get_the_archive_title();
+		if ( is_category() ) {
+			return get_the_category()[0]->name;
+		} elseif ( is_archive() ) {
+			return get_the_archive_title();
 		} elseif ( is_search() ) {
-			$title = sprintf( __( 'Search results for “%s”', self::$name ), get_search_query() );
-		} else {
-			$title = get_the_title();
+			return sprintf( __( 'Search results for “%s”', self::$name ), get_search_query() );
 		}
 
-		echo wp_kses( $title, array( 'em', 'strong' ) );
-		return null;
+		return get_the_title();
 
+	}
+
+	/**
+	 * Get tags of post / page.
+	 */
+	public static function get_tags() {
+		$tags_list = get_the_tag_list();
+		return ( $tags_list ) ? $tags_list : null;
 	}
 
 	/**

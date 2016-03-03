@@ -7,17 +7,6 @@
 
 namespace MLA\Commons\Theme\MLAStyleCenter;
 
-use \add_action;
-use \add_filter;
-use \filter_has_input;
-use \filter_has_var;
-use \get_stylesheet_directory_uri;
-use \sanitize_text_field;
-use \wp_enqueue_script;
-use \wp_enqueue_style;
-use \wp_script_is;
-use \wp_unslash;
-
 /**
  * Base class
  *

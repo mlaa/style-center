@@ -7,9 +7,6 @@
 
 namespace MLA\Commons\Theme\MLAStyleCenter;
 
-use \dynamic_sidebar;
-use \is_active_sidebar;
-
 $sidebar = ThemeHelper::get_sidebar();
 
 if ( ! is_active_sidebar( $sidebar ) ) {

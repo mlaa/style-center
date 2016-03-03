@@ -7,16 +7,6 @@
 
 namespace MLA\Commons\Theme\MLAStyleCenter;
 
-use \bloginfo;
-use \body_class;
-use \do_action;
-use \esc_url;
-use \has_nav_menu;
-use \home_url;
-use \language_attributes;
-use \wp_head;
-use \wp_nav_menu;
-
 ?>
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?>>

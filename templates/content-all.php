@@ -7,20 +7,12 @@
 
 namespace MLA\Commons\Theme\MLAStyleCenter;
 
-use \comments_template;
-use \have_posts;
-use \post_class;
-use \the_content;
-use \the_post;
-use \the_title;
-use \wp_kses;
-
 ?>
 
 <div class="block-main">
 
-	<?php if ( is_page() && ! is_home() && ! is_front_page() ) : ?>
-	<h1><?php ThemeHelper::get_page_title(); ?></h1>
+	<?php if ( ( is_page() || is_category() ) && ! is_home() && ! is_front_page() ) : ?>
+	<h1><?php echo wp_kses_post( ThemeHelper::get_page_title() ); ?></h1>
 	<?php endif; ?>
 
 <?php
@@ -44,14 +36,7 @@ if ( have_posts() ) :
 
 	?>
 	<div class="blog-meta">
-	<?php
-
-	$tags_list = get_the_tag_list();
-	if ( $tags_list ) {
-		printf( '%1$s', $tags_list );
-	}
-
-	?>
+	<?php echo wp_kses_post( ThemeHelper::get_tags() ); ?>
 	</div>
 	<?php
 
