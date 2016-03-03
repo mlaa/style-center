@@ -3,6 +3,11 @@
 $button-text-color: $white;
 $button-background-color: $mla-blue;
 
+$tile-alpha-color-1: rgba(0, 0, 0, 0.12);
+$tile-alpha-color-2: rgba(0, 0, 0, 0.24);
+$tile-alpha-color-3: rgba(0, 0, 0, 0.2);
+$tile-alpha-color-4: rgba(0, 0, 0, 0.25);
+
 @mixin material-plus-one {
 
   box-shadow: 0 1px 3px $tile-alpha-color-1, 0 1px 2px $tile-alpha-color-2;

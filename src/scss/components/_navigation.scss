@@ -102,6 +102,8 @@ $sub-menu-highlight-color: #fec;
 
 .page-sub-menu {
 
+  @include material-plus-one;
+
   background-color: $white;
   border: solid 1px $sub-menu-color;
   display: none;
