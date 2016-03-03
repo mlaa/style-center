@@ -2,11 +2,18 @@
 
 .content {
 
-  display: flex;
-  padding: 3em 1em 1em 1em;
+  padding: 2em 1em 1em 1em;
 
   @include breakpoint(xs) {
+    padding: 2em;
+  }
+
+  @include breakpoint(sm) {
     padding: 3.5em 2em 2em 2em;
+  }
+
+  @include breakpoint(sm) {
+    display: flex;
   }
 
 }
@@ -16,9 +23,18 @@
 }
 
 .sidebar {
+
+  border-top: solid 1px $grey;
+  clear: left;
   flex-basis: 30%;
-  margin-left: 5%;
-  padding: 0.5em;
+  padding-top: 1em;
+
+  @include breakpoint(sm) {
+    border-top: 0;
+    margin-left: 5%;
+    padding: 0 0.5em 0.5em 0.5em;
+  }
+
 }
 
 .missing-text {

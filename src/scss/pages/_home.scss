@@ -181,10 +181,16 @@ $tile-link-color: $palette-blue;
 
   background-color: transparent;
   background-image: url($handbook-cover);
-  background-position: center 40px;
+  background-position: center 0;
   background-repeat: no-repeat;
   background-size: 250px 152px;
   border-top: 0;
+  height: 200px;
+
+  @include breakpoint(sm) {
+    background-position: center 40px;
+    height: auto;
+  }
 
   @include breakpoint(sm) {
     background-position: center 10px;
