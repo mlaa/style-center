@@ -63,7 +63,7 @@ use \wp_nav_menu;
 					</ul>
 				</ul>
 
-				<form class="site-search-form">
+				<form class="site-search-form" action="/" method="get">
 					<fieldset>
 						<?php get_search_form(); ?>
 					</fieldset>
