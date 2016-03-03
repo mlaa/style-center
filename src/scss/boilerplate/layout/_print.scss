@@ -3,15 +3,15 @@
 @media print {
 
   @page {
-    margin: 0.25in;
+    margin: 0.5in;
     padding: 0;
     size: 8.5in 11in;
   }
 
   body {
-    height: 9.5in;
+    height: 9in;
     margin: 0 auto;
-    padding: 0.5in;
+    padding: 0.5in 0.25in;
     width: 7in;
   }
 
