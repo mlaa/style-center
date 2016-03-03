@@ -36,13 +36,13 @@ if ( have_posts() ) :
 
 	?>
 	<div class="blog-meta">
-	<?php echo wp_kses_post( ThemeHelper::get_tags() ); ?>
+		<?php echo wp_kses_post( ThemeHelper::get_tags() ); ?>
 	</div>
 	<?php
 
 	}
 
-	if ( comments_open() || get_comments_number() ) :
+	if ( ! is_archive() && ( comments_open() || get_comments_number() ) ) :
 		comment_form();
 	endif;
 

@@ -48,6 +48,17 @@ $hilite-background-color: #ff6;
     outline: none;
   }
 
+  &:focus {
+
+    border-width: 2px;
+    padding: 4px 29px 4px 9px;
+
+    @include breakpoint(xs) {
+      padding: 6px 29px 6px 9px;
+    }
+
+  }
+
 }
 
 .search-submit {

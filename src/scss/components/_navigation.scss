@@ -25,17 +25,23 @@ $sub-menu-highlight-color: $palette-pale-yellow;
     height: 96px;
     left: 0;
     position: absolute;
-    top: 46px;
+    top: 0;
     width: 115px;
 
     @include breakpoint(sm) {
       background-image: url($site-rainbow);
     }
 
-    @include breakpoint(wp-toolbar) {
-      top: 32px;
-    }
+  }
 
+}
+
+.admin-bar .page-banner::before {
+
+  top: 46px;
+
+  @include breakpoint(wp-toolbar) {
+    top: 32px;
   }
 
 }
