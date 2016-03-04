@@ -148,3 +148,16 @@
 .emoji {
   font-size: 1.4em;
 }
+
+.pagination {
+	display: flex;
+
+	.nav-previous,
+	.nav-next {
+		flex: 1;
+	}
+
+	.nav-next {
+		text-align: right;
+	}
+}
