@@ -39,7 +39,7 @@ class ThemeHelper extends Base {
 		$this->add_filter( 'comment_form_default_fields', $this, 'disable_comment_url' );
 		$this->add_filter( 'body_class', $this, 'add_body_class' );
 		$this->add_filter( 'excerpt_more', $this, 'set_excerpt_more' );
-		$this->add_action( 'ninja_forms_display_pre_init', $this, 'set_ninja_form_logged_in_user_values' );
+		$this->add_action( 'ninja_forms_display_init', $this, 'set_ninja_form_logged_in_user_values' );
 		$this->run();
 
 	}
@@ -229,11 +229,12 @@ class ThemeHelper extends Base {
          */
 	public static function set_ninja_form_logged_in_user_values( $form_id ) {
 
-		if (! empty( $_POST ) ) { //TODO Find out why this action is triggered upon form submission.
+		global $ninja_forms_loading;
+
+		if ( empty( $ninja_forms_loading ) ) {
 			return;
 		}
 
-		global $ninja_forms_loading;
 		if ( is_user_logged_in() ) {
 			$ninja_forms_loading->update_field_value( 1, $ninja_forms_loading->get_field_value( 8 ) ); // Set Your Name to User Display Name.
 			$ninja_forms_loading->update_field_value( 2, $ninja_forms_loading->get_field_value( 7 ) ); // Set Your Email to User Email.
