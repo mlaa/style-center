@@ -45,7 +45,8 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 						<li><h4>Sections</h4></li>
 						<?php wp_nav_menu( [
 							'container' => false,
-							'items_wrap' => '%3$s'
+							'items_wrap' => '%3$s',
+							'menu' => 'site_nav',
 						] ) ?>
 					</ul>
 				</ul>
