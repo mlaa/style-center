@@ -4,18 +4,6 @@
 
   clear: left;
 
-  a {
-    border: solid 3px $page-link-color;
-    display: block;
-    float: left;
-    font-weight: $default-font-bold;
-    height: 200px;
-    line-height: 200px;
-    margin: 0 1em 2em 0;
-    text-align: center;
-    width: 150px;
-  }
-
   label {
     font-size: 1em;
     font-weight: $default-font-bold;
@@ -23,3 +11,28 @@
 
 }
 
+.sample-paper-link {
+
+  border: solid 3px $page-link-color;
+  display: block;
+  float: left;
+  font-weight: $default-font-bold;
+  height: 133px;
+  line-height: 145px;
+  margin: 0 2em 2em 0;
+  position: relative;
+  text-align: center;
+  width: 100px;
+
+  &::before {
+    background-color: $page-link-color;
+    border-left: 30px solid $page-link-color;
+    border-top: 30px solid $white;
+    content: '';
+    display: block;
+    position: absolute;
+    right: -3px;
+    top: -3px;
+  }
+
+}
