@@ -229,6 +229,10 @@ class ThemeHelper extends Base {
          */
 	public static function set_ninja_form_logged_in_user_values( $form_id ) {
 
+		if (! empty( $_POST ) ) { //TODO Find out why this action is triggered upon form submission.
+			return;
+		}
+
 		global $ninja_forms_loading;
 		if ( is_user_logged_in() ) {
 			$ninja_forms_loading->update_field_value( 1, $ninja_forms_loading->get_field_value( 8 ) ); // Set Your Name to User Display Name.
