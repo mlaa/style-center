@@ -16,6 +16,13 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 class ThemeHelper extends Base {
 
 	/**
+	 * Associative array of menus ($id => $title).
+	 *
+	 * @var array
+	 */
+	private $menus;
+
+	/**
 	 * Associative array of sidebars ($id => $title).
 	 *
 	 * @var array
@@ -25,16 +32,24 @@ class ThemeHelper extends Base {
 	/**
 	 * Constructor.
 	 *
-	 * @param string $name     Name/slug of theme.
-	 * @param array  $sidebars Associative array of sidebars.
+	 * @param string $name    Name/slug of theme.
+	 * @param array  $options Associative array of theme options.
 	 */
-	public function __construct( $name, $sidebars = array() ) {
+	public function __construct( $name, $options = array() ) {
 
 		self::$name = $name;
-		$this->sidebars = $sidebars;
+
+		if ( isset( $options['menus'] ) ) {
+			$this->menus = $options['menus'];
+		}
+
+		if ( isset( $options['sidebars'] ) ) {
+			$this->sidebars = $options['sidebars'];
+		}
 
 		$this->add_action( 'after_setup_theme', $this, 'setup' );
 		$this->add_action( 'wp_enqueue_scripts', $this, 'assets', 100 );
+		$this->add_action( 'init', $this, 'register_menus' );
 		$this->add_action( 'widgets_init', $this, 'register_sidebars' );
 		$this->add_filter( 'comment_form_default_fields', $this, 'disable_comment_url' );
 		$this->add_filter( 'body_class', $this, 'add_body_class' );
@@ -105,6 +120,15 @@ class ThemeHelper extends Base {
 	public function disable_comment_url( $fields ) {
 		unset( $fields['url'] );
 		return $fields;
+	}
+
+	/**
+	 * Register sidebars in widget area.
+	 */
+	public function register_menus() {
+		foreach ( $this->menus as $id => $title ) {
+			register_nav_menu($id, __( $title ));
+		}
 	}
 
 	/**
