@@ -1,12 +1,7 @@
 // Blog
 
 .page-blog-container {
-
   max-width: 70em;
-
-  @include breakpoint(lg) {
-  }
-
 }
 
 .page-blog {
@@ -14,9 +9,6 @@
   background-color: $white;
   line-height: 1.5em;
   padding: 1.5em;
-
-  @include breakpoint(lg) {
-  }
 
   h2 {
     margin-bottom: 1em;
@@ -150,14 +142,16 @@
 }
 
 .pagination {
-	display: flex;
 
-	.nav-previous,
-	.nav-next {
-		flex: 1;
-	}
+  display: flex;
 
-	.nav-next {
-		text-align: right;
-	}
+  .nav-previous,
+  .nav-next {
+    flex: 1;
+  }
+
+  .nav-next {
+    text-align: right;
+  }
+
 }
