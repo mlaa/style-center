@@ -5,7 +5,7 @@ $palette-blue: #2b2b81;
 $palette-maroon: #604;
 $palette-orange: #c6401d;
 $palette-slate: #203232;
-$palette-pale-yellow: #fec;
+$palette-pale-yellow: #fff6e2;
 $palette-dark: #222;
 $palette-hilite: #ff6;
 
@@ -21,7 +21,7 @@ $background-light-grey: #eee;
 
 // Header colors
 $header-level-1-color: $palette-blue;
-$header-level-2-color: $palette-orange;
+$header-level-2-color: $palette-maroon;
 $header-level-3-color: $palette-dark;
 $header-run-in-color: $palette-slate;
 
@@ -31,7 +31,7 @@ $border-light-grey: #ccc;
 // Input colors
 $input-border-color-light: #ccc;
 $input-border-color-dark: #999;
-$input-border-color-active: $palette-orange;
+$input-border-color-active: #999;
 
 // Footer Colors
 $footer-background-color: #222;

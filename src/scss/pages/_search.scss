@@ -1,7 +1,7 @@
 // Search
 
 $search-field-background-color: $white;
-$hilite-background-color: #ff6;
+$hilite-background-color: #ff9;
 
 
 // Site search field
@@ -43,20 +43,8 @@ $hilite-background-color: #ff6;
 
   &:hover,
   &:focus {
-    background-image: url($search-icon-active);
     border-color: $input-border-color-active;
     outline: none;
-  }
-
-  &:focus {
-
-    border-width: 2px;
-    padding: 4px 29px 4px 9px;
-
-    @include breakpoint(xs) {
-      padding: 6px 29px 6px 9px;
-    }
-
   }
 
 }
