@@ -1,8 +1,5 @@
 // Navigation
 
-$sub-menu-color: $palette-orange;
-$sub-menu-highlight-color: $palette-pale-yellow;
-
 .page-banner {
 
   background-color: $nav-background-color;
@@ -12,24 +9,24 @@ $sub-menu-highlight-color: $palette-pale-yellow;
   padding: 0 15px;
 
   @include breakpoint(sm) {
+
+    display: flex;
+    flex-direction: row;
     height: 66px;
+    justify-content: space-between;
     padding: 0 15px 0 45px;
-  }
 
-  &::before {
-
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: 115px 96px;
-    content: '';
-    height: 96px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 115px;
-
-    @include breakpoint(sm) {
+    &::before {
       background-image: url($site-rainbow);
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: 115px 96px;
+      content: '';
+      height: 96px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 115px;
     }
 
   }
@@ -48,114 +45,30 @@ $sub-menu-highlight-color: $palette-pale-yellow;
 
 .page-nav {
 
-  float: right;
-  width: 100%;
+  display: flex;
+  flex-basis: 250px;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-between;
+  min-width: 250px;
 
   @include breakpoint(sm) {
     margin-top: 14px;
+    max-width: 450px;
     text-align: right;
-    width: auto;
+  }
+
+  .site-search-form {
+    flex-basis: 150px;
+    flex-grow: 1;
   }
 
 }
 
 .page-menu {
 
-  float: right;
-  list-style: none;
-  margin: 0 0 0 10px;
-  padding: 0;
-
   @include breakpoint(sm) {
-    margin: 0 0 0 10px;
-  }
-
-  li {
-    display: inline-block;
-  }
-
-  .button {
-    margin: 0;
-    padding: 6px 0.75em;
-  }
-
-}
-
-.buy-the-book-button {
-  @include breakpoint(sm) {
-    display: none;
-  }
-}
-
-.page-sub-menu-link {
-
-  background-color: $white;
-  border: solid 1px $sub-menu-color;
-  color: $sub-menu-color;
-  font-weight: $default-font-bold;
-
-  &:hover {
-    background-color: $sub-menu-color;
-    color: $white;
-  }
-
-  &.button {
-    padding-bottom: 5px;
-    padding-top: 5px;
-  }
-
-}
-
-.page-sub-menu {
-
-  @include material-plus-one;
-
-  background-color: $white;
-  border: solid 1px $sub-menu-color;
-  display: none;
-  margin: -3px 0 0 0;
-  min-width: 320px;
-  padding: 0;
-  position: absolute;
-  right: 15px;
-  text-align: left;
-  z-index: 300;
-
-  li {
-    display: block;
-  }
-
-  h4 {
-    background-color: $sub-menu-color;
-    color: $white;
-    padding: 0.4em 12px 0.25em 12px;
-  }
-
-  a {
-
-    display: block;
-    padding: 0.15em 12px;
-    text-decoration: none;
-
-    &:hover {
-      background-color: $sub-menu-highlight-color;
-      font-weight: $default-font-bold;
-    }
-  }
-
-}
-
-.page-menu-active {
-
-  .page-sub-menu {
-    display: block;
-  }
-
-  .page-sub-menu-link {
-    background-color: $sub-menu-color;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    color: $white;
+    flex-basis: 100px;
   }
 
 }
@@ -168,16 +81,14 @@ $sub-menu-highlight-color: $palette-pale-yellow;
   background-size: 300px 36px;
   height: 38px;
   margin: 0;
-  min-width: 300px;
   padding: 12px 0 0 0;
 
   @include breakpoint(sm) {
     background-image: url($site-logo);
     background-position: 0 12px;
     background-size: 408px 50px;
-    float: left;
+    flex-basis: 430px;
     height: 52px;
-    min-width: 408px;
   }
 
   a {

@@ -3,11 +3,12 @@
 $search-field-background-color: $white;
 $hilite-background-color: #ff9;
 
-
-// Site search field
+// Needed to override Normalize.css.
+input[type="search"] {
+  box-sizing: border-box;
+}
 
 .site-search-form {
-  float: left;
   margin: 0;
 }
 
@@ -20,25 +21,13 @@ $hilite-background-color: #ff9;
   background-size: 20px 20px;
   border: solid 1px $input-border-color-light;
   border-radius: 8px;
-  box-sizing: border-box;
   font-size: 16px;
   font-weight: $default-font-normal;
   padding: 5px 30px 5px 10px;
   text-overflow: ellipsis;
-  width: 65px;
 
   @include breakpoint(xs) {
-    font-size: 18px;
-    padding: 7px 30px 7px 10px;
-    width: 180px;
-  }
-
-  @include breakpoint(sm) {
-    width: 120px;
-  }
-
-  @include breakpoint(md) {
-    width: 220px;
+    padding: 9px 30px 8px 10px;
   }
 
   &:hover,

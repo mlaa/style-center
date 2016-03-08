@@ -1,0 +1,109 @@
+// Page/site menu
+
+$sub-menu-color: $palette-orange;
+$sub-menu-highlight-color: $palette-pale-yellow;
+
+.page-menu {
+
+  list-style: none;
+  margin: 0 0 0 10px;
+  padding: 0;
+
+  @include breakpoint(sm) {
+    margin: 0 0 0 10px;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  .button {
+    margin: 0;
+    padding: 6px 0.75em;
+  }
+
+  .buy-the-book-button {
+    margin-right: 6px;
+  }
+
+}
+
+.buy-the-book-button {
+  @include breakpoint(sm) {
+    display: none;
+  }
+}
+
+.page-sub-menu-link {
+
+  background-color: $white;
+  border: solid 1px $sub-menu-color;
+  color: $sub-menu-color;
+  font-weight: $default-font-bold;
+
+  &:hover {
+    background-color: $sub-menu-color;
+    color: $white;
+  }
+
+  &.button {
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+
+}
+
+.page-sub-menu {
+
+  @include material-plus-one;
+
+  background-color: $white;
+  border: solid 1px $sub-menu-color;
+  display: none;
+  margin: -3px 0 0 0;
+  min-width: 320px;
+  padding: 0;
+  position: absolute;
+  right: 15px;
+  text-align: left;
+  z-index: 300;
+
+  li {
+    display: block;
+  }
+
+  h4 {
+    background-color: $sub-menu-color;
+    color: $white;
+    margin-bottom: 0.25em;
+    padding: 0.4em 12px 0.25em 12px;
+  }
+
+  a {
+
+    display: block;
+    padding: 0.15em 12px;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $sub-menu-highlight-color;
+      font-weight: $default-font-bold;
+    }
+  }
+
+}
+
+.page-menu-active {
+
+  .page-sub-menu {
+    display: block;
+  }
+
+  .page-sub-menu-link {
+    background-color: $sub-menu-color;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    color: $white;
+  }
+
+}

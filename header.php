@@ -38,6 +38,12 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 
 			<div class="page-nav">
 
+				<form class="site-search-form" action="/" method="get">
+					<fieldset>
+						<?php get_search_form(); ?>
+					</fieldset>
+				</form>
+
 				<ul class="page-menu">
 					<li><span class="buy-the-book-button button">Buy the Book</span></li>
 					<li><span class="page-sub-menu-link button">☰ Menu</span></li>
@@ -50,12 +56,6 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 						] ) ?>
 					</ul>
 				</ul>
-
-				<form class="site-search-form" action="/" method="get">
-					<fieldset>
-						<?php get_search_form(); ?>
-					</fieldset>
-				</form>
 
 			</div>
 
