@@ -18,23 +18,25 @@ var App = new Backbone.Marionette.Application();
 
 // Add regions.
 App.addRegions({
+  BookRefs: '#search-book-refs',
   Content: '#citation-tool'
 });
 
-// Load modules.
+// Load generic modules.
 require('./page-menu')(jQuery);
 require('./search-hints')(jQuery);
-App.module('Citations', require('./citations'));
+
+// Load Marionette modules.
+App.module('BookIndex', require('./book-index'));
+//App.module('Citations', require('./citations'));
 
 // Start the history listener.
 App.on('start', function () {
   Backbone.history.start({
     pushState: true,
-    root: '/understanding-mla-style/'
+    root: '/'
   });
 });
 
 // Start the application.
-if (jQuery('#citation-tool').length) {
-  App.start();
-}
+App.start();

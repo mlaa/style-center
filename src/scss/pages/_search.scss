@@ -148,25 +148,23 @@ input[type="search"] {
 }
 
 .excerpt {
+
   color: $dark-grey;
+
+  .hilite {
+    background-color: $hilite-background-color;
+    color: $black;
+    padding: 2px 3px;
+  }
+
 }
 
-.hilite {
-  background-color: $hilite-background-color;
+.search-results-title .hilite {
+  background-color: transparent;
+  color: inherit;
 }
 
-.page-reference {
-  color: $dark-grey;
-  white-space: nowrap;
-}
-
-.search-result-type {
-  color: $dark-grey;
-  font-size: 1em;
-  font-variant: small-caps;
-  white-space: nowrap;
-}
-
-.refine-search {
-  padding: 1.5em 0 1em 0;
+.book-ref {
+  line-height: 1.3em;
+  margin-bottom: 0.75em;
 }

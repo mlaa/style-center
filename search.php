@@ -11,7 +11,7 @@ get_header();
 
 ?>
 <div class="block-main">
-<h1><?php echo wp_kses_post( ThemeHelper::get_page_title() ); ?></h1>
+<h1 class="search-results-title"><?php echo wp_kses_post( ThemeHelper::get_page_title() ); ?></h1>
 
 <?php
 
@@ -21,7 +21,7 @@ if ( have_posts() ) {
 		get_template_part( 'templates/content', 'search' );
 	}
 } else {
-	get_template_part( 'templates/content', 'none' );
+	get_template_part( 'templates/content', 'no-results' );
 }
 
 ?>
