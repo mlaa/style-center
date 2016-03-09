@@ -4,9 +4,14 @@
 
   background-color: $nav-background-color;
   border-bottom: solid 2px $light-grey;
-  height: 100px;
+  height: 90px;
   margin: 0;
-  padding: 0 15px;
+  padding: 0 10px;
+
+  @include breakpoint(xs) {
+    height: 100px;
+    padding: 0 15px;
+  }
 
   @include breakpoint(sm) {
 
@@ -59,7 +64,7 @@
   }
 
   .site-search-form {
-    flex-basis: 150px;
+    flex-basis: 125px;
     flex-grow: 1;
   }
 

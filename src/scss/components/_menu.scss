@@ -47,8 +47,23 @@ $sub-menu-highlight-color: $palette-pale-yellow;
   }
 
   &.button {
-    padding-bottom: 5px;
-    padding-top: 5px;
+
+    padding: 5px 8px;
+
+    @include breakpoint(xs) {
+      padding: 6px 0.75em;
+    }
+
+  }
+
+}
+
+.menu-gloss {
+
+  display: none;
+
+  @include breakpoint(xs) {
+    display: inline;
   }
 
 }
@@ -64,9 +79,13 @@ $sub-menu-highlight-color: $palette-pale-yellow;
   min-width: 320px;
   padding: 0;
   position: absolute;
-  right: 15px;
+  right: 10px;
   text-align: left;
   z-index: 300;
+
+  @include breakpoint(xs) {
+    right: 15px;
+  }
 
   li {
     display: block;
