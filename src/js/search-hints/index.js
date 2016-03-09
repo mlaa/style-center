@@ -9,14 +9,8 @@ module.exports = function ($) {
   // Load terms.
   var searchTerms = require('../data/searchTerms.json');
 
-  // Toggle order drop-down.
-  $('.order-button-link').on('click', function () {
-    $(this).parent().toggleClass('open');
-  });
-
-  // Add Typeahead to search field.
-  function findMatches (q, cb) {
-
+  // Simple case-insensitive matching.
+  var findMatches = function (q, cb) {
     var matches = [];
     var substrRegex = new RegExp(q, 'i');
 
@@ -27,8 +21,7 @@ module.exports = function ($) {
     });
 
     cb(matches);
-
-  }
+  };
 
   var options = {
     hint: true,
