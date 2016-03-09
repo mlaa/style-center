@@ -127,7 +127,7 @@ class ThemeHelper extends Base {
 	 */
 	public function register_menus() {
 		foreach ( $this->menus as $id => $title ) {
-			register_nav_menu($id, __( $title ));
+			register_nav_menu( $id, __( $title ) );
 		}
 	}
 
