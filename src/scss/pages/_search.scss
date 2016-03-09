@@ -3,10 +3,12 @@
 $search-field-background-color: $white;
 $hilite-background-color: #ff9;
 
-// Needed to override Normalize.css.
+// Element selector needed to override Normalize.css.
+// scss-lint:disable QualifyingElement
 input[type="search"] {
   box-sizing: border-box;
 }
+// scss-lint:enable QualifyingElement
 
 .site-search-form {
   margin: 0;
