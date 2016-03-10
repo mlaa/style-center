@@ -84,7 +84,7 @@ module.exports = function (Module, App, Backbone) {
   };
 
   return Backbone.Marionette.Controller.extend({
-    showCitationIntro: showCitationIntro,
+    showCitationIntro: showCitationForm,
     showCitationForm: showCitationForm
   });
 

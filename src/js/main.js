@@ -28,7 +28,7 @@ require('./search-hints')(jQuery);
 
 // Load Marionette modules.
 App.module('BookIndex', require('./book-index'));
-//App.module('Citations', require('./citations'));
+App.module('Citations', require('./citations'));
 
 // Start the history listener.
 App.on('start', function () {

@@ -80,7 +80,7 @@ module.exports = function (Module, App, Backbone) {
       'keyup input': 'updateCitation'
     },
 
-    onRender: function() {
+    onRender: function () {
       this.updateCitation();
     },
 

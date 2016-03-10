@@ -5,8 +5,7 @@
 module.exports = function (Module, App, Backbone) {
   return Backbone.Marionette.AppRouter.extend({
     appRoutes: {
-      '': 'showCitationIntro',
-      'step-1': 'showCitationForm'
+      'understanding-mla-style/': 'showCitationIntro'
     }
   });
 };
