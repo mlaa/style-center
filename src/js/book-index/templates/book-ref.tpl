@@ -1,1 +1,1 @@
-<strong><%= name + ':' %></strong> <%= ref %>
+<strong><%= data.name + ':' %></strong> <%= data.ref %>

@@ -14,7 +14,7 @@ var uglify = require('gulp-uglify');
 module.exports = function () {
   return browserify(config.source, {debug: true})
     .transform('browserify-shim', {global: true})
-    .transform('jstify')
+    .transform('jstify', config.jstify)
     .bundle()
     .pipe(source(path.basename(config.source)))
     .pipe(buffer())

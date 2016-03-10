@@ -1,4 +1,10 @@
 {
   "source": "src/js/main.js",
-  "target": "assets/dist"
+  "target": "assets/dist",
+  "jstify": {
+    "noMinify": true,
+    "templateOpts": {
+      "variable": "data"
+    }
+  }
 }
