@@ -5,7 +5,8 @@
 module.exports = function (Module, App, Backbone) {
   return Backbone.Marionette.AppRouter.extend({
     appRoutes: {
-      'understanding-mla-style/': 'showCitationIntro'
+      'mla-style-at-a-glance/': 'showCitationForm',
+      'mla-style-at-a-glance-:type/': 'showCitationForm'
     }
   });
 };

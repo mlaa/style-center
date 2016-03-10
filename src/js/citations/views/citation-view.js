@@ -3,9 +3,9 @@
 'use strict';
 
 var popup = require('modui-popup');
+var lity = require('lity');
 
-var sourceTemplate = require('../templates/source-form.tpl');
-var containerTemplate = require('../templates/container-form.tpl');
+var template = require('../templates/container-form.tpl');
 
 module.exports = function (Module, App, Backbone) {
 
@@ -15,10 +15,7 @@ module.exports = function (Module, App, Backbone) {
   var ItemView = Backbone.Marionette.ItemView.extend({
 
     tagName: 'fieldset',
-
-    getTemplate: function () {
-      return this.model.get('container') ? containerTemplate : sourceTemplate;
-    },
+    template: template,
 
     className: function () {
       return this.model.get('container') ? 'container' : 'source';
@@ -26,9 +23,17 @@ module.exports = function (Module, App, Backbone) {
 
     events: {
       'click .remove-container': 'removeContainer',
-      'focus input': 'showPopup',
-      'blur input': 'hideHilite',
+      'click .citation-field': 'maybeShowPopup',
+      'click .image-link': 'showLightbox',
       'keyup input': 'updateField'
+    },
+
+    onRender: function () {
+      // Temp code to auto-show a popup.
+      var view = this;
+      setTimeout(function () {
+        view.showPopup($('.citation-field-version'), 'version');
+      }, 1000);
     },
 
     updateField: function (evt) {
@@ -42,28 +47,31 @@ module.exports = function (Module, App, Backbone) {
       this.model.collection.remove(this.model);
     },
 
-    showPopup: function (evt) {
-
-      var fieldName = $(evt.target).attr('name');
+    showPopup: function ($target, fieldName) {
       if (this.model.attributes.callouts[fieldName]) {
         popup.open({
-          target: $(evt.target).closest('.field'),
+          target: $target,
           position: 'right center',
           contents: this.model.attributes.callouts[fieldName]
         });
-        console.log(fieldName);
       }
-
-      $('.citation-output span').removeClass('hilite');
-      $('.container-' + this.model.attributes.order + ' .field-' + fieldName).addClass('hilite');
-
     },
 
-    hideHilite: function () {
-      $('.citation-output span').removeClass('hilite');
+    maybeShowPopup: function (evt) {
+      var $target = $(evt.target).closest('.citation-field');
+      var fieldName = $target.children('input').attr('name');
+      this.showPopup($target, fieldName);
+    },
+
+    showLightbox: function (evt) {
+      // Attach lightboxes.
+      var lightbox = lity();
+      var imageURL = $(evt.target).data('lity-image');
+      lightbox('http://editinganddesign.com/wp-content/uploads/2011/04/sample_copyright_page.jpg');
     },
 
     serializeData: function () {
+      this.model.setClassNames();
       return this.model.toJSON();
     }
 

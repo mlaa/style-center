@@ -12,6 +12,7 @@ module.exports = function (Module, App, Backbone) {
 
     defaults: function () {
       return {
+
         title: '',
         author: '',
         version: '',
@@ -19,38 +20,97 @@ module.exports = function (Module, App, Backbone) {
         publisher: '',
         pubdate: '',
         location: '',
+
         container: true,
         containerNumber: 1,
+
+        schema: {
+          source: {
+            author: {
+              name: 'Author',
+              punctuation: '.'
+            },
+            title: {
+              name: 'Title of source',
+              punctuation: '.'
+            }
+          },
+          container: {
+            title: {
+              name: 'Title of container',
+              punctuation: ','
+            },
+            author: {
+              name: 'Other contributors',
+              punctuation: ','
+            },
+            version: {
+              name: 'Version',
+              punctuation: ','
+            },
+            number: {
+              name: 'Number',
+              punctuation: ','
+            },
+            publisher: {
+              name: 'Publisher',
+              punctuation: ','
+            },
+            pubdate: {
+              name: 'Publication date',
+              punctuation: ','
+            },
+            location: {
+              name: 'Location',
+              punctuation: '.'
+            }
+          }
+        },
+
         callouts: {},
+        classNames: {},
+        images: {},
+
         order: this.collection.nextOrder()
       };
+    },
+
+    setClassNames: function () {
+      var modelAttrs = this.attributes;
+      var classNames = {};
+
+      _.each(_.keys(modelAttrs.schema.container), function (attr) {
+        var attrClassNames = [];
+
+        if (modelAttrs[attr]) {
+          attrClassNames.push('has-value');
+        }
+
+        if (modelAttrs.callouts[attr]) {
+          attrClassNames.push('has-callout');
+        }
+
+        if (modelAttrs.images[attr]) {
+          attrClassNames.push('has-image');
+        }
+
+        classNames[attr] = attrClassNames.join(' ');
+      });
+
+      this.set({
+        classNames: classNames
+      });
     },
 
     getCitationString: function () {
 
       var modelAttrs = this.attributes;
 
-      var containerAttrs = [
-        'title',
-        'author',
-        'version',
-        'number',
-        'publisher',
-        'pubdate',
-        'location'
-      ];
-
-      var sourceAttrs = [
-        'author',
-        'title'
-      ];
-
-      var formatAttribute = function (attr, str, separator) {
-        str = (str + separator).replace(/^[\"]/, '“').replace(/[\"”]$/, separator + '”');
+      var formatAttribute = function (attr, str) {
         return str.replace(/_([^_]+)_/g, '<em>$1</em>');
       };
 
-      var filterAttrs = (this.attributes.container) ? containerAttrs : sourceAttrs;
+      var filterAttrs = (modelAttrs.container) ? _.keys(modelAttrs.schema.container) : _.keys(modelAttrs.schema.container);
 
       // Filter attributes for valid string values, then reduce to a
       // citation string.
@@ -59,10 +119,8 @@ module.exports = function (Module, App, Backbone) {
         return (typeof val === 'string' && val.replace(/\s/g, '') !== '');
       });
 
-      var last = attrs.length - 1;
-      var citation = attrs.map(function (attr, i) {
-        var separator = (i === last) ? '.' : ',';
-        return '<span class="field-' + attr + '">' + formatAttribute(attr, modelAttrs[attr], separator) + '</span>';
+      var citation = attrs.map(function (attr) {
+        return '<span class="field-' + attr + '">' + formatAttribute(attr, modelAttrs[attr]) + '</span>';
       });
 
       // Wrap in span.

@@ -13,7 +13,6 @@ module.exports = function (Module, App, Backbone) {
 
     regions: {
       output: '#citation-output',
-      intro: '#citation-intro',
       form: '#citation-form'
     }
 

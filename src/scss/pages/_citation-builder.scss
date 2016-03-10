@@ -2,68 +2,29 @@
 
 $citation-background-color: #bdf;
 $citation-border-color: #14b;
-
-#citation-intro {
-  margin-bottom: 2em;
-}
+$citation-link-color: #36f;
 
 #citation-thread {
   margin: 2em 0 1em 0;
   text-align: center;
 }
 
-.citation-output {
+.citation-head {
+  border-bottom: solid 2px $palette-orange;
+  color: $palette-blue;
+  margin: 1.5em 0 1em 0;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
 
-  background-color: $white;
-  border-top: solid 2px $light-grey;
-  bottom: 0;
-  color: $black;
-  display: none;
-  left: 0;
-  min-height: 3em;
-  padding: 1em;
-  position: fixed;
-  width: 100%;
-  z-index: 250;
+.citation-output {
+  margin: 2em 0;
 
   p {
+    background-color: $citation-background-color;
     margin: 0;
-    padding: 0;
+    padding: 1em;
   }
-
-}
-
-.add-container {
-  display: none;
-  padding: 0.75em;
-  width: 100%;
-}
-
-.remove-container {
-
-  background-color: transparent;
-  //background-image: url($trash-icon);
-  background-position: center right;
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
-  border: 0;
-  height: 32px;
-  opacity: 0.4;
-  outline: none;
-  position: absolute;
-  right: 5px;
-  top: 8px;
-  width: 32px;
-
-  &:hover {
-    opacity: 1;
-  }
-
-}
-
-.form-controls {
-  display: none;
-  margin: 0.5em 0 0 0;
 }
 
 fieldset {
@@ -73,23 +34,6 @@ fieldset {
 
 .citation-swatch {
   padding: 0 10px;
-}
-
-.cite-submit {
-
-  background-color: $white;
-  border: solid 1px $mla-blue;
-  border-radius: 5px;
-  color: $mla-blue;
-  display: inline-block;
-  font-weight: bold;
-  margin-left: 3px;
-  padding: 3px 6px;
-
-  &:hover {
-    text-decoration: none;
-  }
-
 }
 
 .citation {
@@ -105,47 +49,6 @@ fieldset {
     text-transform: uppercase;
   }
 
-  label {
-    color: $citation-border-color;
-    cursor: pointer;
-    padding: 3px 0;
-  }
-
-  label,
-  input {
-    background-color: transparent;
-    display: block;
-    font-size: 18px;
-  }
-
-  input {
-
-    -webkit-appearance: none;
-    border: 0;
-    border-radius: 0;
-    cursor: text;
-    height: 0;
-    padding: 0;
-    transition: height 0.2s;
-    width: 100%;
-
-    &:not(:placeholder-shown),
-    &:focus {
-      border-bottom: solid 1px $citation-border-color;
-      height: 25px;
-      outline: none;
-    }
-
-  }
-
-  ::-webkit-input-placeholder {
-    color: lighten($citation-border-color, 10%);
-    font-family: $default-font-family;
-    font-size: 18px;
-    opacity: 0;
-    transition: inherit;
-  }
-
 }
 
 .citation-field {
@@ -155,6 +58,61 @@ fieldset {
   margin: 0 0 0.25em 0;
   padding: 5px 15px 5px 45px;
   position: relative;
+
+  label {
+    color: $citation-border-color;
+    padding: 3px 0;
+  }
+
+  label,
+  .field-value {
+    background-color: transparent;
+    display: block;
+    font-size: 18px;
+  }
+
+  .field-value {
+    height: 0;
+    overflow: hidden;
+    word-break: break-word;
+  }
+
+  &.has-value .field-value {
+    border-bottom: solid 1px $citation-border-color;
+    height: auto;
+    padding: 3px 0;
+  }
+
+  &.has-image .image-link {
+    background-color: $citation-link-color;
+    background-image: url($citation-image-icon);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 28px 19px;
+    border-radius: 8px;
+    content: '';
+    cursor: pointer;
+    height: 32px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    width: 35px;
+    z-index: 10;
+  }
+
+  &.has-image .field-value {
+    padding-right: 32px;
+  }
+
+  &.has-value .image-link {
+    top: 10px;
+  }
+
+  .punctuation {
+    color: darken($citation-border-color, 10%);
+    font-weight: bold;
+    padding: 0 1px;
+  }
 
   &::before {
     background-color: $citation-border-color;
@@ -175,12 +133,6 @@ fieldset {
 
   &:nth-child(2)::before {
     content: '2';
-  }
-
-  .punctuation {
-    color: darken($citation-border-color, 10%);
-    font-weight: bold;
-    padding: 0 1px;
   }
 
 }
@@ -219,6 +171,34 @@ fieldset {
 
 }
 
-.modui-popup {
+#citation-lightbox-placeholder {
+  background-color: $black;
+  color: $white;
+  height: 80%;
+  width: 80%;
+}
+
+// Element selector needed to override modui.css.
+// scss-lint:disable QualifyingElement
+div.modui-popup {
+// scss-lint:enable QualifyingElement
+  @include material-plus-one-hover;
+  background-color: $citation-border-color;
+  border: 0;
+  border-color: $citation-border-color;
+  color: $white;
   font-family: $default-font-family;
+  font-size: 0.9em;
+  opacity: 1;
+
+  &.bottom-center::before,
+  &.top-center::before,
+  &.right-center::before {
+    background: $citation-border-color;
+    border: 0;
+    height: 25px;
+    opacity: 1;
+    width: 25px;
+    z-index: -1;
+  }
 }

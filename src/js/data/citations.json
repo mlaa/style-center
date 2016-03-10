@@ -1,0 +1,95 @@
+{
+  'book': [
+    {
+      author: 'Copeland, Edward.',
+      title: '“Money.”',
+      container: false,
+      images: {
+        author: '/assets/images/citation-copyright-page-sample.jpg',
+        title: '/assets/images/citation-copyright-page-sample.jpg'
+      }
+    },
+    {
+      author: 'edited by Copeland and Juliet McMaster,',
+      title: '<em>The Cambridge Companion to Jane Austen</em>,',
+      publisher: 'Cambridge UP,',
+      pubdate: '1997,',
+      location: 'pp. 131–48.',
+      callouts: {
+        version: 'For guidance on when to skip items in the template, see p. 20 of the <em>MLA Handbook</em>.'
+      },
+      images: {
+        author: '/assets/images/citation-copyright-page-sample.jpg',
+        title: '/assets/images/citation-copyright-page-sample.jpg',
+        publisher: '/assets/images/citation-copyright-page-sample.jpg',
+        pubdate: '/assets/images/citation-copyright-page-sample.jpg',
+        location: '/assets/images/citation-copyright-page-sample.jpg'
+      }
+    }
+  ],
+  'video': [
+    {
+      title: '“<em>Curiosity</em> Rover Report (August 2015): Three Years on Mars!”',
+      container: false,
+      callouts: {
+        author: 'This source has no author. See pps. 24 and 55–56 of the <em>MLA Handbook</em> for more guidance.'
+      },
+      images: {
+        author: '/assets/images/citation-copyright-page-sample.jpg',
+        title: '/assets/images/citation-copyright-page-sample.jpg'
+      }
+    },
+    {
+      author: 'edited by Sarah Loff,',
+      title: '<em>NASA’s Journey to Mars: Videos</em>,',
+      publisher: 'National Aeronautics and Space Administration,',
+      pubdate: '30 July 2015,',
+      location: 'www.nasa.gov/topics/journeytomars/videos/index.html.',
+      images: {
+        author: '/assets/images/citation-copyright-page-sample.jpg',
+        title: '/assets/images/citation-copyright-page-sample.jpg',
+        publisher: '/assets/images/citation-copyright-page-sample.jpg',
+        pubdate: '/assets/images/citation-copyright-page-sample.jpg',
+        location: '/assets/images/citation-copyright-page-sample.jpg'
+      }
+    }
+  ],
+  'journal': [
+    {
+      author: 'Lorensen, Jutta.',
+      title: '“Between Image and Word, Color, and Time: Jacob Lawrence’s <em>The Migration Series</em>.”',
+      container: false,
+      callouts: {
+        author: 'This source has no author. See pps. 24 and 55–56 of the <em>MLA Handbook</em> for more guidance.'
+      },
+      images: {
+        author: '/assets/images/citation-copyright-page-sample.jpg',
+        title: '/assets/images/citation-copyright-page-sample.jpg'
+      }
+    },
+    {
+      title: '<em>African American Review</em>,',
+      number: 'vol. 40, no. 3,',
+      pubdate: '2006,',
+      location: 'pp. 571–86.',
+      images: {
+        author: '/assets/images/citation-copyright-page-sample.jpg',
+        title: '/assets/images/citation-copyright-page-sample.jpg',
+        publisher: '/assets/images/citation-copyright-page-sample.jpg',
+        pubdate: '/assets/images/citation-copyright-page-sample.jpg',
+        location: '/assets/images/citation-copyright-page-sample.jpg'
+      }
+    },
+    {
+      title: '<em>EbscoHost</em>,',
+      location: 'search.ebscohost.com/login.aspx?direct=true&db=f5h&AN=24093790&site=ehost-live.',
+      images: {
+        author: '/assets/images/citation-copyright-page-sample.jpg',
+        title: '/assets/images/citation-copyright-page-sample.jpg',
+        publisher: '/assets/images/citation-copyright-page-sample.jpg',
+        pubdate: '/assets/images/citation-copyright-page-sample.jpg',
+        location: '/assets/images/citation-copyright-page-sample.jpg'
+      }
+    }
+  ]
+}
