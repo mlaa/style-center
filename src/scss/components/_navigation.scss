@@ -69,14 +69,6 @@
 
 }
 
-.page-menu {
-
-  @include breakpoint(sm) {
-    flex-basis: 100px;
-  }
-
-}
-
 .page-logo {
 
   background-image: url($site-logo-small);
