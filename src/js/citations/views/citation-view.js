@@ -31,10 +31,11 @@ module.exports = function (Module, App, Backbone) {
     },
 
     onRender: function () {
-      // Temp code to auto-show a popup.
       var view = this;
       setTimeout(function () {
-        view.showPopup($('.citation-field-version'), 'version');
+        $('.has-callout').each(function () {
+          view.showPopup($(this), $(this).data('name'));
+        });
       }, 1000);
     },
 
