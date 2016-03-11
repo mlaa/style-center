@@ -175,6 +175,10 @@ fieldset {
     content: '9';
   }
 
+  .citation-field:last-child {
+    margin-bottom: 0;
+  }
+
 }
 
 #citation-lightbox-placeholder {
@@ -209,11 +213,16 @@ div.modui-popup {
   }
 }
 
-.mla-style-at-a-glance {
+.mla-style-at-a-glance,
+.whats-new {
 
   h3,
   .citation-output {
     display: none;
+  }
+
+  .citation {
+    max-width: 20em;
   }
 
 }
