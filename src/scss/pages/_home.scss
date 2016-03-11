@@ -211,6 +211,21 @@ $tile-link-color: $palette-blue;
   font-weight: $default-font-bold;
 }
 
+.tile-recent-posts {
+  h3 {
+    margin: 0 0 0.5em 0;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  .tile-body {
+    background-color: transparent;
+    padding: 1em 1.5em;
+  }
+}
+
 .tile-citation {
 
   @include breakpoint(md) {
@@ -232,7 +247,7 @@ $tile-link-color: $palette-blue;
 
 }
 
-.tile-blog {
+.tile-faq {
 
   .tile-image {
     background-image: url($tile-placeholder-blog);
