@@ -22,6 +22,7 @@
   margin: 0 2em 2em 0;
   position: relative;
   text-align: center;
+  text-decoration: none;
   width: 100px;
 
   &::before {
@@ -35,4 +36,14 @@
     top: -3px;
   }
 
+  &:hover .pdf-label {
+    background-color: $page-link-color;
+    color: $white;
+  }
+}
+
+.pdf-label {
+  border: solid 2px $page-link-color;
+  border-radius: 6px;
+  padding: 3px 5px;
 }
