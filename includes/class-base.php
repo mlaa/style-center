@@ -104,8 +104,9 @@ class Base {
 	 * @param string  $path         Path (relative to plugin) to the resource.
 	 * @param mixed   $dependencies Array of dependency names.
 	 * @param boolean $in_footer    Whether to enqueue script in footer.
+	 * @param array   $data         Array of data to pass via wp_localize_script.
 	 */
-	public function enqueue_script( $name, $path = false, $dependencies = false, $in_footer = false ) {
+	public function enqueue_script( $name, $path = false, $dependencies = false, $in_footer = false, $data = array() ) {
 
 		// Check if the passed path is a URL. If not, get relative path.
 		$is_url = preg_match( '/\/\//', $path );
@@ -116,6 +117,7 @@ class Base {
 			'path'         => $path,
 			'dependencies' => $dependencies,
 			'in_footer'    => $in_footer,
+			'data'         => $data,
 			'processed'    => false,
 		);
 
@@ -191,9 +193,17 @@ class Base {
 	 * Process scripts queue.
 	 */
 	protected function run_scripts() {
+		$site_parameters = array(
+			'site_url' => get_site_url(),
+			'theme_directory' => get_template_directory_uri(),
+		);
 		foreach ( $this->scripts as $item ) {
 			if ( ! $item['processed'] ) {
-				wp_enqueue_script( $item['name'], $item['path'], $item['dependencies'], null, $item['in_footer'] );
+				wp_register_script( $item['name'], $item['path'], $item['dependencies'], null, $item['in_footer'] );
+				if ( ! empty( $item['data'] ) ) {
+					wp_localize_script( $item['name'], 'wp_theme', $item['data'] );
+				}
+				wp_enqueue_script( $item['name'] );
 				$item['processed'] = true;
 			}
 		}

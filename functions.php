@@ -27,5 +27,5 @@ $theme_options = array(
 $theme_helper = new ThemeHelper( 'mla-style-center', $theme_options );
 
 $theme_helper->enqueue_style( 'main', 'assets/dist/main.css' );
-$theme_helper->enqueue_script( 'main', 'assets/dist/main.js', array( 'jquery', 'underscore', 'backbone' ), true );
+$theme_helper->enqueue_script( 'main', 'assets/dist/main.js', array( 'jquery', 'underscore', 'backbone' ), true, array( 'asset_path' => get_stylesheet_directory_uri() ) );
 $theme_helper->enqueue_typekit( 'sho5lfw' );
