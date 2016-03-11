@@ -1,12 +1,18 @@
 {
+  'empty': [
+    {
+      container: false,
+    },
+    {}
+  ],
   'book': [
     {
       author: 'Copeland, Edward.',
       title: '“Money.”',
       container: false,
       images: {
-        author: '/assets/images/citation-copyright-page-sample.jpg',
-        title: '/assets/images/citation-copyright-page-sample.jpg'
+        author: '/assets/images/citation-book-3.png',
+        title: '/assets/images/citation-book-3.png'
       }
     },
     {
@@ -19,11 +25,11 @@
         version: 'For guidance on when to skip items in the template, see p. 20 of the <em>MLA Handbook</em>.'
       },
       images: {
-        author: '/assets/images/citation-copyright-page-sample.jpg',
-        title: '/assets/images/citation-copyright-page-sample.jpg',
-        publisher: '/assets/images/citation-copyright-page-sample.jpg',
-        pubdate: '/assets/images/citation-copyright-page-sample.jpg',
-        location: '/assets/images/citation-copyright-page-sample.jpg'
+        author: '/assets/images/citation-book-1.png',
+        title: '/assets/images/citation-book-1.png',
+        publisher: '/assets/images/citation-book-1.png',
+        pubdate: '/assets/images/citation-book-2.png',
+        location: '/assets/images/citation-book-2.png'
       }
     }
   ],
@@ -35,8 +41,7 @@
         author: 'This source has no author. See pps. 24 and 55–56 of the <em>MLA Handbook</em> for more guidance.'
       },
       images: {
-        author: '/assets/images/citation-copyright-page-sample.jpg',
-        title: '/assets/images/citation-copyright-page-sample.jpg'
+        title: '/assets/images/citation-video-1.png'
       }
     },
     {
@@ -46,11 +51,11 @@
       pubdate: '30 July 2015,',
       location: 'www.nasa.gov/topics/journeytomars/videos/index.html.',
       images: {
-        author: '/assets/images/citation-copyright-page-sample.jpg',
-        title: '/assets/images/citation-copyright-page-sample.jpg',
-        publisher: '/assets/images/citation-copyright-page-sample.jpg',
-        pubdate: '/assets/images/citation-copyright-page-sample.jpg',
-        location: '/assets/images/citation-copyright-page-sample.jpg'
+        author: '/assets/images/citation-video-1.png',
+        title: '/assets/images/citation-video-1.png',
+        publisher: '/assets/images/citation-video-1.png',
+        pubdate: '/assets/images/citation-video-1.png',
+        location: '/assets/images/citation-video-1.png',
       }
     }
   ],
@@ -59,12 +64,9 @@
       author: 'Lorensen, Jutta.',
       title: '“Between Image and Word, Color, and Time: Jacob Lawrence’s <em>The Migration Series</em>.”',
       container: false,
-      callouts: {
-        author: 'This source has no author. See pps. 24 and 55–56 of the <em>MLA Handbook</em> for more guidance.'
-      },
       images: {
-        author: '/assets/images/citation-copyright-page-sample.jpg',
-        title: '/assets/images/citation-copyright-page-sample.jpg'
+        author: '/assets/images/citation-journal-1.png',
+        title: '/assets/images/citation-journal-1.png'
       }
     },
     {
@@ -73,22 +75,21 @@
       pubdate: '2006,',
       location: 'pp. 571–86.',
       images: {
-        author: '/assets/images/citation-copyright-page-sample.jpg',
-        title: '/assets/images/citation-copyright-page-sample.jpg',
-        publisher: '/assets/images/citation-copyright-page-sample.jpg',
-        pubdate: '/assets/images/citation-copyright-page-sample.jpg',
-        location: '/assets/images/citation-copyright-page-sample.jpg'
+        title: '/assets/images/citation-journal-1.png',
+        number: '/assets/images/citation-journal-1.png',
+        pubdate: '/assets/images/citation-journal-1.png',
+        location: '/assets/images/citation-journal-1.png'
       }
     },
     {
       title: '<em>EbscoHost</em>,',
       location: 'search.ebscohost.com/login.aspx?direct=true&db=f5h&AN=24093790&site=ehost-live.',
+      callouts: {
+        title: 'Learn where to find publication information for online sources and when to omit a publisher’s name on pps. 17 and 42 of the <em>MLA Handbook</em>.'
+      },
       images: {
-        author: '/assets/images/citation-copyright-page-sample.jpg',
-        title: '/assets/images/citation-copyright-page-sample.jpg',
-        publisher: '/assets/images/citation-copyright-page-sample.jpg',
-        pubdate: '/assets/images/citation-copyright-page-sample.jpg',
-        location: '/assets/images/citation-copyright-page-sample.jpg'
+        title: '/assets/images/citation-journal-1.png',
+        location: '/assets/images/citation-journal-1.png'
       }
     }
   ]

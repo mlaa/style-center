@@ -9,6 +9,10 @@ $citation-link-color: #36f;
   text-align: center;
 }
 
+.citation-type-head {
+  color: $palette-maroon;
+}
+
 .citation-head {
   border-bottom: solid 2px $palette-orange;
   color: $palette-blue;
@@ -45,7 +49,7 @@ fieldset {
   h3 {
     color: $citation-border-color;
     font-size: 16px;
-    margin: 0 0 0.3em 5px;
+    margin: 0.75em 0 0.3em 5px;
     text-transform: uppercase;
   }
 
@@ -137,9 +141,11 @@ fieldset {
 
 }
 
-.container {
+.citation-button {
+  @include material-plus-one;
+}
 
-  margin-top: 0.75em;
+.container {
 
   .citation-field:nth-child(2)::before {
     content: '3';
@@ -201,4 +207,13 @@ div.modui-popup {
     width: 25px;
     z-index: -1;
   }
+}
+
+.mla-style-at-a-glance {
+
+  h3,
+  .citation-output {
+    display: none;
+  }
+
 }

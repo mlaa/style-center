@@ -8,7 +8,7 @@ module.exports = function (Module, App, Backbone) {
 
   var showCitationForm = function (citationType) {
 
-    citationType = citationType || 'book';
+    citationType = citationType || 'empty';
 
     App.Content.show(Module.Views.Layout, {
       forceShow: true,

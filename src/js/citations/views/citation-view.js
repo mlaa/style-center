@@ -1,5 +1,7 @@
 /* Citation views */
 
+/*global wp_theme*/
+
 'use strict';
 
 var popup = require('modui-popup');
@@ -59,15 +61,16 @@ module.exports = function (Module, App, Backbone) {
 
     maybeShowPopup: function (evt) {
       var $target = $(evt.target).closest('.citation-field');
-      var fieldName = $target.children('input').attr('name');
+      var fieldName = $target.data('name');
       this.showPopup($target, fieldName);
     },
 
     showLightbox: function (evt) {
-      // Attach lightboxes.
       var lightbox = lity();
       var imageURL = $(evt.target).data('lity-image');
-      lightbox('http://editinganddesign.com/wp-content/uploads/2011/04/sample_copyright_page.jpg');
+      // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+      lightbox(wp_theme.asset_path + imageURL);
+      // jscs:enable
     },
 
     serializeData: function () {
