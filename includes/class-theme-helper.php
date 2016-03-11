@@ -190,11 +190,11 @@ class ThemeHelper extends Base {
 
 		$categories = get_the_category();
 
-		if ( 'Questions and Answers' === $categories[0]->name ) {
+		if ( 'questions-and-answers' === $categories[0]->slug ) {
 			return 'faq-sidebar';
 		}
 
-		if ( 'Editors’ Blog' === $categories[0]->name ) {
+		if ( 'behind-the-style' === $categories[0]->slug ) {
 			return 'blog-sidebar';
 		}
 	}
