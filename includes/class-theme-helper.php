@@ -169,6 +169,19 @@ class ThemeHelper extends Base {
 	}
 
 	/**
+	 * Get author link of post / page.
+	 *
+	 * @param int $avatar_size Size in pixels of avatar (0 for none).
+	 */
+	public static function get_author_link( $avatar_size = 0 ) {
+		$author_link = get_the_author_link();
+		if ( $avatar_size ) {
+			$author_link = get_avatar( get_the_author_id(), $avatar_size ) . $author_link;
+		}
+		return $author_link;
+	}
+
+	/**
 	 * Get tags of post / page.
 	 */
 	public static function get_tags() {
@@ -246,11 +259,11 @@ class ThemeHelper extends Base {
 			return sprintf( '%1$s%2$s%3$s', $prefix, $matches[0], $suffix );
 	}
 
-        /**
-         * Set Name and Email on the contact form for logged in users.
-         *
-         * @param string $form_id  The ninja form id.
-         */
+	/**
+	 * Set Name and Email on the contact form for logged in users.
+	 *
+	 * @param string $form_id  The ninja form id.
+	 */
 	public static function set_ninja_form_logged_in_user_values( $form_id ) {
 
 		global $ninja_forms_loading;

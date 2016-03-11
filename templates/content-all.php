@@ -36,7 +36,12 @@ if ( have_posts() ) :
 
 	?>
 	<div class="blog-meta">
-		<?php echo wp_kses_post( ThemeHelper::get_tags() ); ?>
+		<div class="author-meta">
+			<?php echo wp_kses_post( ThemeHelper::get_author_link( 36 ) ); ?>
+		</div>
+		<div class="tag-meta">
+			<?php echo wp_kses_post( ThemeHelper::get_tags() ); ?>
+		</div>
 	</div>
 	<?php
 
