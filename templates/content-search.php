@@ -13,22 +13,7 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 	<p class="excerpt"><?php echo wp_kses_post( ThemeHelper::get_search_snippet( get_the_content(), get_the_excerpt() ) ); ?></p>
 	<div class="blog-meta">
 		<div class="tag-meta">
-	<?php
-
-	$categories = get_the_category();
-	if ( ! empty( $categories ) ) {
-		echo wp_kses_post(
-			sprintf(
-				'<a rel="tag" class="category" href="%1$s">%2$s</a>',
-				// @codingStandardsIgnoreStart
-				get_category_link( $categories[0]->term_id ),
-				// @codingStandardsIgnoreEnd
-				$categories[0]->name
-			)
-		);
-	}
-
-	?>
+	<?php echo wp_kses_post( ThemeHelper::get_category() ); ?>
 	<?php echo wp_kses_post( ThemeHelper::get_tags() ); ?>
 		</div>
 	</div>

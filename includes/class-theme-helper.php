@@ -182,6 +182,23 @@ class ThemeHelper extends Base {
 	}
 
 	/**
+	 * Get main category of post / page.
+	 */
+	public static function get_category() {
+		$categories = get_the_category();
+		if ( ! empty( $categories ) ) {
+			return sprintf(
+				'<a rel="tag" class="category" href="%1$s">%2$s</a>',
+				// @codingStandardsIgnoreStart
+				get_category_link( $categories[0]->term_id ),
+				// @codingStandardsIgnoreEnd
+				$categories[0]->name
+			);
+		}
+		return null;
+	}
+
+	/**
 	 * Get tags of post / page.
 	 */
 	public static function get_tags() {

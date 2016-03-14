@@ -26,6 +26,11 @@ if ( have_posts() ) :
 ?>
 <article <?php post_class(); ?>>
 	<?php if ( ! is_page() ) : ?>
+	<?php if ( ! ( is_category() || is_search() ) ) : ?>
+		<div class="tag-meta">
+			<?php echo wp_kses_post( ThemeHelper::get_category() ); ?>
+		</div>
+	<?php endif; ?>
 	<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<?php endif; ?>
 	<?php

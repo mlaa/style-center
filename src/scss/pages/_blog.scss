@@ -98,6 +98,10 @@
       text-decoration: none;
     }
 
+    & + h2 {
+      margin-top: 0.7em;
+    }
+
     .count {
       color: $light-mla-blue;
     }
