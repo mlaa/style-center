@@ -191,3 +191,24 @@
 .wc {
   margin-bottom: 0.9em;
 }
+
+// Tag cloud
+.tagcloud {
+  a {
+    @include button;
+
+    background-color: $white;
+    border: solid 1px $mla-blue;
+    clear: left;
+    color: $mla-blue;
+    display: block;
+    float: left;
+    font-size: inherit !important;
+    margin-bottom: 0.25em;
+    padding: 3px 8px;
+
+    &:hover {
+
+    }
+  }
+}
