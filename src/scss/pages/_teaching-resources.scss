@@ -1,0 +1,87 @@
+// Teaching Resources
+
+.instructor-tile {
+  max-width: 600px;
+  min-height: auto;
+
+  .tile-link {
+    border: solid 1px $lightest-grey;
+    display: flex;
+    flex-direction: row;
+    min-height: 180px;
+    position: static;
+  }
+}
+
+.author-photo {
+  flex-grow: 0;
+  margin-right: 1.5em;
+  min-width: 140px;
+  position: relative;
+
+  &::before {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto 140px;
+    border: solid 1px $grey;
+    border-radius: 50%;
+    content: '';
+    height: 140px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 140px;
+  }
+}
+
+.author-photo-foasberg::before {
+  background-image: url($author-photo-foasberg);
+}
+
+.author-photo-woods::before {
+  background-image: url($author-photo-woods);
+}
+
+.author-role {
+  background-color: $white;
+  border: solid 1px $lightest-grey;
+  border-radius: 5px;
+  color: $dark-grey;
+  font-size: 0.9em;
+  left: 1.2em;
+  position: absolute;
+  text-align: center;
+  top: 170px;
+  width: 140px;
+  z-index: 10;
+}
+
+.instructor-tile-small {
+  margin-top: 2em;
+
+  p {
+    margin: 0 0 0.5em 0;
+  }
+
+  .tile-link {
+    border-color: $light-grey;
+    border-radius: 0.8em;
+    box-shadow: none;
+    min-height: 70px;
+  }
+
+  .author-photo {
+    min-width: 50px;
+
+    &::before {
+      background-size: auto 50px;
+      height: 50px;
+      width: 50px;
+    }
+  }
+}
+
+.author-meta-foasberg,
+.author-meta-woods {
+  display: none;
+}

@@ -187,6 +187,13 @@ class ThemeHelper extends Base {
 	public static function get_category() {
 		$categories = get_the_category();
 		if ( ! empty( $categories ) ) {
+			if ( $categories[0]->slug === 'teaching-resources' ) {
+				return sprintf(
+					'<a rel="tag" class="category" href="/teaching-resources/">%1$s</a>',
+					$categories[0]->name
+				);
+			}
+
 			return sprintf(
 				'<a rel="tag" class="category" href="%1$s">%2$s</a>',
 				// @codingStandardsIgnoreStart

@@ -38,10 +38,12 @@ if ( have_posts() ) :
 	the_content();
 
 	if ( 'post' === get_post_type() ) {
+		$custom_fields = get_post_custom();
+		$author_meta_class = ( isset( $custom_fields['post_author'] ) ) ? 'author-meta-' . $custom_fields['post_author'][0] : '';
 
 	?>
 	<div class="blog-meta">
-		<div class="author-meta">
+		<div class="author-meta <?php echo wp_kses_post( $author_meta_class ); ?>">
 			<?php echo wp_kses_post( ThemeHelper::get_author_link( 36 ) ); ?>
 		</div>
 		<div class="tag-meta">
