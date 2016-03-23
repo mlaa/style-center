@@ -29,6 +29,13 @@ $sub-menu-highlight-color: $palette-pale-yellow;
 }
 
 .buy-the-book-button {
+
+  display: none;
+
+  @include breakpoint(xs) {
+    display: inline-block;
+  }
+
   @include breakpoint(sm) {
     display: none;
   }
@@ -54,16 +61,6 @@ $sub-menu-highlight-color: $palette-pale-yellow;
       padding: 6px 0.75em;
     }
 
-  }
-
-}
-
-.menu-gloss {
-
-  display: none;
-
-  @include breakpoint(xs) {
-    display: inline;
   }
 
 }
