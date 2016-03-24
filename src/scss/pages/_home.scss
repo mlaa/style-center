@@ -1,6 +1,7 @@
 // Tiles
 
 $tile-link-color: $palette-blue;
+$tile-transparent-white: rgba(255, 255, 255, 0.9);
 
 .home {
 
@@ -13,19 +14,28 @@ $tile-link-color: $palette-blue;
   .content {
 
     margin: 0 auto;
-    max-width: 60em;
+    max-width: 400px;
     padding: 1em 0.5em;
 
     @include breakpoint(xs) {
+      max-width: 700px;
       padding: 1em;
+    }
+
+    @include breakpoint(sm) {
+      padding: 1em;
+    }
+
+    @include breakpoint(md) {
+      max-width: 900px;
+      padding: 1em 0;
     }
 
   }
 
-  .page {
-
+  .page,
+  .tile-group {
     align-items: stretch;
-    flex-basis: 100%;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -33,168 +43,131 @@ $tile-link-color: $palette-blue;
     @include breakpoint(xs) {
       display: flex;
     }
+  }
 
+  .page {
+    flex-basis: 100%;
   }
 }
 
 .tile {
-
+  background-color: $white;
   box-sizing: border-box;
-  margin: 0 0 1em 0;
+  display: flex;
+  margin: 0 0 15px 0;
   position: relative;
 
   @include breakpoint(xs) {
-    flex-basis: 50%;
-    min-height: 320px;
-  }
-
-  @include breakpoint(sm) {
-    min-height: 260px;
+    flex-basis: 48.5%;
   }
 
   @include breakpoint(md) {
-
-    flex-basis: 33.3%;
+    flex-basis: 281px;
 
     .overflow {
       display: block;
     }
-
   }
-
 }
 
-.tile-link,
-.tile-image,
-.tile-body {
-
+.tile-body,
+.tile-link {
   bottom: 0;
   display: block;
   left: 0;
   right: 0;
-  top: 0;
-
-  @include breakpoint(xs) {
-    position: absolute;
-  }
 
   &:hover {
     text-decoration: none;
   }
-
 }
 
 .tile-link {
-
   @include material-plus-one;
-  border-top: solid 8px $tile-link-color;
-  left: 0.5em;
-  right: 0.5em;
-
-  strong {
-    transition: background-color 0.2s ease-in-out;
-  }
-
-  &:hover strong {
-    background-color: $palette-hilite;
-    border-radius: 4px;
-  }
-
-}
-
-.tile-image {
-  background-image: url($tile-placeholder);
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  filter: grayscale(20%);
-  opacity: 0.85;
-  transition: opacity 0.2s ease-in-out;
-  z-index: 50;
+  top: 0;
+  width: 100%;
 }
 
 .tile-body {
-
-  background-color: $white;
+  background-color: $tile-transparent-white;
   color: $tile-link-color;
-  padding: 1.3em 1em 0.5em 1em;
+  padding: 0.75em;
+  transition: background-color 0.2s ease-in-out;
   z-index: 100;
 
   h3 {
     color: $tile-link-color;
+    line-height: 1.2em;
+    margin: 0;
+
+    @include breakpoint(xs) {
+      margin: 0 0 0.25em 0;
+    }
   }
 
   p {
     color: $tile-link-color;
-  }
+    display: none;
+    font-size: 17px;
+    line-height: 1.3em;
+    margin: 0;
 
+    @include breakpoint(xs) {
+      display: block;
+    }
+  }
 }
 
 .tile-featured {
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  min-height: 182px;
+  opacity: 0.95;
+  transition: opacity 0.2s ease-in-out;
 
   @include breakpoint(xs) {
-
-    .tile-link {
-      border-top: 0;
-    }
-
-    .tile-body {
-      border-top: solid 1px $lightest-grey;
-      margin-top: 125px;
-      padding-top: 0.9em;
-    }
-
-    &:hover .tile-image {
-      filter: none;
-      opacity: 1;
-    }
-
+    min-height: 370px;
   }
 
+  .tile-body,
+  .tile-link {
+    position: absolute;
+  }
+
+  &:hover {
+    opacity: 1;
+
+    .tile-body {
+      background-color: $white;
+    }
+  }
 }
 
 .tile-wide {
+  flex-basis: 100%;
 
   @include breakpoint(md) {
-
-    .tile-body {
-      border-right: solid 1px $lightest-grey;
-      border-top: 0;
-      margin-right: 50%;
-      margin-top: 0;
-    }
-
-    .tile-image {
-      background-position: right 0;
-    }
-
+    flex-basis: 580px;
   }
+}
 
+.tile-sidebar {
+  @include breakpoint(md) {
+    flex-basis: 300px;
+  }
 }
 
 .tile-buy {
-
   background-color: transparent;
   background-image: url($handbook-cover);
   background-position: center 0;
   background-repeat: no-repeat;
-  background-size: 250px 152px;
-  border-top: 0;
-  height: 200px;
-
-  @include breakpoint(sm) {
-    background-position: center 40px;
-    height: auto;
-  }
-
-  @include breakpoint(sm) {
-    background-position: center 10px;
-    background-size: 300px 183px;
-  }
-
+  background-size: 292px 300px;
+  min-height: 360px;
 }
 
 .order-button-container {
-  bottom: 0;
+  bottom: 5px;
   left: 0;
   position: absolute;
   right: 0;
@@ -207,55 +180,120 @@ $tile-link-color: $palette-blue;
 }
 
 .tile-recent-posts {
+  background-color: transparent;
+  flex-basis: 100%;
+
+  @include breakpoint(md) {
+    flex-basis: 300px;
+  }
+
   h3 {
+    border-bottom: solid 1px $palette-orange;
+    font-size: 1.1em;
     margin: 0 0 0.5em 0;
+    text-transform: uppercase;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0.75em 0;
+    padding: 0;
   }
 
   li {
-    margin: 0;
+    margin: 0.75em 0;
+  }
+
+  h4 {
+    font-size: 17px;
+    font-weight: $default-font-bold;
+    line-height: 1.2em;
+    margin-bottom: 0.25em;
+
+    a {
+      color: $mla-blue;
+    }
+  }
+
+  p {
+    font-size: 15px;
   }
 
   .tile-body {
     background-color: transparent;
-    padding: 1em 1.5em;
+    padding: 1em 0 0 0.5em;
   }
 }
 
 .tile-citation {
+  background-image: url($tile-placeholder-works-cited);
+  background-position: center -150px;
+  background-size: 525px 350px;
 
-  @include breakpoint(md) {
-    flex-basis: 66.6%;
+  @include breakpoint(xs) {
+    background-position: center -290px;
+    background-size: 1050px 700px;
   }
-
-  .tile-image {
-    background-image: url($tile-placeholder-understanding);
-  }
-
 }
 
 .tile-about {
+  background-image: url($tile-placeholder-about);
+  background-position: -100px -30px;
+  background-size: 500px 266px;
 
-  .tile-image {
-    background-image: url($tile-placeholder-about);
-    background-position: 0 -80px;
+  @include breakpoint(xs) {
+    background-position: -220px -30px;
+    background-size: 600px 400px;
   }
-
 }
 
 .tile-faq {
+  background-image: url($tile-placeholder-faq);
+  background-position: center -180px;
+  background-size: 420px 420px;
 
-  .tile-image {
-    background-image: url($tile-placeholder-blog);
+  @include breakpoint(xs) {
+    background-position: center -250px;
+    background-size: 620px 620px;
   }
-
 }
 
 .tile-teaching {
+  background-image: url($tile-placeholder-teaching);
+  background-position: 0 -50px;
+  background-size: 400px 275px;
 
-  .tile-image {
-    background-image: url($tile-placeholder-teaching);
-    background-position: -5px -140px;
+  @include breakpoint(xs) {
+    background-position: -50px -100px;
+    background-size: 700px 500px;
   }
-
 }
 
+.tile-blog {
+  background-image: url($tile-placeholder-blog);
+  background-position: -100px -100px;
+  background-size: 600px 466px;
+
+  @include breakpoint(xs) {
+    background-position: -100px -150px;
+    background-size: 800px 666px;
+    min-height: 280px;
+  }
+
+  @include breakpoint(md) {
+    background-position: -100px -150px;
+    background-size: 700px 600px;
+  }
+
+  &::before {
+    background: $palette-blue;
+    color: $white;
+    content: 'Blog';
+    font-weight: $default-font-bold;
+    padding: 5px 10px;
+    position: absolute;
+    right: 0;
+    text-transform: uppercase;
+    top: 0;
+  }
+}

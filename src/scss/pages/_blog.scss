@@ -196,7 +196,6 @@
 .tagcloud {
   a {
     @include button;
-
     background-color: $white;
     border: solid 1px $mla-blue;
     clear: left;
@@ -206,9 +205,5 @@
     font-size: inherit !important;
     margin-bottom: 0.25em;
     padding: 3px 8px;
-
-    &:hover {
-
-    }
   }
 }
