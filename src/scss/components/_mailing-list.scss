@@ -1,0 +1,54 @@
+// Mailing list
+
+.mailing-list {
+  background-color: $palette-blue;
+  display: none;
+
+  h2 {
+    color: $white;
+    margin: 0 0 0.2em 0;
+  }
+
+  form {
+    margin: 0 auto;
+    padding: 2em 1em;
+
+    @include breakpoint(xs) {
+      max-width: 700px;
+      padding: 2em;
+    }
+
+    @include breakpoint(md) {
+      max-width: 900px;
+    }
+  }
+
+  input {
+    border: 0;
+    border-radius: 3px;
+    margin: 0 8px 10px 0;
+    padding: 6px 8px;
+    width: 200px;
+
+    &::placeholder {
+      font-family: $default-font-family;
+    }
+  }
+
+  button {
+    @include material-plus-one;
+    border: 0;
+    font-weight: $default-font-bold;
+  }
+
+  p {
+    color: lighten($palette-blue, 50%);
+    font-weight: $default-font-bold;
+    margin: 0 0 1em 0;
+  }
+
+}
+
+.home .mailing-list {
+  display: block;
+}

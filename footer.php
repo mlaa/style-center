@@ -12,6 +12,24 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 
 		<?php do_action( 'get_footer' ); ?>
 
+		<div class="mailing-list">
+
+			<form>
+
+				<h2>Join Our Mailing List</h2>
+				<p>Be the first to read new posts and updates about MLA Style.</p>
+
+				<fieldset>
+					<input name="first_name" type="text" value="" placeholder="First name">
+					<input name="last_name" type="text" value="" placeholder="Last name">
+					<input name="email" type="text" value="" placeholder="E-mail address">
+					<button class="button">Subscribe</button>
+				</fieldset>
+
+			</form>
+
+		</div>
+
 		<footer>
 
 			<ul class="nav nav-pills">
