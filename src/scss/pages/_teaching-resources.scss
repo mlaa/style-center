@@ -34,6 +34,10 @@
   }
 }
 
+.author-photo-carr::before {
+  background-image: url($author-photo-carr);
+}
+
 .author-photo-foasberg::before {
   background-image: url($author-photo-foasberg);
 }
