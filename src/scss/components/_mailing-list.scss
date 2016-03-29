@@ -1,7 +1,7 @@
 // Mailing list
 
 .mailing-list {
-  background-color: $palette-blue;
+  background-color: $palette-maroon;
   display: none;
 
   h2 {
@@ -27,7 +27,7 @@
     border: 0;
     border-radius: 3px;
     margin: 0 8px 10px 0;
-    padding: 6px 8px;
+    padding: 8px;
     width: 200px;
 
     &::placeholder {
@@ -37,12 +37,12 @@
 
   button {
     @include material-plus-one;
-    border: 0;
     font-weight: $default-font-bold;
+    padding: 0.25em 0.75em;
   }
 
   p {
-    color: lighten($palette-blue, 50%);
+    color: lighten($palette-maroon, 70%);
     font-weight: $default-font-bold;
     margin: 0 0 1em 0;
   }
