@@ -207,3 +207,22 @@
     padding: 3px 8px;
   }
 }
+
+// Featured images
+.has-post-thumbnail {
+  h2 {
+    margin: 0.5em 0 0 0;
+  }
+}
+
+.post-thumbnail {
+  margin: 1em 0;
+  max-height: 300px;
+  overflow: hidden;
+
+  img {
+    height: auto;
+    margin-top: -50px;
+    width: 100%;
+  }
+}

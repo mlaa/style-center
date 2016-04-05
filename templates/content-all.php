@@ -25,22 +25,43 @@ if ( have_posts() ) :
 
 ?>
 <article <?php post_class(); ?>>
-	<?php if ( ! is_page() ) : ?>
-	<?php if ( ! ( is_category() || is_search() ) ) : ?>
+<?php
+
+	if ( ! ( is_category() || is_search() ) ) :
+	?>
 		<div class="tag-meta">
 			<?php echo wp_kses_post( ThemeHelper::get_category() ); ?>
 		</div>
-	<?php endif; ?>
-	<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-	<?php endif; ?>
+	<?php
+	endif;
+
+	if ( has_post_thumbnail() ) :
+	?>
+		<div class="post-thumbnail">
+			<?php the_post_thumbnail(); ?>
+		</div>
+	<?php
+	endif;
+
+	if ( is_category() || is_search() ) :
+	?>
+		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<?php
 
-	the_content();
+		the_excerpt();
+	else :
+		if ( ! ( is_page() || is_home() || is_front_page() ) ) :
+	?>
+		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+	<?php
+		endif;
 
-	if ( 'post' === get_post_type() ) {
-		$custom_fields = get_post_custom();
-		$author_meta_class = ( isset( $custom_fields['post_author'] ) ) ? 'author-meta-' . $custom_fields['post_author'][0] : '';
+		the_content();
 
+		if ( 'post' === get_post_type() ) :
+			$custom_fields = get_post_custom();
+			$author_meta_class = ( isset( $custom_fields['post_author'] ) ) ? 'author-meta-' . $custom_fields['post_author'][0] : '';
+		endif;
 	?>
 	<div class="blog-meta">
 		<div class="author-meta <?php echo wp_kses_post( $author_meta_class ); ?>">
@@ -52,7 +73,7 @@ if ( have_posts() ) :
 	</div>
 	<?php
 
-	}
+	endif;
 
 	if ( ! is_archive() && ( comments_open() || get_comments_number() ) ) :
 		comment_form();
