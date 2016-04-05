@@ -256,6 +256,10 @@ $tile-transparent-white: rgba(255, 255, 255, 0.9);
     background-position: center -250px;
     background-size: 620px 620px;
   }
+
+  .tile-tag {
+    padding-left: 8px;
+  }
 }
 
 .tile-teaching {
@@ -284,16 +288,19 @@ $tile-transparent-white: rgba(255, 255, 255, 0.9);
     background-position: -100px -150px;
     background-size: 700px 600px;
   }
+}
+
+.tile-tag {
+  background: $palette-blue;
+  color: $white;
+  font-weight: $default-font-bold;
+  padding: 5px 10px;
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+  top: 0;
 
   &::before {
-    background: $palette-blue;
-    color: $white;
-    content: 'Blog';
-    font-weight: $default-font-bold;
-    padding: 5px 10px;
-    position: absolute;
-    right: 0;
-    text-transform: uppercase;
-    top: 0;
+    margin-right: 0.5em;
   }
 }

@@ -7,6 +7,12 @@
   h2 {
     color: $white;
     margin: 0 0 0.2em 0;
+
+    &::before {
+      background-color: $white;
+      color: $palette-maroon;
+      font-size: 75%;
+    }
   }
 
   form {

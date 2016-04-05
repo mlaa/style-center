@@ -16,7 +16,7 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 
 			<form>
 
-				<h2>Join Our Mailing List</h2>
+				<h2 class="icon-inline-tag icon-mail">Join Our Mailing List</h2>
 				<p>Be the first to read new posts and updates about MLA Style.</p>
 
 				<fieldset>
