@@ -39,14 +39,14 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 			<div class="page-nav">
 
 				<form class="site-search-form" action="/" method="get">
-					<fieldset>
+					<fieldset class="icon-search">
 						<?php get_search_form(); ?>
 					</fieldset>
 				</form>
 
 				<ul class="page-menu">
 					<li><span class="buy-the-book-button button">Buy the Book</span></li>
-					<li><span class="page-sub-menu-link button">☰<span class="menu-gloss"> Menu</span></span></li>
+					<li><span class="page-sub-menu-link button icon-menu"><span class="menu-gloss"> Menu</span></span></li>
 					<ul class="page-sub-menu">
 						<li><h4>Sections</h4></li>
 						<?php wp_nav_menu( [

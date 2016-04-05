@@ -12,15 +12,20 @@ input[type="search"] {
 
 .site-search-form {
   margin: 0;
+  position: relative;
+
+  .icon-search::before {
+    color: $light-grey;
+    position: absolute;
+    right: 10px;
+    top: 11px;
+    z-index: 10;
+  }
 }
 
 .search-field {
 
   background-color: $search-field-background-color;
-  background-image: url($search-icon);
-  background-position: 97% center;
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
   border: solid 1px $input-border-color-light;
   border-radius: 8px;
   font-size: 16px;
