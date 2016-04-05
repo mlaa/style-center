@@ -1,7 +1,8 @@
 // Tiles
 
-$tile-link-color: $palette-blue;
+$tile-link-color: $palette-maroon;
 $tile-transparent-white: rgba(255, 255, 255, 0.9);
+$tile-transparent-maroon: rgba(102, 0, 68, 0.9);
 
 .home {
 
@@ -106,7 +107,7 @@ $tile-transparent-white: rgba(255, 255, 255, 0.9);
   }
 
   p {
-    color: $tile-link-color;
+    color: $black;
     display: none;
     font-size: 17px;
     line-height: 1.3em;
@@ -234,6 +235,19 @@ $tile-transparent-white: rgba(255, 255, 255, 0.9);
     background-position: center -290px;
     background-size: 1050px 700px;
   }
+
+  .tile-body {
+    background-color: $tile-transparent-maroon;
+  }
+
+  h3,
+  p {
+    color: $white;
+  }
+
+  &:hover .tile-body {
+    background-color: $palette-maroon;
+  }
 }
 
 .tile-about {
@@ -291,7 +305,7 @@ $tile-transparent-white: rgba(255, 255, 255, 0.9);
 }
 
 .tile-tag {
-  background: $palette-blue;
+  background: $palette-maroon;
   color: $white;
   font-weight: $default-font-bold;
   padding: 5px 10px;
