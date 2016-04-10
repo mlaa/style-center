@@ -4,6 +4,35 @@ $citation-background-color: #bdf;
 $citation-border-color: #14b;
 $citation-link-color: #36f;
 
+.mla-style-at-a-glance {
+  .content {
+    background-color: $background-light-grey;
+    background-image: url($citation-background-right);
+    background-position: 120% top;
+    background-repeat: no-repeat;
+    background-size: 651px 389px;
+    position: relative;
+
+    &:after {
+      background-image: url($citation-background-left);
+      background-position: 0 top;
+      background-repeat: no-repeat;
+      background-size: 651px 389px;
+      bottom: 0;
+      content: '';
+      left: -10%;
+      height: 389px;
+      position: absolute;
+      width: 651px;
+      z-index: 1;
+    }
+  }
+
+  .block-main {
+    z-index: 10;
+  }
+}
+
 #citation-thread {
   margin: 2em 0 1em 0;
   text-align: center;
@@ -42,6 +71,7 @@ fieldset {
 
 .citation {
 
+  background-color: $white;
   border: solid 1px $citation-border-color;
   border-radius: 10px;
   padding: 8px;
