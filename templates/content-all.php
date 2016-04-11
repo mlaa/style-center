@@ -62,6 +62,8 @@ if ( have_posts() ) :
 			$custom_fields = get_post_custom();
 			$author_meta_class = ( isset( $custom_fields['post_author'] ) ) ? 'author-meta-' . $custom_fields['post_author'][0] : '';
 		endif;
+
+		if ( ! ( is_page() || is_home() || is_front_page() ) ) :
 	?>
 	<div class="blog-meta">
 		<div class="author-meta <?php echo wp_kses_post( $author_meta_class ); ?>">
@@ -72,6 +74,7 @@ if ( have_posts() ) :
 		</div>
 	</div>
 	<?php
+		endif;
 
 	endif;
 
