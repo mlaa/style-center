@@ -4,7 +4,7 @@ $citation-background-color: #bdf;
 $citation-border-color: #14b;
 $citation-link-color: #36f;
 
-.mla-style-at-a-glance {
+.works-cited-a-quick-guide {
   .content {
     background-color: $background-light-grey;
     background-image: url($citation-background-right);
@@ -13,18 +13,21 @@ $citation-link-color: #36f;
     background-size: 651px 389px;
     position: relative;
 
-    &:after {
+    &::after {
       background-image: url($citation-background-left);
       background-position: 0 top;
       background-repeat: no-repeat;
       background-size: 651px 389px;
       bottom: 0;
-      content: '';
-      left: -10%;
       height: 389px;
+      left: -10%;
       position: absolute;
       width: 651px;
       z-index: 1;
+
+      @include breakpoint(sm) {
+        content: '';
+      }
     }
   }
 
@@ -33,20 +36,128 @@ $citation-link-color: #36f;
   }
 }
 
+.works-cited-a-quick-guide,
+.works-cited-a-quick-guide-book,
+.works-cited-a-quick-guide-video,
+.works-cited-a-quick-guide-journal {
+  .block-main {
+    flex-basis: 100%;
+  }
+}
+
+.works-cited-a-quick-guide-video {
+  .citation-images {
+    max-width: 450px;
+  }
+}
+
+.intro-concepts,
+.citation-area {
+  flex-direction: row;
+
+  @include breakpoint(sm) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @include breakpoint(md) {
+    flex-wrap: nowrap;
+  }
+}
+
+.intro-concept {
+  margin-bottom: 3em;
+  max-width: 325px;
+
+  @include breakpoint(sm) {
+    flex-basis: 50%;
+    margin-right: 3em;
+  }
+
+  @include breakpoint(md) {
+    flex-basis: 33%;
+  }
+
+  h3 {
+    color: $palette-maroon;
+    margin: 0.5em 0 0.25em 0;
+  }
+
+  p {
+    line-height: 1.4em;
+  }
+
+  img {
+    max-height: 350px;
+    width: auto;
+  }
+
+  .button {
+    font-weight: $default-font-bold;
+  }
+}
+
+.citation-images {
+  display: none;
+  flex-basis: 50%;
+  margin-right: 2em;
+
+  @include breakpoint(md) {
+    display: block;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+#citation-tool {
+  flex-basis: 100%;
+
+  @include breakpoint(md) {
+    flex-basis: 50%;
+  }
+}
+
 #citation-thread {
   margin: 2em 0 1em 0;
   text-align: center;
+
+  p {
+    margin: 1.5em 0 0.25em 0;
+  }
 }
 
 .citation-type-head {
-  color: $palette-maroon;
+  background-color: $palette-maroon;
+  color: $white;
+  margin: 0;
+  padding: 5px 0 5px 15px;
+  position: relative;
+
+  &::before {
+    background-color: $white;
+    border-radius: 0 40% 40% 0;
+    color: $palette-maroon;
+    left: -25px;
+    padding: 10px 5px 10px 0;
+    position: absolute;
+    top: -1px;
+  }
 }
 
 .citation-head {
-  border-bottom: solid 2px $palette-orange;
-  color: $palette-blue;
-  margin: 1.5em 0 1em 0;
-  padding-bottom: 5px;
+  color: $palette-maroon;
+  font-size: 1.4em;
+  font-weight: $default-font-normal;
+  margin: 1em 0;
+}
+
+.citation-output-head {
+  border-bottom: solid 1px $palette-orange;
+  color: $palette-maroon;
+  margin: 1em 0;
   text-transform: uppercase;
 }
 
@@ -132,6 +243,10 @@ fieldset {
     top: 5px;
     width: 35px;
     z-index: 10;
+
+    @include breakpoint(md) {
+      display: none;
+    }
   }
 
   &.has-image .field-value {
@@ -243,9 +358,7 @@ div.modui-popup {
   }
 }
 
-.mla-style-at-a-glance,
 .whats-new {
-
   h3,
   .citation-output {
     display: none;
@@ -254,5 +367,4 @@ div.modui-popup {
   .citation {
     max-width: 20em;
   }
-
 }
