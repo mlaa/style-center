@@ -27,7 +27,7 @@ if ( have_posts() ) :
 <article <?php post_class(); ?>>
 <?php
 
-	if ( ! ( is_category() || is_search() ) ) :
+	if ( ! ( is_category() || is_search() || is_front_page() ) ) :
 	?>
 		<div class="tag-meta">
 			<?php echo wp_kses_post( ThemeHelper::get_category() ); ?>
