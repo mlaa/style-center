@@ -14,7 +14,7 @@
 
   ul {
     list-style-type: none;
-    margin-left: 0;
+    padding-left: 0;
   }
 }
 
@@ -22,9 +22,10 @@
   .tagcloud {
     a {
       border: 0;
+      color: $page-link-color;
       display: block;
       float: none;
-      color: $page-link-color;
+      padding: 0;
 
       &:hover {
         color: $page-link-hover-color;
