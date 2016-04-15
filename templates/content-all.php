@@ -19,12 +19,20 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 
 if ( have_posts() ) :
 
+	$count = 0;
+
 	while ( have_posts() ) :
 
 		the_post();
+		$count++;
 
 ?>
-<article <?php post_class(); ?>>
+
+<?php if ( is_category( 'behind-the-style' ) && $count === 2 ) : ?>
+	<div class="halves">
+<?php endif; ?>
+
+<article <?php post_class( "loop-$count" ); ?>>
 <?php
 
 	if ( ! ( is_category() || is_search() || is_front_page() ) ) :
@@ -84,6 +92,11 @@ if ( have_posts() ) :
 
 	?>
 </article>
+
+<?php if ( is_category( 'behind-the-style' ) && $count === 3 ) : ?>
+	</div> <!-- halves -->
+<?php endif; ?>
+
 <?php
 
 	endwhile;
