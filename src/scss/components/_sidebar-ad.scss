@@ -5,18 +5,25 @@
   background-image: url($handbook-sidebar-ad);
   background-position: 0 0;
   background-repeat: no-repeat;
-  background-size: 300px 124px;
+  background-size: auto 124px;
   height: 124px;
   margin: 2em 0;
   position: relative;
   width: 300px;
+
+  p {
+    position: absolute;
+    right: .5em;
+    top: 0;
+    text-align: center;
+  }
 
   .buy-the-book-button {
     @include material-plus-one;
     display: inline;
     position: absolute;
     right: 0;
-    top: 40px;
+    top: 65px;
   }
 
 }
