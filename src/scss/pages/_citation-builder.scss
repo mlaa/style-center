@@ -114,7 +114,6 @@ $citation-link-color: #36f;
 
 #citation-tool {
   flex-basis: 100%;
-  margin: 1.5em 0;
 
   @include breakpoint(md) {
     flex-basis: 50%;
