@@ -18,18 +18,14 @@
   }
 }
 
-.sidebar {
-  .tagcloud {
-    a {
-      border: 0;
-      color: $page-link-color;
-      display: block;
-      float: none;
-      padding: 0;
+.sidebar .tagcloud a {
+  border: 0;
+  color: $page-link-color;
+  display: block;
+  float: none;
+  padding: 0;
 
-      &:hover {
-        color: $page-link-hover-color;
-      }
-    }
+  &:hover {
+    color: $page-link-hover-color;
   }
 }
