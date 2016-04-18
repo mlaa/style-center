@@ -17,6 +17,20 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 
 <?php
 
+if ( is_category( 'questions-and-answers' ) ) {
+?>
+	<div class="faq-search">
+		<h3>Search our list of frequently asked questions.</h3>
+		<?php echo preg_replace(
+			'#</form>#',
+			'<input type="hidden" name="cat" id="cat" value="3" /></form>',
+			get_search_form( false )
+		); ?>
+		Haven't found what you're looking for? <a href="/ask-a-question">Submit a question.</a>
+	</div>
+<?php
+}
+
 if ( have_posts() ) :
 
 	$count = 0;
