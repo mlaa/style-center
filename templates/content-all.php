@@ -12,7 +12,12 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 <div class="block-main">
 
 	<?php if ( ( is_page() || is_category() ) && ! is_home() && ! is_front_page() ) : ?>
-	<h1><?php echo wp_kses_post( ThemeHelper::get_page_title() ); ?></h1>
+	<h1>
+		<?php echo wp_kses_post( ThemeHelper::get_page_title() ); ?>
+		<?php if ( is_category( 'behind-the-style' ) ): ?>
+			<div class="tile-tag icon-blog">Blog</div>
+		<?php endif; ?>
+	</h1>
 	<?php endif; ?>
 
 <?php

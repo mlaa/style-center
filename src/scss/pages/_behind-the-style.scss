@@ -17,4 +17,20 @@
   .loop-3 {
     margin-left: 1em;
   }
+
+  h1 {
+    position: relative;
+  }
+
+  .tile-tag {
+    display: inline;
+    font-size: 0.5em;
+    position: initial;
+    text-transform: uppercase;
+    vertical-align: middle;
+
+    &::before {
+      margin-right: 0.5em;
+    }
+  }
 }
