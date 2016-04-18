@@ -222,18 +222,25 @@ class ThemeHelper extends Base {
 			return 'search-sidebar';
 		}
 
-		if ( is_page() ) {
-			return basename( get_permalink() ) . '-sidebar';
+		if ( is_page() && ! is_front_page() ) {
+			$slug = get_queried_object()->post_name;
+
+			if ( strpos( $slug, 'works-cited-a-quick-guide' ) === false ) {
+				return 'blog-sidebar';
+			}
 		}
 
-		$categories = get_the_category();
+		if ( is_category() ) {
+			$categories = get_the_category();
 
-		if ( 'questions-and-answers' === $categories[0]->slug ) {
-			return 'faq-sidebar';
-		}
-
-		if ( 'behind-the-style' === $categories[0]->slug ) {
-			return 'blog-sidebar';
+			switch ( $categories[0]->slug ) {
+			case 'questions-and-answers':
+				return 'faq-sidebar';
+				break;
+			case 'behind-the-style':
+				return 'blog-sidebar';
+				break;
+			}
 		}
 	}
 
