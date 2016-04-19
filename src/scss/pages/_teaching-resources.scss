@@ -89,3 +89,30 @@
 .author-meta-woods {
   display: none;
 }
+
+.teaching-resources {
+  .author-photo::before {
+    border: 0;
+    border-radius: 0;
+  }
+
+  .author-role {
+    background: $palette-maroon;
+    border: 0;
+    border-radius: 0;
+    color: $white;
+    left: 13px;
+    opacity: 0.95;
+    top: 127px;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  .tile-link {
+    border: 0;
+    box-shadow: none;
+
+    &:hover .author-role {
+      opacity: 1;
+    }
+  }
+}
