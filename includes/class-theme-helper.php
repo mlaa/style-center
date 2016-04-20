@@ -222,7 +222,7 @@ class ThemeHelper extends Base {
 			return 'search-sidebar';
 		}
 
-		if ( is_page() && ! is_front_page() ) {
+		if ( ( is_page() && ! is_front_page() ) || is_single() ) {
 			$slug = get_queried_object()->post_name;
 
 			if ( strpos( $slug, 'works-cited-a-quick-guide' ) === false ) {
