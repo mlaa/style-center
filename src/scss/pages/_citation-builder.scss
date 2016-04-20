@@ -133,14 +133,14 @@ $citation-link-color: #36f;
   background-color: $palette-maroon;
   color: $white;
   margin: 0;
-  padding: 5px 0 5px 15px;
+  padding: 5px 0 5px 40px;
   position: relative;
 
   &::before {
     background-color: $white;
     border-radius: 0 40% 40% 0;
     color: $palette-maroon;
-    left: -25px;
+    left: 0;
     padding: 10px 5px 10px 0;
     position: absolute;
     top: -1px;
