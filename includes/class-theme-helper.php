@@ -234,9 +234,7 @@ class ThemeHelper extends Base {
 			$categories = get_the_category();
 
 			switch ( $categories[0]->slug ) {
-			case 'questions-and-answers':
-				return 'faq-sidebar';
-				break;
+			case 'ask-the-mla':
 			case 'behind-the-style':
 				return 'blog-sidebar';
 				break;
