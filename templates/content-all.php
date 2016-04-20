@@ -22,6 +22,7 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 
 <?php
 
+/*
 if ( is_category( 'questions-and-answers' ) ) {
 ?>
 	<div class="faq-search">
@@ -35,6 +36,7 @@ if ( is_category( 'questions-and-answers' ) ) {
 	</div>
 <?php
 }
+*/
 
 if ( have_posts() ) :
 
