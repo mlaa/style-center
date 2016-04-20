@@ -14,6 +14,9 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 	<?php if ( ( is_page() || is_category() ) && ! is_home() && ! is_front_page() ) : ?>
 	<h1>
 		<?php echo wp_kses_post( ThemeHelper::get_page_title() ); ?>
+		<?php if ( is_category( 'ask-the-mla' ) ): ?>
+			<div class="tile-tag icon-faq">FAQ</div>
+		<?php endif; ?>
 		<?php if ( is_category( 'behind-the-style' ) ): ?>
 			<div class="tile-tag icon-blog">Blog</div>
 		<?php endif; ?>
