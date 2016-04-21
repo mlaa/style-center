@@ -42,6 +42,14 @@
   background-image: url($author-photo-foasberg);
 }
 
+.author-photo-gibson::before {
+  background-image: url($author-photo-gibson);
+}
+
+.author-photo-wirth::before {
+  background-image: url($author-photo-wirth);
+}
+
 .author-photo-woods::before {
   background-image: url($author-photo-woods);
 }

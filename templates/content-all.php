@@ -92,20 +92,11 @@ if ( have_posts() ) :
 
 		if ( 'post' === get_post_type() ) :
 			$custom_fields = get_post_custom();
-			$author_meta_class = ( isset( $custom_fields['post_author'] ) ) ? 'author-meta-' . $custom_fields['post_author'][0] : '';
+			$post_author = $custom_fields['post_author'][0];
 		endif;
 
-		if ( ! ( is_page() || is_home() || is_front_page() ) ) :
-	?>
-	<div class="blog-meta">
-		<div class="author-meta <?php echo wp_kses_post( $author_meta_class ); ?>">
-			<?php echo wp_kses_post( ThemeHelper::get_author_link( 36 ) ); ?>
-		</div>
-		<div class="tag-meta">
-			<?php echo wp_kses_post( ThemeHelper::get_tags() ); ?>
-		</div>
-	</div>
-	<?php
+		if ( ! empty( $post_author ) && ! ( is_page() || is_home() || is_front_page() ) ) :
+			get_template_part( "templates/authors/$post_author" );
 		endif;
 
 	endif;
