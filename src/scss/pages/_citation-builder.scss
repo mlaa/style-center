@@ -229,24 +229,9 @@ fieldset {
   }
 
   &.has-image .image-link {
-    background-color: $citation-link-color;
-    background-image: url($citation-image-icon);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 28px 19px;
-    border-radius: 8px;
-    content: '';
-    cursor: pointer;
-    height: 32px;
     position: absolute;
     right: 10px;
     top: 5px;
-    width: 35px;
-    z-index: 10;
-
-    @include breakpoint(md) {
-      display: none;
-    }
   }
 
   &.has-image .field-value {
@@ -284,6 +269,35 @@ fieldset {
     content: '2';
   }
 
+}
+
+.image-link {
+  background-color: $citation-link-color;
+  background-image: url($citation-image-icon);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 28px 19px;
+  border-radius: 8px;
+  content: '';
+  cursor: pointer;
+  display: inline-block;
+  height: 32px;
+  width: 35px;
+  z-index: 10;
+
+  @include breakpoint(md) {
+    display: none;
+  }
+}
+
+.mobile-eye {
+  @include breakpoint(md) {
+    display: none;
+  }
+
+  .image-link {
+    vertical-align: middle;
+  }
 }
 
 .citation-button {
