@@ -229,6 +229,7 @@ fieldset {
   }
 
   &.has-image .image-link {
+    cursor: pointer;
     position: absolute;
     right: 10px;
     top: 5px;
@@ -279,7 +280,6 @@ fieldset {
   background-size: 28px 19px;
   border-radius: 8px;
   content: '';
-  cursor: pointer;
   display: inline-block;
   height: 32px;
   width: 35px;
