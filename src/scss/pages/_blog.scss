@@ -227,16 +227,14 @@
   }
 }
 
-.category {
-  .tile-tag {
-    display: inline;
-    font-size: 0.5em;
-    position: initial;
-    text-transform: uppercase;
-    vertical-align: middle;
+.category .tile-tag {
+  display: inline;
+  font-size: 0.5em;
+  position: initial;
+  text-transform: uppercase;
+  vertical-align: middle;
 
-    &::before {
-      margin-right: 0.5em;
-    }
+  &::before {
+    margin-right: 0.5em;
   }
 }
