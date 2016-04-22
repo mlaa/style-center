@@ -2,7 +2,6 @@
 
 .mailing-list {
   background-color: $palette-maroon;
-  display: none;
 
   h2 {
     color: $white;
@@ -53,8 +52,4 @@
     margin: 0 0 1em 0;
   }
 
-}
-
-.home .mailing-list {
-  display: block;
 }
