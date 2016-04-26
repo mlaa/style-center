@@ -23,7 +23,6 @@ App.addRegions({
 });
 
 // Load generic modules.
-require('./page-menu')(jQuery);
 require('./search-hints')(jQuery);
 
 // Load Marionette modules.
@@ -32,6 +31,9 @@ App.module('Citations', require('./citations'));
 
 // Start the history listener.
 App.on('start', function () {
+  // expect DOM to be loaded at this point
+  require('./page-menu')(jQuery);
+
   Backbone.history.start({
     pushState: true,
     root: '/'

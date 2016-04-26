@@ -13,13 +13,6 @@ module.exports = function ($) {
   var activeClass = 'page-menu-active';
   var hoverOutDelay = 250;
 
-  var closeDropdown = function (e) {
-    e.stopPropagation();
-    $parent.removeClass(activeClass);
-    document.removeEventListener('touchstart', closeDropdown);
-    $button.removeEventListener('touchstart', closeDropdown);
-  };
-
   $targets.on({
     mouseover: function() {
       if ($button.prop('hoverTimeout')) {
@@ -34,28 +27,17 @@ module.exports = function ($) {
     }
   });
 
-  if ('ontouchstart' in document.documentElement) {
+  if ('ontouchstart' in document) {
 
     $button.on('touchstart', function(e) {
 
-      if (e.touches.length === 1) {
-
         e.stopPropagation();
 
-        if (!$parent.hasClass(activeClass)) {
-
-          // Prevent link on first touch.
-          if (e.target === this || e.target.parentNode === this) {
-              e.preventDefault();
-          }
-
+        if ($parent.hasClass(activeClass)) {
+          $parent.removeClass(activeClass);
+        } else {
           $parent.addClass(activeClass);
-          document.addEventListener('touchstart', closeDropdown, false);
-          $button.addEventListener('touchstart', closeDropdown, false);
-
         }
-
-      }
 
     });
 
