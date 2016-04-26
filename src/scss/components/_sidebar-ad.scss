@@ -28,3 +28,15 @@
 
 }
 
+.faq-sidebar-ad {
+  background-image: url($faq-sidebar-ad);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: auto 51px;
+  margin: 2em 0;
+  min-height: 51px;
+
+  p {
+    margin-left: 126px;
+  }
+}
