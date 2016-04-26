@@ -20,7 +20,7 @@
       title: '<em>The Cambridge Companion to Jane Austen</em>,',
       publisher: 'Cambridge UP,',
       pubdate: '1997,',
-      location: 'pp. 131–48.',
+      location: 'pp. 131-48.',
       callouts: {
         version: 'For guidance on when to skip items in the template, see p. 20 of the <em>MLA Handbook</em>.'
       },
@@ -38,7 +38,7 @@
       title: '“<em>Curiosity</em> Rover Report (August 2015): Three Years on Mars!”',
       container: false,
       callouts: {
-        author: 'This source has no author. See pps. 24 and 55–56 of the <em>MLA Handbook</em> for more guidance.'
+        author: 'This source has no author. See pps. 24 and 55-56 of the <em>MLA Handbook</em> for more guidance.'
       },
       images: {
         title: '/assets/images/citation-video-1.png'
@@ -73,7 +73,7 @@
       title: '<em>African American Review</em>,',
       number: 'vol. 40, no. 3,',
       pubdate: '2006,',
-      location: 'pp. 571–86.',
+      location: 'pp. 571-86.',
       images: {
         title: '/assets/images/citation-journal-1.png',
         number: '/assets/images/citation-journal-1.png',
