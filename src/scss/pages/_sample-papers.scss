@@ -9,6 +9,9 @@
     font-weight: $default-font-bold;
   }
 
+  p {
+    padding-left: calc( 106px + 2em );
+  }
 }
 
 .sample-paper-link {
