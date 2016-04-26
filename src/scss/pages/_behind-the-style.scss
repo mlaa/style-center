@@ -1,24 +1,26 @@
 // Behind The Style
 
 .category-behind-the-style {
-  .halves {
-    display: flex;
-  }
+  @include breakpoint(md) {
+    .halves {
+      display: flex;
+    }
 
-  .loop-2,
-  .loop-3 {
-    flex: 1;
-  }
+    .loop-2,
+    .loop-3 {
+      flex: 1;
+    }
 
-  .loop-2 {
-    margin-right: 1em;
-  }
+    .loop-2 {
+      margin-right: 1em;
+    }
 
-  .loop-3 {
-    margin-left: 1em;
-  }
+    .loop-3 {
+      margin-left: 1em;
+    }
 
-  h1 {
-    position: relative;
+    h1 {
+      position: relative;
+    }
   }
 }
