@@ -36,12 +36,12 @@ module.exports = function (Module, App, Backbone) {
             }
           },
           container: {
-            title: {
-              name: 'Title of container',
-              punctuation: ','
-            },
             author: {
               name: 'Other contributors',
+              punctuation: ','
+            },
+            title: {
+              name: 'Title of container',
               punctuation: ','
             },
             version: {
