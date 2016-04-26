@@ -222,22 +222,11 @@ class ThemeHelper extends Base {
 			return 'search-sidebar';
 		}
 
-		if ( ( is_page() && ! is_front_page() ) || is_single() ) {
+		if ( ( is_page() && ! is_front_page() ) || is_single() || is_category() || is_tag() ) {
 			$slug = get_queried_object()->post_name;
 
-			if ( strpos( $slug, 'works-cited-a-quick-guide' ) === false ) {
+			if ( empty( $slug ) || strpos( $slug, 'works-cited-a-quick-guide' ) === false ) {
 				return 'blog-sidebar';
-			}
-		}
-
-		if ( is_category() ) {
-			$categories = get_the_category();
-
-			switch ( $categories[0]->slug ) {
-			case 'ask-the-mla':
-			case 'behind-the-style':
-				return 'blog-sidebar';
-				break;
 			}
 		}
 	}
