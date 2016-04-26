@@ -17,6 +17,7 @@ module.exports = function ($) {
     e.stopPropagation();
     $parent.removeClass(activeClass);
     document.removeEventListener('touchstart', closeDropdown);
+    $button.removeEventListener('touchstart', closeDropdown);
   };
 
   $targets.on({
@@ -50,6 +51,7 @@ module.exports = function ($) {
 
           $parent.addClass(activeClass);
           document.addEventListener('touchstart', closeDropdown, false);
+          $button.addEventListener('touchstart', closeDropdown, false);
 
         }
 
