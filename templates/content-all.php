@@ -63,6 +63,7 @@ if ( have_posts() ) :
 	?>
 		<div class="tag-meta">
 			<?php echo wp_kses_post( ThemeHelper::get_category() ); ?>
+			<?php echo wp_kses_post( ThemeHelper::get_tags() ); ?>
 		</div>
 	<?php
 	endif;
