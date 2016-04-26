@@ -22,6 +22,11 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 		<?php endif; ?>
 	</h1>
 	<?php endif; ?>
+	<?php if ( is_tag() ) : ?>
+		<p class="tag-meta">
+			You are viewing all posts tagged <a href="/tag/<?php single_tag_title(); ?>" rel="tag"><?php single_tag_title(); ?></a>
+		</p>
+	<?php endif; ?>
 
 <?php
 
