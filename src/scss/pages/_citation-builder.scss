@@ -281,7 +281,6 @@ fieldset {
   background-size: 28px 19px;
   border-radius: 8px;
   content: '';
-  display: inline-block;
   height: 32px;
   width: 35px;
   z-index: 10;
@@ -298,6 +297,7 @@ fieldset {
 
   .image-link {
     vertical-align: middle;
+    display: inline-block;
   }
 }
 
