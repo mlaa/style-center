@@ -17,7 +17,7 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 			<form>
 
 				<h2 class="icon-inline-tag icon-mail">Join Our Mailing List</h2>
-				<p>Be the first to read new posts and updates about MLA Style.</p>
+				<p>Be the first to read new posts and updates about MLA style.</p>
 
 				<fieldset>
 					<input name="first_name" type="text" value="" placeholder="First name">
@@ -41,10 +41,10 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 			<ul class="nav nav-social">
 				<li class="item-1"><a class="social-pill-facebook" href="https://www.facebook.com/modernlanguageassociation/"></a></li>
 				<li class="item-2"><a class="social-pill-linkedin" href="https://www.linkedin.com/company/modern-language-association"></a></li>
-				<li class="item-3"><a class="social-pill-twitter" href="https://twitter.com/mlanews"></a></li>
+				<li class="item-3"><a class="social-pill-twitter" href="https://twitter.com/mlastyle"></a></li>
 			</ul>
 
-			<p><span class="print-remove"><a href="/terms-of-service/">Terms of Service</a> ● </span>© 2016 Modern Language Association of America</p>
+			<p><span class="print-remove"><a href="https://commons.mla.org/terms/">Terms of Service</a> ● </span>© 2016 Modern Language Association of America</p>
 
 		</footer>
 
