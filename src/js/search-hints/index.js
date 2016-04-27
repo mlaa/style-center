@@ -36,7 +36,7 @@ module.exports = function ($) {
     source: findMatches
   };
 
-  if (! ('touchstart' in document)) {
+  if (! ('ontouchstart' in document)) {
 
     // Bind to search field.
     $('.search-field')
