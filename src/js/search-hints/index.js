@@ -34,12 +34,16 @@ module.exports = function ($) {
     source: findMatches
   };
 
-  // Bind to search field.
-  $('.search-field')
-    .typeahead(options, engine)
-    .on('typeahead:selected', function (e) {
-      e.preventDefault();
-      $(this).closest('form').submit();
-    });
+  if (!'ontouchstart' in document) {
+
+    // Bind to search field.
+    $('.search-field')
+      .typeahead(options, engine)
+      .on('typeahead:selected', function (e) {
+        e.preventDefault();
+        $(this).closest('form').submit();
+      });
+
+  }
 
 };
