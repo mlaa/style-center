@@ -1,5 +1,7 @@
 /* Search hints module */
 
+/*global document*/
+
 module.exports = function ($) {
 
   'use strict';
@@ -34,13 +36,13 @@ module.exports = function ($) {
     source: findMatches
   };
 
-  if (!'ontouchstart' in document) {
+  if (! ('touchstart' in document)) {
+    console.log('binding');
 
     // Bind to search field.
     $('.search-field')
       .typeahead(options, engine)
-      .on('typeahead:selected', function (e) {
-        e.preventDefault();
+      .on('typeahead:selected', function () {
         $(this).closest('form').submit();
       });
 
