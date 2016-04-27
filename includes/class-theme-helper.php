@@ -219,7 +219,9 @@ class ThemeHelper extends Base {
 	public static function get_sidebar() {
 
 		if ( is_search() ) {
-			return 'search-sidebar';
+			// search sidebar disabled for launch
+			//return 'search-sidebar';
+			return 'blog-sidebar';
 		}
 
 		if ( ( is_page() && ! is_front_page() ) || is_single() || is_category() || is_tag() ) {
