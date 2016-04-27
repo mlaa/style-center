@@ -37,7 +37,6 @@ module.exports = function ($) {
   };
 
   if (! ('touchstart' in document)) {
-    console.log('binding');
 
     // Bind to search field.
     $('.search-field')
