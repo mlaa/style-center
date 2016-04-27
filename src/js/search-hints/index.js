@@ -37,7 +37,8 @@ module.exports = function ($) {
   // Bind to search field.
   $('.search-field')
     .typeahead(options, engine)
-    .on('typeahead:selected', function () {
+    .on('typeahead:selected', function (e) {
+      e.preventDefault();
       $(this).closest('form').submit();
     });
 
