@@ -22,8 +22,6 @@ App.addRegions({
   Content: '#citation-tool'
 });
 
-// Load generic modules.
-require('./search-hints')(jQuery);
 
 // Load Marionette modules.
 App.module('BookIndex', require('./book-index'));
@@ -32,6 +30,8 @@ App.module('Citations', require('./citations'));
 // Start the history listener.
 App.on('start', function () {
   // expect DOM to be loaded at this point
+  // Load generic modules.
+  require('./search-hints')(jQuery);
   require('./page-menu')(jQuery);
 
   Backbone.history.start({

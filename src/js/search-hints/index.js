@@ -35,12 +35,10 @@ module.exports = function ($) {
   };
 
   // Bind to search field.
-  /*
   $('.search-field')
     .typeahead(options, engine)
     .on('typeahead:selected', function () {
       $(this).closest('form').submit();
     });
-    */
 
 };
