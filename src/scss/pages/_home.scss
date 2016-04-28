@@ -49,11 +49,6 @@ $tile-transparent-maroon: rgba(102, 0, 68, 0.9);
   .page {
     flex-basis: 100%;
   }
-
-
-  .tile-body {
-    display: none;
-  }
 }
 
 .tile {
@@ -113,6 +108,7 @@ $tile-transparent-maroon: rgba(102, 0, 68, 0.9);
 
   p {
     color: $black;
+    display: none;
     font-size: 17px;
     line-height: 1.3em;
     margin: 0;

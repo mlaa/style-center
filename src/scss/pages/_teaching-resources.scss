@@ -2,7 +2,7 @@
 
 .instructor-tile {
   max-width: 600px;
-  min-height: auto;
+  min-height: 135px;
 
   .tile-link {
     border: solid 1px $lightest-grey;
@@ -111,8 +111,12 @@
     color: $white;
     left: 0;
     opacity: 0.95;
-    top: 114px;
+    top: 120px;
     transition: opacity 0.2s ease-in-out;
+
+    @include breakpoint(sm) {
+      top: 117px;
+    }
   }
 
   .tile-link {
@@ -121,6 +125,15 @@
 
     &:hover .author-role {
       opacity: 1;
+    }
+  }
+
+  .instructor-tile {
+    font-size: 0.9em;
+    line-height: 1.5em;
+
+    .author-role {
+      font-size: 1.1em;
     }
   }
 }
