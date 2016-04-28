@@ -70,6 +70,7 @@
 
 .instructor-tile-small {
   margin-top: 2em;
+  min-height: auto;
 
   p {
     margin: 0 0 0.5em 0;
@@ -136,4 +137,8 @@
       font-size: 1.1em;
     }
   }
+}
+
+.single .tile-body p {
+  display: block;
 }
