@@ -10,4 +10,17 @@
       font-weight: normal;
     }
   }
+
+  .table-highlight {
+    background-color: $lightest-grey;
+  }
+
+  tbody tr:hover {
+    background-color: inherit;
+  }
+
+  table {
+    margin-bottom: 1em;
+    margin-top: 1em;
+  }
 }
