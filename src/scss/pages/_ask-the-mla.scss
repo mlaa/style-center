@@ -13,6 +13,10 @@
 
   .table-highlight {
     background-color: $lightest-grey;
+
+    &:hover {
+      background-color: $lightest-grey;
+    }
   }
 
   tbody tr:hover {
