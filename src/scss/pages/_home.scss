@@ -124,7 +124,7 @@ $tile-transparent-maroon: rgba(102, 0, 68, 0.9);
   background-repeat: no-repeat;
   min-height: 182px;
   opacity: 0.95;
-  transition: opacity 0.2s ease-in-out;
+  //transition: opacity 0.2s ease-in-out;
 
   @include breakpoint(xs) {
     min-height: 370px;
