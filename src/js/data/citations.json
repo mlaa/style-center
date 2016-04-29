@@ -16,7 +16,7 @@
       }
     },
     {
-      author: 'edited by Copeland and Juliet McMaster,',
+      author: 'Edited by Copeland and Juliet McMaster,',
       title: '<em>The Cambridge Companion to Jane Austen</em>,',
       publisher: 'Cambridge UP,',
       pubdate: '1997,',
@@ -38,7 +38,7 @@
       title: '“<em>Curiosity</em> Rover Report (August 2015): Three Years on Mars!”',
       container: false,
       callouts: {
-        author: 'This source has no author. See pps. 24 and 55-56 of the <em>MLA Handbook</em> for more guidance.'
+        author: 'This source has no author. See pp. 24 and 55–56 of the <em>MLA Handbook</em> for more guidance.'
       },
       images: {
         title: '/assets/images/citation-video-1.png'
@@ -85,7 +85,7 @@
       title: '<em>EbscoHost</em>,',
       location: 'search.ebscohost.com/login.aspx?direct=true&db=f5h&AN=24093790&site=ehost-live.',
       callouts: {
-        title: 'Learn where to find publication information for online sources and when to omit a publisher’s name on pps. 17 and 42 of the <em>MLA Handbook</em>.'
+        title: 'Learn where to find publication information for online sources and when to omit a publisher’s name on pp. 17 and 42 of the <em>MLA Handbook</em>.'
       },
       images: {
         title: '/assets/images/citation-journal-1.png',
