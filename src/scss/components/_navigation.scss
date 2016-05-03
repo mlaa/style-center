@@ -73,17 +73,17 @@
 .page-logo {
 
   background-image: url($site-logo-small);
-  background-position: 0 10px;
+  background-position: 5px 5px;
   background-repeat: no-repeat;
-  background-size: 300px 36px;
-  height: 38px;
+  background-size: 300px 44px;
+  height: 44px;
   margin: 0;
   padding: 12px 0 0 0;
 
   @include breakpoint(sm) {
     background-image: url($site-logo);
-    background-position: 0 12px;
-    background-size: 408px 50px;
+    background-position: 6px 12px;
+    background-size: 300px 44px;
     flex-basis: 430px;
     height: 52px;
   }
