@@ -14,19 +14,14 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 
 		<div class="mailing-list">
 
-			<form>
+			<h2 class="icon-inline-tag icon-mail">Join Our Mailing List</h2>
+			<p>Be the first to read new posts and updates about MLA style.</p>
 
-				<h2 class="icon-inline-tag icon-mail">Join Our Mailing List</h2>
-				<p>Be the first to read new posts and updates about MLA style.</p>
-
-				<fieldset>
-					<input name="first_name" type="text" value="" placeholder="First name">
-					<input name="last_name" type="text" value="" placeholder="Last name">
-					<input name="email" type="text" value="" placeholder="E-mail address">
-					<button class="button">Subscribe</button>
-				</fieldset>
-
-			</form>
+			<?php
+				if( function_exists( 'ninja_forms_display_form' ) ){
+					ninja_forms_display_form( 7 );
+				}
+			?>
 
 		</div>
 
