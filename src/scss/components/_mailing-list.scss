@@ -14,7 +14,7 @@
     }
   }
 
-  form {
+  .mailing-list-inner {
     margin: 0 auto;
     padding: 2em 1em;
 
@@ -28,7 +28,11 @@
     }
   }
 
-  input {
+  .field-wrap {
+    display: inline;
+  }
+
+  .text-wrap.label-above input {
     border: 0;
     border-radius: 3px;
     margin: 0 8px 10px 0;
@@ -40,9 +44,24 @@
     }
   }
 
-  button {
-    @include material-plus-one;
-    font-weight: $default-font-bold;
+  .text-wrap.label-above label {
+    display: none;
+  }
+
+  .field-wrap:after {
+    clear: none;
+    content: none;
+  }
+
+  .subscribe-wrap > div {
+    display: inline;
+  }
+
+  .subscribe {
+    @include button;
+    border-color: $white;
+    border-style: solid;
+    border-width: 3px;
     padding: 0.25em 0.75em;
   }
 
