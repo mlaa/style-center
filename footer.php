@@ -16,7 +16,7 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 
 			<div class="mailing-list-inner">
 
-				<h2 class="icon-inline-tag icon-mail">Join Our Mailing List</h2>
+				<h2 class="icon-inline-tag icon-mail">Get MLA Style News from <em>The Source</em></h2>
 				<p>Be the first to read new posts and updates about MLA style.</p>
 
 				<?php
