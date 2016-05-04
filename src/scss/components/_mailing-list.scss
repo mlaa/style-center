@@ -58,7 +58,7 @@
   }
 
   .subscribe {
-    @include button;
+    @include button($white, $palette-blue);
     border-color: $white;
     border-style: solid;
     border-width: 3px;
