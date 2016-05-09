@@ -2,13 +2,11 @@
 
 .instructor-tile {
   max-width: 600px;
-  min-height: 135px;
 
   .tile-link {
     border: solid 1px $lightest-grey;
     display: flex;
     flex-direction: row;
-    min-height: 180px;
     position: static;
   }
 }
@@ -70,7 +68,6 @@
 
 .instructor-tile-small {
   margin-top: 2em;
-  min-height: auto;
 
   p {
     margin: 0 0 0.5em 0;
@@ -123,6 +120,7 @@
   .tile-link {
     border: 0;
     box-shadow: none;
+    min-height: 180px;
 
     &:hover .author-role {
       opacity: 1;
@@ -132,6 +130,7 @@
   .instructor-tile {
     font-size: 0.9em;
     line-height: 1.5em;
+    min-height: 135px;
 
     .author-role {
       font-size: 1.1em;
