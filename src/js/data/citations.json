@@ -16,8 +16,8 @@
       }
     },
     {
-      author: 'Edited by Copeland and Juliet McMaster,',
       title: '<em>The Cambridge Companion to Jane Austen</em>,',
+      author: 'Edited by Copeland and Juliet McMaster,',
       publisher: 'Cambridge UP,',
       pubdate: '1997,',
       location: 'pp. 131-48.',
@@ -45,8 +45,8 @@
       }
     },
     {
-      author: 'edited by Sarah Loff,',
       title: '<em>NASA’s Journey to Mars: Videos</em>,',
+      author: 'edited by Sarah Loff,',
       publisher: 'National Aeronautics and Space Administration,',
       pubdate: '30 July 2015,',
       location: 'www.nasa.gov/topics/journeytomars/videos/index.html.',
@@ -61,8 +61,8 @@
   ],
   'journal': [
     {
-      author: 'Lorensen, Jutta.',
       title: '“Between Image and Word, Color, and Time: Jacob Lawrence’s <em>The Migration Series</em>.”',
+      author: 'Lorensen, Jutta.',
       container: false,
       images: {
         author: '/assets/images/citation-journal-1.png',
