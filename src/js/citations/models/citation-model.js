@@ -110,7 +110,7 @@ module.exports = function (Module, App, Backbone) {
         return str.replace(/_([^_]+)_/g, '<em>$1</em>');
       };
 
-      var filterAttrs = (modelAttrs.container) ? _.keys(modelAttrs.schema.container) : _.keys(modelAttrs.schema.container);
+      var filterAttrs = (modelAttrs.container) ? _.keys(modelAttrs.schema.container) : _.keys(modelAttrs.schema.source);
 
       // Filter attributes for valid string values, then reduce to a
       // citation string.
