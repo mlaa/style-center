@@ -168,7 +168,8 @@ $citation-link-color: #36f;
     background-color: $citation-background-color;
     margin: 0;
     overflow: auto;
-    padding: 1em;
+    padding: 1em 1em 1em 2.5em;
+    text-indent: -1.5em;
   }
 }
 
