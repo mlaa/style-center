@@ -31,7 +31,7 @@ App.module('Citations', require('./citations'));
 App.on('start', function () {
   // expect DOM to be loaded at this point
   // Load generic modules.
-  require('./search-hints')(jQuery);
+  //require('./search-hints')(jQuery);
   require('./page-menu')(jQuery);
 
   Backbone.history.start({
