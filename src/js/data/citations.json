@@ -82,7 +82,7 @@
       }
     },
     {
-      title: '<em>EbscoHost</em>,',
+      title: '<em>EBSCOHost</em>,',
       location: 'search.ebscohost.com/login.aspx?direct=true&db=f5h&AN=24093790&site=ehost-live.',
       callouts: {
         title: 'Learn where to find publication information for online sources and when to omit a publisher’s name on pp. 17 and 42 of the <em>MLA Handbook</em>.'
