@@ -108,7 +108,12 @@ if ( have_posts() ) :
 	endif;
 
 	if ( ! is_archive() && ( comments_open() || get_comments_number() ) ) :
-		comment_form();
+		comment_form( array(
+			'title_reply' => 'Join the Conversation',
+			'comment_notes_before' => '<p>We invite you to comment on this post. Comments are moderated and subject to the <a href="https://commons.mla.org/terms">terms of service</a>.</p><p>If you have a question about MLA style, <a href="/ask-a-question">ask us</a>! Questions submitted through this comment form will not be answered.</p><p>Fields marked with <span class="ninja-forms-req-symbol">*</span> are required.</p>',
+			'label_submit' => 'Submit Comment',
+			'class_submit' => 'ninja-forms-field',
+		) );
 	endif;
 
 	?>
