@@ -41,8 +41,8 @@ function filter_comment_defaults( $args ) {
 	$args['fields']['comment_field'] = apply_filters( 'comment_form_field_comment', $comment_field_html );
 
 	// replace label text
-	$args['fields']['email'] = preg_replace( '/<label.*\/label>/', '<label>Your e-mail address</label>', $args['fields']['email'] );
 	$args['fields']['author'] = preg_replace( '/<label.*\/label>/', '<label>Your name</label>', $args['fields']['author'] );
+	$args['fields']['email'] = preg_replace( '/<label.*\/label>/', '<label>Your e-mail address</label>', $args['fields']['email'] );
 	$args['fields']['comment_field'] = preg_replace( '/<label.*\/label>/', '<label>Your comment</label>', $args['fields']['comment_field'] );
 
 	// label each field required
@@ -51,7 +51,7 @@ function filter_comment_defaults( $args ) {
 	}
 
 	// add disclaimer under email field
-	$args['fields']['email'] .= 'Your email address will not be published.';
+	$args['fields']['email'] .= 'Your e-mail address will not be published.';
 
 	return $args;
 }
