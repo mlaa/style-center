@@ -55,4 +55,6 @@ function filter_comment_defaults( $args ) {
 
 	return $args;
 }
-add_filter( 'comment_form_defaults', 'MLA\Commons\Theme\MLAStyleCenter\filter_comment_defaults' );
+if ( ! \is_user_logged_in() ) {
+	add_filter( 'comment_form_defaults', __NAMESPACE__ . '\filter_comment_defaults' );
+}
