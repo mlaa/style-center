@@ -34,12 +34,6 @@ function filter_comment_defaults( $args ) {
 	// store comment field html
 	$comment_field_html = $args['comment_field'];
 
-	// empty default comment field for anonymous users
-	// (logged-in users don't see other fields and so need the original field intact - see comment_form() definition)
-	if ( ! \is_user_logged_in() ) {
-		$args['comment_field'] = '';
-	}
-
 	// append comment field html to end
 	$args['fields']['comment_field'] = apply_filters( 'comment_form_field_comment', $comment_field_html );
 
@@ -60,6 +54,12 @@ function filter_comment_defaults( $args ) {
 		'<label>Your comment <span class="required ninja-forms-req-symbol">*</span></label>',
 		$args['fields']['comment_field']
 	);
+
+	// empty default comment field for anonymous users
+	// (logged-in users don't see other fields and so need the original field intact - see comment_form() definition)
+	if ( ! \is_user_logged_in() ) {
+		$args['comment_field'] = '';
+	}
 
 	// add disclaimer under email field
 	$args['fields']['email'] .= 'Your e-mail address will not be published.';
