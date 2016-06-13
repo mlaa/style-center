@@ -1,14 +1,15 @@
 // Citation builder
 
-$citation-background-color: #bdf;
+$citation-background-color: #dbebf6;
 $citation-border-color: #14b;
 $citation-link-color: #36f;
+$citation-popup-background-color: #2b2b81;
 
 .works-cited-a-quick-guide {
   .content {
     background-color: $white;
     background-image: url($citation-background-right);
-    background-position: 120% top;
+    background-position: top right;
     background-repeat: no-repeat;
     background-size: 651px 389px;
     position: relative;
@@ -354,9 +355,9 @@ fieldset {
 div.modui-popup {
 // scss-lint:enable QualifyingElement
   @include material-plus-one-hover;
-  background-color: $citation-border-color;
+  background-color: $citation-popup-background-color;
   border: 0;
-  border-color: $citation-border-color;
+  border-color: $citation-popup-background-color;
   color: $white;
   font-family: $default-font-family;
   font-size: 0.9em;
@@ -365,7 +366,7 @@ div.modui-popup {
   &.bottom-center::before,
   &.top-center::before,
   &.right-center::before {
-    background: $citation-border-color;
+    background: $citation-popup-background-color;
     border: 0;
     height: 25px;
     opacity: 1;
