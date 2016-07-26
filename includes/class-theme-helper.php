@@ -51,6 +51,7 @@ class ThemeHelper extends Base {
 		$this->add_action( 'wp_enqueue_scripts', $this, 'assets', 100 );
 		$this->add_action( 'init', $this, 'register_menus' );
 		$this->add_action( 'widgets_init', $this, 'register_sidebars' );
+		$this->add_action( 'widgets_init', $this, 'register_widgets' );
 		$this->add_filter( 'comment_form_default_fields', $this, 'disable_comment_url' );
 		$this->add_filter( 'body_class', $this, 'add_body_class' );
 		$this->add_filter( 'excerpt_more', $this, 'set_excerpt_more' );
@@ -147,6 +148,13 @@ class ThemeHelper extends Base {
 				'after_title'   => '</h4>',
 			) );
 		}
+	}
+
+	/**
+	 * Register sidebars in widget area.
+	 */
+	public function register_widgets() {
+		register_widget( __NAMESPACE__ . '\Widget_Recent_Posts_Custom_Title' );
 	}
 
 	/**
