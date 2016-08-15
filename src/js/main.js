@@ -33,6 +33,7 @@ App.on('start', function () {
   // Load generic modules.
   //require('./search-hints')(jQuery);
   require('./page-menu')(jQuery);
+  require('./faq')(jQuery);
 
   Backbone.history.start({
     pushState: true,

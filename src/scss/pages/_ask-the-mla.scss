@@ -1,6 +1,41 @@
 // Questions and Answers
 
 .category-ask-the-mla {
+  .navigation {
+    display: block;
+    text-align: right;
+  }
+
+  h2 {
+    font-size: 0.95em;
+    margin-bottom: 0;
+
+    a {
+      font-weight: normal;
+    }
+  }
+
+  h2::before {
+    content: "Q: ";
+  }
+
+  .toggle-answer::after {
+    content: ">";
+    display: inline-block;
+    font-weight: bold;
+    margin-left: 0.5em;
+  }
+
+  .toggle-answer.toggle::after {
+    transform: rotate(90deg);
+  }
+
+  .toggle-answer,
+  .answer {
+    font-size: 0.95em;
+    margin-left: 1em;
+  }
+
   .faq-search {
     background-color: $home-background-color;
     margin-bottom: 1em;
