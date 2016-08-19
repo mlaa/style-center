@@ -67,3 +67,11 @@ function filter_comment_defaults( $args ) {
 	return $args;
 }
 add_filter( 'comment_form_defaults', __NAMESPACE__ . '\filter_comment_defaults' );
+
+function filter_document_title_parts( $parts ) {
+	if ( is_category( 'ask-the-mla' ) && ! isset( $_GET['s'] ) ) {
+		$parts['title'] = ThemeHelper::get_page_title();
+	}
+	return $parts;
+}
+add_filter( 'document_title_parts', __NAMESPACE__ . '\filter_document_title_parts' );
