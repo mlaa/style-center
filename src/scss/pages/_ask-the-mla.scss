@@ -6,17 +6,19 @@
     text-align: right;
   }
 
-  h2 {
-    font-size: 0.95em;
-    margin-bottom: 0;
+  .block-main {
+    h2 {
+      font-size: 0.95em;
+      margin-bottom: 0;
 
-    a {
-      font-weight: normal;
+      a {
+        font-weight: normal;
+      }
     }
-  }
 
-  h2::before {
-    content: "Q: ";
+    h2::before {
+      content: "Q: ";
+    }
   }
 
   .toggle-answer::after {
