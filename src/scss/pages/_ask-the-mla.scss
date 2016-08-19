@@ -19,6 +19,24 @@
     h2::before {
       content: "Q: ";
     }
+
+    .nav-head {
+      display: flex;
+
+      h3 {
+        flex: 1;
+      }
+    }
+
+    &.faq-search-active {
+      .nav-head {
+        display: block;
+
+        h3 {
+          display: none;
+        }
+      }
+    }
   }
 
   .toggle-answer::after {

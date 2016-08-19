@@ -23,7 +23,7 @@ get_header();
 
 ?>
 
-<div class="block-main">
+<div class="block-main <?php if ( isset( $_GET['s'] ) ): ?> faq-search-active<?php endif ?>">
 
 	<h1>
 		<?php echo wp_kses_post( ThemeHelper::get_page_title() ); ?>
@@ -36,15 +36,18 @@ get_header();
 		Haven't found what you're looking for? <a href="/ask-a-question">Submit a question.</a>
 	</div>
 
-<?php
-	the_posts_pagination( array(
-		'mid_size'  => 4,
-		'prev_text' => __( '≪ Previous', 'textdomain' ),
-		'next_text' => __( 'Next ≫', 'textdomain' ),
-	) );
-?>
+	<div class="nav-head">
+	<h3>Recently Answered Questions</h3>
+		<?php
+			the_posts_pagination( array(
+				'mid_size'  => 4,
+				'prev_text' => __( '≪ Previous', 'textdomain' ),
+				'next_text' => __( 'Next ≫', 'textdomain' ),
+			) );
+		?>
+	</div>
 
-<br>
+	<br>
 
 <?php
 
