@@ -75,3 +75,11 @@ function filter_document_title_parts( $parts ) {
 	return $parts;
 }
 add_filter( 'document_title_parts', __NAMESPACE__ . '\filter_document_title_parts' );
+
+function filter_author_query( $query ) {
+	if ( isset( $_GET['post_author'] ) ) {
+		$query->set( 'meta_key', 'post_author' );
+		$query->set( 'meta_value', $_GET['post_author'] );
+	}
+}
+add_filter( 'pre_get_posts', __NAMESPACE__ . '\filter_author_query' );

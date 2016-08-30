@@ -7,9 +7,17 @@
 
 namespace MLA\Commons\Theme\MLAStyleCenter;
 
+$post_author_meta_value_map = array(
+	'carr'     => 'Nora Carr',
+	'foasberg' => 'Nancy Foasberg',
+	'gibson'   => 'Angela Gibson',
+	'wirth'    => 'Eric Wirth',
+	'woods'    => 'Livia Arndal Woods',
+);
+
 ?>
 
-<div class="block-main">
+<div class="block-main <?php if ( empty( $_GET['post_author'] ) ) echo 'no-post-author' ?>">
 
 	<?php if ( ( is_page() || is_category() ) && ! is_home() && ! is_front_page() ) : ?>
 	<h1>
@@ -27,24 +35,13 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 			You are viewing all posts tagged <a href="/tag/<?php single_tag_title(); ?>" rel="tag"><?php single_tag_title(); ?></a>
 		</p>
 	<?php endif; ?>
+	<?php if ( isset( $_GET['post_author'] ) ) : ?>
+		<p class="post-author-meta">
+			You are viewing all posts by <?php echo $post_author_meta_value_map[$_GET['post_author']] ?>.
+		</p>
+	<?php endif; ?>
 
 <?php
-
-/*
-if ( is_category( 'questions-and-answers' ) ) {
-?>
-	<div class="faq-search">
-		<h3>Search our list of frequently asked questions.</h3>
-		<?php echo preg_replace(
-			'#</form>#',
-			'<input type="hidden" name="cat" id="cat" value="3" /></form>',
-			get_search_form( false )
-		); ?>
-		Haven't found what you're looking for? <a href="/ask-a-question">Submit a question.</a>
-	</div>
-<?php
-}
-*/
 
 if ( have_posts() ) :
 
@@ -54,6 +51,21 @@ if ( have_posts() ) :
 
 		the_post();
 		$count++;
+
+		$post_category = get_the_category()[0];
+
+		if ( 'post' === get_post_type() ) {
+			$custom_fields = get_post_custom();
+			$post_author = ( isset ( $custom_fields['post_author'] ) ) ? $custom_fields['post_author'][0] : '';
+		}
+
+		if ( ! empty( $post_author ) && ! ( is_page() || is_home() || is_front_page() ) ) {
+			if ( isset( $post_author_meta_value_map[ $post_author ] ) ) {
+				$post_author_full = $post_author_meta_value_map[ $post_author ];
+			}
+		}
+
+		$post_author_html = ( 'behind-the-style' == $post_category->slug && ! is_category() && ! is_search() && ! empty( $post_author_full ) ) ? 'By <a href="/category/behind-the-style?post_author=' . $post_author . '">' . $post_author_full . '</a>' : '';
 
 ?>
 
@@ -81,10 +93,12 @@ if ( have_posts() ) :
 	<?php
 	endif;
 
-	if ( is_category() || is_search() ) :
+	if ( is_category() || is_search() || ! empty( $_GET['post_author'] ) ) :
 	?>
 		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<?php
+
+		echo $post_author_html;
 
 		the_excerpt();
 	else :
@@ -92,14 +106,12 @@ if ( have_posts() ) :
 	?>
 		<h2><?php the_title(); ?></h2>
 	<?php
+
+		echo $post_author_html;
+
 		endif;
 
 		the_content();
-
-		if ( 'post' === get_post_type() ) :
-			$custom_fields = get_post_custom();
-			$post_author = $custom_fields['post_author'][0];
-		endif;
 
 		if ( ! empty( $post_author ) && ! ( is_page() || is_home() || is_front_page() ) ) :
 			get_template_part( "templates/authors/$post_author" );

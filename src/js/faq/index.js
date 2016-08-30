@@ -4,7 +4,6 @@
 
 module.exports = function ($) {
 
-  console.log(_);
   'use strict';
 
   $('a.toggle-answer').each(function() {

@@ -34,6 +34,7 @@ App.on('start', function () {
   //require('./search-hints')(jQuery);
   require('./page-menu')(jQuery);
   require('./faq')(jQuery);
+  require('./behind-the-style')(jQuery);
 
   Backbone.history.start({
     pushState: true,
