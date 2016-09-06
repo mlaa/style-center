@@ -13,6 +13,7 @@ $post_author_meta_value_map = array(
 	'gibson'   => 'Angela Gibson',
 	'wirth'    => 'Eric Wirth',
 	'woods'    => 'Livia Arndal Woods',
+	'kandel'	=> 'Michael Kandel',
 );
 
 ?>
