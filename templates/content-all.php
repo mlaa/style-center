@@ -13,7 +13,7 @@ $post_author_meta_value_map = array(
 	'gibson'   => 'Angela Gibson',
 	'wirth'    => 'Eric Wirth',
 	'woods'    => 'Livia Arndal Woods',
-	'kandel'	=> 'Michael Kandel',
+	'kandel'   => 'Michael Kandel',
 );
 
 ?>
@@ -66,7 +66,7 @@ if ( have_posts() ) :
 			}
 		}
 
-		$post_author_html = ( 'behind-the-style' == $post_category->slug && ! is_category() && ! is_search() && ! empty( $post_author_full ) ) ? 'By <a href="/category/behind-the-style?post_author=' . $post_author . '">' . $post_author_full . '</a>' : '';
+		$post_author_html = ( 'behind-the-style' == $post_category->slug && ! is_category() && ! is_search() && ! empty( $post_author_full ) ) ? 'By <a href="/category/behind-the-style?post_author=' . $post_author . '">' . $post_author_full . '</a><br>' : '';
 
 ?>
 
