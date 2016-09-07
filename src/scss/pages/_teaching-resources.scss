@@ -52,6 +52,10 @@
   background-image: url($author-photo-woods);
 }
 
+.author-photo-kandel::before {
+  background-image: url($author-photo-kandel);
+}
+
 .author-role {
   background-color: $white;
   border: solid 1px $lightest-grey;
