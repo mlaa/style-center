@@ -32,7 +32,7 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 		<footer>
 
 			<ul class="nav nav-pills">
-				<li><a href="/about-the-mla-style-center">About the MLA Style Center</a></li>
+				<li><a href="/about-the-mla-style-center">About The MLA Style Center</a></li>
 				<li><a href="https://www.mla.org/About-Us/Support/Donate-to-the-MLA">Donate</a></li>
 				<li><a href="/contact-us">Contact</a></li>
 			</ul>
