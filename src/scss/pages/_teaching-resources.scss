@@ -56,6 +56,10 @@
   background-image: url($author-photo-kandel);
 }
 
+.author-photo-latimer::before {
+  background-image: url($author-photo-latimer);
+}
+
 .author-role {
   background-color: $white;
   border: solid 1px $lightest-grey;
