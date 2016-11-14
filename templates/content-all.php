@@ -67,7 +67,7 @@ if ( have_posts() ) :
 			}
 		}
 
-		$post_author_html = ( function() use ( $post_category, $post_author, $post_author_full ) {
+		$post_author_html = call_user_func( function() use ( $post_category, $post_author, $post_author_full ) {
 			$retval = '';
 
 			if (
@@ -85,7 +85,7 @@ if ( have_posts() ) :
 			}
 
 			return $retval;
-		} )();
+		} );
 
 ?>
 
