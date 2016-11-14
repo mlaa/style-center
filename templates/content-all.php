@@ -67,7 +67,25 @@ if ( have_posts() ) :
 			}
 		}
 
-		$post_author_html = ( 'behind-the-style' == $post_category->slug && ! is_category() && ! is_search() && ! empty( $post_author_full ) ) ? 'By <a href="/category/behind-the-style?post_author=' . $post_author . '">' . $post_author_full . '</a><br>' : '';
+		$post_author_html = ( function() use ( $post_category, $post_author, $post_author_full ) {
+			$retval = '';
+
+			if (
+				! is_category() &&
+				! is_search() &&
+				! empty( $post_author_full ) &&
+				in_array( $post_category->slug, ['behind-the-style', 'teaching-resources'] )
+			) {
+					$retval = sprintf(
+						'By <a href="/category/%s?post_author=%s">%s</a><br>',
+						$post_category->slug,
+						$post_author,
+						$post_author_full
+					);
+			}
+
+			return $retval;
+		} )();
 
 ?>
 
