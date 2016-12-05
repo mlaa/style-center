@@ -89,7 +89,7 @@ if ( have_posts() ) :
 
 ?>
 
-<?php if ( is_category( 'behind-the-style' ) && $count === 2 ) : ?>
+<?php if ( is_category( 'behind-the-style' ) && $count === 2 && 0 === get_query_var( 'paged' ) ) : ?>
 	<div class="halves">
 <?php endif; ?>
 
@@ -152,7 +152,7 @@ if ( have_posts() ) :
 	?>
 </article>
 
-<?php if ( is_category( 'behind-the-style' ) && $count === 3 ) : ?>
+<?php if ( is_category( 'behind-the-style' ) && $count === 3 && 0 === get_query_var( 'paged' ) ) : ?>
 	</div> <!-- halves -->
 <?php endif; ?>
 
