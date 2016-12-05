@@ -137,6 +137,12 @@ if ( have_posts() ) :
 			get_template_part( "templates/authors/$post_author" );
 		endif;
 
+		?>
+			<div class="pub_date">
+				<p>Published <?php echo the_date('j F Y'); ?></p>
+			</div><!-- /.pub_date -->
+		<?php
+
 	endif;
 
 	if ( ! is_archive() && ( comments_open() || get_comments_number() ) ) :
