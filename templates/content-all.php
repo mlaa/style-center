@@ -137,11 +137,11 @@ if ( have_posts() ) :
 			get_template_part( "templates/authors/$post_author" );
 		endif;
 
-		?>
+		if ( ! is_page() ): ?>
 			<div class="pub_date">
 				<p>Published <?php echo the_date('j F Y'); ?></p>
 			</div><!-- /.pub_date -->
-		<?php
+		<?php endif;
 
 	endif;
 
