@@ -60,6 +60,10 @@
   background-image: url($author-photo-latimer);
 }
 
+.author-photo-rappaport::before {
+  background-image: url($author-photo-rappaport);
+}
+
 .author-role {
   background-color: $white;
   border: solid 1px $lightest-grey;
