@@ -64,6 +64,10 @@
   background-image: url($author-photo-rappaport);
 }
 
+.author-photo-guest::before {
+  background-image: url($author-photo-guest);
+}
+
 .author-role {
   background-color: $white;
   border: solid 1px $lightest-grey;
