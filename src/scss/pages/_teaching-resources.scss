@@ -161,3 +161,192 @@
 .single .tile-body p {
   display: block;
 }
+
+.sections-container {
+  .open-category {
+    display: none;
+  }
+
+  .post_links {
+    line-height: 1.2;
+    a {
+      margin: 0 3px;
+    }
+  }
+
+  p {
+    margin-bottom: 0px;
+    height: auto;
+  }
+
+  .style {
+
+    margin-bottom: 17px;
+
+    .open-category {
+      border-bottom: 2px solid #CF8A83;
+    }
+
+    img {
+      border-top: 2px solid #CF8A83;
+      border-right: 2px solid #CF8A83;
+      border-left: 2px solid #CF8A83;
+    }
+
+    ul {
+      padding-left: 0;
+      margin-top: -9px;
+      border-left: 2px solid #CF8A83;
+      border-right: 2px solid #CF8A83;
+      margin-bottom: 0;
+      overflow: hidden;
+      list-style-type: none;
+
+      li {
+        float:left;
+        padding: 5px;
+        overflow: hidden;
+        width: 30%;
+        height: 245px;
+        text-align: center;
+        font-size: 13px;
+
+        p {
+          line-height: 1.2;
+        }
+
+        h4 {
+          line-height: 1.2;
+        }
+
+        img {
+          border: none;
+        }
+      }
+    }
+
+  }
+
+  .research {
+    margin-bottom: 20px;
+
+    .open-category { 
+      border-bottom: 2px solid #8586b0;
+      border-left: 2px solid #8586b0;
+      border-right: 2px solid #8586b0;
+    }
+
+    img {
+      border-top: 2px solid #8586b0;
+      border-left: 2px solid #8586b0;
+      border-right: 2px solid #8586b0;
+    }
+
+    ul {
+      padding-left: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      overflow: hidden;
+
+      li {
+        list-style-type: none;
+        float:left;
+        padding: 5px;
+        width: 30%;
+        height: 290px;
+        text-align: center;
+        font-size: 13px;
+
+        p {
+          line-height: 1.2;
+        }
+
+        h4 {
+          line-height: 1.2;
+        }
+
+        img {
+          border: none;
+        }
+      }  
+    }
+
+    .resources_row_1 {
+      padding: 0 10px;
+      margin-bottom: 10px;
+      ul {
+        background-color: #f6f6f5;
+      }
+    }
+
+    .research_description {
+      padding: 20px 15px;
+      background-color: #f6f6f5;
+      margin-top: 20px;
+
+      p {
+        font-size: 13px;
+        line-height: 1.2;
+      }
+    }
+
+    .bibliography_resources {
+      margin-top: -8px;
+      padding: 20px 10px 0 10px;
+
+      img {
+        border: none;
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+  }
+
+  .writing {
+
+    img {
+      border-top: 2px solid #968999;
+      border-right: 2px solid #968999;
+      border-left: 2px solid #968999;
+    }
+
+    .open-category { 
+      border-bottom: 2px solid #968999;
+    }
+
+    ul {
+      padding-left: 0;
+      margin-top: -9px;
+      border-left: 2px solid #968999;
+      border-right: 2px solid #968999;
+      margin-bottom: 0;
+      overflow: hidden;
+
+      li {
+        list-style-type: none;
+        float:left;
+        padding: 5px;
+        width: 30%;
+        height: 250px;
+        text-align: center;
+        font-size: 13px;
+
+        p {
+          line-height: 1.2;
+        }
+
+        h4 {
+          line-height: 1.2;
+        }
+
+        img {
+          border: none;
+        }
+      }
+    }
+
+  }
+
+}

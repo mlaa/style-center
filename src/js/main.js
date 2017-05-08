@@ -20,7 +20,7 @@ var App = new Backbone.Marionette.Application();
 App.addRegions({
   BookRefs: '#search-book-refs',
   Content: '#citation-tool'
-});
+}); 
 
 
 // Load Marionette modules.
@@ -35,6 +35,7 @@ App.on('start', function () {
   require('./page-menu')(jQuery);
   require('./faq')(jQuery);
   require('./bylines')(jQuery);
+  require('./teaching-resources')(jQuery);
 
   Backbone.history.start({
     pushState: true,
