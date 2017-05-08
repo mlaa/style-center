@@ -181,6 +181,8 @@
 
   .style {
 
+    margin-bottom: 17px;
+
     .open-category {
       border-bottom: 2px solid #CF8A83;
     }
@@ -196,6 +198,7 @@
       margin-top: -9px;
       border-left: 2px solid #CF8A83;
       border-right: 2px solid #CF8A83;
+      margin-bottom: 0;
       overflow: hidden;
       list-style-type: none;
 
