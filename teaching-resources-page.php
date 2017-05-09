@@ -9,7 +9,15 @@ get_header();
 <div class="block-main no-post-author">
 	<div class="tr-title"><h1><?php the_title(); ?></h1></div>
 
-<?php 
+	<article class="type-page page tr-content">
+
+	<?php while( have_posts() ) : the_post();
+	the_content();
+	?>
+	</article>
+
+<?php endwhile;
+wp_reset_query();
 
 $style_cat = get_term_by( 'slug', 'style', 'category', 'OBJECT' );
 $research_cat = get_term_by( 'slug', 'research', 'category', 'OBJECT' );
@@ -88,7 +96,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 
 		</section> <!-- /.research -->
 
-		<section class="writing">
+		<!-- <section class="writing">
 
 			<p><a href="#" class="toggle-category"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/writing-button.jpg" /></a></p>
 			<div class="open-category">
@@ -106,7 +114,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 				<ul>
 					<?php 
 						$writing_query = new WP_Query('cat=' . $writing_cat->term_id );
-						if( $writing_query->have_posts() ) : while( $writing_query->have_posts() ) : $writing_query->the_post();
+						//if( $writing_query->have_posts() ) : while( $writing_query->have_posts() ) : $writing_query->the_post();
 					?>
 					<li>
 						<p><?php the_post_thumbnail('thumbnail') ?></p>
@@ -116,15 +124,15 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 							<?php $writing_meta = get_post_meta( get_the_ID(), 'teaching_resources_links', true );
 								echo $writing_meta;
 							?>
-						</div> <!-- /.post_links -->
+						</div> --> <!-- /.post_links -->
 					</li>
-					<?php endwhile;
-					endif; 
-					wp_reset_postdata();
+					<?php //endwhile;
+					//endif; 
+					//wp_reset_postdata();
 					?>
 				</ul>
-			</div> <!-- /.open-category -->
-		</section> <!-- /.writing -->
+		<!--</div> --> <!-- /.open-category -->
+		<!-- </section> --> <!-- /.writing -->
 
 	</div> <!-- /.sections-container -->
 </div> <!-- /.block-main -->
