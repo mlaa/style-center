@@ -185,6 +185,10 @@
 
   .style {
 
+    &.open img {
+      border-bottom: none;
+    }
+
     margin-bottom: 17px;
 
     .open-category {
@@ -192,9 +196,7 @@
     }
 
     img {
-      border-top: 2px solid #CF8A83;
-      border-right: 2px solid #CF8A83;
-      border-left: 2px solid #CF8A83;
+      border: 2px solid #CF8A83;
     }
 
     ul {
@@ -232,6 +234,11 @@
   }
 
   .research {
+
+    &.open img {
+      border-bottom: none;
+    }
+
     margin-bottom: 20px;
 
     .open-category { 
@@ -241,9 +248,7 @@
     }
 
     img {
-      border-top: 2px solid #8586b0;
-      border-left: 2px solid #8586b0;
-      border-right: 2px solid #8586b0;
+      border: 2px solid #8586b0;
     }
 
     ul {
@@ -310,6 +315,10 @@
 
   .writing {
 
+    &.open img {
+      border-bottom: none;
+    }
+
     font-size: 14px;
     line-height: 1.2;
 
@@ -325,9 +334,7 @@
     }
 
     img {
-      border-top: 2px solid #968999;
-      border-right: 2px solid #968999;
-      border-left: 2px solid #968999;
+      border: 2px solid #968999;
     }
 
     .open-category { 
