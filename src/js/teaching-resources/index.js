@@ -10,6 +10,7 @@ module.exports = function ($) {
       		e.preventDefault();
 
       		$(this).closest('section').find('.open-category').toggle();
+      		$(this).closest('section').toggleClass('open');
 	    });
  	});
 	

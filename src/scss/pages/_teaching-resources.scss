@@ -162,6 +162,10 @@
   display: block;
 }
 
+.tr-title {
+  font-family: "Lexia";
+}
+
 .sections-container {
   .open-category {
     display: none;
@@ -181,6 +185,10 @@
 
   .style {
 
+    &.open img {
+      border-bottom: none;
+    }
+
     margin-bottom: 17px;
 
     .open-category {
@@ -188,9 +196,7 @@
     }
 
     img {
-      border-top: 2px solid #CF8A83;
-      border-right: 2px solid #CF8A83;
-      border-left: 2px solid #CF8A83;
+      border: 2px solid #CF8A83;
     }
 
     ul {
@@ -204,11 +210,11 @@
 
       li {
         float:left;
-        padding: 5px;
+        padding: 5px 10px;
         overflow: hidden;
         width: 30%;
         height: 245px;
-        text-align: center;
+        text-align: left;
         font-size: 13px;
 
         p {
@@ -228,6 +234,11 @@
   }
 
   .research {
+
+    &.open img {
+      border-bottom: none;
+    }
+
     margin-bottom: 20px;
 
     .open-category { 
@@ -237,9 +248,7 @@
     }
 
     img {
-      border-top: 2px solid #8586b0;
-      border-left: 2px solid #8586b0;
-      border-right: 2px solid #8586b0;
+      border: 2px solid #8586b0;
     }
 
     ul {
@@ -254,7 +263,7 @@
         padding: 5px;
         width: 30%;
         height: 290px;
-        text-align: center;
+        text-align: left;
         font-size: 13px;
 
         p {
@@ -306,13 +315,30 @@
 
   .writing {
 
-    img {
-      border-top: 2px solid #968999;
-      border-right: 2px solid #968999;
+    &.open img {
+      border-bottom: none;
+    }
+
+    font-size: 14px;
+    line-height: 1.2;
+
+
+    .tr-content {
       border-left: 2px solid #968999;
+      border-right: 2px solid #968999;
+      padding-top: 10px;
+      p {
+        margin-top: -7px;
+        padding: 10px;
+      }
+    }
+
+    img {
+      border: 2px solid #968999;
     }
 
     .open-category { 
+      margin-top: -5px;
       border-bottom: 2px solid #968999;
     }
 
@@ -327,10 +353,10 @@
       li {
         list-style-type: none;
         float:left;
-        padding: 5px;
+        padding: 10px;
         width: 30%;
         height: 250px;
-        text-align: center;
+        text-align: left;
         font-size: 13px;
 
         p {
@@ -347,6 +373,22 @@
       }
     }
 
+  }
+
+}
+
+@media (min-width: 678px) and (max-width: 765px) {
+
+  .style, .research, .writing {
+    width: 604px;  
+  }
+
+  .writing {
+    margin-bottom: 20px;
+  }
+
+  .sidebar {
+    width: 604px;
   }
 
 }
