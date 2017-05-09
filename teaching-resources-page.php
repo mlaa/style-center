@@ -30,7 +30,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 					<li>
 						<p><?php the_post_thumbnail('thumbnail') ?></p>
 						<h4><?php the_title(); ?></h4>
-						<p><?php the_excerpt(); ?></p>
+						<div class="post_excerpt"><?php the_excerpt(); ?></div>
 						<div class="post_links">
 							<?php $style_meta = get_post_meta( get_the_ID(), 'teaching_resources_links', true );
 								echo $style_meta;
@@ -66,7 +66,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 						<li>
 							<p><?php the_post_thumbnail('thumbnail') ?></p>
 							<h4><?php the_title(); ?></h4>
-							<p><?php the_excerpt(); ?></p>
+							<div class="post_excerpt"><?php the_excerpt(); ?></div>
 							<div class="post_links">
 								<?php $research_meta = get_post_meta( get_the_ID(), 'teaching_resources_links', true );
 									echo $research_meta;
@@ -92,7 +92,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 
 			<p><a href="#" class="toggle-category"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/writing-button.jpg" /></a></p>
 			<div class="open-category">
-			
+
 				<article class="type-page page tr-content">
 
 				<?php while( have_posts() ) : the_post();
@@ -111,7 +111,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 					<li>
 						<p><?php the_post_thumbnail('thumbnail') ?></p>
 						<h4><?php the_title(); ?></h4>
-						<p><?php the_excerpt(); ?></p>
+						<div class="post_excerpt"><?php the_excerpt(); ?></div>
 						<div class="post_links">
 							<?php $writing_meta = get_post_meta( get_the_ID(), 'teaching_resources_links', true );
 								echo $writing_meta;
