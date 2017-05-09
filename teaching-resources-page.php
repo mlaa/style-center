@@ -9,21 +9,14 @@ get_header();
 <div class="block-main no-post-author">
 	<div class="tr-title"><h1><?php the_title(); ?></h1></div>
 
-	<article class="type-page page tr-content">
-
-	<?php while( have_posts() ) : the_post();
-	the_content();
-	?>
-	</article>
-
-<?php endwhile;
-wp_reset_query();
+<?php 
 
 $style_cat = get_term_by( 'slug', 'style', 'category', 'OBJECT' );
 $research_cat = get_term_by( 'slug', 'research', 'category', 'OBJECT' );
 $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 
 ?>
+
 	<div class="sections-container">
 
 		<section class="style">
@@ -60,7 +53,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 				<div class="bibliography_resources">
 					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/bibliography-resources.gif" />
 					<div class="research_description">
-						<h4>Understanding the MLA International Bibliography: An Online Course</h4>
+						<h4>Understanding the <i>MLA International Bibliography</i>: An Online Course</h4>
 						<p>Introductory Text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu purus nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu purus nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Solor sit amet, nisi. <a href="#">Link to sign up</a>.</p>
 					</div> <!-- /.research_description -->
 				</div> <!-- /.bibliography_resources -->
@@ -96,8 +89,20 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 		</section> <!-- /.research -->
 
 		<section class="writing">
+
 			<p><a href="#" class="toggle-category"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/writing-button.jpg" /></a></p>
 			<div class="open-category">
+			
+				<article class="type-page page tr-content">
+
+				<?php while( have_posts() ) : the_post();
+				the_content();
+				?>
+				</article>
+
+			<?php endwhile;
+			wp_reset_query();
+			?>
 				<ul>
 					<?php 
 						$writing_query = new WP_Query('cat=' . $writing_cat->term_id );
