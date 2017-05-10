@@ -465,3 +465,11 @@
     }
 
 }
+
+.category-style {
+
+  &.category-teaching-resources .post-thumbnail {
+    display: none;
+  }
+
+}
