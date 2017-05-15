@@ -18,6 +18,7 @@ $post_author_meta_value_map = array(
 	'rappaport' => 'Jennifer Rappaport',
 	'grooms'		=> 'Russell Grooms',
 	'suffern'		=> 'Erika Suffern',
+	'hoffman'		=> 'Joan M. Hoffman',
 );
 
 ?>
