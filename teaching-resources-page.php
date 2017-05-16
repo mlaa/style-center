@@ -62,7 +62,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/bibliography-resources.gif" />
 					<div class="research_description">
 						<h4>Understanding the <i>MLA International Bibliography</i>: An Online Course</h4>
-						<p>This short online course helps students of all levels become experts in using the <em>MLA International Bibliography</em> for college-level research. The course usually takes students ninety minutes or less to complete and requires that they have access to the <em>MLA International Bibliography</em> through their institution’s library. Students can <a href="https://mla.moonami.com/login/index.php">create a free account</a> to take the course and start earning badges. Instructors should see the instructor’s guide to integrating the course below.</p>
+						<p>This short online course helps students of all levels become experts in using the <em>MLA International Bibliography</em> for college-level research. The course usually takes students ninety minutes or less to complete and requires that they have access to the <em>MLA International Bibliography</em> on the EBSCO platform through their institution’s library. Students can <a href="https://mla.moonami.com/login/index.php">create a free account</a> to take the course and start earning badges. Instructors should see the instructor’s guide to integrating the course below.</p>
 					</div> <!-- /.research_description -->
 				</div> <!-- /.bibliography_resources -->
 				<div class="resources_row_1">
