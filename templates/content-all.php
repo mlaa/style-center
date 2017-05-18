@@ -19,6 +19,7 @@ $post_author_meta_value_map = array(
 	'grooms'		=> 'Russell Grooms',
 	'suffern'		=> 'Erika Suffern',
 	'hoffman'		=> 'Joan M. Hoffman',
+	'mla'				=> 'Modern Language Association',
 );
 
 ?>

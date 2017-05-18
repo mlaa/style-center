@@ -72,6 +72,10 @@
   background-image: url($author-photo-suffern);
 }
 
+.author-photo-mla::before {
+  background-image: url($author-photo-mla);
+}
+
 .author-role {
   background-color: $white;
   border: solid 1px $lightest-grey;
@@ -248,7 +252,7 @@
 
     margin-bottom: 20px;
 
-    .open-category { 
+    .open-category {
       border-bottom: 2px solid #8586b0;
       border-left: 2px solid #8586b0;
       border-right: 2px solid #8586b0;
@@ -291,7 +295,7 @@
         img {
           border: none;
         }
-      }  
+      }
     }
 
     .resources_row_1 {
@@ -353,7 +357,7 @@
       max-width: 100%;
     }
 
-    .open-category { 
+    .open-category {
       margin-top: -5px;
       border-bottom: 2px solid #968999;
     }
@@ -402,7 +406,7 @@
 @media (min-width: 678px) and (max-width: 765px) {
 
   .style, .research, .writing {
-    width: 604px;  
+    width: 604px;
   }
 
   .writing {
@@ -416,7 +420,7 @@
 }
 
 @media (min-device-width: 768px) and (max-device-width: 1024px) {
-  
+
   .style {
     ul li {
       width: 40% !important;
@@ -441,7 +445,7 @@
         height: 310px !important;
       }
     }
- 
+
     .research .resources_row_2 {
       li {
         width: 40% !important;
@@ -456,7 +460,7 @@
 }
 
 .faq-sidebar-ad {
-  
+
   ul {
     overflow: hidden;
 
