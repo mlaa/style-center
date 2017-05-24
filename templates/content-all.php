@@ -97,50 +97,40 @@ if ( have_posts() ) :
 				if( count( $author ) >= 1 ) {
 					
 					$i = 0;
+                    $author_count = count( $author );
 
 					foreach( $author as $name ) {
 
 						$author_full_name = $post_author_meta_value_map[ $name ];
-
+						
 						if( $i == 0 ) {
 
-							$retval = sprintf(
-								'By <a href="/category/%s?post_author=%s">%s</a>',
-								$post_category->slug,
-								$name,
-								$author_full_name
-							);
+							$retval = 'By <a href="/category/%s?post_author=%s">%s</a>';
 
-						} else if( $i == count( $author ) - 1 ) {
+						} else if( $i == $author_count - 1 ) {
 							
-							$retval = sprintf(
-								' <a href="/category/%s?post_author=%s">%s</a>',
-								$post_category->slug,
-								$name,
-								$author_full_name
-							);
+                            if( $author_count == 2 ) {
 
-						} else if( count( $author ) == 2 && $i == 2 ) {
-							
-							$retval = sprintf(
-								' & <a href="/category/%s?post_author=%s">%s</a>',
-								$post_category->slug,
-								$name,
-								$author_full_name
-							);
+                                $retval = ' &amp; <a href="/category/%s?post_author=%s">%s</a>';
 
-						} else {
+                            }
 
-							$retval = sprintf(
-								', <a href="/category/%s?post_author=%s">%s</a>,',
-								$post_category->slug,
-								$name,
-								$author_full_name
-							);
+                            else {
+
+                                $retval = ', <a href="/category/%s?post_author=%s">%s</a>';
+
+                            }
+
+						}
+
+                        else {
+
+							$retval = ', <a href="/category/%s?post_author=%s">%s</a>';
+
 						}
 
 						
-						$collection[] = $retval;
+						$collection[] = sprintf( $retval, $post_category->slug, $name, $author_full_name );
 
 						$i++;
 
