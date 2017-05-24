@@ -83,3 +83,16 @@ function filter_author_query( $query ) {
 	}
 }
 add_filter( 'pre_get_posts', __NAMESPACE__ . '\filter_author_query' );
+
+/**
+ * Parses post author field from comma seperated list for content-all.php file
+ * 
+ * @param  string $post_meta	post meta to be parsed from post_author   
+ * @return array  $authors		parsed array of authors
+ */
+function parse_post_author( $post_meta ) {
+
+	$authors = explode(',', $post_meta);
+	return $authors;
+
+}

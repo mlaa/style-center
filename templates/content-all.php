@@ -16,10 +16,10 @@ $post_author_meta_value_map = array(
 	'kandel'    => 'Michael Kandel',
 	'latimer'   => 'Barney Latimer',
 	'rappaport' => 'Jennifer Rappaport',
-	'grooms'		=> 'Russell Grooms',
-	'suffern'		=> 'Erika Suffern',
-	'hoffman'		=> 'Joan M. Hoffman',
-	'mla'				=> 'Modern Language Association',
+	'grooms'	=> 'Russell Grooms',
+	'suffern'	=> 'Erika Suffern',
+	'hoffman'	=> 'Joan M. Hoffman',
+	'mla'		=> 'Modern Language Association',
 );
 
 ?>
@@ -57,6 +57,7 @@ if ( have_posts() ) :
 	while ( have_posts() ) :
 
 		the_post();
+
 		$count++;
 
 		$post_category = get_the_category()[0];
@@ -66,30 +67,84 @@ if ( have_posts() ) :
 			$post_author = ( isset ( $custom_fields['post_author'] ) ) ? $custom_fields['post_author'][0] : '';
 		}
 
+		$author = parse_post_author( $post_author );
+
 		if ( ! empty( $post_author ) && ! ( is_page() || is_home() || is_front_page() ) ) {
-			if ( isset( $post_author_meta_value_map[ $post_author ] ) ) {
-				$post_author_full = $post_author_meta_value_map[ $post_author ];
+
+			if( count( $author ) == 1 ) {
+
+				if ( isset( $post_author_meta_value_map[ $post_author ] ) ) {
+					$post_author_full = $post_author_meta_value_map[ $post_author ];
+				}
+
+			} else {
+
+				$post_author_full = false;
+
 			}
 		}
 
-		$post_author_html = call_user_func( function() use ( $post_category, $post_author, $post_author_full ) {
+		$post_author_html = call_user_func( function() use ( $post_category, $author, $post_author_full, $post_author_meta_value_map ) {
 			$retval = '';
 
 			if (
 				! is_category() &&
 				! is_search() &&
-				! empty( $post_author_full ) &&
-				in_array( $post_category->slug, ['behind-the-style', 'teaching-resources'] )
+				in_array( $post_category->slug, ['behind-the-style', 'teaching-resources'] ) && 
+				is_array( $author )
 			) {
-					$retval = sprintf(
-						'By <a href="/category/%s?post_author=%s">%s</a><br>',
-						$post_category->slug,
-						$post_author,
-						$post_author_full
-					);
+
+				if( count( $author ) >= 1 ) {
+					
+					$i = 0;
+
+					foreach( $author as $name ) {
+
+						$author_full_name = $post_author_meta_value_map[ $name ];
+
+						if( $i == 0 ) {
+
+							$retval = sprintf(
+								'By <a href="/category/%s?post_author=%s">%s</a>',
+								$post_category->slug,
+								$name,
+								$author_full_name
+							);
+
+						} else if( $i == count( $author ) - 1 ) {
+							
+							$retval = sprintf(
+								' <a href="/category/%s?post_author=%s">%s</a>',
+								$post_category->slug,
+								$name,
+								$author_full_name
+							);
+
+						} else {
+
+							$retval = sprintf(
+								', <a href="/category/%s?post_author=%s">%s</a>,',
+								$post_category->slug,
+								$name,
+								$author_full_name
+							);
+						}
+
+						
+						$collection[] = $retval;
+
+						$i++;
+
+					}
+
+					//var_dump( $collection );
+
+				}
+
 			}
 
-			return $retval;
+			return $collection;
+			//return $retval;
 		} );
 
 ?>
@@ -123,7 +178,9 @@ if ( have_posts() ) :
 		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<?php
 
-		echo $post_author_html;
+		foreach( $post_author_html as $item ) {
+			echo $item;
+		}
 
 		the_excerpt();
 	else :
@@ -132,22 +189,37 @@ if ( have_posts() ) :
 		<h2><?php the_title(); ?></h2>
 	<?php
 
-		echo $post_author_html;
+		foreach( $post_author_html as $item ) {
+			echo $item;
+		}
 
 		endif;
 
 		the_content();
 
-		if ( ! empty( $post_author ) && ! ( is_page() || is_home() || is_front_page() ) ) :
-			get_template_part( "templates/authors/$post_author" );
-		endif;
+		foreach( $author as $name ) :
+		?>
 
-		if ( ! is_page() ): ?>
+		<div class="author_container">
+			<?php
+			if ( ! empty( $name ) && ! ( is_page() || is_home() || is_front_page() ) ) :
+				get_template_part( "templates/authors/$name" );
+			endif;
+			?>
+		</div> <!-- /.author_template -->
+	<?php
+		endforeach;?>
+
+<?php
+		if ( ! is_page() ): 
+			//if( ! is_null( the_date('j F Y') ) ) :
+			?>
 			<div class="pub_date">
 				<p>Published <?php echo the_date('j F Y'); ?></p>
 			</div><!-- /.pub_date -->
-		<?php endif;
-
+		<?php 
+			//endif;
+		endif;
 	endif;
 
 	if ( ! is_archive() && ( comments_open() || get_comments_number() ) ) :
