@@ -120,6 +120,15 @@ if ( have_posts() ) :
 								$author_full_name
 							);
 
+						} else if( count( $author ) == 2 && $i == 2 ) {
+							
+							$retval = sprintf(
+								' & <a href="/category/%s?post_author=%s">%s</a>',
+								$post_category->slug,
+								$name,
+								$author_full_name
+							);
+
 						} else {
 
 							$retval = sprintf(
@@ -136,8 +145,6 @@ if ( have_posts() ) :
 						$i++;
 
 					}
-
-					//var_dump( $collection );
 
 				}
 
