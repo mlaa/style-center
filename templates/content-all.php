@@ -111,7 +111,7 @@ if ( have_posts() ) :
 							
                             if( $author_count == 2 ) {
 
-                                $retval = ' &amp; <a href="/category/%s?post_author=%s">%s</a>';
+                                $retval = ' and <a href="/category/%s?post_author=%s">%s</a>';
 
                             }
 
