@@ -343,8 +343,8 @@
 
 
     .tr-content {
-      border-left: 2px solid #968999;
-      border-right: 2px solid #968999;
+      /*border-left: 2px solid #968999;
+      border-right: 2px solid #968999;*/
       padding: 10px;
       p {
         margin-top: -7px;
@@ -359,14 +359,17 @@
 
     .open-category {
       margin-top: -5px;
-      border-bottom: 2px solid #968999;
+      border: 2px solid #968999;
+      border-top: none;
+      width: 100%;
+      /*border-bottom: 2px solid #968999;*/
     }
 
     ul {
       padding-left: 0;
       margin-top: -9px;
-      border-left: 2px solid #968999;
-      border-right: 2px solid #968999;
+      /*border-left: 2px solid #968999;
+      border-right: 2px solid #968999;*/
       margin-bottom: 0;
       overflow: hidden;
       width: 100%;
@@ -376,7 +379,7 @@
         float:left;
         padding: 10px;
         width: 30%;
-        height: 250px;
+        /* height: 250px; */
         text-align: center;
         font-size: 13px;
 
