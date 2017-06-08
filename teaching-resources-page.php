@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
 Template Name: Teaching Resources
  */
@@ -7,7 +7,7 @@ get_header();
 ?>
 
 <div class="block-main no-post-author">
-	<div class="tr-title"><h1><?php the_title(); ?></h1></div>
+	<h1><?php the_title(); ?></h1>
 
 	<article class="type-page page tr-content">
 
@@ -31,7 +31,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 			<p><a href="#" class="toggle-category"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/style-button.jpg" /></a></p>
 			<div class="open-category">
 				<ul>
-					<?php 
+					<?php
 						$style_query = new WP_Query('cat=' . $style_cat->term_id);
 						if( $style_query->have_posts() ) : while( $style_query->have_posts() ) : $style_query->the_post();
 					?>
@@ -47,7 +47,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 					</li>
 					<?php
 						endwhile;
-					endif; 
+					endif;
 					wp_reset_postdata();
 					?>
 				</ul>
@@ -56,7 +56,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 
 		<section class="research">
 			<p><a href="#" class="toggle-category"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/research-button.jpg" /></a></p>
-			
+
 			<div class="open-category">
 				<div class="bibliography_resources">
 					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/bibliography-resources.gif" />
@@ -67,7 +67,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 				</div> <!-- /.bibliography_resources -->
 				<div class="resources_row_1">
 					<ul>
-						<?php 
+						<?php
 							$research_query = new WP_Query('cat=' . $research_cat->term_id );
 							if( $research_query->have_posts() ) : while( $research_query->have_posts() ) : $research_query->the_post();
 						?>
@@ -87,7 +87,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 							}
 
 							endwhile;
-						endif; 
+						endif;
 						wp_reset_postdata();
 						?>
 					</ul>
@@ -112,7 +112,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 			wp_reset_query();
 			?>
 				<ul>
-					<?php 
+					<?php
 						$writing_query = new WP_Query('cat=' . $writing_cat->term_id );
 						if( $writing_query->have_posts() ) : while( $writing_query->have_posts() ) : $writing_query->the_post();
 					?>
@@ -127,7 +127,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 						</div> <!-- /.post_links -->
 					</li>
 					<?php endwhile;
-					endif; 
+					endif;
 					wp_reset_postdata();
 					?>
 				</ul>
@@ -136,7 +136,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 
 	</div> <!-- /.sections-container -->
 </div> <!-- /.block-main -->
-<?php 
+<?php
 get_sidebar();
 get_footer();
 ?>
