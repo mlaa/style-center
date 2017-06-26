@@ -183,7 +183,7 @@ if ( have_posts() ) :
 	else :
 		if ( ! ( is_page() || is_home() || is_front_page() ) ) :
 	?>
-		<h2><?php the_title(); ?></h2>
+		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<?php
 
 		foreach( $post_author_html as $item ) {
@@ -192,7 +192,11 @@ if ( have_posts() ) :
 
 		endif;
 
-		the_content();
+		//outputs excerpt if in tag page and content if in single page
+		if( is_single() )
+			the_content();
+		else if( is_archive() )
+			the_excerpt();
 
 		foreach( $author as $name ) :
 		?>
@@ -212,7 +216,7 @@ if ( have_posts() ) :
 			//if( ! is_null( the_date('j F Y') ) ) :
 			?>
 			<div class="pub_date">
-				<p>Published <?php echo the_date('j F Y'); ?></p>
+				<p>Published <?php echo get_the_date('j F Y'); ?></p>
 			</div><!-- /.pub_date -->
 		<?php 
 			//endif;
