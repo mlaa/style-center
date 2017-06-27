@@ -96,3 +96,76 @@ function parse_post_author( $post_meta ) {
 	return $authors;
 
 }
+
+/**
+ * Synonyms for elasticpress
+ * https://github.com/10up/ElasticPress/wiki/Synonym-Analyzer
+ *
+ * @param $mapping
+ *
+ * @return mixed
+ */
+function filter_ep_config_mapping( $mapping ) {
+	$synonyms = [
+		// '&,ampersand', // doesn't work.
+		'standalone,stand-alone,bogus',
+		'website,web site',
+	];
+
+	// bail early if $mapping is missing or not array
+	if ( ! isset( $mapping ) || ! is_array( $mapping ) ) {
+		return false;
+	}
+
+	// ensure we have filters and is array
+	if (
+		! isset( $mapping['settings']['analysis']['filter'] )
+		|| ! is_array( $mapping['settings']['analysis']['filter'] )
+	) {
+		return false;
+	}
+
+	// ensure we have analyzers and is array
+	if (
+		! isset( $mapping['settings']['analysis']['analyzer']['default']['filter'] )
+		|| ! is_array( $mapping['settings']['analysis']['analyzer']['default']['filter'] )
+	) {
+		return false;
+	}
+
+	// define the custom filter
+	$mapping['settings']['analysis']['filter']['mla_style_synonym_filter'] = [
+		'type' => 'synonym',
+		'synonyms' => $synonyms
+	];
+
+	// tell the analyzer to use our newly created filter
+	$mapping['settings']['analysis']['analyzer']['default']['filter'][] = 'mla_style_synonym_filter';
+
+	return $mapping;
+}
+add_filter( 'ep_config_mapping', __NAMESPACE__ . '\filter_ep_config_mapping' );
+
+/**
+ * mostly copied from elasticpress-buddypress.
+ * TODO not yet sure why this is necessary since post_type should not be remapped in this context.
+ */
+function filter_ep_formatted_args( $formatted_args ) {
+	// because we changed the mapping for post_type with ep_bp_filter_ep_config_mapping(), change query accordingly
+	foreach ( $formatted_args['post_filter']['bool']['must'] as &$must ) {
+		// maybe term, maybe terms - depends on whether or not the value of "post_type.raw" is an array. need to handle both.
+		foreach ( [ 'term', 'terms' ] as $key ) {
+			if ( isset( $must[ $key ]['post_type.raw'] ) ) {
+				$must[ $key ]['post_type'] = $must[ $key ]['post_type.raw'];
+				unset( $must[ $key ]['post_type.raw'] );
+
+				// re-index 'must' array keys using array_values (non-sequential keys pose problems for elasticpress)
+				if ( is_array( $must[ $key ]['post_type'] ) ) {
+					$must[ $key ]['post_type'] = array_values( $must[ $key ]['post_type'] );
+				}
+			}
+		}
+	}
+	return $formatted_args;
+}
+add_filter( 'ep_formatted_args', __NAMESPACE__ . '\filter_ep_formatted_args' );
