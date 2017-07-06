@@ -193,7 +193,7 @@ if ( have_posts() ) :
 		endif;
 
 		//outputs excerpt if in tag page and content if in single page or front-page
-		if( is_single() )
+		if( is_single() || is_page() )
 			the_content();
 		else if( is_archive() )
 			the_excerpt();
