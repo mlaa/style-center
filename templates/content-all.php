@@ -193,27 +193,29 @@ if ( have_posts() ) :
 		endif;
 
 		//outputs excerpt if in tag page and content if in single page or front-page
-		if( is_single() || is_page() )
-			the_content();
-		else if( is_archive() )
-			the_excerpt();
-		elseif( is_front_page() )
+		if( is_single() || is_page() ) {
 			the_content();
 
-		foreach( $author as $name ) :
-		?>
-
-		<div class="author_container">
-			<?php
-			if ( ! empty( $name ) && ! ( is_page() || is_home() || is_front_page() ) ) :
-				get_template_part( "templates/authors/$name" );
-			endif;
+			foreach( $author as $name ) :
 			?>
-		</div> <!-- /.author_template -->
-	<?php
-		endforeach;?>
 
-<?php
+			<div class="author_container">
+				<?php
+				if ( ! empty( $name ) && ! ( is_page() || is_home() || is_front_page() ) ) :
+					get_template_part( "templates/authors/$name" );
+				endif;
+				?>
+			</div> <!-- /.author_template -->
+
+			<?php endforeach;
+
+		} else if( is_archive() ) {
+			the_excerpt();
+
+		} else if( is_front_page() ) {
+			the_content();
+		}
+
 		if ( ! is_page() ): 
 			//if( ! is_null( the_date('j F Y') ) ) :
 			?>
