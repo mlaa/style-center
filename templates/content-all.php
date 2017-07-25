@@ -183,7 +183,7 @@ if ( have_posts() ) :
 	else :
 		if ( ! ( is_page() || is_home() || is_front_page() ) ) :
 	?>
-		<h2><?php the_title(); ?></h2>
+		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<?php
 
 		foreach( $post_author_html as $item ) {
@@ -192,27 +192,35 @@ if ( have_posts() ) :
 
 		endif;
 
-		the_content();
+		//outputs excerpt if in tag page and content if in single page or front-page
+		if( is_single() || is_page() ) {
+			the_content();
 
-		foreach( $author as $name ) :
-		?>
-
-		<div class="author_container">
-			<?php
-			if ( ! empty( $name ) && ! ( is_page() || is_home() || is_front_page() ) ) :
-				get_template_part( "templates/authors/$name" );
-			endif;
+			foreach( $author as $name ) :
 			?>
-		</div> <!-- /.author_template -->
-	<?php
-		endforeach;?>
 
-<?php
+			<div class="author_container">
+				<?php
+				if ( ! empty( $name ) && ! ( is_page() || is_home() || is_front_page() ) ) :
+					get_template_part( "templates/authors/$name" );
+				endif;
+				?>
+			</div> <!-- /.author_template -->
+
+			<?php endforeach;
+
+		} else if( is_archive() ) {
+			the_excerpt();
+
+		} else if( is_front_page() ) {
+			the_content();
+		}
+
 		if ( ! is_page() ): 
 			//if( ! is_null( the_date('j F Y') ) ) :
 			?>
 			<div class="pub_date">
-				<p>Published <?php echo the_date('j F Y'); ?></p>
+				<p>Published <?php echo get_the_date('j F Y'); ?></p>
 			</div><!-- /.pub_date -->
 		<?php 
 			//endif;
