@@ -169,3 +169,46 @@ function filter_ep_formatted_args( $formatted_args ) {
 	return $formatted_args;
 }
 add_filter( 'ep_formatted_args', __NAMESPACE__ . '\filter_ep_formatted_args' );
+
+/**
+ * Registers an editor stylesheet for the theme.
+ */
+function sc_add_editor_styles() {
+	add_editor_style();
+}
+add_action( 'admin_init', __NAMESPACE__ . '\sc_add_editor_styles' );
+
+/**
+ * Add styles/classes to the "Styles" drop-down
+ */
+function sc_mce_before_init( $settings ) {
+
+	$style_formats = [
+		[
+			'title' => 'Extract Blockquote',
+			'selector' => 'blockquote',
+			'classes' => 'extract',
+		],
+		[
+			'title' => 'Example Blockquote',
+			'selector' => 'blockquote',
+			'classes' => 'example',
+		],
+		[
+			'title' => 'Works Cited Header',
+			'selector' => 'h4',
+			'classes' => 'citations',
+		],
+		[
+			'title' => 'Works Cited Paragraph',
+			'selector' => 'p',
+			'classes' => 'wc',
+		],
+	];
+
+	$settings['style_formats'] = json_encode( $style_formats );
+
+	return $settings;
+
+}
+add_filter( 'tiny_mce_before_init', __NAMESPACE__ . '\sc_mce_before_init' );
