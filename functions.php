@@ -86,8 +86,8 @@ add_filter( 'pre_get_posts', __NAMESPACE__ . '\filter_author_query' );
 
 /**
  * Parses post author field from comma seperated list for content-all.php file
- * 
- * @param  string $post_meta	post meta to be parsed from post_author   
+ *
+ * @param  string $post_meta	post meta to be parsed from post_author
  * @return array  $authors		parsed array of authors
  */
 function parse_post_author( $post_meta ) {
@@ -176,7 +176,7 @@ add_filter( 'ep_formatted_args', __NAMESPACE__ . '\filter_ep_formatted_args' );
 function sc_add_editor_styles() {
 	add_editor_style();
 }
-add_action( 'admin_init', __NAMESPACE__ . '\sc_add_editor_styles' );
+//add_action( 'admin_init', __NAMESPACE__ . '\sc_add_editor_styles' );
 
 /**
  * Add styles/classes to the "Styles" drop-down
