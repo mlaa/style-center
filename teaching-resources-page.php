@@ -32,7 +32,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 			<div class="open-category">
 				<ul>
 					<?php
-						$style_query = new WP_Query('cat=' . $style_cat->term_id);
+						$style_query = new WP_Query('cat=' . $style_cat->term_id . '&posts_per_page=-1' );
 						if( $style_query->have_posts() ) : while( $style_query->have_posts() ) : $style_query->the_post();
 					?>
 					<li>
