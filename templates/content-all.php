@@ -90,25 +90,25 @@ if ( have_posts() ) :
 			if (
 				! is_category() &&
 				! is_search() &&
-				in_array( $post_category->slug, ['behind-the-style', 'teaching-resources'] ) && 
+				in_array( $post_category->slug, ['behind-the-style', 'teaching-resources'] ) &&
 				is_array( $author )
 			) {
 
 				if( count( $author ) >= 1 ) {
-					
+
 					$i = 0;
                     $author_count = count( $author );
 
 					foreach( $author as $name ) {
 
 						$author_full_name = $post_author_meta_value_map[ $name ];
-						
+
 						if( $i == 0 ) {
 
 							$retval = 'By <a href="/category/%s?post_author=%s">%s</a>';
 
 						} else if( $i == $author_count - 1 ) {
-							
+
                             if( $author_count == 2 ) {
 
                                 $retval = ' and <a href="/category/%s?post_author=%s">%s</a>';
@@ -129,7 +129,7 @@ if ( have_posts() ) :
 
 						}
 
-						
+
 						$collection[] = sprintf( $retval, $post_category->slug, $name, $author_full_name );
 
 						$i++;
@@ -162,7 +162,10 @@ if ( have_posts() ) :
 	<?php
 	endif;
 
-	if ( has_post_thumbnail() ) :
+	if (
+		is_category( 'behind-the-style' ) && $count < 4 && has_post_thumbnail() ||
+		! is_category( 'behind-the-style' ) && has_post_thumbnail()
+	) :
 	?>
 		<div class="post-thumbnail">
 			<?php the_post_thumbnail(); ?>
@@ -216,13 +219,13 @@ if ( have_posts() ) :
 			the_content();
 		}
 
-		if ( ! is_page() ): 
+		if ( ! is_page() ):
 			//if( ! is_null( the_date('j F Y') ) ) :
 			?>
 			<div class="pub_date">
 				<p>Published <?php echo get_the_date('j F Y'); ?></p>
 			</div><!-- /.pub_date -->
-		<?php 
+		<?php
 			//endif;
 		endif;
 	endif;
