@@ -208,6 +208,19 @@
   margin-bottom: 0.9em;
 }
 
+.orange-highlight {
+  background-color: #fabf7c;
+}
+.yellow-highlight {
+  background-color: #fcf9cd;
+  border-color: #fabf7c;
+  border: 2px solid;
+}
+.blue-highlight {
+  background-color: #bce1fa;
+}
+
+
 // Tag cloud
 .tagcloud {
   a {

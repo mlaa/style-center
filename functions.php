@@ -204,6 +204,21 @@ function sc_mce_before_init( $settings ) {
 			'selector' => 'p',
 			'classes' => 'wc',
 		],
+		[
+			'title' => 'Works Cited Orange Highlight',
+			'selector' => 'span',
+			'classes' => 'orange-highlight',
+		],
+		[
+			'title' => 'Works Cited Yellow Highlight',
+			'selector' => 'span',
+			'classes' => 'yellow-highlight',
+		],
+		[
+			'title' => 'Works Cited Blue Highlight',
+			'selector' => 'span',
+			'classes' => 'blue-highlight',
+		],
 	];
 
 	$settings['style_formats'] = json_encode( $style_formats );
