@@ -241,7 +241,7 @@ add_filter( 'tiny_mce_before_init', __NAMESPACE__ . '\sc_mce_before_init' );
  */
 function sc_add_ellipsis_to_behind_the_style_posts( $excerpt ) {
 	$ellipsis = ' . . .';
-	if ( 0 === preg_match( "/$ellipsis$/i", $excerpt ) ) {
+	if ( is_category( 'behind-the-style' ) && 0 === preg_match( "/$ellipsis$/i", $excerpt ) ) {
 		$excerpt .= $ellipsis;
 	}
 	return $excerpt;
