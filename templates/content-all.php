@@ -163,8 +163,8 @@ if ( have_posts() ) :
 	endif;
 
 	if (
-		is_category( 'behind-the-style' ) && $count < 4 && has_post_thumbnail() ||
-		! is_category( 'behind-the-style' ) && has_post_thumbnail()
+		( is_category( 'behind-the-style' ) && $count < 4 && has_post_thumbnail() ) ||
+		( ! is_category( 'behind-the-style' ) && has_post_thumbnail() )
 	) :
 	?>
 		<div class="post-thumbnail">
