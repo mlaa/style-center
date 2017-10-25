@@ -19,7 +19,7 @@ jQuery( function( $ ) {
       $( '#post' ).on( 'submit', ask_submit_handler );
     } else {
       // Turn off validation.
-      $( '#post' ).on( 'submit', ask_submit_handler );
+      $( '#post' ).off( 'submit', ask_submit_handler );
     }
   };
 
@@ -65,7 +65,7 @@ jQuery( function( $ ) {
       $( '#post' ).on( 'submit', behind_submit_handler );
     } else {
       // Turn off validation.
-      $( '#post' ).on( 'submit', behind_submit_handler );
+      $( '#post' ).off( 'submit', behind_submit_handler );
     }
   };
 
