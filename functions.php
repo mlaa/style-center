@@ -213,17 +213,17 @@ function sc_mce_before_init( $settings ) {
 			'classes' => 'wc',
 		],
 		[
-			'title' => 'Works Cited Orange Highlight',
+			'title' => 'Orange Highlight Span',
 			'selector' => 'span',
 			'classes' => 'orange-highlight',
 		],
 		[
-			'title' => 'Works Cited Yellow Highlight',
+			'title' => 'Yellow Highlight Span',
 			'selector' => 'span',
 			'classes' => 'yellow-highlight',
 		],
 		[
-			'title' => 'Works Cited Blue Highlight',
+			'title' => 'Blue Highlight Span',
 			'selector' => 'span',
 			'classes' => 'blue-highlight',
 		],
