@@ -106,10 +106,12 @@ function parse_post_author( $post_meta ) {
  * @return mixed
  */
 function filter_ep_config_mapping( $mapping ) {
+	$filter_name = 'mla_style_synonym_filter';
+
 	$synonyms = [
-		// '&,ampersand', // doesn't work.
-		'standalone,stand-alone,bogus',
-		'website,web site',
+		// without "stand" and "alone" as independent synonyms, no matches are returned for "standalone".
+		'standalone, stand-alone, stand alone, stand, alone',
+		'website, web site',
 	];
 
 	// bail early if $mapping is missing or not array
@@ -134,13 +136,13 @@ function filter_ep_config_mapping( $mapping ) {
 	}
 
 	// define the custom filter
-	$mapping['settings']['analysis']['filter']['mla_style_synonym_filter'] = [
+	$mapping['settings']['analysis']['filter'][ $filter_name ] = [
 		'type' => 'synonym',
 		'synonyms' => $synonyms
 	];
 
 	// tell the analyzer to use our newly created filter
-	$mapping['settings']['analysis']['analyzer']['default']['filter'][] = 'mla_style_synonym_filter';
+	$mapping['settings']['analysis']['analyzer']['default']['filter'][] = $filter_name;
 
 	return $mapping;
 }
