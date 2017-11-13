@@ -214,17 +214,17 @@ function sc_mce_before_init( $settings ) {
 		],
 		[
 			'title' => 'Orange Highlight Span',
-			'selector' => 'span',
+			'inline' => 'span',
 			'classes' => 'orange-highlight',
 		],
 		[
 			'title' => 'Yellow Highlight Span',
-			'selector' => 'span',
+			'inline' => 'span',
 			'classes' => 'yellow-highlight',
 		],
 		[
 			'title' => 'Blue Highlight Span',
-			'selector' => 'span',
+			'inline' => 'span',
 			'classes' => 'blue-highlight',
 		],
 	];
