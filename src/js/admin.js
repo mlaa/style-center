@@ -1,6 +1,13 @@
 jQuery( function( $ ) {
   var mla_style_user_id = 1007041;
 
+  // helper function to get saved custom field values by field name
+  var get_custom_field_value = function( field_name ) {
+    return $.trim(
+      $( '#postcustomstuff [type="text"][value="' + field_name + '"]' ).parents( 'tr' ).find( 'textarea' ).val()
+    );
+  }
+
   var ask_checkbox = $( '#in-category-3' );
 
   var ask_click_handler = function( e ) {
@@ -32,7 +39,7 @@ jQuery( function( $ ) {
     }
 
     // Require post_short_title custom field value.
-    if ( ! $.trim( $( '#postcustomstuff [value="post_short_title"]' ).parents( 'tr' ).find( 'textarea' ).val() ) ) {
+    if ( ! get_custom_field_value( 'post_short_title' ) ) {
       violations.push( 'You must include a short title for all posts.' );
     }
 
@@ -78,7 +85,7 @@ jQuery( function( $ ) {
     }
 
     // Require post_short_title custom field value.
-    if ( ! $.trim( $( '#postcustomstuff [value="post_short_title"]' ).parents( 'tr' ).find( 'textarea' ).val() ) ) {
+    if ( ! get_custom_field_value( 'post_short_title' ) ) {
       violations.push( 'You must include a short title for all posts.' );
     }
 
