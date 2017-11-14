@@ -23,10 +23,10 @@ jQuery( function( $ ) {
       $( '#comment_status' ).prop( 'checked', false );
 
       // Turn on validation.
-      $( '#post' ).on( 'submit', ask_submit_handler );
+      $( '#publish' ).on( 'click', ask_submit_handler );
     } else {
       // Turn off validation.
-      $( '#post' ).off( 'submit', ask_submit_handler );
+      $( '#publish' ).off( 'click', ask_submit_handler );
     }
   };
 
@@ -69,10 +69,10 @@ jQuery( function( $ ) {
       $( '#comment_status' ).prop( 'checked', true );
 
       // Turn on validation.
-      $( '#post' ).on( 'submit', behind_submit_handler );
+      $( '#publish' ).on( 'click', behind_submit_handler );
     } else {
       // Turn off validation.
-      $( '#post' ).off( 'submit', behind_submit_handler );
+      $( '#publish' ).off( 'click', behind_submit_handler );
     }
   };
 
