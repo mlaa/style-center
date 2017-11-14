@@ -111,7 +111,7 @@ jQuery( function( $ ) {
 
     // Require post_author custom field value.
     if ( ! $.trim( $( '#postcustomstuff [value="post_author"]' ).parents( 'tr' ).find( 'textarea' ).val() ) ) {
-      violations.push( 'You must include an author for all posts.' );
+      violations.push( 'You must include a post_author for Behind the Style posts.' );
     }
 
     if ( violations.length ) {
