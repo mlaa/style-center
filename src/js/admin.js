@@ -4,7 +4,7 @@ jQuery( function( $ ) {
   // helper function to get saved custom field values by field name
   var get_custom_field_value = function( field_name ) {
     return $.trim(
-      $( '#postcustomstuff [type="text"][value="' + field_name + '"]' ).parents( 'tr' ).find( 'textarea' ).val()
+      $( '#postcustomstuff [type="text"][value="' + field_name + '"]' ).parents( 'tr:visible' ).find( 'textarea' ).val()
     );
   }
 
