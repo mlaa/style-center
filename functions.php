@@ -173,6 +173,21 @@ function filter_ep_formatted_args( $formatted_args ) {
 add_filter( 'ep_formatted_args', __NAMESPACE__ . '\filter_ep_formatted_args' );
 
 /**
+ * If query contains quotes, no fuzziness.
+ *
+ * @param float $fuzziness Fuzziness argument for ElasticSearch.
+ * @return float
+ */
+function sc_filter_ep_fuzziness_arg( $fuzziness ) {
+	global $wp_query;
+	if ( strpos( $wp_query->get( 's' ), '"' ) !== false ) {
+		$fuzziness = 0;
+	}
+	return $fuzziness;
+}
+add_filter( 'ep_fuzziness_arg', 'sc_filter_ep_fuzziness_arg', 2 );
+
+/**
  * Registers an editor stylesheet for the theme.
  */
 function sc_add_editor_styles() {
