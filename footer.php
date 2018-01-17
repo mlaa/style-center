@@ -43,7 +43,7 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 				<li class="item-3"><a class="social-pill-twitter" href="https://twitter.com/mlastyle"></a></li>
 			</ul>
 
-			<p><span class="print-remove"><a href="https://commons.mla.org/terms/">Terms of Service</a> ● </span>© 2016 Modern Language Association of America</p>
+			<p><span class="print-remove"><a href="/terms/">Terms of Service</a> ● </span>© 2016 Modern Language Association of America</p>
 
 		</footer>
 
