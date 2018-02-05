@@ -39,7 +39,9 @@ jQuery( function( $ ) {
   var post_submit_handler = function( e ) {
     var violations = [];
 
-    if ( ask_checkbox.is( ':checked' ) ) {
+    if ( 'save-post' === document.activeElement.id ) {
+      return; // Don't apply validation when saving drafts.
+    } else if ( ask_checkbox.is( ':checked' ) ) {
       // Maximum word length of post name in permalink.
       if ( $( '#editable-post-name-full' ).text().split( '-' ).length > 5 ) {
         violations.push( 'You must shorten the permalink to five words.' );
