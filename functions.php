@@ -199,7 +199,7 @@ function sc_add_editor_styles() {
  * Include admin JS.
  */
 function sc_enqueue_admin_scripts() {
-	wp_enqueue_script( 'sc_admin', get_template_directory_uri() . '/src/js/admin.js', [ 'jquery' ] );
+	wp_enqueue_script( 'sc_admin', get_template_directory_uri() . '/src/js/admin.js', [ 'jquery' ], 1 );
 }
 add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\sc_enqueue_admin_scripts' );
 
