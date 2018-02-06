@@ -215,7 +215,7 @@ class Base {
 	protected function run_styles() {
 		foreach ( $this->styles as $item ) {
 			if ( ! $item['processed'] ) {
-				wp_enqueue_style( $item['name'], $item['path'], $item['dependencies'] );
+				wp_enqueue_style( $item['name'], $item['path'], $item['dependencies'], 1 );
 				$item['processed'] = true;
 			}
 		}
