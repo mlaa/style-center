@@ -56,6 +56,11 @@ jQuery( function( $ ) {
       if ( ! $( '.tagchecklist' ).children().length ) {
         violations.push( 'You must add tags for all posts.' );
       }
+
+      // Require "Author" to be mlastyle.
+      if ( mla_style_user_id != $( '#post_author_override' ).val() ) {
+        violations.push( 'Author must be mlastyle.' );
+      }
     } else if ( behind_checkbox.is( ':checked' ) ) {
       // Maximum word length of post name in permalink.
       if ( $( '#editable-post-name-full' ).text().split( '-' ).length > 5 ) {
@@ -90,6 +95,11 @@ jQuery( function( $ ) {
       // Require post_author custom field value.
       if ( ! get_custom_field_value( 'post_author' ) ) {
         violations.push( 'You must include a post_author for Behind the Style posts.' );
+      }
+
+      // Require "Author" to be mlastyle.
+      if ( mla_style_user_id != $( '#post_author_override' ).val() ) {
+        violations.push( 'Author must be mlastyle.' );
       }
     }
 
