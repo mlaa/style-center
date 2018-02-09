@@ -39,8 +39,8 @@ jQuery( function( $ ) {
   var post_submit_handler = function( e ) {
     var violations = [];
 
-    if ( 'save-post' === document.activeElement.id ) {
-      return; // Don't apply validation when saving drafts.
+    if ( [ 'post-preview', 'save-post' ].indexOf( document.activeElement.id ) !== -1 ) {
+      return; // Don't apply validation when saving drafts or previewing.
     } else if ( ask_checkbox.is( ':checked' ) ) {
       // Maximum word length of post name in permalink.
       if ( $( '#editable-post-name-full' ).text().split( '-' ).length > 5 ) {
