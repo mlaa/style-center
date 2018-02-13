@@ -21,7 +21,6 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 
 				<?php
 					echo do_shortcode("[formassembly formid=4649903]");
-					}
 				?>
 
 			</div>
