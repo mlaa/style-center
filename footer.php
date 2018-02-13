@@ -20,8 +20,7 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 				<p>Be the first to read new posts and updates about MLA style.</p>
 
 				<?php
-					if( function_exists( 'ninja_forms_display_form' ) ){
-						ninja_forms_display_form( 7 );
+					echo do_shortcode("[formassembly formid=4649903]");
 					}
 				?>
 
