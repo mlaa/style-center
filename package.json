@@ -37,6 +37,7 @@
     "bloodhound-js": "^1.2.1",
     "lity": "^1.6.3",
     "modui-popup": "^2.0.1",
+    "node-sass": "^4.8.3",
     "typeahead.js": "^0.11.1"
   },
   "devDependencies": {
