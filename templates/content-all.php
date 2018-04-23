@@ -61,10 +61,17 @@ if ( have_posts() ) :
 		$count++;
 
 		$post_category = get_the_category()[0];
+		$post_thumbnail_class = '';
 
 		if ( 'post' === get_post_type() ) {
 			$custom_fields = get_post_custom();
-			$post_author = ( isset ( $custom_fields['post_author'] ) ) ? $custom_fields['post_author'][0] : '';
+
+			$post_author = ( isset( $custom_fields['post_author'] ) ) ? $custom_fields['post_author'][0] : '';
+
+			$post_thumbnail_class = (
+				isset( $custom_fields['autocrop_featured_image'] ) &&
+				'false' === $custom_fields['autocrop_featured_image'][0]
+			) ? 'no-crop' : '';
 		}
 
 		$author = parse_post_author( $post_author );
@@ -167,7 +174,7 @@ if ( have_posts() ) :
 		( ! is_category( 'behind-the-style' ) && has_post_thumbnail() )
 	) :
 	?>
-		<div class="post-thumbnail">
+		<div class="post-thumbnail <?php echo $post_thumbnail_class; ?>">
 			<?php the_post_thumbnail(); ?>
 		</div>
 	<?php

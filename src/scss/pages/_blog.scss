@@ -254,6 +254,13 @@
     margin-top: -50px;
     width: 100%;
   }
+
+  &.no-crop {
+    max-height: unset;
+    img {
+      margin-top: unset;
+    }
+  }
 }
 
 .category .tile-tag {
