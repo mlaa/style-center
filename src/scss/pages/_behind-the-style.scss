@@ -5,7 +5,7 @@
     .halves {
       display: flex;
 
-      .article:last-sibling {
+      article:last-child {
         margin-left: 1em;
       }
     }
