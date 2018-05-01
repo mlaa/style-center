@@ -179,14 +179,14 @@ add_filter( 'ep_formatted_args', __NAMESPACE__ . '\filter_ep_formatted_args' );
  * @param float $fuzziness Fuzziness argument for ElasticSearch.
  * @return float
  */
-function sc_filter_ep_fuzziness_arg( $fuzziness ) {
-	global $wp_query;
-	if ( strpos( $wp_query->get( 's' ), '"' ) !== false ) {
+function sc_filter_ep_fuzziness_arg( $fuzziness, $search_fields, $args ) {
+	if ( false !== strpos( $args['s'], '"' ) ) {
 		$fuzziness = 0;
 	}
+
 	return $fuzziness;
 }
-add_filter( 'ep_fuzziness_arg', 'sc_filter_ep_fuzziness_arg', 2 );
+add_filter( 'ep_fuzziness_arg', __NAMESPACE__ . '\sc_filter_ep_fuzziness_arg', 10, 3 );
 
 /**
  * Registers an editor stylesheet for the theme.
