@@ -145,6 +145,10 @@ function filter_ep_config_mapping( $mapping ) {
 	// tell the analyzer to use our newly created filter
 	$mapping['settings']['analysis']['analyzer']['default']['filter'][] = $filter_name;
 
+	// use analyzer for post attributes
+	$mapping['mappings']['post']['properties']['post_title']['analyzer'] = 'standard';
+	$mapping['mappings']['post']['properties']['post_content']['analyzer'] = 'standard';
+
 	return $mapping;
 }
 add_filter( 'ep_config_mapping', __NAMESPACE__ . '\filter_ep_config_mapping' );
