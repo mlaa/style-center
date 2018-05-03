@@ -170,7 +170,7 @@ if ( have_posts() ) :
 	endif;
 
 	if (
-		( is_category( 'behind-the-style' ) && $count < 4 && has_post_thumbnail() ) ||
+		( in_array( get_query_var('paged'), [1, 0] ) && is_category( 'behind-the-style' ) && $count < 4 && has_post_thumbnail() ) ||
 		( ! is_category( 'behind-the-style' ) && has_post_thumbnail() )
 	) :
 	?>
