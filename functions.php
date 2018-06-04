@@ -115,7 +115,7 @@ function filter_ep_config_mapping( $mapping ) {
 		// without "stand" and "alone" as independent synonyms, no matches are returned for "standalone".
 		'standalone, stand-alone, stand alone, stand, alone',
 		'website, web site',
-		'ebook, e-book',
+		'ebook, e-book'
 		'catalog, catalogue',
 		'exhibit, exhibition',
 		'photo, photos',
