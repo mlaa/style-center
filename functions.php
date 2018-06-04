@@ -113,7 +113,7 @@ function filter_ep_config_mapping( $mapping ) {
 		'standalone, stand-alone, stand alone, stand, alone',
 		'website, web site',
 		'ebook, e-book',
-		'catalog, catalogue'
+		'catalog, catalogue',
 		'exhibit, exhibition',
 		'photo, photos',
 		'movie, film',
