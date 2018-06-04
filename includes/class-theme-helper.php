@@ -155,7 +155,6 @@ class ThemeHelper extends Base {
 	 */
 	public function register_widgets() {
 		register_widget( __NAMESPACE__ . '\Widget_Recent_Posts_Custom_Title' );
-		register_widget( __NAMESPACE__ . '\Widget_Homepage_Tile' );
 	}
 
 	/**

@@ -83,28 +83,6 @@ $tile-transparent-maroon: rgba(102, 0, 68, 0.9);
   }
 }
 
-// Override white background default.
-.tile-about {
-  &:hover .tile-body, {
-    background: #006fba !important;
-    background-opacity: 1;
-  }
-  .tile-body {
-    background: #006fba !important;
-    background-opacity: .9;
-  }
-}
-
-.tile-citation,
-.tile-about {
-  .tile-body {
-    h3, p {
-      color: white;
-    }
-  }
-
-}
-
 .tile-link {
   @include material-plus-one;
   top: 0;
@@ -232,8 +210,6 @@ $tile-transparent-maroon: rgba(102, 0, 68, 0.9);
     font-weight: $default-font-bold;
     line-height: 1.2em;
     margin-bottom: 0.25em;
-    text-transform: none;
-    border-bottom: none;
 
     a {
       color: $mla-blue;

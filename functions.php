@@ -14,9 +14,6 @@ $theme_options = array(
 		'site_nav' => 'Site Navigation Menu',
 	),
 	'sidebars' => array(
-		'homepage-top' => 'Homepage top',
-		'homepage-bottom' => 'Homepage bottom',
-		'homepage-side' => 'Homepage side',
 		'blog' => 'Blog',
 		'faq' => 'FAQ',
 		'formatting-papers' => 'Formatting papers',

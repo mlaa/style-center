@@ -1,8 +1,6 @@
 <?php
-/**
- * Template Name: Teaching Resources
- *
- * @package MLAStyleCenter
+/*
+Template Name: Teaching Resources
  */
 
 get_header();
