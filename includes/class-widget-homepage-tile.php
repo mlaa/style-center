@@ -154,10 +154,20 @@ class Widget_Homepage_Tile extends WP_Widget_Text {
 			$h3_attrs = 'class="icon-inline-tag icon-plagiarism"';
 		}
 
+		// Extra markup.
+		$extra = '';
+		if ( 'blog' === $style ) {
+			$extra = '<div class="tile-tag icon-blog">Blog</div>';
+		}
+		if ( 'faq' === $style ) {
+			$extra = '<div class="tile-tag icon-faq">FAQ</div>';
+		}
+
 		?>
 
 		<div class="<?php esc_attr_e( implode( ' ', $classes ) ); ?>" style="<?php echo implode( '', $css ); ?>">
 			<a class="tile-link" href="<?php esc_attr_e( esc_url ( $href ) ); ?>">
+				<?php echo $extra; ?>
 				<div class="tile-body">
 					<h3 <?php echo $h3_attrs; ?>><?php echo $title; ?></h3>
 					<p><?php echo $text; ?></p>
