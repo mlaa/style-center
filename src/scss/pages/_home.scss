@@ -28,7 +28,7 @@ $tile-transparent-maroon: rgba(102, 0, 68, 0.9);
     }
 
     @include breakpoint(md) {
-      max-width: 900px;
+      max-width: 950px;
       padding: 1em 0;
     }
 
@@ -63,7 +63,7 @@ $tile-transparent-maroon: rgba(102, 0, 68, 0.9);
   }
 
   @include breakpoint(md) {
-    flex-basis: 281px;
+    flex-basis: 300px;
 
     .overflow {
       display: block;
@@ -170,7 +170,7 @@ $tile-transparent-maroon: rgba(102, 0, 68, 0.9);
   flex-basis: 100%;
 
   @include breakpoint(md) {
-    flex-basis: 580px;
+    flex-basis: 625px;
   }
 }
 
@@ -313,7 +313,7 @@ $tile-transparent-maroon: rgba(102, 0, 68, 0.9);
 
 .tile-blog {
   background-image: url($tile-placeholder-blog);
-  background-position: -100px -100px;
+  background-position: -75px -100px;
   background-size: 600px 466px;
 
   @include breakpoint(xs) {
