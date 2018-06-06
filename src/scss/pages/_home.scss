@@ -317,13 +317,13 @@ $tile-transparent-maroon: rgba(102, 0, 68, 0.9);
   background-size: 600px 466px;
 
   @include breakpoint(xs) {
-    background-position: -100px -150px;
+    background-position: -75px -150px;
     background-size: 800px 666px;
     min-height: 280px;
   }
 
   @include breakpoint(md) {
-    background-position: -100px -150px;
+    background-position: -75px -150px;
     background-size: 700px 600px;
   }
 }
