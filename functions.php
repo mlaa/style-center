@@ -122,27 +122,6 @@ function filter_ep_config_mapping( $mapping ) {
 		'movie, film',
 	];
 
-	// bail early if $mapping is missing or not array
-	if ( ! isset( $mapping ) || ! is_array( $mapping ) ) {
-		return false;
-	}
-
-	// ensure we have filters and is array
-	if (
-		! isset( $mapping['settings']['analysis']['filter'] )
-		|| ! is_array( $mapping['settings']['analysis']['filter'] )
-	) {
-		return false;
-	}
-
-	// ensure we have analyzers and is array
-	if (
-		! isset( $mapping['settings']['analysis']['analyzer']['default']['filter'] )
-		|| ! is_array( $mapping['settings']['analysis']['analyzer']['default']['filter'] )
-	) {
-		return false;
-	}
-
 	// define the custom filter
 	$mapping['settings']['analysis']['filter'][ $filter_name ] = [
 		'type' => 'synonym',
@@ -150,39 +129,11 @@ function filter_ep_config_mapping( $mapping ) {
 	];
 
 	// tell the analyzer to use our newly created filter
-	$mapping['settings']['analysis']['analyzer']['default']['filter'][] = $filter_name;
-
-	// use analyzer for post attributes
-	$mapping['mappings']['post']['properties']['post_title']['analyzer'] = 'standard';
-	$mapping['mappings']['post']['properties']['post_content']['analyzer'] = 'standard';
+	array_unshift( $mapping['settings']['analysis']['analyzer']['default']['filter'], $filter_name );
 
 	return $mapping;
 }
 add_filter( 'ep_config_mapping', __NAMESPACE__ . '\filter_ep_config_mapping' );
-
-/**
- * mostly copied from elasticpress-buddypress.
- * TODO not yet sure why this is necessary since post_type should not be remapped in this context.
- */
-function filter_ep_formatted_args( $formatted_args ) {
-	// because we changed the mapping for post_type with ep_bp_filter_ep_config_mapping(), change query accordingly
-	foreach ( $formatted_args['post_filter']['bool']['must'] as &$must ) {
-		// maybe term, maybe terms - depends on whether or not the value of "post_type.raw" is an array. need to handle both.
-		foreach ( [ 'term', 'terms' ] as $key ) {
-			if ( isset( $must[ $key ]['post_type.raw'] ) ) {
-				$must[ $key ]['post_type'] = $must[ $key ]['post_type.raw'];
-				unset( $must[ $key ]['post_type.raw'] );
-
-				// re-index 'must' array keys using array_values (non-sequential keys pose problems for elasticpress)
-				if ( is_array( $must[ $key ]['post_type'] ) ) {
-					$must[ $key ]['post_type'] = array_values( $must[ $key ]['post_type'] );
-				}
-			}
-		}
-	}
-	return $formatted_args;
-}
-add_filter( 'ep_formatted_args', __NAMESPACE__ . '\filter_ep_formatted_args' );
 
 /**
  * If query contains quotes, no fuzziness.
@@ -198,14 +149,6 @@ function sc_filter_ep_fuzziness_arg( $fuzziness, $search_fields, $args ) {
 	return $fuzziness;
 }
 add_filter( 'ep_fuzziness_arg', __NAMESPACE__ . '\sc_filter_ep_fuzziness_arg', 10, 3 );
-
-/**
- * Registers an editor stylesheet for the theme.
- */
-function sc_add_editor_styles() {
-	add_editor_style();
-}
-//add_action( 'admin_init', __NAMESPACE__ . '\sc_add_editor_styles' );
 
 /**
  * Include admin JS.

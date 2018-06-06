@@ -31,6 +31,12 @@ if ( is_category( 'ask-the-mla' ) ) {
 	}
 
 	?>
+
+	<div class="pagination">
+		<div class="nav-previous"><?php next_posts_link(); ?></div>
+		<div class="nav-next"><?php previous_posts_link(); ?></div>
+	</div>
+
 	</div>
 	<?php
 
