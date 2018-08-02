@@ -42,11 +42,6 @@ jQuery( function( $ ) {
     if ( [ 'post-preview', 'save-post' ].indexOf( document.activeElement.id ) !== -1 ) {
       return; // Don't apply validation when saving drafts or previewing.
     } else if ( ask_checkbox.is( ':checked' ) ) {
-      // Maximum word length of post name in permalink.
-      if ( $( '#editable-post-name-full' ).text().split( '-' ).length > 5 ) {
-        violations.push( 'You must shorten the permalink to five words.' );
-      }
-
       // Require post_short_title custom field value.
       if ( ! get_custom_field_value( 'post_short_title' ) ) {
         violations.push( 'You must include a short title for all posts.' );
@@ -62,11 +57,6 @@ jQuery( function( $ ) {
         violations.push( 'Author must be mlastyle.' );
       }
     } else if ( behind_checkbox.is( ':checked' ) ) {
-      // Maximum word length of post name in permalink.
-      if ( $( '#editable-post-name-full' ).text().split( '-' ).length > 5 ) {
-        violations.push( 'You must shorten the permalink to five words.' );
-      }
-
       // Require post_short_title custom field value.
       if ( ! get_custom_field_value( 'post_short_title' ) ) {
         violations.push( 'You must include a short title for all posts.' );
@@ -112,6 +102,27 @@ jQuery( function( $ ) {
   var display_violations = function( violations ) {
     alert( violations.join( "\n" ) );
   };
+
+  // Warn user if permalink is more than five words.
+  var check_permalink = function() {
+    var warn_markup = $( '<div id="sc_permalink_warn" class="notice notice-warning"><p>Try to limit the permalink to five words.</p></div>' );
+
+    $( '#sc_permalink_warn' ).remove();
+
+    console.log( 'check_permalink', $( '#editable-post-name-full' ).text().split( '-' ).length );
+
+    if ( $( '#editable-post-name-full' ).text().split( '-' ).length > 5 ) {
+      $( warn_markup ).insertBefore( '#poststuff' );
+    }
+
+    if ( $( '#sample-permalink' ).length ) {
+      observer.observe( $( '#sample-permalink' )[0], { childList: true } );
+    }
+  }
+
+  var observer = new MutationObserver( check_permalink );
+
+  check_permalink();
 
   ask_checkbox.on( 'click', ask_click_handler );
   behind_checkbox.on( 'click', behind_click_handler );

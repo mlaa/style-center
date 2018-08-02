@@ -1,0 +1,4 @@
+#sc_permalink_warn p:before {
+  content: "\f534";
+  font-family: "dashicons";
+}

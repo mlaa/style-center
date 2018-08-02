@@ -151,10 +151,11 @@ function sc_filter_ep_fuzziness_arg( $fuzziness, $search_fields, $args ) {
 add_filter( 'ep_fuzziness_arg', __NAMESPACE__ . '\sc_filter_ep_fuzziness_arg', 10, 3 );
 
 /**
- * Include admin JS.
+ * Include admin JS/CSS.
  */
 function sc_enqueue_admin_scripts() {
 	wp_enqueue_script( 'sc_admin', get_template_directory_uri() . '/src/js/admin.js', [ 'jquery' ], 3 );
+	wp_enqueue_style( 'sc_admin', get_template_directory_uri() . '/assets/dist/admin.css' );
 }
 add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\sc_enqueue_admin_scripts' );
 
