@@ -1,4 +1,18 @@
 jQuery( function( $ ) {
+  // https://stackoverflow.com/a/38882022
+  function waitForAddedNode(params) {
+    new MutationObserver(function(mutations) {
+      var el = document.getElementById(params.id);
+      if (el) {
+        this.disconnect();
+        params.done(el);
+      }
+    }).observe(params.parent || document, {
+      subtree: !!params.recursive,
+      childList: true,
+    });
+  }
+
   var mla_style_user_id = 1007041;
 
   // helper function to get saved custom field values by field name
@@ -105,24 +119,25 @@ jQuery( function( $ ) {
 
   // Warn user if permalink is more than five words.
   var check_permalink = function() {
-    var warn_markup = $( '<div id="sc_permalink_warn" class="notice notice-warning"><p>Try to limit the permalink to five words.</p></div>' );
+    var warn_markup = $( '<div id="sc_permalink_warn" class="notice notice-warning"><p>Try to limit the permalink slug to five words.</p></div>' );
 
     $( '#sc_permalink_warn' ).remove();
-
-    console.log( 'check_permalink', $( '#editable-post-name-full' ).text().split( '-' ).length );
 
     if ( $( '#editable-post-name-full' ).text().split( '-' ).length > 5 ) {
       $( warn_markup ).insertBefore( '#poststuff' );
     }
-
-    if ( $( '#sample-permalink' ).length ) {
-      observer.observe( $( '#sample-permalink' )[0], { childList: true } );
-    }
   }
 
-  var observer = new MutationObserver( check_permalink );
-
-  check_permalink();
+  waitForAddedNode({
+    id: 'edit-slug-box',
+    parent: $( '#poststuff' )[0],
+    recursive: true,
+    done: function() {
+      var observer = new MutationObserver( check_permalink );
+      observer.observe( $( '#edit-slug-box' )[0], { childList: true } );
+      check_permalink();
+    }
+  });
 
   ask_checkbox.on( 'click', ask_click_handler );
   behind_checkbox.on( 'click', behind_click_handler );
