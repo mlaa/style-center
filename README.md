@@ -1,3 +1,10 @@
+# Build
+
+If you change SASS you should recompile before committing. Do that like this from inside the theme directory:
+
+    npm i
+    gulp sass
+
 # Contributing
 
 1. Create a new branch.
