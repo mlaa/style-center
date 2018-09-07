@@ -118,7 +118,7 @@ function filter_ep_config_mapping( $mapping ) {
 		'ebook, e-book',
 		'catalog, catalogue',
 		'exhibit, exhibition',
-		'photo, photos, photographs',
+		'photo, photos, photograph, photographs',
 		'movie, film',
 	];
 
