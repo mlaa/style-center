@@ -33,14 +33,14 @@ get_header();
     <fieldset>
       <div class="temp-element">
         <div class="element-order">1</div>
-        <div class="input" contentEditable="true"></div>
+        <div class="input" id="author" contentEditable="true"></div>
         <div class="label">Author.</div>
         <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
 
       <div class="temp-element">
         <div class="element-order">2</div>
-        <div class="input" contentEditable="true"></div>
+        <div class="input" id="title" contentEditable="true"></div>
         <div class="label">Title of source.</div>
         <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
@@ -198,6 +198,20 @@ get_header();
 
 <script type="text/javascript">
 
+/*
+ * Define citation class. Citations take in an object (of input values from
+ * the .input template fields), and set methods accordingly.
+ */
+ class Citation {
+	 constructor(fieldsObject) {
+		 this.author = fieldsObject.author
+		 this.title = fieldsObject.title
+		 this.containerOne = fieldsObject.containerOne
+		 this.containerTwo = fieldsObject.containerTwo
+		 this.containerThree = fieldsObject.containerThree
+	 }
+ }
+ 
 const $ = jQuery
 
 $(document).ready(function() {
@@ -289,6 +303,26 @@ $(document).ready(function() {
 		$('.formatting-btn').addClass('hidden');
 		$('.label').removeClass('focused');
 	})
+
+//	let inputsObj = {}
+	//const citation = new Citation(inputsObj);
+
+//	$('.input').on('keyup', function() {
+//		const inputs = $('.input')
+//		inputsObj.author = $('#author').text();
+//		inputsObj.title = $('#title').text();
+
+//		console.log(inputsObj)
+//	})
+
+
+
+
+
+
+
+
+
 
 });
 
