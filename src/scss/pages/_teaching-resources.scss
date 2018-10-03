@@ -76,6 +76,10 @@
   background-image: url($author-photo-mla);
 }
 
+.author-photo-wallace::before {
+  background-image: url($author-photo-wallace);
+}
+
 .author-role {
   background-color: $white;
   border: solid 1px $lightest-grey;

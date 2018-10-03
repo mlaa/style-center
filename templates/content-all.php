@@ -22,6 +22,8 @@ $post_author_meta_value_map = array(
 	'mla'		=> 'Modern Language Association',
 	'carillo' => 'Ellen Carillo',
 	'yang' => 'Alice Yang',
+	'wallace' => 'Joseph Wallace',
+	'brookbank-christenberry' => 'Elizabeth Brookbank and H. Faye Christenberry',
 );
 
 ?>
