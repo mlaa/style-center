@@ -189,7 +189,7 @@ if ( have_posts() ) :
 		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<?php
 
-		foreach( $post_author_html as $item ) {
+		foreach( (array)$post_author_html as $item ) {
 			echo $item;
 		}
 
