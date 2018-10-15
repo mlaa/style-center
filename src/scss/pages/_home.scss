@@ -361,6 +361,10 @@ $tile-transparent-maroon: rgba(102, 0, 68, 0.9);
     transition: all .2s;
   }
 
+  @media screen and (max-width: 767px) {
+    padding: .5rem 5%;
+  }
+
   p {
     color: $white;
     font-size: 1rem;
@@ -369,6 +373,14 @@ $tile-transparent-maroon: rgba(102, 0, 68, 0.9);
     a {
       font-weight: bold;
       color: $white;
+      text-decoration: none;
+      border-bottom: 1px solid $white;
+
+      &:hover {
+        border-bottom: 3px solid $white;
+        text-decoration: none;
+      }
+
     }
   }
 }
