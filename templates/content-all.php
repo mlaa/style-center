@@ -24,6 +24,7 @@ $post_author_meta_value_map = array(
 	'yang' => 'Alice Yang',
 	'wallace' => 'Joseph Wallace',
 	'brookbank-christenberry' => 'Elizabeth Brookbank and H. Faye Christenberry',
+	'duffy' => 'Caitlin Duffy',
 );
 
 ?>
