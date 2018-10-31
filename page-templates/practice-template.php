@@ -374,6 +374,8 @@ $(document).ready(function() {
     function containerOneCheck() {
       if ( citation._containerOne.containerTitle ) {
         return citation._containerOne.containerTitle
+      } else {
+        return ''
       }
     }
 
