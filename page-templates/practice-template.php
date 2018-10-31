@@ -371,10 +371,14 @@ $(document).ready(function() {
 
     citation.containerOne = conOneObj;
     //console.log(citation._containerOne)
-
+    function containerOneCheck() {
+      if ( citation._containerOne.containerTitle ) {
+        return citation._containerOne.containerTitle
+      }
+    }
 
     $('p.citation').html(
-      `${citation._author} ${citation._title} ${citation._containerOne.containerTitle}`
+      `${citation._author} ${citation._title} ${containerOneCheck()}`
     )
 
 
