@@ -7,7 +7,7 @@
 
 namespace MLA\Commons\Theme\MLAStyleCenter;
 
-get_header();
+get_header('home');
 
 ?>
 

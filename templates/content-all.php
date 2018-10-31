@@ -22,6 +22,9 @@ $post_author_meta_value_map = array(
 	'mla'		=> 'Modern Language Association',
 	'carillo' => 'Ellen Carillo',
 	'yang' => 'Alice Yang',
+	'wallace' => 'Joseph Wallace',
+	'brookbank-christenberry' => 'Elizabeth Brookbank and H. Faye Christenberry',
+	'duffy' => 'Caitlin Duffy',
 );
 
 ?>
@@ -187,7 +190,7 @@ if ( have_posts() ) :
 		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<?php
 
-		foreach( $post_author_html as $item ) {
+		foreach( (array)$post_author_html as $item ) {
 			echo $item;
 		}
 
