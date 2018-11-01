@@ -311,15 +311,15 @@ $(document).ready(function() {
      this._title = val
    }
 
-   set containerOne(obj) {
+   set containerOne(obj = {}) {
      this._containerOne = obj
    }
 
-   set containerTwo(obj) {
+   set containerTwo(obj = {}) {
      this._containerTwo = obj
    }
 
-   set containerThree(obj) {
+   set containerThree(obj = {}) {
      this._containerThree = obj
    }
  }
@@ -342,7 +342,6 @@ $(document).ready(function() {
 
     });
 
-    console.log(containerObjects)
     return containerObjects
   }
 
@@ -360,6 +359,15 @@ $(document).ready(function() {
     return object
   }
 
+  // Iterate through container oject and turn props into string for display
+  function containerPropIterator(object = {}) {
+    let containerString = ''
+    for (var prop in object) {
+      containerString += object[prop] + ' '
+    }
+    return containerString
+  }
+
   
   // Set citation object props, and fill in citation display
   $('.input').on('keyup', function() {
@@ -367,9 +375,16 @@ $(document).ready(function() {
     citation.author = $('#author').html();
     citation.title = $('#title').html();
     citation.containerOne = getContainerNodes()[0]
+    citation.containerTwo = getContainerNodes()[1]
+    citation.containerThree = getContainerNodes()[2]
 
     $('p.citation').html(
-      `${citation._author} ${citation._title} ${citation._containerOne.containerTitle}`
+      `<span class="citation__author">${citation._author}</span> 
+      <span class="citation__title">${citation._title}</span>
+      <span class="citation__container--one">${containerPropIterator(citation._containerOne)}</span>
+      <span class="citation__container--two">${containerPropIterator(citation._containerTwo)}</span>
+      <span class="citation__container--three">${containerPropIterator(citation._containerThree)}</span>
+      `
     )
 
   })
