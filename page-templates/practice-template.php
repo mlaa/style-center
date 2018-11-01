@@ -200,10 +200,100 @@ get_header();
 
 <script type="text/javascript">
 
-/*
- * Define citation class. Citations take in an object (of input values from
- * the .input template fields), and set methods accordingly.
- */
+const $ = jQuery
+
+$(document).ready(function() {
+
+  // Add Container
+  const addContainerButton = $('.container-add');
+  let i = 0;
+  addContainerButton.on('click', function() {
+
+    i++;
+
+    const prevFieldset = $(this).prev();
+
+    if ( i < 3 ) {
+      let currFieldset = prevFieldset.clone(true);
+      prevFieldset.after(currFieldset);
+      currFieldset.children().children('.label').removeClass('focused');
+      $('.formatting-btn').addClass('hidden');
+      currFieldset.children().children('.input').empty();
+      $('.last-optional-element').hide();
+      $('.last-optional-element').last().show();
+
+      const legends = $('fieldset').find('legend');
+      legends.each( function(index) {
+        $(this).text(`Container ${index + 1}`);
+      });
+      legends.show();
+
+    }
+
+    if ( i >= 2 ) {
+      $(this).hide();
+    }
+  });
+
+
+  // Set focus to input when active, hide formatting button on inactive input divs
+  $('.input').on('change keyup click', function() {
+
+    $('.formatting-btn').addClass('hidden');
+
+
+    if ( $(this).is(':empty') ) {
+      $(this).next('.label').removeClass('focused');
+    } else {
+        $(this).next('.label').addClass('focused');
+    }
+
+    if ( $(this).is(':focus') ) {
+      $(this).siblings('.formatting-btn').removeClass('hidden');
+    } else {
+      $(this).siblings('.formatting-btn').addClass('hidden');
+    }
+  });
+
+
+  // Control state and class of formatting button
+  $('.formatting-btn').on('mousedown', function(event) {
+    event.preventDefault();
+
+    if ( document.queryCommandState('italic') ) {
+      $(this).removeClass('active');
+    } else {
+      $(this).addClass('active');
+    }
+    document.execCommand('italic',false,false);
+  });
+
+  $('.input').on('keyup', function(event) {
+    if ( document.queryCommandState('italic') ) {
+      $(this).siblings('.formatting-btn').addClass('active');
+    } else {
+      $(this).siblings('.formatting-btn').removeClass('active');
+    }
+  });
+
+
+  // Expand Optional Element slot on click
+  $('.optional-element').on('click', function() {
+    $(this).addClass('temp-element');
+  });
+
+
+  $('.clear-button').on('click', function() {
+    $('.input').empty();
+    $('.formatting-btn').addClass('hidden');
+    $('.label').removeClass('focused');
+  })
+
+
+ /*
+  * Define citation class. 
+  */
+
  class Citation {
    constructor(fieldsObject) {
      this._author = fieldsObject.author
@@ -234,166 +324,55 @@ get_header();
    }
  }
 
-const $ = jQuery
+  //initialize new Citation with empty object
+  const citation = new Citation({});
 
-$(document).ready(function() {
-
-  // Add Container
-  const addContainerButton = $('.container-add');
-
-  let i = 0;
-
-  addContainerButton.on('click', function() {
-
-    i++;
-
-
-    const prevFieldset = $(this).prev();
-
-
-
-    if ( i < 3 ) {
-      let currFieldset = prevFieldset.clone(true);
-      prevFieldset.after(currFieldset);
-      currFieldset.children().children('.label').removeClass('focused');
-      $('.formatting-btn').addClass('hidden');
-      currFieldset.children().children('.input').empty();
-      $('.last-optional-element').hide();
-      $('.last-optional-element').last().show();
-
-      const legends = $('fieldset').find('legend');
-      legends.each( function(index) {
-        $(this).text(`Container ${index + 1}`);
-      });
-      legends.show();
-
-    }
-
-    if ( i >= 2 ) {
-      $(this).hide();
-    }
-  });
-
-  $('.input').on('change keyup click', function() {
-
-    $('.formatting-btn').addClass('hidden');
-
-
-    if ( $(this).is(':empty') ) {
-      $(this).next('.label').removeClass('focused');
-    } else {
-        $(this).next('.label').addClass('focused');
-    }
-
-    if ( $(this).is(':focus') ) {
-      $(this).siblings('.formatting-btn').removeClass('hidden');
-    } else {
-      $(this).siblings('.formatting-btn').addClass('hidden');
-    }
-  });
-
-  $('.formatting-btn').on('mousedown', function(event) {
-    event.preventDefault();
-
-    if ( document.queryCommandState('italic') ) {
-      $(this).removeClass('active');
-    } else {
-      $(this).addClass('active');
-    }
-    //$(this).toggleClass('active');
-    document.execCommand('italic',false,false);
-  });
-
-  $('.input').on('keyup', function(event) {
-    if ( document.queryCommandState('italic') ) {
-      $(this).siblings('.formatting-btn').addClass('active');
-    } else {
-      $(this).siblings('.formatting-btn').removeClass('active');
-    }
-  });
-
-  // Expand Optional Element slot on click
-  $('.optional-element').on('click', function() {
-
-    $(this).addClass('temp-element');
-    //console.log($(this));
-  });
-
-
-  $('.clear-button').on('click', function() {
-    $('.input').empty();
-    $('.formatting-btn').addClass('hidden');
-    $('.label').removeClass('focused');
-  })
-
-
-
-
-  //Create a citation from the values in the inputs.
-
-  let inputsObj = {}
-  let conOneObj = {}
-
-  const citation = new Citation(inputsObj);
-  const inputs = $('.input');
-
-  //Get container fieldsets and fields
-  const containers = function() {
-    return document.querySelectorAll('fieldset.container');
-  }
-  const containerOne = containers()[0]
-
-  //All container one fields
-  const containerOneFields = function() {
-    return containerOne.querySelectorAll('.input')
-  }
   
+  //Get container fieldsets, create an object for each one, set props based on inputs, push them into array
+  function getContainerNodes() {
+    let containerObjects = []
 
-  //Iterate through container
-  //for (var count = 0; count < containerOneFields().length; count++) {
-  //  let propName = 'container-name-'+
+    let containers = document.querySelectorAll('fieldset.container');
+    containers.forEach(function(container, index) {
 
-  //  if( containerOneFields()[i].innerHTML ) { containerObj[nameTest] = containerOneFields()[i].innerHTML }
-  //}
+      let inputs = container.querySelectorAll('.input')
+      let containerObj = {}
 
-  // Set citation object props, and fill in citation parameters
-  inputs.on('keyup', function() {
+      containerObjects.push(setContainerProps(inputs, containerObj))
+
+    });
+
+    console.log(containerObjects)
+    return containerObjects
+  }
+
+
+  // Set properties of object based on non-empty input values
+  function setContainerProps(inputs, object) {
+
+    inputs.forEach(function(input, index) {
+      if ( input.innerHTML !== '' ) {
+        let propName = input.dataset.title
+        object[propName] = input.innerHTML
+      };
+    });
+
+    return object
+  }
+
+  
+  // Set citation object props, and fill in citation display
+  $('.input').on('keyup', function() {
 
     citation.author = $('#author').html();
     citation.title = $('#title').html();
-
-    //Iterate through container one, set prop names on citation object
-    for (var index = 0; index < containerOneFields().length; index++ ) {
-      let propName = containerOneFields()[index].dataset.title
-      if( containerOneFields()[index].innerHTML ) { conOneObj[propName] = containerOneFields()[index].innerHTML }
-    }
-    //console.log(conOneObj)
-
-    citation.containerOne = conOneObj;
-    //console.log(citation._containerOne)
-    function containerOneCheck() {
-      if ( citation._containerOne.containerTitle ) {
-        return citation._containerOne.containerTitle
-      } else {
-        return ''
-      }
-    }
+    citation.containerOne = getContainerNodes()[0]
 
     $('p.citation').html(
-      `${citation._author} ${citation._title} ${containerOneCheck()}`
+      `${citation._author} ${citation._title} ${citation._containerOne.containerTitle}`
     )
 
-
   })
-
-
-
-
-
-
-
-
-
 
 });
 
