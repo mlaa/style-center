@@ -186,16 +186,18 @@ get_header();
 
   <!--</fieldset>--><!-- End Template -->
 
-    <p class="citation">
-
-    </p>
-
-  </article>
-
 
 
 </div> <!-- /.block-main -->
-<?php get_sidebar(); ?>
+
+<aside class="sidebar citation-sidebar">
+  
+  <div  style="position: sticky; top: 4rem; margin-top: 5rem">
+    <h3>Your Citation</h3>
+    <!-- Fill in with citation information -->
+    <p class="citation">Start filling out the practice template to create your citation</p>
+  </div>
+</aside>
 
 
 <script type="text/javascript">
