@@ -313,15 +313,15 @@ $(document).ready(function() {
      this._title = val
    }
 
-   set containerOne(obj = {}) {
+   set containerOne(obj) {
      this._containerOne = obj
    }
 
-   set containerTwo(obj = {}) {
+   set containerTwo(obj) {
      this._containerTwo = obj
    }
 
-   set containerThree(obj = {}) {
+   set containerThree(obj) {
      this._containerThree = obj
    }
  }
@@ -381,11 +381,7 @@ $(document).ready(function() {
     citation.containerThree = getContainerNodes()[2]
 
     $('p.citation').html(
-      `<span class="citation__author">${citation._author}</span> 
-      <span class="citation__title">${citation._title}</span>
-      <span class="citation__container--one">${containerPropIterator(citation._containerOne)}</span>
-      <span class="citation__container--two">${containerPropIterator(citation._containerTwo)}</span>
-      <span class="citation__container--three">${containerPropIterator(citation._containerThree)}</span>
+      `<span class="citation__author">${citation._author}</span><span class="citation__title">${citation._title}</span><span class="citation__container--one">${containerPropIterator(citation._containerOne)}</span><span class="citation__container--two">${containerPropIterator(citation._containerTwo)}</span><span class="citation__container--three">${containerPropIterator(citation._containerThree)}</span> 
       `
     )
 
