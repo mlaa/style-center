@@ -48,7 +48,7 @@ get_header();
       <!-- Optional Element Add -->
       <div class="optional-element">
         <div class="element-order">+</div>
-        <div class="input" contenteditable="true"></div>
+        <div class="input" contenteditable="true" id="optional-element-one"></div>
         <div class="label">Optional element.</div>
         <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
@@ -107,15 +107,16 @@ get_header();
         <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
 
-      <!-- Optional Element Add -->
+    
+    </fieldset> <!-- End Container 1 -->
+
+    <!-- Optional Element Add -->
       <div class="optional-element last-optional-element">
         <div class="element-order">+</div>
-        <div class="input" data-title="optionalElement" contenteditable="true"></div>
+        <div class="input" data-title="optionalElement" contenteditable="true" id="optional-element-two"></div>
         <div class="label">Optional element.</div>
         <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
-
-    </fieldset> <!-- End Container 1 -->
 
 
 
@@ -213,7 +214,7 @@ $(document).ready(function() {
 
     i++;
 
-    const prevFieldset = $(this).prev();
+    const prevFieldset = $(this).prev().prev();
 
     if ( i < 3 ) {
       let currFieldset = prevFieldset.clone(true);
@@ -300,6 +301,8 @@ $(document).ready(function() {
    constructor(fieldsObject) {
      this._author = fieldsObject.author
      this._title = fieldsObject.title
+     this._optionalElementOne = fieldsObject.optionalElementOne
+     this._optionalElementTwo = fieldsObject.optionalElementTwo
      this._containerOne = fieldsObject.containerOne
      this._containerTwo = fieldsObject.containerTwo
      this._containerThree = fieldsObject.containerThree
@@ -311,6 +314,14 @@ $(document).ready(function() {
 
    set title(val) {
      this._title = val
+   }
+
+   set optionalElementOne(val) {
+      this._optionalElementOne = val
+   }
+
+   set optionalElementTwo(val) {
+      this._optionalElementTwo = val
    }
 
    set containerOne(obj) {
@@ -374,16 +385,19 @@ $(document).ready(function() {
   // Set citation object props, and fill in citation display
   $('.input').on('keyup', function() {
 
-    citation.author = $('#author').html();
-    citation.title = $('#title').html();
+    citation.author = $('#author').html()
+    citation.title = $('#title').html()
+    citation.optionalElementOne = $('#optional-element-one').html()
+    citation.optionalElementTwo = $('#optional-element-two').html()
     citation.containerOne = getContainerNodes()[0]
     citation.containerTwo = getContainerNodes()[1]
     citation.containerThree = getContainerNodes()[2]
 
     $('p.citation').html(
-      `<span class="citation__author">${citation._author}</span><span class="citation__title">${citation._title}</span><span class="citation__container--one">${containerPropIterator(citation._containerOne)}</span><span class="citation__container--two">${containerPropIterator(citation._containerTwo)}</span><span class="citation__container--three">${containerPropIterator(citation._containerThree)}</span> 
+      `<span class="citation__author">${citation._author}</span><span class="citation__title">${citation._title}</span><span class="citation__optional-element">${citation._optionalElementOne}</span><span class="citation__container--one">${containerPropIterator(citation._containerOne)}</span><span class="citation__container--two">${containerPropIterator(citation._containerTwo)}</span><span class="citation__container--three">${containerPropIterator(citation._containerThree)}</span><span class="citation__optional-element">${citation._optionalElementTwo}</span>
       `
     )
+
 
   })
 

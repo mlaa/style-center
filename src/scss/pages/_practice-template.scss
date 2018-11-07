@@ -75,6 +75,12 @@ article.practice-template {
           letter-spacing: 0;
           margin-top: 0.35rem;
 
+          &.focused {
+            font-size: 0.8rem;
+            margin: -.15rem 0 0 0.5rem;
+            transition: all 0.2s;
+          }
+
           @media print {
             font-size: 0.1rem;
             font-weight: normal;
