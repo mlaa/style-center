@@ -310,9 +310,16 @@ article.practice-template {
 
 .citation {
 
+  padding-left: .5rem;
+
+  &:first-line {
+    padding-left: 0;
+  }
+
   span {
     padding: 4px 0 1px 4px;
-
+    line-height: 1.75em;
+   
     // The code below adds a space after each entry, 
     // but keeps the span empty as needed.
     &:after {
@@ -328,24 +335,37 @@ article.practice-template {
       }
     }
 
+    &:not(:empty) {
+       border: 2px solid;
+    }
+
     &:not(:empty):last-of-type {
       padding-right: 4px;
     }
 
     &.citation__author {
       background: $author-orange;
+      border-color: $author-orange
     }
 
     &.citation__title {
       background: $author-orange;
+      border-color: $author-orange;
     }
 
     &.citation__container--one {
       background: $container-one-blue;
+      border-color: $container-one-blue;
     }
 
     &.citation__container--two {
       background: $container-two-blue;
+      border-color: $container-two-blue
+    }
+
+    &.citation__optional-element:not(:empty) {
+      background: $optional-elemement-yellow;
+      border: 2px solid $author-orange;
     }
   }
 
