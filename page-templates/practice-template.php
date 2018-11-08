@@ -196,7 +196,7 @@ get_header();
   <div  style="position: sticky; top: 4rem; margin-top: 5rem">
     <h3>Your Citation</h3>
     <!-- Fill in with citation information -->
-    <p class="citation">Start filling out the practice template to create your citation</p>
+    <p class="citation-example">Start filling out the practice template to create your citation</p>
   </div>
 </aside>
 
@@ -285,7 +285,7 @@ $(document).ready(function() {
     $(this).addClass('temp-element');
   });
 
-
+  //Clear template
   $('.clear-button').on('click', function() {
     $('.input').empty();
     $('.formatting-btn').addClass('hidden');
@@ -381,10 +381,9 @@ $(document).ready(function() {
     return containerString
   }
 
-  
-  // Set citation object props, and fill in citation display
-  $('.input').on('keyup', function() {
 
+  // When called, this function iterates through all elements and fills in the citation example
+  function buildCitation() {
     citation.author = $('#author').html()
     citation.title = $('#title').html()
     citation.optionalElementOne = $('#optional-element-one').html()
@@ -393,12 +392,23 @@ $(document).ready(function() {
     citation.containerTwo = getContainerNodes()[1]
     citation.containerThree = getContainerNodes()[2]
 
-    $('p.citation').html(
+    $('p.citation-example').html(
       `<span class="citation__author">${citation._author}</span><span class="citation__title">${citation._title}</span><span class="citation__optional-element">${citation._optionalElementOne}</span><span class="citation__container--one">${containerPropIterator(citation._containerOne)}</span><span class="citation__container--two">${containerPropIterator(citation._containerTwo)}</span><span class="citation__container--three">${containerPropIterator(citation._containerThree)}</span><span class="citation__optional-element">${citation._optionalElementTwo}</span>
       `
     )
+  }
+  
+  // Event handlers to trigger buildCitation
+  $('.input').on('keyup', function() {
+    return buildCitation();
+  });
+  $('.formatting-btn').on('click', function(){
+    return buildCitation();
+  });
 
-
+  //Highlight corresponding template fields on citation hover
+  $('p.citation-example span').on('hover', function() {
+    
   })
 
 });

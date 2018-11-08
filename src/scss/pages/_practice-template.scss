@@ -8,6 +8,7 @@ $author-orange: #fabf7c;
 $border-orange: #fabf7c;
 $container-one-blue: #bce1fa;
 $container-two-blue: #9bc4e0;
+$container-three-blue: #4d9ed6;
 $optional-elemement-yellow: #fcf9cd;
 
 
@@ -308,7 +309,7 @@ article.practice-template {
 
 // Citation fill styles
 
-.citation {
+.citation-example {
 
   padding-left: .5rem;
 
@@ -360,7 +361,12 @@ article.practice-template {
 
     &.citation__container--two {
       background: $container-two-blue;
-      border-color: $container-two-blue
+      border-color: $container-two-blue;
+    }
+
+    &.citation__container--three {
+      background: $container-three-blue;
+      border-color: $container-three-blue;
     }
 
     &.citation__optional-element:not(:empty) {
