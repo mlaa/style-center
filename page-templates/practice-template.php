@@ -31,14 +31,14 @@ get_header();
   <!--<fieldset>-->
 
     <fieldset>
-      <div class="temp-element">
+      <div class="temp-element" data-element="author">
         <div class="element-order">1</div>
         <div class="input" id="author" contentEditable="true"></div>
         <div class="label">Author.</div>
         <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
 
-      <div class="temp-element">
+      <div class="temp-element" data-element="title">
         <div class="element-order">2</div>
         <div class="input" id="title" contentEditable="true"></div>
         <div class="label">Title of source.</div>
@@ -46,7 +46,7 @@ get_header();
       </div>
 
       <!-- Optional Element Add -->
-      <div class="optional-element">
+      <div class="optional-element" data-element="optional-one">
         <div class="element-order">+</div>
         <div class="input" contenteditable="true" id="optional-element-one"></div>
         <div class="label">Optional element.</div>
@@ -55,7 +55,7 @@ get_header();
     </fieldset>
 
     <!-- Container 1 -->
-    <fieldset class="container">
+    <fieldset class="container" data-element="container1">
       <legend>Container</legend>
 
       <div class="temp-element">
@@ -111,7 +111,7 @@ get_header();
     </fieldset> <!-- End Container 1 -->
 
     <!-- Optional Element Add -->
-      <div class="optional-element last-optional-element">
+      <div class="optional-element last-optional-element" data-element="optional-two">
         <div class="element-order">+</div>
         <div class="input" data-title="optionalElement" contenteditable="true" id="optional-element-two"></div>
         <div class="label">Optional element.</div>
@@ -207,6 +207,12 @@ const $ = jQuery
 
 $(document).ready(function() {
 
+  
+
+  function logthis() {
+    console.log('this');
+  }
+
   // Add Container
   const addContainerButton = $('.container-add');
   let i = 0;
@@ -224,6 +230,11 @@ $(document).ready(function() {
       currFieldset.children().children('.input').empty();
       $('.last-optional-element').hide();
       $('.last-optional-element').last().show();
+
+      const containers = $('fieldset.container');
+      containers.each(function(index) {
+        $(this)[0].dataset.element = `container${index + 1}`
+      })
 
       const legends = $('fieldset').find('legend');
       legends.each( function(index) {
@@ -393,25 +404,31 @@ $(document).ready(function() {
     citation.containerThree = getContainerNodes()[2]
 
     $('p.citation-example').html(
-      `<span class="citation__author">${citation._author}</span><span class="citation__title">${citation._title}</span><span class="citation__optional-element">${citation._optionalElementOne}</span><span class="citation__container--one">${containerPropIterator(citation._containerOne)}</span><span class="citation__container--two">${containerPropIterator(citation._containerTwo)}</span><span class="citation__container--three">${containerPropIterator(citation._containerThree)}</span><span class="citation__optional-element">${citation._optionalElementTwo}</span>
+      `<span class="citation__author" data-element="author">${citation._author}</span><span class="citation__title" data-element="title">${citation._title}</span><span class="citation__optional-element" data-element="optional-one">${citation._optionalElementOne}</span><span class="citation__container--one" data-element="container1">${containerPropIterator(citation._containerOne)}</span><span class="citation__container--two" data-element="container2">${containerPropIterator(citation._containerTwo)}</span><span class="citation__container--three" data-element="container3">${containerPropIterator(citation._containerThree)}</span><span class="citation__optional-element" data-element="optional-two">${citation._optionalElementTwo}</span>
       `
     )
   }
+
+   
   
   // Event handlers to trigger buildCitation
   $('.input').on('keyup', function() {
-    return buildCitation();
+    buildCitation();
   });
   $('.formatting-btn').on('click', function(){
-    return buildCitation();
+    buildCitation();
   });
 
   //Highlight corresponding template fields on citation hover
-  $('p.citation-example span').on('hover', function() {
-    
+  $(document).on('click', 'span', function() {
+    const el = $(this)[0].dataset.element
+    $(`fieldset[data-element="${el}"], div.temp-element[data-element="${el}"]`).addClass('hovered')
   })
+  
 
 });
+
+
 
 </script>
 <?php
