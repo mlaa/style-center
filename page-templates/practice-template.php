@@ -119,64 +119,6 @@ get_header();
       </div>
 
 
-
-    <!-- Container 2 -->
-    <!--<fieldset>
-      <legend>Container 2</legend>
-
-      <div class="temp-element">
-        <div class="element-order">3</div>
-        <div class="input" contenteditable="true"></div>
-        <div class="label">Title of container,</div>
-        <div class="formatting-btn hidden"><i class="material-icons">format_italic</i></div>
-      </div>
-
-      <div class="temp-element">
-        <div class="element-order">4</div>
-        <div class="input" contenteditable="true"></div>
-        <div class="label">Other contributors,</div>
-        <div class="formatting-btn hidden"><i class="material-icons">format_italic</i></div>
-      </div>
-
-      <div class="temp-element">
-        <div class="element-order">5</div>
-        <div class="input" contenteditable="true"></div>
-        <div class="label">Version,</div>
-        <div class="formatting-btn hidden"><i class="material-icons">format_italic</i></div>
-      </div>
-
-      <div class="temp-element">
-        <div class="element-order">6</div>
-        <div class="input" contenteditable="true"></div>
-        <div class="label">Number,</div>
-        <div class="formatting-btn hidden"><i class="material-icons">format_italic</i></div>
-      </div>
-
-      <div class="temp-element">
-        <div class="element-order">7</div>
-        <div class="input" contenteditable="true"></div>
-        <div class="label">Publisher,</div>
-        <div class="formatting-btn hidden"><i class="material-icons">format_italic</i></div>
-      </div>
-
-      <div class="temp-element">
-        <div class="element-order">8</div>
-        <div class="input" contenteditable="true"></div>
-        <div class="label">Publication date,</div>
-        <div class="formatting-btn hidden"><i class="material-icons">format_italic</i></div>
-      </div>
-
-      <div class="temp-element">
-        <div class="element-order">9</div>
-        <div class="input" contenteditable="true"></div>
-        <div class="label">Location.</div>
-        <div class="formatting-btn hidden"><i class="material-icons">format_italic</i></div>
-      </div>
-
-    </fieldset>--><!-- End Container 2 -->
-
-
-
     <div class="temp-element button container-add">
       Add a container.
     </div>
@@ -388,6 +330,7 @@ $(document).ready(function() {
     let containerString = ''
     for (var prop in object) {
       containerString += object[prop] + ' '
+      // containerString += '<span data-element="' + prop + '">' + object[prop] + '</span> '
     }
     return containerString
   }
@@ -420,9 +363,9 @@ $(document).ready(function() {
   });
 
   //Highlight corresponding template fields on citation hover
-  $(document).on('click', 'span', function() {
+  $(document).on('hover', 'span', function() {
     const el = $(this)[0].dataset.element
-    $(`fieldset[data-element="${el}"], div.temp-element[data-element="${el}"]`).addClass('hovered')
+    $(`fieldset[data-element="${el}"] div.temp-element, div.temp-element[data-element="${el}"]`).toggleClass('hovered')
   })
   
 
