@@ -20,7 +20,7 @@ get_header('home');
 		<div class="tile tile-content tile-buy tile-sidebar">
 			<a class="order-link" href="https://www.mla.org/Publications/Bookstore/Nonseries/MLA-Handbook-Eighth-Edition">
 				<div class="order-button-container">
-					<span class="order-button button">Order your copy today</span>
+					<span class="order-button button">Get the e-book now</span>
 				</div>
 			</a>
 		</div>

@@ -3,6 +3,14 @@ $style-purple: #604;
 $mla-sans: proxima-nova, 'proxima nova', 'Helvetica Neue', Helvetica, sans-serif;
 $mla-serif: lexia, Garamond, 'Adobe Garamond Pro', Minion, serif;
 
+// Citation styles
+$author-orange: #fabf7c;
+$border-orange: #fabf7c;
+$container-one-blue: #bce1fa;
+$container-two-blue: #9bc4e0;
+$optional-elemement-yellow: #fcf9cd;
+
+
 article.practice-template {
   fieldset {
     margin: 1.5rem 0 1.25rem;
@@ -290,4 +298,49 @@ article.practice-template {
   color: #06c;
   font-size: 1.15rem;
   cursor: pointer;
+}
+
+// Citation fill styles
+
+.citation {
+
+  span {
+    padding: 4px 0 1px 4px;
+
+    // The code below adds a space after each entry, 
+    // but keeps the span empty as needed.
+    &:after {
+      content: " ";
+      white-space: pre-line;
+    }
+
+    &:empty {
+      padding-left: 0;
+
+      &:after {
+        content: none;
+      }
+    }
+
+    &:not(:empty):last-of-type {
+      padding-right: 4px;
+    }
+
+    &.citation__author {
+      background: $author-orange;
+    }
+
+    &.citation__title {
+      background: $author-orange;
+    }
+
+    &.citation__container--one {
+      background: $container-one-blue;
+    }
+
+    &.citation__container--two {
+      background: $container-two-blue;
+    }
+  }
+
 }
