@@ -70,7 +70,7 @@ article.practice-template {
       }
 
       &.temp-element {
-        background: rgba(#339,0.05);
+        //background: rgba(#339,0.05);
         .label {
           text-transform: none;
           letter-spacing: 0;
@@ -373,11 +373,40 @@ article.practice-template {
       background: $optional-elemement-yellow;
       border: 2px solid $author-orange;
     }
+
+    &:hover {
+      cursor: pointer;
+    }
   }
+
+  
 
 }
 
 .hovered {
       background: #f3f6f9;
       box-shadow: 2px 2px 12px #cccecf;
+    
+    &.author-element, &.title-element {
+      background-color: rgba($author-orange, 0.2);
     }
+
+    &.optional-element {
+      background-color: rgba($optional-elemement-yellow, 0.3);
+    }
+}
+
+fieldset.container:nth-child(2) .container-element.hovered {
+      background-color: rgba($container-one-blue, 0.3);
+    }
+
+&fieldset.container:nth-child(3) .container-element.hovered {
+  background-color: rgba($container-two-blue, 0.3);
+}
+
+&fieldset:nth-child(4) .container-element.hovered {
+  background-color: rgba($container-three-blue, 0.3);
+}
+
+
+
