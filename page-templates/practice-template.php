@@ -157,14 +157,14 @@ $(document).ready(function() {
 
   // Add Container
   const addContainerButton = $('.container-add');
-  let i = 0;
+  let containerCount = 0;
   addContainerButton.on('click', function() {
 
-    i++;
+    containerCount++;
 
     const prevFieldset = $(this).prev().prev();
 
-    if ( i < 3 ) {
+    if ( containerCount < 3 ) {
       let currFieldset = prevFieldset.clone(true);
       prevFieldset.after(currFieldset);
       currFieldset.children().children('.label').removeClass('focused');
@@ -186,7 +186,7 @@ $(document).ready(function() {
 
     }
 
-    if ( i >= 2 ) {
+    if ( containerCount >= 2 ) {
       $(this).hide();
     }
   });
@@ -246,11 +246,30 @@ $(document).ready(function() {
     $('.input').empty();
     $('.formatting-btn').addClass('hidden');
     $('.label').removeClass('focused');
+
+    // Clear citation example
+    $('p.citation-example').html('Start filling out the practice template to create your citation');
+
+    // Show only the first container fieldset/add container button
+    //$('fieldset.container:nth-child(2)').show();
+    $('fieldset.container:nth-child(3), fieldset.container:nth-child(4)').remove();
+    
+    //Show add container button and reset counter
+    addContainerButton.show();
+    $('html, body').animate({scrollTop:0}, 'slow');
+    $('legend').hide();
+    containerCount = 0;
+
   })
 
 
+
+
+
  /*
-  * Define citation class. 
+  * Define citation class.
+  * This is used to build the citation as a user types in the template.
+  * It's then rendered back out into a series of color-coded spans.
   */
 
  class Citation {
