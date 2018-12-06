@@ -135,7 +135,7 @@ get_header();
 
 <aside class="sidebar citation-sidebar">
   
-  <div  style="position: sticky; top: 4rem; margin-top: 5rem">
+  <div  class="citation-sidebar--sticky-block">
     <h3>Your Citation</h3>
     <!-- Fill in with citation information -->
     <p class="citation-example">Start filling out the practice template to create your citation</p>
@@ -369,7 +369,7 @@ $(document).ready(function() {
     citation.containerThree = getContainerNodes()[2]
 
     $('p.citation-example').html(
-      `<span class="citation__author" data-element="author">${citation._author}</span><span class="citation__title" data-element="title">${citation._title}</span><span class="citation__optional-element" data-element="optional-one">${citation._optionalElementOne}</span><span class="citation__container--one" data-element="container1">${containerPropIterator(citation._containerOne)}</span><span class="citation__container--two" data-element="container2">${containerPropIterator(citation._containerTwo)}</span><span class="citation__container--three" data-element="container3">${containerPropIterator(citation._containerThree)}</span><span class="citation__optional-element" data-element="optional-two">${citation._optionalElementTwo}</span>
+      `<span class="citation__author" data-element="author">${citation._author}</span> <span class="citation__title" data-element="title">${citation._title}</span> <span class="citation__optional-element" data-element="optional-one">${citation._optionalElementOne}</span> <span class="citation__container--one" data-element="container1">${containerPropIterator(citation._containerOne)}</span> <span class="citation__container--two" data-element="container2">${containerPropIterator(citation._containerTwo)}</span> <span class="citation__container--three" data-element="container3">${containerPropIterator(citation._containerThree)}</span> <span class="citation__optional-element" data-element="optional-two">${citation._optionalElementTwo}</span>
       `
     )
   }

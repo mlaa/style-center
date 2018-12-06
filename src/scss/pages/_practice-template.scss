@@ -11,6 +11,16 @@ $container-two-blue: #9bc4e0;
 $container-three-blue: #4d9ed6;
 $optional-elemement-yellow: #fcf9cd;
 
+body.page-template-practice-template {
+  main.content {
+    max-width: 1200px;
+
+    div.block-main {
+      flex-basis: 50%;
+    }
+  }
+}
+
 
 article.practice-template {
   fieldset {
@@ -310,6 +320,8 @@ article.practice-template {
 // Citation fill styles
 
 .citation-example {
+  font-size: 1.25rem;
+
 
   padding-left: .5rem;
 
@@ -318,18 +330,19 @@ article.practice-template {
   }
 
   span {
-    padding: 4px 0 1px 4px;
+    padding: 3px 4px 0 4px;
     line-height: 1.75em;
    
     // The code below adds a space after each entry, 
     // but keeps the span empty as needed.
     &:after {
-      content: " ";
-      white-space: pre-line;
+      //content: "\0020";
+      white-space: pre;
     }
 
     &:empty {
       padding-left: 0;
+      padding-right: 0;
 
       &:after {
         content: none;
@@ -342,6 +355,7 @@ article.practice-template {
 
     &:not(:empty):last-of-type {
       padding-right: 4px;
+
     }
 
     &.citation__author {
@@ -375,7 +389,8 @@ article.practice-template {
     }
 
     &:hover {
-      cursor: pointer;
+      cursor: default;
+      box-shadow: 2px 2px 6px #b7b8b9;
     }
   }
 
@@ -388,24 +403,39 @@ article.practice-template {
       box-shadow: 2px 2px 12px #cccecf;
     
     &.author-element, &.title-element {
-      background-color: rgba($author-orange, 0.2);
+      background-color: rgba($author-orange, 0.3);
     }
 
     &.optional-element {
-      background-color: rgba($optional-elemement-yellow, 0.3);
+      background-color: rgba($optional-elemement-yellow, 0.4);
     }
 }
 
 fieldset.container:nth-child(2) .container-element.hovered {
-      background-color: rgba($container-one-blue, 0.3);
+      background-color: rgba($container-one-blue, 0.4);
     }
 
 &fieldset.container:nth-child(3) .container-element.hovered {
-  background-color: rgba($container-two-blue, 0.3);
+  background-color: rgba($container-two-blue, 0.5);
 }
 
 &fieldset:nth-child(4) .container-element.hovered {
-  background-color: rgba($container-three-blue, 0.3);
+  background-color: rgba($container-three-blue, 0.6);
+}
+
+
+
+.citation-sidebar--sticky-block {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 4rem;
+  margin-top: 5rem;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 1rem;
+    top: 0;
+    position: relative;
+  }
 }
 
 
