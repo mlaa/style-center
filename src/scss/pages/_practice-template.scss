@@ -228,7 +228,7 @@ article.practice-template {
   }
 
   .input {
-    height: 90%;
+    //height: 90%;
     padding: 1.2rem 0 0 .5rem;
     width: calc( 100% - 105px );
     display: inline-block;
@@ -241,6 +241,10 @@ article.practice-template {
     left: 2.5rem;
     font-family: $mla-serif;
     font-weight: 300;
+
+    br {
+      display: none;
+    }
 
     @media print {
       font-size: .7rem;
@@ -327,6 +331,10 @@ article.practice-template {
 
   &:first-line {
     padding-left: 0;
+  }
+
+  br {
+    display: none;
   }
 
   span {
