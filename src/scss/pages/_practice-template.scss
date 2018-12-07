@@ -1,7 +1,12 @@
 $mla-green: #004a51;
 $style-purple: #604;
+
+$style-light-blue: #2e67b1;
+
 $mla-sans: proxima-nova, 'proxima nova', 'Helvetica Neue', Helvetica, sans-serif;
 $mla-serif: lexia, Garamond, 'Adobe Garamond Pro', Minion, serif;
+
+
 
 // Citation styles
 $author-orange: #fabf7c;
@@ -16,8 +21,12 @@ body.page-template-practice-template {
     max-width: 1200px;
 
     div.block-main {
-      flex-basis: 50%;
+      flex-basis: 55%;
     }
+
+    aside.citation-sidebar {
+      flex-basis: 35%;
+    }    
   }
 }
 
@@ -41,7 +50,7 @@ article.practice-template {
 
     legend {
       font-family: $mla-sans;
-      color: #339;
+      color: $style-light-blue;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 0.15rem;
@@ -105,7 +114,7 @@ article.practice-template {
       .element-order {
         height: 1.25rem;
         line-height: 1.25rem;
-        background: #309;
+        background: $style-light-blue;
         padding: .075rem;
         width: 1.25rem;
         border-radius: 2.5rem;
@@ -131,7 +140,7 @@ article.practice-template {
 
   .temp-element {
 
-    border: 1px solid #309;
+    border: 1px solid $style-light-blue;
     border-radius: 4px;
     margin: .75rem auto;
     padding: .35rem 0 0.35rem 0.35rem;
@@ -142,7 +151,7 @@ article.practice-template {
 
     .element-order {
       height: 100%;
-      background: #309;
+      background: $style-light-blue;
       padding: .5rem .25rem;
       width: 2rem;
       border-radius: 3px;
@@ -321,16 +330,44 @@ article.practice-template {
   cursor: pointer;
 }
 
-// Citation fill styles
+
+// Citation example and key styles
+
+.info-box {
+  border-radius: 3px;
+  padding: .5rem;
+  border: 1px solid $style-light-blue;
+}
+
+.citation-key {
+  margin-top: 2rem;
+}
+
+h6.info-box--label {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: $style-light-blue;
+}
 
 .citation-example {
   font-size: 1.25rem;
+  padding-left: 1.25rem;
+  text-indent: -1.25rem;
+  margin-bottom: 0;
 
+  &.citation-example--small {
+    font-size: 0.9rem;
 
-  padding-left: .5rem;
+    span:hover {
+      box-shadow: none;
+    }
+  }
 
-  &:first-line {
-    padding-left: 0;
+  &::first-line {
+   // padding-left: 0;
   }
 
   br {

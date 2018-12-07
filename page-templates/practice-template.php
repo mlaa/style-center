@@ -138,7 +138,14 @@ get_header();
   <div  class="citation-sidebar--sticky-block">
     <h3>Your Citation</h3>
     <!-- Fill in with citation information -->
-    <p class="citation-example">Start filling out the practice template to create your citation</p>
+    <p class="citation-example citation-fill">Start filling out the practice template to create your citation</p>
+
+    <div class="citation-key info-box">
+      <h6 class="info-box--label">Key</h6>
+      <p class="citation-example citation-example--small">
+        <span class="citation__author">Author.</span> <span class="citation__title"><em>Title</em>.</span> <span class="citation__optional-element">Optional element.</span> <span class="citation__container--one">Container one.</span> <span class="citation__container--two">Container two.</span> <span class="citation__container--three">Container three.</span> <span class="citation__optional-element">Optional element.</span>
+      </p>
+    </div>
   </div>
 </aside>
 
@@ -248,7 +255,7 @@ $(document).ready(function() {
     $('.label').removeClass('focused');
 
     // Clear citation example
-    $('p.citation-example').html('Start filling out the practice template to create your citation');
+    $('p.citation-fill').html('Start filling out the practice template to create your citation');
 
     // Show only the first container fieldset/add container button
     //$('fieldset.container:nth-child(2)').show();
@@ -368,8 +375,8 @@ $(document).ready(function() {
     citation.containerTwo = getContainerNodes()[1]
     citation.containerThree = getContainerNodes()[2]
 
-    $('p.citation-example').html(
-      `<span class="citation__author" data-element="author">${citation._author}</span> <span class="citation__title" data-element="title">${citation._title}</span> <span class="citation__optional-element" data-element="optional-one">${citation._optionalElementOne}</span> <span class="citation__container--one" data-element="container1">${containerPropIterator(citation._containerOne)}</span> <span class="citation__container--two" data-element="container2">${containerPropIterator(citation._containerTwo)}</span> <span class="citation__container--three" data-element="container3">${containerPropIterator(citation._containerThree)}</span> <span class="citation__optional-element" data-element="optional-two">${citation._optionalElementTwo}</span>
+    $('p.citation-fill').html(
+      `<span class="citation__author" data-element="author">${citation._author}</span> <span class="citation__title" data-element="title">${citation._title}</span> <span class="citation__optional-element" data-element="optional-one">${citation._optionalElementOne}</span> <span class="citation__container--one" data-element="container1">${containerPropIterator(citation._containerOne).slice(0,-1)}</span> <span class="citation__container--two" data-element="container2">${containerPropIterator(citation._containerTwo).slice(0,-1)}</span> <span class="citation__container--three" data-element="container3">${containerPropIterator(citation._containerThree).slice(0,-1)}</span> <span class="citation__optional-element" data-element="optional-two">${citation._optionalElementTwo}</span>
       `
     )
   }
@@ -389,6 +396,17 @@ $(document).ready(function() {
     const el = $(this)[0].dataset.element
     $(`fieldset[data-element="${el}"] div.temp-element, div.temp-element[data-element="${el}"]`).toggleClass('hovered')
   })
+
+
+  //Disable return key inside template elements
+  $('.input').bind('keypress', function(e)
+    {
+       if(e.keyCode === 13)
+       {
+          return false;
+       }
+    });
+
   
 
 });
