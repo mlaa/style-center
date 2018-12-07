@@ -211,18 +211,9 @@ if ( have_posts() ) :
 		if( is_single() || is_page() ) {
 			the_content();
 
-			foreach( $author as $name ) :
-			?>
-
-			<div class="author_container">
-				<?php
-				if ( ! empty( $name ) && ! ( is_page() || is_home() || is_front_page() ) ) :
-					get_template_part( "templates/authors/$name" );
+				if ( ! ( is_page() || is_home() || is_front_page() ) ) :
+					do_action('mla_style_theme_author_bios', get_the_ID());
 				endif;
-				?>
-			</div> <!-- /.author_template -->
-
-			<?php endforeach;
 
 		} else if( is_archive() ) {
 			the_excerpt();
