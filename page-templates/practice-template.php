@@ -138,12 +138,12 @@ get_header();
   <div  class="citation-sidebar--sticky-block">
     <h3>Your Citation</h3>
     <!-- Fill in with citation information -->
-    <p class="citation-example citation-fill">Start filling out the practice template to create your citation</p>
+    <p class="citation-example citation-fill">Fill out the practice template to create your works-cited-list entry.</p>
 
     <div class="citation-key info-box">
       <h6 class="info-box--label">Key</h6>
       <p class="citation-example citation-example--small">
-        <span class="citation__author">Author.</span> <span class="citation__title"><em>Title</em>.</span> <span class="citation__optional-element">Optional element.</span> <span class="citation__container--one">Container one.</span> <span class="citation__container--two">Container two.</span> <span class="citation__container--three">Container three.</span> <span class="citation__optional-element">Optional element.</span>
+        <span class="citation__author">Author.</span> <span class="citation__title">Title of source.</span> <span class="citation__optional-element">Optional element.</span> <span class="citation__container--one">Container 1.</span> <span class="citation__container--two">Container 2.</span> <span class="citation__container--three">Container 3.</span> <span class="citation__optional-element">Optional element.</span>
       </p>
     </div>
   </div>
@@ -255,7 +255,7 @@ $(document).ready(function() {
     $('.label').removeClass('focused');
 
     // Clear citation example
-    $('p.citation-fill').html('Start filling out the practice template to create your citation');
+    $('p.citation-fill').html('Fill out the practice template to create your works-cited-list entry.');
 
     // Show only the first container fieldset/add container button
     //$('fieldset.container:nth-child(2)').show();
