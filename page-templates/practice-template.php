@@ -138,7 +138,7 @@ get_header();
   <div  class="citation-sidebar--sticky-block">
     <h3>Your Citation</h3>
     <!-- Fill in with citation information -->
-    <p class="citation-example citation-fill">Fill out the practice template to create your works-cited-list entry.</p>
+    <p class="citation-example citation-fill"></p>
 
     <div class="citation-key info-box">
       <h6 class="info-box--label">Key</h6>
@@ -255,7 +255,7 @@ $(document).ready(function() {
     $('.label').removeClass('focused');
 
     // Clear citation example
-    $('p.citation-fill').html('Fill out the practice template to create your works-cited-list entry.');
+    $('p.citation-fill').empty();
 
     // Show only the first container fieldset/add container button
     //$('fieldset.container:nth-child(2)').show();
