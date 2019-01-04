@@ -147,6 +147,14 @@ get_header();
       </p>
     </div>
   </div>
+
+
+<?php 
+
+get_template_part( "templates/buttons/buy-handbook-button" );
+
+ ?>
+
 </aside>
 
 

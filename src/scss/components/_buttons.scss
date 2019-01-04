@@ -1,4 +1,8 @@
 // Buttons
+$primary-dark-blue: #2e67b1;
+$md-dark-blue: #2c64af;
+$medium-blue: #4d9ed6;
+$light-blue: #bce1fa;
 
 .button {
   background-color: $palette-blue;
@@ -13,3 +17,117 @@
   color: white;
   padding: .5em .75em;
 }
+
+
+.button-group {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	margin: 2rem 0;
+}
+
+.button--slim {
+	border-radius: 4px;
+	border: 1px solid $md-dark-blue;
+	//flex-grow: 1;
+	text-align: center;
+	padding: 2px 12px;
+	font-weight: bolder;
+	font-size: 0.85rem;
+	box-shadow: 1px 2px 3px rgba(0,0,0,.24);
+	cursor: pointer;
+	transition: all .2s;
+
+	// E-book dropdown menu 
+	.drop-down-sub-menu {
+		display: none;
+	}
+
+	&:hover {
+		text-decoration: none;
+		z-index: 2;
+		box-shadow: 0px 3px 6px rgba(0,0,0,.36);
+		transition: all .2s;
+
+		&.drop-down {
+			padding-bottom: 0;
+			border-bottom-right-radius: 4px;
+			border-bottom-left-radius: 4px;
+
+
+			.drop-down-sub-menu {
+				display: block;
+				list-style: none;
+				margin: 0 -12px;
+				padding: 0;
+				background: $white;
+				
+				li {
+				  //padding: 3px 0 0 12px;
+				  margin: 0;
+				  text-align: left;
+				  border-top: 1px solid $medium-blue;
+
+				  a {
+				  	display: block;
+				  	padding: 3px 0 0 12px;
+				  	width: 100%;
+				  	height: 100%;
+				  	box-sizing: border-box;
+
+				  	&:hover {
+				  		background: rgba($light-blue, 0.3);
+				  		text-decoration: none;
+				  		
+				  	}
+				  }
+				}
+			}
+		}
+	}
+
+
+}
+
+.button--left__dark, .button--right__dark {
+	background: $medium-blue;
+	color: $white;
+
+	&:hover {
+		color: $white;
+	}
+}
+
+.button--left__light, .button--right__light {
+	background: $light-blue;
+	color: $primary-dark-blue;
+}
+
+.button--left__dark, .button--left__light {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.button--right__dark, .button--right__light {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-left: none;
+}
+
+
+
+span.select-handle {
+	vertical-align: middle;
+
+}
+
+
+
+
+
+
+//Helper for rotating things like menu select icon
+.rotate-90 {
+	transform: rotate(90deg);
+}
+
