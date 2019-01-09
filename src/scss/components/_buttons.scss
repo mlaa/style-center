@@ -23,20 +23,24 @@ $light-blue: #bce1fa;
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-	margin: 2rem 0;
+	position: absolute;
+	z-index: 9999;
+	width: 100%;
+	margin: 0 0 2rem;
 }
 
 .button--slim {
 	border-radius: 4px;
 	border: 1px solid $md-dark-blue;
 	//flex-grow: 1;
+	flex-basis: 50%;
 	text-align: center;
-	padding: 2px 12px;
+	padding: 8px 4px;
 	font-weight: bolder;
-	font-size: 0.85rem;
+	font-size: 1rem;
 	box-shadow: 1px 2px 3px rgba(0,0,0,.24);
 	cursor: pointer;
-	transition: all .2s;
+	transition: box-shadow .2s;
 
 	// E-book dropdown menu 
 	.drop-down-sub-menu {
@@ -47,7 +51,7 @@ $light-blue: #bce1fa;
 		text-decoration: none;
 		z-index: 2;
 		box-shadow: 0px 3px 6px rgba(0,0,0,.36);
-		transition: all .2s;
+		transition: box-shadow .2s;
 
 		&.drop-down {
 			padding-bottom: 0;
@@ -58,10 +62,18 @@ $light-blue: #bce1fa;
 			.drop-down-sub-menu {
 				display: block;
 				list-style: none;
-				margin: 0 -12px;
+				margin: 6px -4px 0;
 				padding: 0;
 				background: $white;
-				
+
+				// These styles to fix homepage issue where expanded menu pushes tiles down
+				//position: absolute;
+				//width: 100%;
+				//border: 1px solid $md-dark-blue;
+				//border-bottom-right-radius: 4px;
+				//border-bottom-left-radius: 4px;
+				// End tile push fix
+
 				li {
 				  //padding: 3px 0 0 12px;
 				  margin: 0;
@@ -70,7 +82,7 @@ $light-blue: #bce1fa;
 
 				  a {
 				  	display: block;
-				  	padding: 3px 0 0 12px;
+				  	padding: 3px 4px 0 8px;
 				  	width: 100%;
 				  	height: 100%;
 				  	box-sizing: border-box;
@@ -90,7 +102,7 @@ $light-blue: #bce1fa;
 }
 
 .button--left__dark, .button--right__dark {
-	background: $medium-blue;
+	background: $md-dark-blue;
 	color: $white;
 
 	&:hover {
@@ -121,6 +133,9 @@ span.select-handle {
 
 }
 
+span.ext-link {
+	float: right;
+}
 
 
 
@@ -129,5 +144,9 @@ span.select-handle {
 //Helper for rotating things like menu select icon
 .rotate-90 {
 	transform: rotate(90deg);
+}
+
+.rotate-45 {
+	transform: rotate(45deg);
 }
 
