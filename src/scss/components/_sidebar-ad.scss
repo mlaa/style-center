@@ -52,12 +52,18 @@
   //justify-content: center;
   text-align: center;
   flex-basis: 100%;
+
+
 }
 
 .handbook-ad--image {
   width: 70%;
   max-width: 250px; 
   margin: 0 auto;
+
+  @media screen and (max-width: 1020px) {
+    width: 60%;
+  }
 
 }
 

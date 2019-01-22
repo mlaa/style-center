@@ -27,6 +27,14 @@ $light-blue: #bce1fa;
 	z-index: 9999;
 	width: 100%;
 	margin: 0 0 2rem;
+
+	@media screen and (max-width: 1020px) {
+		flex-flow: column;
+	}
+
+	@media screen and (max-width: 600px) {
+    	position: relative;
+  	}
 }
 
 .button--slim {
@@ -43,6 +51,12 @@ $light-blue: #bce1fa;
 	transition: box-shadow .2s;
 	margin: 0;
 	line-height: 1.35;
+
+	@media screen and (max-width: 1020px) {
+		width: 75%;
+		box-sizing: border-box;
+		margin: 0 auto;
+	}
 
 	// E-book dropdown menu 
 	.drop-down-sub-menu {
@@ -122,12 +136,31 @@ $light-blue: #bce1fa;
 .button--left__dark, .button--left__light {
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
+
+	@media screen and (max-width: 1020px) {
+		border-bottom-left-radius: 0px;
+		border-top-left-radius: 4px;
+		border-bottom-right-radius: 0px;
+		border-top-right-radius: 4px;
+		
+	}
 }
 
 .button--right__dark, .button--right__light {
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 	border-left: none;
+
+	@media screen and (max-width: 1020px) {
+		border-bottom-right-radius: 4px;
+		border-top-right-radius: 0px;
+		border-bottom-left-radius: 4px;
+		border-top-left-radius: 0px;
+
+		
+		border-left: 1px solid $md-dark-blue;
+	}
+
 }
 
 
