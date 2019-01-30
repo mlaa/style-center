@@ -64,9 +64,6 @@ function filter_comment_defaults( $args ) {
 		$args['comment_field'] = '';
 	}
 
-	echo '<pre>';
-	var_dump($args['fields']['cookies']);
-	echo '</pre>';
 	// add disclaimer under email field
 
 	$args['fields']['email'] .= 'Your e-mail address will not be published.';
