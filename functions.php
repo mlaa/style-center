@@ -65,7 +65,14 @@ function filter_comment_defaults( $args ) {
 	}
 
 	// add disclaimer under email field
+
 	$args['fields']['email'] .= 'Your e-mail address will not be published.';
+
+	$args['fields']['cookies'] = '<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"><label for="wp-comment-cookies-consent">Save my name, e-mail, and Web site in this browser for the next time I comment.</label></p>';
+		
+	
+
+
 
 	return $args;
 }
