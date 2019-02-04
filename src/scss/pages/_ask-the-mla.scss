@@ -23,7 +23,7 @@
     .nav-head {
       display: flex;
 
-      h3 {
+      p {
         flex: 1;
       }
     }
@@ -32,7 +32,7 @@
       .nav-head {
         display: block;
 
-        h3 {
+        p {
           display: none;
         }
       }
@@ -61,7 +61,7 @@
     margin-bottom: 1em;
     padding: 1em;
 
-    h3 {
+    p {
       font-weight: normal;
     }
   }

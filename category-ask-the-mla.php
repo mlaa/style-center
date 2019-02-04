@@ -31,13 +31,13 @@ get_header();
 	</h1>
 
 	<div class="faq-search">
-		<h3>Search our list of frequently asked questions.</h3>
+		<p>Search our list of frequently asked questions.</p>
 		<?php echo $search_form; ?>
 		Haven't found what you're looking for? <a href="/ask-a-question">Submit a question.</a>
 	</div>
 
 	<div class="nav-head">
-	<h3>Recently Answered Questions</h3>
+	<p>Recently Answered Questions</p>
 		<?php
 			the_posts_pagination( array(
 				'mid_size'  => 4,
