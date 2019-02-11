@@ -22,12 +22,12 @@
 
 		const dropDownButton = jQuery('#e-book-drop-down')
 
-		dropDownButton.on('mouseover', function() {
+		dropDownButton.on('mouseenter touchstart click', function() {
 			jQuery(this).addClass('drop-down')
 			jQuery('#drop-down-menu').addClass('drop-down-sub-menu')
 		});
 
-		dropDownButton.on('mouseout', function() {
+		dropDownButton.on('mouseleave touchmove click', function() {
 			if ( !jQuery('#drop-down-menu').hasClass('clicked') ) {
 				jQuery(this).removeClass('drop-down')
 				jQuery('#drop-down-menu').removeClass('drop-down-sub-menu');
@@ -37,9 +37,9 @@
 		dropDownButton.on('click', function(e) {
 
 			jQuery('#drop-down-menu').toggleClass('clicked');
-			if ( !jQuery('#drop-down-menu').is(':visible') || dropDownButton.is(':hover') ) {
+			if ( !jQuery('#drop-down-menu').is(':visible') ) { //|| dropDownButton.is(':hover') ) {
 				jQuery('#drop-down-menu').addClass('drop-down-sub-menu')
-			} else {
+			} else  {
 				jQuery('#drop-down-menu').removeClass('drop-down-sub-menu')
 			}
 		})

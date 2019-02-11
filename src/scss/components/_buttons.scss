@@ -29,7 +29,7 @@ $light-blue: #bce1fa;
 	margin: 0 0 2rem;
 
 	@media screen and (max-width: 1020px) {
-		flex-flow: column;
+		flex-flow: column-reverse;
 	}
 
 	@media screen and (max-width: 600px) {
@@ -56,6 +56,7 @@ $light-blue: #bce1fa;
 		width: 75%;
 		box-sizing: border-box;
 		margin: 0 auto;
+		font-size: 1.4rem;
 	}
 
 	// E-book dropdown menu 
@@ -86,6 +87,10 @@ $light-blue: #bce1fa;
 				  	width: 100%;
 				  	height: 100%;
 				  	box-sizing: border-box;
+
+				  	@media screen and (max-width: 1020px) {
+				  		padding: 12px;
+				  	}
 
 				  	&:hover, &:focus {
 				  		background: rgba($light-blue, 0.3);
@@ -138,10 +143,10 @@ $light-blue: #bce1fa;
 	border-bottom-right-radius: 0;
 
 	@media screen and (max-width: 1020px) {
-		border-bottom-left-radius: 0px;
-		border-top-left-radius: 4px;
-		border-bottom-right-radius: 0px;
-		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+		border-top-right-radius: 0px;
+		border-bottom-left-radius: 4px;
+		border-top-left-radius: 0px;
 		
 	}
 }
@@ -152,10 +157,10 @@ $light-blue: #bce1fa;
 	border-left: none;
 
 	@media screen and (max-width: 1020px) {
-		border-bottom-right-radius: 4px;
-		border-top-right-radius: 0px;
-		border-bottom-left-radius: 4px;
-		border-top-left-radius: 0px;
+		border-bottom-left-radius: 0px;
+		border-top-left-radius: 4px;
+		border-bottom-right-radius: 0px;
+		border-top-right-radius: 4px;
 
 		
 		border-left: 1px solid $md-dark-blue;
