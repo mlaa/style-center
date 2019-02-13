@@ -2,7 +2,7 @@
 <div class="handbook-ad">
 
 	
-	<img src="//chaucer.mlacommons.org/app/themes/style-center/assets/dist/../images/handbook-covers.png" class="handbook-ad--image">
+	<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/handbook-covers.png" class="handbook-ad--image">
 	<h2 class="handbook-ad--title"><em>MLA Handbook</em>, 8th&nbsp;edition</h2>
 
 	<div class="button-group">
