@@ -483,5 +483,22 @@ fieldset.container:nth-child(2) .container-element.hovered {
   }
 }
 
+.handbook-ad-container {
+  margin: 3rem auto 2rem;
+  width: 75%;
+
+  @media screen and (max-width: 1165px) {
+    width: 90%;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
+
+  .button-group {
+    position: relative;
+  }
+}
+
 
 
