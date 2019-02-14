@@ -146,14 +146,17 @@ get_header();
         <span class="citation__author">Author.</span> <span class="citation__title">Title of source.</span> <span class="citation__optional-element">Optional element.</span> <span class="citation__container--one">Container 1.</span> <span class="citation__container--two">Container 2.</span> <span class="citation__container--three">Container 3.</span> <span class="citation__optional-element">Optional element.</span>
       </p>
     </div>
+
+    <div class="handbook-ad-container">
+      <?php 
+        get_template_part( "templates/buttons/buy-handbook-button" );
+      ?>
+    </div>
+      
   </div>
 
 
-<?php 
 
-get_template_part( "templates/buttons/buy-handbook-button" );
-
- ?>
 
 </aside>
 
