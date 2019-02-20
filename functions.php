@@ -166,14 +166,14 @@ function filter_ep_config_mapping( $mapping ) {
 	];
 
 	// define the custom stop word filter.
-	$mapping['settings']['analysis']['filter'][ $stop_word_filter_name ] = [
-		'type' => 'standard',
-		'synonyms' => $stop_words,
-	];
+	// $mapping['settings']['analysis']['filter'][ $stop_word_filter_name ] = [
+	// 	'type' => 'standard',
+	// 	'synonyms' => $stop_words,
+	// ];
 
-	// tell the analyzer to use our newly created filter
+	// tell the analyzer to use our newly created filter.
 	array_unshift( $mapping['settings']['analysis']['analyzer']['default']['filter'], $synonym_filter_name );
-	array_unshift( $mapping['settings']['analysis']['analyzer']['default']['filter'], $stop_word_filter_name );
+	// array_unshift( $mapping['settings']['analysis']['analyzer']['default']['filter'], $stop_word_filter_name );
 
 	return $mapping;
 }
