@@ -121,7 +121,7 @@ function filter_ep_config_mapping( $mapping ) {
 		'exhibit, exhibition',
 		'photo, photos, photograph, photographs',
 		'movie, film, video',
-		'they, singular they',
+		'they, singular, singular they',
 	];
 
 	$stop_words = [
