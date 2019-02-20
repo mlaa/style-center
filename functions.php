@@ -109,7 +109,8 @@ function parse_post_author( $post_meta ) {
  * @return mixed
  */
 function filter_ep_config_mapping( $mapping ) {
-	$filter_name = 'mla_style_synonym_filter';
+	$synonym_filter_name = 'mla_style_synonym_filter';
+	$stop_word_filter_name = 'mla_style_stop_words_filter';
 
 	$synonyms = [
 		// without "stand" and "alone" as independent synonyms, no matches are returned for "standalone".
@@ -120,20 +121,65 @@ function filter_ep_config_mapping( $mapping ) {
 		'exhibit, exhibition',
 		'photo, photos, photograph, photographs',
 		'movie, film',
+		'they, singular they',
 	];
 
-	// define the custom filter
-	$mapping['settings']['analysis']['filter'][ $filter_name ] = [
+	$stop_words = [
+		'a',
+		'an',
+		'and',
+		'are',
+		'as',
+		'at',
+		'be',
+		'but',
+		'by',
+		'for',
+		'if',
+		'in',
+		'into',
+		'is',
+		'it',
+		'no',
+		'not',
+		'of',
+		'on',
+		'or',
+		'such',
+		'that',
+		'the',
+		'their',
+		'then',
+		'there',
+		'these',
+		// 'they',
+		'this',
+		'to',
+		'was',
+		'will',
+		'with',
+	];
+	// define the custom synonym filter.
+	$mapping['settings']['analysis']['filter'][ $synonym_filter_name ] = [
 		'type' => 'synonym',
-		'synonyms' => $synonyms
+		'synonyms' => $synonyms,
+	];
+
+	// define the custom stop word filter.
+	$mapping['settings']['analysis']['filter'][ $stop_word_filter_name ] = [
+		'type' => 'standard',
+		'synonyms' => $stop_words,
 	];
 
 	// tell the analyzer to use our newly created filter
-	array_unshift( $mapping['settings']['analysis']['analyzer']['default']['filter'], $filter_name );
+	array_unshift( $mapping['settings']['analysis']['analyzer']['default']['filter'], $synonym_filter_name );
+	array_unshift( $mapping['settings']['analysis']['analyzer']['default']['filter'], $stop_word_filter_name );
 
 	return $mapping;
 }
 add_filter( 'ep_config_mapping', __NAMESPACE__ . '\filter_ep_config_mapping' );
+
+
 
 /**
  * If query contains quotes, no fuzziness.
