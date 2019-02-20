@@ -120,7 +120,7 @@ function filter_ep_config_mapping( $mapping ) {
 		'catalog, catalogue',
 		'exhibit, exhibition',
 		'photo, photos, photograph, photographs',
-		'movie, film, video',
+		'movie, film',
 		'they, singular, singular they',
 	];
 
