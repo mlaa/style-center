@@ -170,10 +170,14 @@ function filter_ep_config_mapping( $mapping ) {
 		],
 	];
 
-	// Tell the analyzer to use our newly created filter. Position matters. We want the stop words AFTER synonyms.
-	$mapping['settings']['analysis']['analyzer'] = array('synonym' => array('tokenizer'=>'standard', 'filter'=>array('mla_style_stop_words','synonym')); 
-
-	error_log(json_encode($mapping));
+	// Tell the analyzer to use our newly created filter. 
+	// Position matters. We want the stop words AFTER synonyms.
+	$mapping['settings']['analysis']['analyzer'] = array(
+		'synonym' => array(
+			'tokenizer' => 'standard',
+			'filter' => array( 'mla_style_stop_words', 'synonym' ),
+		),
+	);
 	return $mapping;
 }
 add_filter( 'ep_config_mapping', __NAMESPACE__ . '\filter_ep_config_mapping' );
