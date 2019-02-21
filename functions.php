@@ -122,6 +122,7 @@ function filter_ep_config_mapping( $mapping ) {
 		'photo, photos, photograph, photographs',
 		'movie, film',
 		'they, singular, singular they',
+		'elmo, game',
 	];
 
 	$stop_words = [
