@@ -103,79 +103,77 @@ function parse_post_author( $post_meta ) {
 /**
  * Synonyms for elasticpress
  * https://github.com/10up/ElasticPress/wiki/Synonym-Analyzer
+ * Overall API instructions at https://www.elastic.co/guide/en/elasticsearch/guide/current/using-stopwords.html.
  *
  * @param $mapping
  *
  * @return mixed
  */
 function filter_ep_config_mapping( $mapping ) {
-	$synonym_filter_name = 'mla_style_synonym_filter';
-	$stop_word_filter_name = 'mla_style_stop_words_filter';
 
-	$synonyms = [
-		// without "stand" and "alone" as independent synonyms, no matches are returned for "standalone".
-		'standalone, stand-alone, stand alone, stand, alone',
-		'website, web site',
-		'ebook, e-book',
-		'catalog, catalogue',
-		'exhibit, exhibition',
-		'photo, photos, photograph, photographs',
-		'movie, film',
-		'they, singular, singular they',
-		'elmo, game',
-	];
-
-	$stop_words = [
-		'a',
-		'an',
-		'and',
-		'are',
-		'as',
-		'at',
-		'be',
-		'but',
-		'by',
-		'for',
-		'if',
-		'in',
-		'into',
-		'is',
-		'it',
-		'no',
-		'not',
-		'of',
-		'on',
-		'or',
-		'such',
-		'that',
-		'the',
-		'their',
-		'then',
-		'there',
-		'these',
-		// 'they',
-		'this',
-		'to',
-		'was',
-		'will',
-		'with',
-	];
 	// define the custom synonym filter.
-	$mapping['settings']['analysis']['filter'][ $synonym_filter_name ] = [
+	$mapping['settings']['analysis']['filter']['synonym'] = [
 		'type' => 'synonym',
-		'synonyms' => $synonyms,
+		'lenient' => true,
+		'expand' => true,
+		'synonyms' => [
+			// without "stand" and "alone" as independent synonyms, no matches are returned for "standalone".
+			'standalone, stand-alone, stand alone, stand, alone',
+			'website, web site',
+			'ebook, e-book',
+			'catalog, catalogue',
+			'exhibit, exhibition',
+			'photo, photos, photograph, photographs',
+			'movie, film',
+			'they => singular they, singular-they',
+			'elmo, game',
+		],
 	];
 
-	// define the custom stop word filter.
-	// $mapping['settings']['analysis']['filter'][ $stop_word_filter_name ] = [
-	// 	'type' => 'standard',
-	// 	'synonyms' => $stop_words,
-	// ];
+	// define the custom stopword filter. Must reindex after any changes to take effect.
+	$mapping['settings']['analysis']['filter']['mla_style_stop_words'] = [
+		'type' => 'stop',
+		'stopwords' => [
+			'a',
+			'an',
+			'and',
+			'are',
+			'as',
+			'at',
+			'be',
+			'but',
+			'by',
+			'for',
+			'if',
+			'in',
+			'into',
+			'is',
+			'it',
+			'no',
+			'not',
+			'of',
+			'on',
+			'or',
+			'such',
+			'that',
+			'the',
+			'their',
+			'then',
+			'there',
+			'these',
+			// 'they',
+			'this',
+			'to',
+			'was',
+			'will',
+			'with',
+		],
+	];
 
-	// tell the analyzer to use our newly created filter.
-	array_unshift( $mapping['settings']['analysis']['analyzer']['default']['filter'], $synonym_filter_name );
-	// array_unshift( $mapping['settings']['analysis']['analyzer']['default']['filter'], $stop_word_filter_name );
+	// Tell the analyzer to use our newly created filter. Position matters. We want the stop words AFTER synonyms.
+	$mapping['settings']['analysis']['analyzer'] = array('synonym' => array('tokenizer'=>'standard', 'filter'=>array('mla_style_stop_words','synonym')); 
 
+	error_log(json_encode($mapping));
 	return $mapping;
 }
 add_filter( 'ep_config_mapping', __NAMESPACE__ . '\filter_ep_config_mapping' );
