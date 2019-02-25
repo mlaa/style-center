@@ -49,16 +49,28 @@ $post_author_meta_value_map = array(
 			You are viewing all posts tagged <a href="/tag/<?php single_tag_title(); ?>" rel="tag"><?php single_tag_title(); ?></a>
 		</p>
 	<?php endif; ?>
-	<?php if ( isset( $_GET['post_author'] ) ) : ?>
+	<?php if ( isset( $_GET['post_author'] ) ) :
+        $author =  get_term_by( 'slug', sanitize_text_field($_GET['post_author']), 'author' );
+		add_filter('pre_get_posts', function($query) use ($author) {
+			$query->set('post_type', 'post');
+			$query->set('posts_per_page', -1);
+			$query->set('tax_query', array(
+				array(
+					'taxonomy' => 'author', //or tag or custom taxonomy
+					'field' => 'slug',
+					'terms' => array($author->slug)
+				)
+			) );
+        });
+        ?>
 		<p class="post-author-meta">
-			You are viewing all posts by <?php echo $post_author_meta_value_map[$_GET['post_author']] ?>.
+			You are viewing all posts by <?php echo $author->name ?>.
 		</p>
 	<?php endif; ?>
 
 <?php
 
 if ( have_posts() ) :
-
 	$count = 0;
 
 	while ( have_posts() ) :
@@ -73,7 +85,7 @@ if ( have_posts() ) :
 		if ( 'post' === get_post_type() ) {
 			$custom_fields = get_post_custom();
 
-			$post_author = ( isset( $custom_fields['post_author'] ) ) ? $custom_fields['post_author'][0] : '';
+			$post_author = ( !empty( $author ) ) ? $author->slug : !empty(get_the_terms( get_the_ID(), 'author' ))?get_the_terms( get_the_ID(), 'author' )[0]:'';
 
 			$post_thumbnail_class = (
 				isset( $custom_fields['autocrop_featured_image'] ) &&
@@ -81,41 +93,21 @@ if ( have_posts() ) :
 			) ? 'no-crop' : '';
 		}
 
-		$author = parse_post_author( $post_author );
-
-		if ( ! empty( $post_author ) && ! ( is_page() || is_home() || is_front_page() ) ) {
-
-			if( count( $author ) == 1 ) {
-
-				if ( isset( $post_author_meta_value_map[ $post_author ] ) ) {
-					$post_author_full = $post_author_meta_value_map[ $post_author ];
-				}
-
-			} else {
-
-				$post_author_full = false;
-
-			}
-		}
-
-		$post_author_html = call_user_func( function() use ( $post_category, $author, $post_author_full, $post_author_meta_value_map ) {
+		$post_author_html = call_user_func( function() use ( $post_category) {
 			$retval = '';
-
+			$collection = false;
 			if (
 				! is_category() &&
 				! is_search() &&
-				in_array( $post_category->slug, ['behind-the-style', 'teaching-resources'] ) &&
-				is_array( $author )
+				in_array( $post_category->slug, ['behind-the-style', 'teaching-resources'] )
 			) {
-
-				if( count( $author ) >= 1 ) {
+				$authors = get_the_terms( get_the_ID(), 'author' );
+				if( count( $authors ) >= 1 ) {
 
 					$i = 0;
-                    $author_count = count( $author );
-
-					foreach( $author as $name ) {
-
-						$author_full_name = $post_author_meta_value_map[ $name ];
+                    $author_count = count( $authors );
+					$collection = array();
+					foreach( $authors as $author ) {
 
 						if( $i == 0 ) {
 
@@ -144,7 +136,7 @@ if ( have_posts() ) :
 						}
 
 
-						$collection[] = sprintf( $retval, $post_category->slug, $name, $author_full_name );
+						$collection[] = sprintf( $retval, $post_category->slug, $author->slug, $author->name );
 
 						$i++;
 
@@ -212,19 +204,6 @@ if ( have_posts() ) :
 		//outputs excerpt if in tag page and content if in single page or front-page
 		if( is_single() || is_page() ) {
 			the_content();
-
-			foreach( $author as $name ) :
-			?>
-
-			<div class="author_container">
-				<?php
-				if ( ! empty( $name ) && ! ( is_page() || is_home() || is_front_page() ) ) :
-					get_template_part( "templates/authors/$name" );
-				endif;
-				?>
-			</div> <!-- /.author_template -->
-
-			<?php endforeach;
 
 		} else if( is_archive() ) {
 			the_excerpt();
