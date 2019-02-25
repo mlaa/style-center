@@ -31,156 +31,99 @@ get_header();
   <!--<fieldset>-->
 
     <fieldset>
-      <div class="temp-element">
+      <div class="temp-element author-element" data-element="author">
         <div class="element-order">1</div>
-        <div class="input" id="author" contentEditable="true"></div>
+        <div class="input" id="author" contentEditable="true" aria-label="author field"></div>
         <div class="label">Author.</div>
-        <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
+        <div class="formatting-btn hidden" aria-label="italics button"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
 
-      <div class="temp-element">
+      <div class="temp-element title-element" data-element="title">
         <div class="element-order">2</div>
-        <div class="input" id="title" contentEditable="true"></div>
+        <div class="input" id="title" contentEditable="true" aria-label="title field"></div>
         <div class="label">Title of source.</div>
-        <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
+        <div class="formatting-btn hidden" aria-label="italics button"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
 
       <!-- Optional Element Add -->
-      <div class="optional-element">
+      <div class="optional-element" data-element="optional-one">
         <div class="element-order">+</div>
-        <div class="input" contenteditable="true"></div>
+        <div class="input" contenteditable="true" id="optional-element-one" aria-label="first optional element field"></div>
         <div class="label">Optional element.</div>
         <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
     </fieldset>
 
     <!-- Container 1 -->
-    <fieldset class="container">
+    <fieldset class="container" data-element="container1">
       <legend>Container</legend>
 
-      <div class="temp-element">
+      <div class="temp-element container-element">
         <div class="element-order">3</div>
-        <div class="input" data-title="containerTitle" contenteditable="true"></div>
+        <div class="input" data-title="containerTitle" contenteditable="true" aria-label="title of container field"></div>
         <div class="label">Title of container,</div>
-        <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
+        <div class="formatting-btn hidden" aria-label="italics button"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
 
-      <div class="temp-element">
+      <div class="temp-element container-element">
         <div class="element-order">4</div>
-        <div class="input" data-title="contributors" contenteditable="true"></div>
+        <div class="input" data-title="contributors" contenteditable="true" aria-label="other contributors field"></div>
         <div class="label">Other contributors,</div>
-        <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
+        <div class="formatting-btn hidden" aria-label="italics button"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
 
-      <div class="temp-element">
+      <div class="temp-element container-element">
         <div class="element-order">5</div>
-        <div class="input" data-title="version" contenteditable="true"></div>
+        <div class="input" data-title="version" contenteditable="true" aria-label="version field"></div>
         <div class="label">Version,</div>
-        <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
+        <div class="formatting-btn hidden" aria-label="italics button"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
 
-      <div class="temp-element">
+      <div class="temp-element container-element">
         <div class="element-order">6</div>
-        <div class="input" data-title="number" contenteditable="true"></div>
+        <div class="input" data-title="number" contenteditable="true" aria-label="number field"></div>
         <div class="label">Number,</div>
-        <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
+        <div class="formatting-btn hidden" aria-label="italics button"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
 
-      <div class="temp-element">
+      <div class="temp-element container-element">
         <div class="element-order">7</div>
-        <div class="input" data-title="publisher" contenteditable="true"></div>
+        <div class="input" data-title="publisher" contenteditable="true" aria-label="publisher field"></div>
         <div class="label">Publisher,</div>
-        <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
+        <div class="formatting-btn hidden" aria-label="italics button"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
 
-      <div class="temp-element">
+      <div class="temp-element container-element">
         <div class="element-order">8</div>
-        <div class="input" data-title="pubDate" contenteditable="true"></div>
+        <div class="input" data-title="pubDate" contenteditable="true" aria-label="publication date field"></div>
         <div class="label">Publication date,</div>
-        <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
+        <div class="formatting-btn hidden" aria-label="italics button"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
 
-      <div class="temp-element">
+      <div class="temp-element container-element">
         <div class="element-order">9</div>
-        <div class="input" data-title="location" contenteditable="true"></div>
+        <div class="input" data-title="location" contenteditable="true" aria-label="location field"></div>
         <div class="label">Location.</div>
-        <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
+        <div class="formatting-btn hidden" aria-label="italics button"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
 
-      <!-- Optional Element Add -->
-      <div class="optional-element last-optional-element">
-        <div class="element-order">+</div>
-        <div class="input" data-title="optionalElement" contenteditable="true"></div>
-        <div class="label">Optional element.</div>
-        <div class="formatting-btn hidden"><span class="dashicons dashicons-editor-italic"></span></div>
-      </div>
-
+    
     </fieldset> <!-- End Container 1 -->
 
-
-
-    <!-- Container 2 -->
-    <!--<fieldset>
-      <legend>Container 2</legend>
-
-      <div class="temp-element">
-        <div class="element-order">3</div>
-        <div class="input" contenteditable="true"></div>
-        <div class="label">Title of container,</div>
-        <div class="formatting-btn hidden"><i class="material-icons">format_italic</i></div>
+    <!-- Optional Element Add -->
+      <div class="optional-element last-optional-element" data-element="optional-two">
+        <div class="element-order">+</div>
+        <div class="input" data-title="optionalElement" contenteditable="true" id="optional-element-two" aria-label="second optional element field"></div>
+        <div class="label">Optional element.</div>
+        <div class="formatting-btn hidden" aria-label="italics button"><span class="dashicons dashicons-editor-italic"></span></div>
       </div>
 
-      <div class="temp-element">
-        <div class="element-order">4</div>
-        <div class="input" contenteditable="true"></div>
-        <div class="label">Other contributors,</div>
-        <div class="formatting-btn hidden"><i class="material-icons">format_italic</i></div>
-      </div>
 
-      <div class="temp-element">
-        <div class="element-order">5</div>
-        <div class="input" contenteditable="true"></div>
-        <div class="label">Version,</div>
-        <div class="formatting-btn hidden"><i class="material-icons">format_italic</i></div>
-      </div>
-
-      <div class="temp-element">
-        <div class="element-order">6</div>
-        <div class="input" contenteditable="true"></div>
-        <div class="label">Number,</div>
-        <div class="formatting-btn hidden"><i class="material-icons">format_italic</i></div>
-      </div>
-
-      <div class="temp-element">
-        <div class="element-order">7</div>
-        <div class="input" contenteditable="true"></div>
-        <div class="label">Publisher,</div>
-        <div class="formatting-btn hidden"><i class="material-icons">format_italic</i></div>
-      </div>
-
-      <div class="temp-element">
-        <div class="element-order">8</div>
-        <div class="input" contenteditable="true"></div>
-        <div class="label">Publication date,</div>
-        <div class="formatting-btn hidden"><i class="material-icons">format_italic</i></div>
-      </div>
-
-      <div class="temp-element">
-        <div class="element-order">9</div>
-        <div class="input" contenteditable="true"></div>
-        <div class="label">Location.</div>
-        <div class="formatting-btn hidden"><i class="material-icons">format_italic</i></div>
-      </div>
-
-    </fieldset>--><!-- End Container 2 -->
-
-
-
-    <div class="temp-element button container-add">
+    <div class="temp-element button container-add" aria-label="add a container button">
       Add a container.
     </div>
 
-    <p class="clear-button">
+    <p class="clear-button" aria-label="clear template button">
       Clear template.
     </p>
 
@@ -192,11 +135,29 @@ get_header();
 
 <aside class="sidebar citation-sidebar">
   
-  <div  style="position: sticky; top: 4rem; margin-top: 5rem">
+  <div  class="citation-sidebar--sticky-block">
     <h3>Your Citation</h3>
     <!-- Fill in with citation information -->
-    <p class="citation">Start filling out the practice template to create your citation</p>
+    <p class="citation-example citation-fill"></p>
+
+    <div class="citation-key info-box">
+      <h6 class="info-box--label">Key</h6>
+      <p class="citation-example citation-example--small">
+        <span class="citation__author">Author.</span> <span class="citation__title">Title of source.</span> <span class="citation__optional-element">Optional element.</span> <span class="citation__container--one">Container 1.</span> <span class="citation__container--two">Container 2.</span> <span class="citation__container--three">Container 3.</span> <span class="citation__optional-element">Optional element.</span>
+      </p>
+    </div>
+
+    <div class="handbook-ad-container">
+      <?php 
+        get_template_part( "templates/buttons/buy-handbook-button" );
+      ?>
+    </div>
+      
   </div>
+
+
+
+
 </aside>
 
 
@@ -206,16 +167,22 @@ const $ = jQuery
 
 $(document).ready(function() {
 
+  
+
+  function logthis() {
+    console.log('this');
+  }
+
   // Add Container
   const addContainerButton = $('.container-add');
-  let i = 0;
+  let containerCount = 0;
   addContainerButton.on('click', function() {
 
-    i++;
+    containerCount++;
 
-    const prevFieldset = $(this).prev();
+    const prevFieldset = $(this).prev().prev();
 
-    if ( i < 3 ) {
+    if ( containerCount < 3 ) {
       let currFieldset = prevFieldset.clone(true);
       prevFieldset.after(currFieldset);
       currFieldset.children().children('.label').removeClass('focused');
@@ -223,6 +190,11 @@ $(document).ready(function() {
       currFieldset.children().children('.input').empty();
       $('.last-optional-element').hide();
       $('.last-optional-element').last().show();
+
+      const containers = $('fieldset.container');
+      containers.each(function(index) {
+        $(this)[0].dataset.element = `container${index + 1}`
+      })
 
       const legends = $('fieldset').find('legend');
       legends.each( function(index) {
@@ -232,7 +204,7 @@ $(document).ready(function() {
 
     }
 
-    if ( i >= 2 ) {
+    if ( containerCount >= 2 ) {
       $(this).hide();
     }
   });
@@ -279,27 +251,51 @@ $(document).ready(function() {
   });
 
 
-  // Expand Optional Element slot on click
+  // Expand Optional Element slot on click/tab focus
   $('.optional-element').on('click', function() {
     $(this).addClass('temp-element');
   });
+  $('.optional-element .input').on('focus', function() {
+    $(this).parent().addClass('temp-element');
+  });
 
-
+  //Clear template
   $('.clear-button').on('click', function() {
     $('.input').empty();
     $('.formatting-btn').addClass('hidden');
     $('.label').removeClass('focused');
+
+    // Clear citation example
+    $('p.citation-fill').empty();
+
+    // Show only the first container fieldset/add container button
+    //$('fieldset.container:nth-child(2)').show();
+    $('fieldset.container:nth-child(3), fieldset.container:nth-child(4)').remove();
+    
+    //Show add container button and reset counter
+    addContainerButton.show();
+    $('html, body').animate({scrollTop:0}, 'slow');
+    $('legend').hide();
+    containerCount = 0;
+
   })
 
 
+
+
+
  /*
-  * Define citation class. 
+  * Define citation class.
+  * This is used to build the citation as a user types in the template.
+  * It's then rendered back out into a series of color-coded spans.
   */
 
  class Citation {
    constructor(fieldsObject) {
      this._author = fieldsObject.author
      this._title = fieldsObject.title
+     this._optionalElementOne = fieldsObject.optionalElementOne
+     this._optionalElementTwo = fieldsObject.optionalElementTwo
      this._containerOne = fieldsObject.containerOne
      this._containerTwo = fieldsObject.containerTwo
      this._containerThree = fieldsObject.containerThree
@@ -311,6 +307,14 @@ $(document).ready(function() {
 
    set title(val) {
      this._title = val
+   }
+
+   set optionalElementOne(val) {
+      this._optionalElementOne = val
+   }
+
+   set optionalElementTwo(val) {
+      this._optionalElementTwo = val
    }
 
    set containerOne(obj) {
@@ -366,28 +370,59 @@ $(document).ready(function() {
     let containerString = ''
     for (var prop in object) {
       containerString += object[prop] + ' '
+      // containerString += '<span data-element="' + prop + '">' + object[prop] + '</span> '
     }
     return containerString
   }
 
-  
-  // Set citation object props, and fill in citation display
-  $('.input').on('keyup', function() {
 
-    citation.author = $('#author').html();
-    citation.title = $('#title').html();
+  // When called, this function iterates through all elements and fills in the citation example
+  function buildCitation() {
+    citation.author = $('#author').html()
+    citation.title = $('#title').html()
+    citation.optionalElementOne = $('#optional-element-one').html()
+    citation.optionalElementTwo = $('#optional-element-two').html()
     citation.containerOne = getContainerNodes()[0]
     citation.containerTwo = getContainerNodes()[1]
     citation.containerThree = getContainerNodes()[2]
 
-    $('p.citation').html(
-      `<span class="citation__author">${citation._author}</span><span class="citation__title">${citation._title}</span><span class="citation__container--one">${containerPropIterator(citation._containerOne)}</span><span class="citation__container--two">${containerPropIterator(citation._containerTwo)}</span><span class="citation__container--three">${containerPropIterator(citation._containerThree)}</span> 
+    $('p.citation-fill').html(
+      `<span class="citation__author" data-element="author">${citation._author}</span> <span class="citation__title" data-element="title">${citation._title}</span> <span class="citation__optional-element" data-element="optional-one">${citation._optionalElementOne}</span> <span class="citation__container--one" data-element="container1">${containerPropIterator(citation._containerOne).slice(0,-1)}</span> <span class="citation__container--two" data-element="container2">${containerPropIterator(citation._containerTwo).slice(0,-1)}</span> <span class="citation__container--three" data-element="container3">${containerPropIterator(citation._containerThree).slice(0,-1)}</span> <span class="citation__optional-element" data-element="optional-two">${citation._optionalElementTwo}</span>
       `
     )
+  }
 
+   
+  
+  // Event handlers to trigger buildCitation
+  $('.input').on('keyup', function() {
+    buildCitation();
+  });
+  $('.formatting-btn').on('click', function(){
+    buildCitation();
+  });
+
+  //Highlight corresponding template fields on citation hover
+  $(document).on('hover', 'span', function() {
+    const el = $(this)[0].dataset.element
+    $(`fieldset[data-element="${el}"] div.temp-element, div.temp-element[data-element="${el}"]`).toggleClass('hovered')
   })
 
+
+  //Disable return key inside template elements
+  $('.input').bind('keypress', function(e)
+    {
+       if(e.keyCode === 13)
+       {
+          return false;
+       }
+    });
+
+  
+
 });
+
+
 
 </script>
 <?php

@@ -46,3 +46,30 @@
     }
   }
 }
+
+.handbook-ad {
+  //display: flex;
+  //justify-content: center;
+  text-align: center;
+  flex-basis: 100%;
+
+
+}
+
+.handbook-ad--image {
+  width: 70%;
+  max-width: 250px; 
+  margin: 0 auto;
+
+  @media screen and (max-width: 1020px) {
+    width: 60%;
+  }
+
+}
+
+h2.handbook-ad--title {
+  color: $md-dark-blue;
+  font-size: 1.5em;
+  line-height: 1.2em;
+  margin: 0 0 1rem;
+}

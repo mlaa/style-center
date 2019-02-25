@@ -36,7 +36,7 @@
 	<?php endif; // Check for have_comments(). ?>
 
 	<?php
-		$comment_before_markup = '<p>We invite you to comment on this post. Comments are moderated and subject to the <a href="https://commons.mla.org/terms">terms of service</a>.</p><p>If you have a question about MLA style, <a href="/ask-a-question">ask us</a>! Questions submitted through this comment form will not be answered.</p>';
+		$comment_before_markup = '<p>We invite you to comment on this post and exchange ideas with other site visitors. Comments are moderated and subject to the <a href="https://commons.mla.org/terms">terms of service</a>.</p><p>If you have a question for the MLA’s editors, submit it to <a href="/ask-a-question">Ask the MLA</a>!</p>';
 
 		comment_form( [
 			'title_reply' => 'Join the Conversation',
