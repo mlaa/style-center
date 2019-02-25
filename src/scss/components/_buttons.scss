@@ -1,4 +1,8 @@
 // Buttons
+$primary-dark-blue: #2e67b1;
+$md-dark-blue: #2c64af;
+$medium-blue: #4d9ed6;
+$light-blue: #bce1fa;
 
 .button {
   background-color: $palette-blue;
@@ -13,3 +17,186 @@
   color: white;
   padding: .5em .75em;
 }
+
+
+.button-group {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	position: absolute;
+	z-index: 9999;
+	width: 100%;
+	margin: 0 0 2rem;
+
+	@media screen and (max-width: 1020px) {
+		flex-flow: column-reverse;
+	}
+
+	@media screen and (max-width: 600px) {
+    	position: relative;
+  	}
+}
+
+.button--slim {
+	border-radius: 4px;
+	border: 1px solid $md-dark-blue;
+	//flex-grow: 1;
+	flex-basis: 50%;
+	text-align: center;
+	padding: 8px 4px;
+	font-weight: bolder;
+	font-size: 1rem;
+	box-shadow: 1px 2px 3px rgba(0,0,0,.24);
+	cursor: pointer;
+	transition: box-shadow .2s;
+	margin: 0;
+	line-height: 1.35;
+
+	@media screen and (max-width: 1020px) {
+		width: 75%;
+		box-sizing: border-box;
+		margin: 0 auto;
+		font-size: 1.4rem;
+	}
+
+	// E-book dropdown menu 
+	.drop-down-sub-menu {
+		display: block;
+				list-style: none;
+				margin: 6px -4px -8px;
+				padding: 0;
+				background: $white;
+
+				// These styles to fix homepage issue where expanded menu pushes tiles down
+				//position: absolute;
+				//width: 100%;
+				//border: 1px solid $md-dark-blue;
+				//border-bottom-right-radius: 4px;
+				//border-bottom-left-radius: 4px;
+				// End tile push fix
+
+				li {
+				  //padding: 3px 0 0 12px;
+				  margin: 0;
+				  text-align: left;
+				  border-top: 1px solid $medium-blue;
+
+				  a {
+				  	display: block;
+				  	padding: 3px 4px 0 8px;
+				  	width: 100%;
+				  	height: 100%;
+				  	box-sizing: border-box;
+
+				  	@media screen and (max-width: 1020px) {
+				  		padding: 12px;
+				  	}
+
+				  	&:hover, &:focus {
+				  		background: rgba($light-blue, 0.3);
+				  		text-decoration: none;
+				  		
+				  	}
+				  }
+				}
+	}
+
+	&:hover {
+		text-decoration: none;
+		z-index: 2;
+		box-shadow: 0px 3px 6px rgba(0,0,0,.36);
+		transition: box-shadow .2s;
+
+	}
+
+		.drop-down {
+			padding-bottom: 0;
+			border-bottom-right-radius: 4px;
+			border-bottom-left-radius: 4px;
+
+
+			.drop-down-sub-menu {
+				
+			}
+		}
+	
+
+
+}
+
+.button--left__dark, .button--right__dark {
+	background: $md-dark-blue;
+	color: $white;
+
+	&:hover {
+		color: $white;
+	}
+}
+
+.button--left__light, .button--right__light {
+	background: $light-blue;
+	color: $primary-dark-blue;
+}
+
+.button--left__dark, .button--left__light {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+
+	@media screen and (max-width: 1020px) {
+		border-bottom-right-radius: 4px;
+		border-top-right-radius: 0px;
+		border-bottom-left-radius: 4px;
+		border-top-left-radius: 0px;
+		
+	}
+}
+
+.button--right__dark, .button--right__light {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-left: none;
+
+	@media screen and (max-width: 1020px) {
+		border-bottom-left-radius: 0px;
+		border-top-left-radius: 4px;
+		border-bottom-right-radius: 0px;
+		border-top-right-radius: 4px;
+
+		
+		border-left: 1px solid $md-dark-blue;
+	}
+
+}
+
+
+
+span.select-handle {
+	vertical-align: middle;
+
+}
+
+span.ext-link {
+	float: right;
+}
+
+
+
+
+
+//Helper for rotating things like menu select icon
+.rotate-90 {
+	transform: rotate(90deg);
+}
+
+.rotate-45 {
+	transform: rotate(45deg);
+}
+
+.rel-pos {
+	position: relative;
+}
+
+.menu-hide {
+	display: none;
+}
+

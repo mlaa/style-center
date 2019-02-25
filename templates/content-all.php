@@ -7,6 +7,27 @@
 
 namespace MLA\Commons\Theme\MLAStyleCenter;
 
+$post_author_meta_value_map = array(
+	'carr'      => 'Nora Carr',
+	'foasberg'  => 'Nancy Foasberg',
+	'gibson'    => 'Angela Gibson',
+	'wirth'     => 'Eric Wirth',
+	'woods'     => 'Livia Arndal Woods',
+	'kandel'    => 'Michael Kandel',
+	'latimer'   => 'Barney Latimer',
+	'rappaport' => 'Jennifer Rappaport',
+	'grooms'	=> 'Russell Grooms',
+	'suffern'	=> 'Erika Suffern',
+	'hoffman'	=> 'Joan M. Hoffman',
+	'mla'		=> 'Modern Language Association',
+	'carillo' => 'Ellen Carillo',
+	'yang' => 'Alice Yang',
+	'wallace' => 'Joseph Wallace',
+	'brookbank-christenberry' => 'Elizabeth Brookbank and H. Faye Christenberry',
+	'duffy' => 'Caitlin Duffy',
+	'smith' => 'Bradley Smith',
+	'burke' => 'Mike Burke',
+);
 
 ?>
 
