@@ -25,7 +25,10 @@ get_header();
 				the_post();
 				the_content();
 			};
-		}; ?>
+		};
+
+		wp_reset_postdata();
+		 ?>
 		
 
 	</article> <!-- /.feature-container blade -->
@@ -34,7 +37,15 @@ get_header();
 	<div class="column--container">
 		<div class="column col-2-of-3">
 			<h3>Recent questions from Ask the MLA</h3>
-			<!-- Ask the MLA loop -->
+			
+			<ul class="question-list">
+				<li class="question-list--question">Six most recent questions</li>
+				<li class="question-list--question">Six most recent questions</li>
+				<li class="question-list--question">Six most recent questions</li>
+				<li class="question-list--question">Six most recent questions</li>
+				<li class="question-list--question">Six most recent questions</li>
+				<li class="question-list--question">Six most recent questions</li>
+			</ul>
 		</div>
 
 		<div class="column col-1-of-3">

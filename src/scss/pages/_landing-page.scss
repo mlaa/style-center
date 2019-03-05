@@ -1,5 +1,6 @@
 $light-blue: #EAF1F5;
 $medium-blue: #2E67B1;
+$light-orange: #FABF7C;
 
 .page-template-landing-page {
 
@@ -26,53 +27,100 @@ $medium-blue: #2E67B1;
 			font-size: 1.4rem;
 			width: 60%;
 			margin: 0 auto;
+
+			@media screen and (max-width: 767px) {
+				width: 90%;
+			}
 		}
-	
-		.column--container {
-			max-width: 80%;
-			margin: 0 auto;
-			display: flex;
+	}
 
-			.column {
-				padding: 1rem 2rem;
-				flex: 1 1 0;
-			
-				&:first-child {
-					padding-left: 0;
+	.column--container {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+
+	@media screen and (max-width: 900px) {
+		width: 90%;
+	}
+
+	@media screen and (max-width: 768px) {
+		display: block;
+	}
+
+		.column {
+			padding: 1rem 2rem;
+			flex: 1 1 0;
+
+			&.col-2-of-3 {
+				flex-grow: 2;
+				//background: yellow;
+			}
+
+			@media screen and (max-width: 768px) {
+				padding: 1rem 0 0;					
+			}
+		
+			&:first-child {
+				padding-left: 0;
+			}
+
+			&:last-child {
+				padding-right: 0;
+			}
+
+			h3 {
+				color: $medium-blue;
+				margin-top: .75rem;
+			}
+
+			ul {
+				padding: 0;
+				list-style: none;
+
+				li {
+					padding-bottom: 1rem;
 				}
+			}
 
-				&:last-child {
-					padding-right: 0;
-				}
+			.question-list {
+				li.question-list--question {
 
-				h3 {
-					color: $medium-blue;
-					margin-top: .75rem;
-				}
+					padding-bottom: .25rem;
 
-				ul {
-					padding: 0;
-					list-style: none;
-
-					li {
-						padding-bottom: 1rem;
+					&:before {
+						content: "\f522";
+						font-family: dashicons;
+						color: $light-orange;
+						font-size: 1.2rem;
+						padding-right: 8px;
+					    top: .1rem;
+					    position: relative;
 					}
 				}
+	}
 
-				.column--icon {
-					width: 75px;
+
+			.column--icon {
+				width: 75px;
+
+				@media screen and (max-width: 767px) {
+					width: 110px;
 				}
 			}
 		}
-
 	}
 
+	
+	/* Utilities and helpers */
+	span.editor-comment {
+			display: none;
+			background-color: $light-blue;
+		}
 
+	.button-group {
+		position: relative;
+	}
 }
 
-/* Utilities and helpers */
-span.editor-comment {
-		display: none;
-		background-color: $light-blue;
-	}
+
 
