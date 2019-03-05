@@ -231,4 +231,64 @@ function sc_add_ellipsis_to_behind_the_style_posts( $excerpt ) {
 	}
 	return $excerpt;
 }
-add_filter( 'get_the_excerpt', __NAMESPACE__ . '\sc_add_ellipsis_to_behind_the_style_posts' );
+
+
+
+function my_editor_content( $content, $post ) {
+
+   switch( $post->post_type ) {
+        case 'page':
+            $content = '<div class="page-subtitle">
+            <span class="editor-comment"> !!!! This is the page subtitle !!!! </span>
+			Get started with MLA style. Learn how to document your sources, set up your paper, and learn to write and teach better.
+		</div>
+		<span class="editor-comment"> !!!! This is the start of the column container. This can accommodate between 1 and 4 columns automagically. !!!! </span>
+		<!-- Column container. This uses flexbox to accommodate between 1 and 4 columns -->
+		<div class="column--container">
+			<span class="editor-comment"> !!!! Column One Start !!!! </span>
+			<div class="column">
+				<img src="' . get_stylesheet_directory_uri() . '/assets/images/documentation.png" class="column--icon">
+				<h3 class="column--header">Documenting Sources</h3>
+				<ul class="column--list">
+					<li>Learn how to use our template of core elements, or build citations with an interactive template.</li>
+					<li>Read our guide about using notes and posts about in-text citations.</li>
+					<li>Get tips on citing digital works and learn how to cite an e-book.</li>
+				</ul>
+			</div>
+			<span class="editor-comment"> !!!! Column One End !!!! </span>
+			<span class="editor-comment"> !!!! Column Two Start !!!! </span>
+			<div class="column">
+				<img src="' . get_stylesheet_directory_uri() . '/assets/images/setting-up-a-paper.png" class="column--icon">
+				<h3 class="column--header">Setting Up Your Paper</h3>
+				<ul class="column--list">
+					<li>Get our formatting guidelines for academic research papers.</li>
+					<li>Read sample papers written and formatted in MLA style.</li>
+					<li>Learn how to create an annotated bibliography.</li>
+				</ul>
+			</div>
+			<span class="editor-comment"> !!!! Column Two End !!!! </span>
+			<span class="editor-comment"> !!!! Column Three Start !!!! </span>
+			<div class="column">
+				<img src="' . get_stylesheet_directory_uri() . '/assets/images/writing-tips.png" class="column--icon">
+				<h3 class="column--header">Writing Tips and Resources</h3>
+				<ul class="column--list">
+					<li>Browse answers and ask MLA editors your style and formatting questions.</li>
+					<li>Improve your writing with these articles.</li>
+					<li>Get classroom-tested lesson plans, activities, and other resources to help teach MLA style.</li>
+				</ul>
+			</div>
+			<span class="editor-comment"> !!!! Column Three End !!!! </span>
+		</div>
+		<span class="editor-comment"> !!!! End of Column Container !!!! </span>';
+        break;
+        default:
+            $content = '';
+        break;
+    }
+
+   return $content;
+}
+
+add_filter( 'default_content',  __NAMESPACE__ .'\my_editor_content', 10, 2 );
+
+

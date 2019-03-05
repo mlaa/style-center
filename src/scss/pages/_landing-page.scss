@@ -1,4 +1,5 @@
 $light-blue: #EAF1F5;
+$medium-blue: #2E67B1;
 
 .page-template-landing-page {
 
@@ -44,6 +45,11 @@ $light-blue: #EAF1F5;
 					padding-right: 0;
 				}
 
+				h3 {
+					color: $medium-blue;
+					margin-top: .75rem;
+				}
+
 				ul {
 					padding: 0;
 					list-style: none;
@@ -52,11 +58,21 @@ $light-blue: #EAF1F5;
 						padding-bottom: 1rem;
 					}
 				}
+
+				.column--icon {
+					width: 75px;
+				}
 			}
 		}
 
 	}
 
 
-
 }
+
+/* Utilities and helpers */
+span.editor-comment {
+		display: none;
+		background-color: $light-blue;
+	}
+
