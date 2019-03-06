@@ -38,33 +38,25 @@ get_header();
 		<div class="column col-2-of-3">
 			<h3>Recent questions from Ask the MLA</h3>
 
-			<?php $args = array('cat' => 3);
+			<?php $args = array('cat' => 3, 'posts_per_page' => 6);
 
-// The Query
-$the_query = new WP_Query( $args );
+				// The Query
+				$the_query = new WP_Query( $args );
 
-// The Loop
-if ( $the_query->have_posts() ) {
-	echo '<ul>';
-	while ( $the_query->have_posts() ) {
-		$the_query->the_post();
-		echo '<li>' . get_the_title() . '</li>';
-	}
-	echo '</ul>';
-	/* Restore original Post Data */
-	wp_reset_postdata();
-} else {
-	// no posts found
-} ?>
-			
-			<ul class="question-list">
-				<li class="question-list--question">Six most recent questions</li>
-				<li class="question-list--question">Six most recent questions</li>
-				<li class="question-list--question">Six most recent questions</li>
-				<li class="question-list--question">Six most recent questions</li>
-				<li class="question-list--question">Six most recent questions</li>
-				<li class="question-list--question">Six most recent questions</li>
-			</ul>
+				// The Loop
+				if ( $the_query->have_posts() ) {
+					echo '<ul class="question-list">';
+					while ( $the_query->have_posts() ) {
+						$the_query->the_post();
+						echo '<li class="question-list--question">' . get_the_title() . '</li>';
+					}
+					echo '</ul>';
+					/* Restore original Post Data */
+					wp_reset_postdata();
+				} else {
+					// no posts found
+				} ?>
+		
 		</div>
 
 		<div class="column col-1-of-3">

@@ -238,6 +238,7 @@ function my_editor_content( $content, $post ) {
 
    switch( $post->post_type ) {
         case 'page':
+
             $content = '<div class="page-subtitle">
             <span class="editor-comment"> !!!! This is the page subtitle !!!! </span>
 			Get started with MLA style. Learn how to document your sources, set up your paper, and learn to write and teach better.
