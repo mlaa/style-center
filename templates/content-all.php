@@ -81,17 +81,33 @@ if ( have_posts() ) :
 
 		$post_category = get_the_category()[0];
 		$post_thumbnail_class = '';
+		
+		// PREVENT BAD PAGE IF CLASS DOESN"T EXIST FROM PLUGIN MLA-style-custom
+		if ( class_exists('STYLE_AUTHOR_BIOS') ) {
 
-		if ( 'post' === get_post_type() ) {
-			$custom_fields = get_post_custom();
 
-			$post_author = ( !empty( $author ) ) ? $author->slug : !empty(get_the_terms( get_the_ID(), 'author' ))?get_the_terms( get_the_ID(), 'author' )[0]:'';
+			if ( 'post' === get_post_type() ) {
+				$custom_fields = get_post_custom();
 
-			$post_thumbnail_class = (
-				isset( $custom_fields['autocrop_featured_image'] ) &&
-				'false' === $custom_fields['autocrop_featured_image'][0]
-			) ? 'no-crop' : '';
+				$post_author = '';
+
+				if ( !empty( $author) ) {
+					$post_author = $author->slug;
+				} elseif ( !empty(get_the_terms( get_the_ID(), 'author' )) ) {
+					$post_author = get_the_terms( get_the_ID(), 'author' );
+					error_log(print_r($post_author, true));
+					$post_author = $post_author[0];
+				} 
+
+
+
+				$post_thumbnail_class = (
+					isset( $custom_fields['autocrop_featured_image'] ) &&
+					'false' === $custom_fields['autocrop_featured_image'][0]
+				) ? 'no-crop' : '';
+			}
 		}
+
 
 		$post_author_html = call_user_func( function() use ( $post_category) {
 			$retval = '';
