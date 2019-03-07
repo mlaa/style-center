@@ -37,7 +37,7 @@ $style_authors_bio_enabled = class_exists( 'STYLE_AUTHOR_BIOS' )
 			$query->set('tax_query', array(
 				array(
 					'taxonomy' => 'mla_author', //or tag or custom taxonomy
-					'field' => 'slug',
+                    'field' => 'slug',
 					'terms' => sanitize_text_field($_GET['post_author'])
 				)
 			) );
