@@ -29,16 +29,16 @@ $style_authors_bio_enabled = class_exists( 'STYLE_AUTHOR_BIOS' )
 			You are viewing all posts tagged <a href="/tag/<?php single_tag_title(); ?>" rel="tag"><?php single_tag_title(); ?></a>
 		</p>
 	<?php endif; ?>
-	<?php if ($style_authors_bio_enabled && isset( $_GET['post_author'] ) ) :
+	<?php if (isset( $_GET['post_author'] ) ) :
         $author =  get_term_by( 'slug', sanitize_text_field($_GET['post_author']), 'mla_author' );
-		add_filter('pre_get_posts', function($query) use ($author) {
+		add_filter('pre_get_posts', function($query) {
 			$query->set('post_type', 'post');
 			$query->set('posts_per_page', -1);
 			$query->set('tax_query', array(
 				array(
 					'taxonomy' => 'mla_author', //or tag or custom taxonomy
 					'field' => 'slug',
-					'terms' => array($author->slug)
+					'terms' => sanitize_text_field($_GET['post_author'])
 				)
 			) );
         });
@@ -77,7 +77,7 @@ if ( have_posts() ) :
 			if (
 				! is_category() &&
 				! is_search() &&
-				in_array( $post_category->slug, array('behind-the-style', 'teaching-resources') )
+				in_array( $post_category->slug, ['behind-the-style', 'teaching-resources'] )
 			) {
 				$authors = get_the_terms( get_the_ID(), 'mla_author' );
 				if( count( $authors ) >= 1 ) {
@@ -147,7 +147,7 @@ if ( have_posts() ) :
 	endif;
 
 	if (
-		( in_array( get_query_var('paged'), array(1, 0) ) && is_category( 'behind-the-style' ) && $count < 4 && has_post_thumbnail() ) ||
+		( in_array( get_query_var('paged'), [1, 0] ) && is_category( 'behind-the-style' ) && $count < 4 && has_post_thumbnail() ) ||
 		( ! is_category( 'behind-the-style' ) && has_post_thumbnail() )
 	) :
 	?>
