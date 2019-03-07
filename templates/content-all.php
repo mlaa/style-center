@@ -7,8 +7,6 @@
 
 namespace MLA\Commons\Theme\MLAStyleCenter;
 
-$style_authors_bio_enabled = class_exists( 'STYLE_AUTHOR_BIOS' )
-
 ?>
 
 <div class="block-main <?php if ( empty( $_GET['post_author'] ) ) echo 'no-post-author' ?>">
@@ -31,18 +29,7 @@ $style_authors_bio_enabled = class_exists( 'STYLE_AUTHOR_BIOS' )
 	<?php endif; ?>
 	<?php if (isset( $_GET['post_author'] ) ) :
         $author =  get_term_by( 'slug', sanitize_text_field($_GET['post_author']), 'mla_author' );
-		add_filter('pre_get_posts', function($query) {
-			$query->set('post_type', 'post');
-			$query->set('posts_per_page', -1);
-			$query->set('tax_query', array(
-				array(
-					'taxonomy' => 'mla_author', //or tag or custom taxonomy
-                    'field' => 'slug',
-					'terms' => sanitize_text_field($_GET['post_author'])
-				)
-			) );
-        });
-        ?>
+	?>
 		<p class="post-author-meta">
 			You are viewing all posts by <?php echo $author->name ?>.
 		</p>
