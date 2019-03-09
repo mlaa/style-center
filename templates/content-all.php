@@ -7,28 +7,6 @@
 
 namespace MLA\Commons\Theme\MLAStyleCenter;
 
-$post_author_meta_value_map = array(
-	'carr'      => 'Nora Carr',
-	'foasberg'  => 'Nancy Foasberg',
-	'gibson'    => 'Angela Gibson',
-	'wirth'     => 'Eric Wirth',
-	'woods'     => 'Livia Arndal Woods',
-	'kandel'    => 'Michael Kandel',
-	'latimer'   => 'Barney Latimer',
-	'rappaport' => 'Jennifer Rappaport',
-	'grooms'	=> 'Russell Grooms',
-	'suffern'	=> 'Erika Suffern',
-	'hoffman'	=> 'Joan M. Hoffman',
-	'mla'		=> 'Modern Language Association',
-	'carillo' => 'Ellen Carillo',
-	'yang' => 'Alice Yang',
-	'wallace' => 'Joseph Wallace',
-	'brookbank-christenberry' => 'Elizabeth Brookbank and H. Faye Christenberry',
-	'duffy' => 'Caitlin Duffy',
-	'smith' => 'Bradley Smith',
-	'burke' => 'Mike Burke',
-);
-
 ?>
 
 <div class="block-main <?php if ( empty( $_GET['post_author'] ) ) echo 'no-post-author' ?>">
@@ -49,20 +27,9 @@ $post_author_meta_value_map = array(
 			You are viewing all posts tagged <a href="/tag/<?php single_tag_title(); ?>" rel="tag"><?php single_tag_title(); ?></a>
 		</p>
 	<?php endif; ?>
-	<?php if ( isset( $_GET['post_author'] ) ) :
-        $author =  get_term_by( 'slug', sanitize_text_field($_GET['post_author']), 'author' );
-		add_filter('pre_get_posts', function($query) use ($author) {
-			$query->set('post_type', 'post');
-			$query->set('posts_per_page', -1);
-			$query->set('tax_query', array(
-				array(
-					'taxonomy' => 'author', //or tag or custom taxonomy
-					'field' => 'slug',
-					'terms' => array($author->slug)
-				)
-			) );
-        });
-        ?>
+	<?php if (isset( $_GET['post_author'] ) ) :
+        $author =  get_term_by( 'slug', sanitize_text_field($_GET['post_author']), 'mla_author' );
+	?>
 		<p class="post-author-meta">
 			You are viewing all posts by <?php echo $author->name ?>.
 		</p>
@@ -85,8 +52,6 @@ if ( have_posts() ) :
 		if ( 'post' === get_post_type() ) {
 			$custom_fields = get_post_custom();
 
-			$post_author = ( !empty( $author ) ) ? $author->slug : !empty(get_the_terms( get_the_ID(), 'author' ))?get_the_terms( get_the_ID(), 'author' )[0]:'';
-
 			$post_thumbnail_class = (
 				isset( $custom_fields['autocrop_featured_image'] ) &&
 				'false' === $custom_fields['autocrop_featured_image'][0]
@@ -101,7 +66,7 @@ if ( have_posts() ) :
 				! is_search() &&
 				in_array( $post_category->slug, ['behind-the-style', 'teaching-resources'] )
 			) {
-				$authors = get_the_terms( get_the_ID(), 'author' );
+				$authors = get_the_terms( get_the_ID(), 'mla_author' );
 				if( count( $authors ) >= 1 ) {
 
 					$i = 0;

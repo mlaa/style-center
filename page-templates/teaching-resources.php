@@ -105,14 +105,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 
 				<article class="type-page page tr-content">
 
-				<?php while( have_posts() ) : the_post();
-				the_content();
-				?>
-				</article>
-
-			<?php endwhile;
-			wp_reset_query();
-			?>
+				
 				<ul>
 					<?php
 						$writing_query = new WP_Query('cat=' . $writing_cat->term_id );
