@@ -25,7 +25,7 @@ $light-orange: #FABF7C;
 		.page-subtitle {
 			text-align: center;
 			font-size: 1.4rem;
-			width: 60%;
+			width: 50%;
 			margin: 0 auto 2rem;
 
 			@media screen and (max-width: 767px) {
@@ -78,15 +78,16 @@ $light-orange: #FABF7C;
 				margin-top: .75rem;
 			}
 
-			ul {
+			ul.column--list {
 				padding: 0;
 				list-style: none;
 
-				&:not('.drop-down-sub-menu') {
-					li {
-						padding-bottom: 1rem;
-
-									
+				li {
+					padding-bottom: 1.25rem;
+					
+					a {
+						font-weight: bold;
+						text-decoration: underline;	
 					}
 
 				}
@@ -99,6 +100,10 @@ $light-orange: #FABF7C;
 			}
 
 			.question-list {
+
+				list-style: none;
+				padding: 0;
+
 				li.question-list--question {
 
 					padding: 0 0 .5rem 1.75rem;
