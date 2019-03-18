@@ -48,7 +48,10 @@ get_header();
 					echo '<ul class="question-list">';
 					while ( $the_query->have_posts() ) {
 						$the_query->the_post();
-						echo '<li class="question-list--question">' . get_the_title() . '</li>';
+						?>
+							<li class="question-list--question"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+						<?php
+						
 					}
 					echo '</ul>';
 					/* Restore original Post Data */
