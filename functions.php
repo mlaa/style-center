@@ -90,7 +90,7 @@ function filter_author_query( $query ) {
 	if ( isset( $_GET['post_author'] ) ) {
 		$query->set( 'tax_query', array(
 			array(
-				'taxonomy' => 'author', //or tag or custom taxonomy
+				'taxonomy' => 'mla_author', //or tag or custom taxonomy
 				'field' => 'slug',
 				'terms' => array($_GET['post_author'])
 			)
