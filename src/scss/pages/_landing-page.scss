@@ -15,11 +15,11 @@ $light-orange: #FABF7C;
 	article.feature-container {
 		//display: flex;
 		background: $light-blue;
-		padding: 10vh 0 2rem 0;
+		padding: 8vh 0 2rem 0;
 
 		h1 {
 			text-align: center;
-			font-size: 3rem;
+			font-size: 4rem;
 		}
 
 		.page-subtitle {
@@ -74,22 +74,45 @@ $light-orange: #FABF7C;
 			}
 
 			h3 {
-				color: $medium-blue;
+				color: #604;
 				margin-top: .75rem;
+				margin-bottom: 0.25rem;
+				font-size: 1.5rem;
+
+				@media screen and (max-width: 767px) {
+					text-align: center;
+				}
 			}
 
 			ul.column--list {
 				padding: 0;
+				margin: 0;
 				list-style: none;
 
 				li {
-					padding-bottom: 1.25rem;
-					
-					a {
+					padding-bottom: 0;
+					font-size: 1rem;
+
+					h4 {
+						color: $medium-blue;
+						font-size: 1.25rem;
+						margin-bottom: 0;
+						padding-top: 1.25rem;
+
+						
+
+						a {
 						font-weight: bold;
 						text-decoration: underline;	
+						
+						}	
 					}
 
+					p {
+						margin: 0;
+						line-height: 1.4;
+					}
+					
 				}
 
 			}
@@ -108,7 +131,7 @@ $light-orange: #FABF7C;
 
 					padding: 0 0 .5rem 1.75rem;
 					text-indent: -1.75rem;
-					font-size: 1.25rem;
+					font-size: 1rem;
 					
 
 					&:before {
@@ -137,6 +160,8 @@ $light-orange: #FABF7C;
 
 				@media screen and (max-width: 767px) {
 					width: 110px;
+					margin: 1.5rem auto 0;
+					display: block;
 				}
 			}
 		}
@@ -144,7 +169,7 @@ $light-orange: #FABF7C;
 
 	
 	/* Utilities and helpers */
-	span.editor-comment {
+	p.editor-comment {
 			display: none;
 			background-color: $light-blue;
 		}
