@@ -49,8 +49,8 @@ if ( have_posts() ) :
 		$post_category = get_the_category()[0];
 		$post_thumbnail_class = '';
 		
-		// PREVENT BAD PAGE IF CLASS DOESN"T EXIST FROM PLUGIN MLA-style-custom
-		if ( class_exists('STYLE_AUTHOR_BIOS') ) {
+		if ( 'post' === get_post_type() ) {
+			$custom_fields = get_post_custom();
 
 
 
