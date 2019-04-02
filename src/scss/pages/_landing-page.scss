@@ -1,0 +1,183 @@
+$light-blue: #EAF1F5;
+$medium-blue: #2E67B1;
+$light-orange: #FABF7C;
+
+.page-template-landing-page {
+
+	main {
+		max-width: 100%;
+		padding: 0;
+	}
+	.feature-page {
+		flex-basis: 100%;
+	}
+
+	article.feature-container {
+		//display: flex;
+		background: $light-blue;
+		padding: 8vh 0 2rem 0;
+
+		h1 {
+			text-align: center;
+			font-size: 4rem;
+		}
+
+		.page-subtitle {
+			text-align: center;
+			font-size: 1.4rem;
+			width: 50%;
+			margin: 0 auto 2rem;
+
+			@media screen and (max-width: 767px) {
+				width: 90%;
+			}
+		}
+	}
+
+	.column--container {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+
+		@media screen and (max-width: 1200px) {
+			width: 90%;
+		}
+
+		@media screen and (max-width: 900px) {
+			width: 95%;
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 90%;
+			display: block;
+		}
+
+		.column {
+			padding: 1rem 2rem;
+			flex: 1 1 0;
+
+			&.col-2-of-3 {
+				flex-grow: 2;
+				//background: yellow;
+			}
+
+			@media screen and (max-width: 768px) {
+				padding: 1rem 0 0;					
+			}
+		
+			&:first-child {
+				padding-left: 0;
+			}
+
+			&:last-child {
+				padding-right: 0;
+			}
+
+			h3 {
+				color: #604;
+				margin-top: .75rem;
+				margin-bottom: 0.25rem;
+				font-size: 1.5rem;
+
+				@media screen and (max-width: 767px) {
+					text-align: center;
+				}
+			}
+
+			ul.column--list {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+
+				li {
+					padding-bottom: 0;
+					font-size: 1rem;
+
+					h4 {
+						color: $medium-blue;
+						font-size: 1.25rem;
+						margin-bottom: 0;
+						padding-top: 1.25rem;
+
+						
+
+						a {
+						font-weight: bold;
+						text-decoration: underline;	
+						
+						}	
+					}
+
+					p {
+						margin: 0;
+						line-height: 1.4;
+					}
+					
+				}
+
+			}
+
+			.column--list li a {
+				font-weight: bold;
+				text-decoration: underline;
+			}
+
+			.question-list {
+
+				list-style: none;
+				padding: 0;
+
+				li.question-list--question {
+
+					padding: 0 0 .5rem 1.75rem;
+					text-indent: -1.75rem;
+					font-size: 1rem;
+					
+
+					&:before {
+						content: "\f522";
+						font-family: dashicons;
+						color: $light-orange;
+						font-size: 1.2rem;
+						padding-right: 8px;
+					    top: .1rem;
+					    position: relative;
+					}
+
+					a {
+						color: #000000;
+
+						&:hover {
+							text-decoration: none;
+						}
+					}
+				}
+	}
+
+
+			.column--icon {
+				width: 75px;
+
+				@media screen and (max-width: 767px) {
+					width: 110px;
+					margin: 1.5rem auto 0;
+					display: block;
+				}
+			}
+		}
+	}
+
+	
+	/* Utilities and helpers */
+	p.editor-comment {
+			display: none;
+			background-color: $light-blue;
+		}
+
+	.button-group {
+		position: relative;
+	}
+}
+
+
+

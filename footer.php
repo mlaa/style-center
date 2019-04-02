@@ -30,9 +30,9 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 		<footer>
 
 			<ul class="nav nav-pills">
-				<li><a href="/about-the-mla-style-center">About The MLA Style Center</a></li>
-				<li><a href="https://www.mla.org/About-Us/Support/Donate-to-the-MLA">Donate</a></li>
-				<li><a href="/contact-us">Contact</a></li>
+				<li><a href="/about-the-mla-style-center" id="footer-about-link">About The MLA Style Center</a></li>
+				<li><a href="https://www.mla.org/About-Us/Support/Donate-to-the-MLA" id="footer-donate-link">Donate</a></li>
+				<li><a href="/contact-us" id="footer-contact-link">Contact</a></li>
 			</ul>
 
 			<ul class="nav nav-social">
