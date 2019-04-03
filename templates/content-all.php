@@ -48,15 +48,19 @@ if ( have_posts() ) :
 
 		$post_category = get_the_category()[0];
 		$post_thumbnail_class = '';
-
+		
 		if ( 'post' === get_post_type() ) {
 			$custom_fields = get_post_custom();
+
+
 
 			$post_thumbnail_class = (
 				isset( $custom_fields['autocrop_featured_image'] ) &&
 				'false' === $custom_fields['autocrop_featured_image'][0]
 			) ? 'no-crop' : '';
+
 		}
+
 
 		$post_author_html = call_user_func( function() use ( $post_category) {
 			$retval = '';

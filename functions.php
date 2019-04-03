@@ -231,4 +231,105 @@ function sc_add_ellipsis_to_behind_the_style_posts( $excerpt ) {
 	}
 	return $excerpt;
 }
-add_filter( 'get_the_excerpt', __NAMESPACE__ . '\sc_add_ellipsis_to_behind_the_style_posts' );
+
+
+
+function my_editor_content( $content, $post ) {
+
+   switch( $post->post_type ) {
+        case 'page':
+
+            $content = 
+	           
+	           '<div class="page-subtitle">
+	            <p class="editor-comment"> !!!! This is the page subtitle !!!! </p>
+				Get started with MLA style. Learn how to document your sources, set up your paper, and learn to write and teach better.
+				</div>
+				<p class="editor-comment"> !!!! This is the start of the column container. This can accommodate between 1 and 4 columns automagically. !!!! </p>
+				<!-- Column container. This uses flexbox to accommodate between 1 and 4 columns -->
+				<div class="column--container">
+					<p class="editor-comment"> !!!! Column One Start !!!! </p>
+					<div class="column">
+						<img src="'.get_stylesheet_directory_uri().'/assets/images/documentation.png" class="column--icon">
+						<h3 class="column--header">Document Sources</h3>
+						<ul class="column--list">
+							<li>
+								<h4><a href="/works-cited-a-quick-guide/">Works Cited Quick Guide</a></h4>
+								Learn how to use the MLA template of core elements.
+							<li>
+								<h4><a href="/interactive-practice-template/">Digital Citation Tool</a></h4>
+								Build citations with our interactive template.
+							</li>
+							<li>
+								<h4><a href="/tag/in-text-citations/">In-Text Citations</a></h4>
+								Get help with in-text citations.
+							</li>
+							<li>
+								<h4><a href="/using-notes-mla-style/">Endnotes and Footnotes</a></h4>
+								Read our guide about using notes in MLA style.
+							</li>
+						</ul>
+					</div>
+					<p class="editor-comment"> !!!! Column One End !!!! </p>
+					<p class="editor-comment"> !!!! Column Two Start !!!! </p>
+					<div class="column">
+						<img src="'.get_stylesheet_directory_uri().'/assets/images/setting-up-a-paper.png" class="column--icon">
+						<h3 class="column--header">Set Up Your Paper</h3>
+						<ul class="column--list">
+							<li>
+								<h4><a href="/formatting-papers/">Setting Up a Research Paper</a></h4>
+								Get our guidelines for setting up academic research papers.
+							</li>
+							<li>
+								<h4><a href="/formatting-figure-captions/">Formatting Captions</a></h4>
+								Learn how to format captions.
+							</li>
+							<li>
+								<h4><a href="/sample-papers/">Sample Papers</a></h4>
+								Read sample papers written in MLA style.
+							</li>
+							<li>
+								<h4><a href="/tag/annotated-bibliography/">Annotated Bibliographies</a></h4>
+								Learn how to set up an annotated bibliography.
+							</li>
+						</ul>
+					</div>
+					<p class="editor-comment"> !!!! Column Two End !!!! </p>
+					<p class="editor-comment"> !!!! Column Three Start !!!! </p>
+					<div class="column">
+						<img src="'.get_stylesheet_directory_uri().'/assets/images/writing-tips.png" class="column--icon">
+						<h3 class="column--header">Get Writing and Teaching Tips</h3>
+						<ul class="column--list">
+							<li>
+								<h4><a href="/category/ask-the-mla/">Ask the MLA</a></h4>
+								Browse answers and ask MLA editors questions.
+							</li>
+							<li>
+								<h4><a href="/tag/writing-tips/">Writing Tips</a></h4>
+								Improve your writing with these suggestions.
+							</li>
+							<li>
+								<h4><a href="/teaching-resources/">Teaching Resources</a> and <a href="/tag/teaching-tips/">Advice</a></h4>
+								Get teaching advice, lesson plans, and activities.
+							</li>
+							<li>
+								<h4><a href="/quizzes-2/">Quizzes</a></h4>
+								Test your knowledge with these fun quizzes.
+							</li>
+						</ul>
+					</div>
+					<p class="editor-comment"> !!!! Column Three End !!!! </p>
+				</div>
+				<p class="editor-comment"> !!!! End of Column Container !!!! </p>';
+        break;
+        default:
+            $content = '';
+        break;
+    }
+
+   return $content;
+}
+
+add_filter( 'default_content',  __NAMESPACE__ .'\my_editor_content', 10, 2 );
+
+
