@@ -52,8 +52,8 @@ jQuery(function ($) {
 
     var post_submit_handler = function (e) {
         var violations = [];
-	
-	if (['post-preview', 'save-post'].indexOf(document.activeElement.id) !== -1) {
+
+        if (['post-preview', 'save-post'].indexOf(document.activeElement.id) !== -1) {
             return; // Don't apply validation when saving drafts or previewing.
         } else if (ask_checkbox.is(':checked')) {
 	     
@@ -101,6 +101,12 @@ jQuery(function ($) {
                  violations.push('Post Owner must be mlastyle.');
              }
         }
+
+        if (violations.length) {
+            e.preventDefault();
+            display_violations(violations);
+        }
+    }
 
     var display_violations = function (violations) {
         alert(violations.join("\n"));
