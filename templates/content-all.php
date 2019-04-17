@@ -48,7 +48,8 @@ if ( have_posts() ) :
 
 		$post_category = get_the_category()[0];
 		$post_thumbnail_class = '';
-		
+
+
 		if ( 'post' === get_post_type() ) {
 			$custom_fields = get_post_custom();
 
@@ -61,14 +62,14 @@ if ( have_posts() ) :
 
 		}
 
-
+		// Create bylines for Behind the Style and Teaching Resources posts
 		$post_author_html = call_user_func( function() use ( $post_category) {
 			$retval = '';
 			$collection = false;
 			if (
 				! is_category() &&
 				! is_search() &&
-				in_array( $post_category->slug, ['behind-the-style', 'teaching-resources'] )
+				in_array( $post_category->slug, ['behind-the-style', 'teaching-resources', 'style', 'research', 'writing'] ) // Teaching Resources posts have child categories, so calling 'teaching-resources' here does not work, because the child category is the return val of $post_category
 			) {
 				$authors = get_the_terms( get_the_ID(), 'mla_author' );
 				if( count( $authors ) >= 1 ) {
