@@ -68,7 +68,7 @@ jQuery(function ($) {
             }
             // Require "Author" to be mlastyle.
                if (mla_style_user_id != $('#post_author_override').val()) {
-                 violations.push('Author must be mlastyle.');
+                 violations.push('Post Owner must be mlastyle.');
                }
         } else if (behind_checkbox.is(':checked')) {
             // Require post_short_title custom field value.
@@ -98,7 +98,7 @@ jQuery(function ($) {
 
             // Require "Author" to be mlastyle.
              if (mla_style_user_id != $('#post_author_override').val()) {
-                 violations.push('Author must be mlastyle.');
+                 violations.push('Post Owner must be mlastyle.');
              }
         }
 
