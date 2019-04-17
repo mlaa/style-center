@@ -56,6 +56,7 @@ jQuery(function ($) {
         if (['post-preview', 'save-post'].indexOf(document.activeElement.id) !== -1) {
             return; // Don't apply validation when saving drafts or previewing.
         } else if (ask_checkbox.is(':checked')) {
+	     
             // Require post_short_title custom field value.
             if (!get_custom_field_value('post_short_title')) {
                 violations.push('You must include a short title for all posts.');
@@ -65,11 +66,10 @@ jQuery(function ($) {
             if (!$('.tagchecklist').children().length) {
                 violations.push('You must add tags for all posts.');
             }
-
             // Require "Author" to be mlastyle.
-            // if (mla_style_user_id != $('#post_author_override').val()) {
-            //     violations.push('Author must be mlastyle.');
-            // }
+               if (mla_style_user_id != $('#post_author_override').val()) {
+                 violations.push('Post Owner must be mlastyle.');
+               }
         } else if (behind_checkbox.is(':checked')) {
             // Require post_short_title custom field value.
             if (!get_custom_field_value('post_short_title')) {
@@ -96,15 +96,10 @@ jQuery(function ($) {
                 violations.push('Excerpts must be 100 or fewer characters.');
             }
 
-            // Require post_author custom field value.
-            // if (!get_custom_field_value('post_author')) {
-            //     violations.push('You must include a post_author for Behind the Style posts.');
-            // }
-
-            // // Require "Author" to be mlastyle.
-            // if (mla_style_user_id != $('#post_author_override').val()) {
-            //     violations.push('Author must be mlastyle.');
-            // }
+            // Require "Author" to be mlastyle.
+             if (mla_style_user_id != $('#post_author_override').val()) {
+                 violations.push('Post Owner must be mlastyle.');
+             }
         }
 
         if (violations.length) {
