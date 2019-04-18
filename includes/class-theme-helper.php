@@ -285,11 +285,12 @@ class ThemeHelper extends Base {
 				$prefix = '';
 			}
 		}
+
 		$closed_tags  = closetags( $matches[0] );
 		$content_tidy = html_tidy( $closed_tags );
 
 		$content_tidy = str_ireplace( '<p>','', $content_tidy );
-                $content_tidy = str_ireplace( '</p>','', $content_tidy );
+        $content_tidy = str_ireplace( '</p>','', $content_tidy );
 
 		return sprintf( '%1$s%2$s%3$s', $prefix, $content_tidy, $suffix );
 	}
