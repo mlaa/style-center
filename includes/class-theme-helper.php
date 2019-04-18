@@ -265,7 +265,7 @@ class ThemeHelper extends Base {
 
 		$search_terms = array();
 		$search_string = get_query_var( 's' );
-		$stripped_content = strip_tags( $content );
+		$stripped_content = strip_tags( $content,'<i><em>' );
 		$prefix = '.&nbsp;.&nbsp;.&nbsp;';
 		$suffix = '&nbsp;.&nbsp;.&nbsp;.';
 
@@ -285,7 +285,13 @@ class ThemeHelper extends Base {
 				$prefix = '';
 			}
 		}
-			return sprintf( '%1$s%2$s%3$s', $prefix, $matches[0], $suffix );
+		$closed_tags  = closetags( $matches[0] );
+                $content_tidy = html_tidy( $closed_tags );
+                
+		$content_tidy = str_ireplace( '<p>','', $content_tidy );
+                $content_tidy = str_ireplace( '</p>','', $content_tidy );
+
+		return sprintf( '%1$s%2$s%3$s', $prefix, $content_tidy, $suffix );
 	}
 
 	/**
