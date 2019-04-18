@@ -286,8 +286,8 @@ class ThemeHelper extends Base {
 			}
 		}
 
-		$closed_tags  = closetags( $matches[0] );
-		$content_tidy = html_tidy( $closed_tags );
+		$closed_tags  = mla_style_custom_close_tags( $matches[0] );
+		$content_tidy = mla_style_custom_html_tidy( $closed_tags );
 
 		$content_tidy = str_ireplace( '<p>','', $content_tidy );
         $content_tidy = str_ireplace( '</p>','', $content_tidy );
