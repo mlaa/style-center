@@ -233,6 +233,9 @@ function sc_add_ellipsis_to_behind_the_style_posts( $excerpt ) {
 }
 
 
+add_filter( 'get_the_excerpt', __NAMESPACE__ . '\sc_add_ellipsis_to_behind_the_style_posts' );
+
+
 
 function my_editor_content( $content, $post ) {
 
