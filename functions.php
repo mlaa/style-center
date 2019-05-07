@@ -166,7 +166,8 @@ add_filter( 'ep_fuzziness_arg', __NAMESPACE__ . '\sc_filter_ep_fuzziness_arg', 1
  * Include admin JS/CSS.
  */
 function sc_enqueue_admin_scripts() {
-	wp_enqueue_script( 'sc_admin', get_template_directory_uri() . '/src/js/admin.js', [ 'jquery' ], 5 );
+  	$jtime = filemtime( get_theme_file_path() . '/src/js/admin.js' );
+	wp_enqueue_script( 'sc_admin', get_template_directory_uri() . '/src/js/admin.js', [ 'jquery' ], $jtime );
 	wp_enqueue_style( 'sc_admin', get_template_directory_uri() . '/assets/dist/admin.css' );
 }
 add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\sc_enqueue_admin_scripts' );
