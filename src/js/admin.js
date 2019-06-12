@@ -13,7 +13,7 @@ jQuery(function ($) {
         });
     }
 
-    var mla_style_user_id = 26;
+    var mla_style_user_id = 15;
  
     // helper function to get saved custom field values by field name
     var get_custom_field_value = function (field_name) {
@@ -22,7 +22,7 @@ jQuery(function ($) {
         );
     }
 
-    var ask_checkbox = $('#in-category-31');
+    var ask_checkbox = $('#in-category-35');
 
     var ask_click_handler = function (e) {
         // Ensure "Author" is checked in screen options.
@@ -36,7 +36,7 @@ jQuery(function ($) {
         $('#comment_status').prop('checked', false);
     };
 
-    var behind_checkbox = $('#in-category-25');
+    var behind_checkbox = $('#in-category-50');
 
     var behind_click_handler = function (e) {
         // Ensure "Author" is checked in screen options.
