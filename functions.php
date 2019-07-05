@@ -333,3 +333,8 @@ function my_editor_content( $content, $post ) {
 add_filter( 'default_content',  __NAMESPACE__ .'\my_editor_content', 10, 2 );
 
 
+add_action( 'wp_enqueue_scripts', 'style_center_load_dashicons_front_end' );
+
+function style_center_load_dashicons_front_end() {
+    wp_enqueue_style( 'dashicons' );
+}
