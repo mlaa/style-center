@@ -56,6 +56,7 @@ class ThemeHelper extends Base {
 		$this->add_filter( 'body_class', $this, 'add_body_class' );
 		$this->add_filter( 'excerpt_more', $this, 'set_excerpt_more' );
 		$this->add_action( 'ninja_forms_display_init', $this, 'set_ninja_form_logged_in_user_values' );
+		$this->add_action( 'wp_enqueue_scripts', $this, 'style_center_dashicons' );
 		$this->run();
 
 	}
@@ -312,5 +313,9 @@ class ThemeHelper extends Base {
 			$ninja_forms_loading->update_field_value( 1, $ninja_forms_loading->get_field_value( 8 ) ); // Set Your Name to User Display Name.
 			$ninja_forms_loading->update_field_value( 2, $ninja_forms_loading->get_field_value( 7 ) ); // Set Your Email to User Email.
 		}
+	}
+
+	public function style_center_dashicons() {
+		wp_enqueue_style( 'dashicons' );
 	}
 }

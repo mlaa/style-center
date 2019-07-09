@@ -33,6 +33,7 @@ $theme_helper->enqueue_style( 'main', 'assets/dist/main.css' );
 $theme_helper->enqueue_script( 'main', 'assets/dist/main.js', array( 'jquery', 'underscore', 'backbone' ), true, array( 'asset_path' => get_stylesheet_directory_uri() ) );
 $theme_helper->enqueue_typekit( 'sho5lfw' );
 
+
 function filter_comment_defaults( $args ) {
 	// store comment field html
 	$comment_field_html = $args['comment_field'];
@@ -332,9 +333,3 @@ function my_editor_content( $content, $post ) {
 
 add_filter( 'default_content',  __NAMESPACE__ .'\my_editor_content', 10, 2 );
 
-
-add_action( 'wp_enqueue_scripts', 'style_center_load_dashicons_front_end' );
-
-function style_center_load_dashicons_front_end() {
-    wp_enqueue_style( 'dashicons' );
-}
