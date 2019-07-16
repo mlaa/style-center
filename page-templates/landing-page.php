@@ -38,7 +38,7 @@ get_header();
 		<div class="column col-2-of-3">
 			<h3>Recent questions from Ask the MLA</h3>
 
-			<?php $args = array('cat' => 3, 'posts_per_page' => 6);
+			<?php $args = array('cat' => 35, 'posts_per_page' => 6);
 
 				// The Query
 				$the_query = new WP_Query( $args );
