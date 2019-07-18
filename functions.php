@@ -226,13 +226,16 @@ add_filter( 'tiny_mce_before_init', __NAMESPACE__ . '\sc_mce_before_init' );
 /**
  * Add ellipsis to Behind the Style post excerpts.
  */
-function sc_add_ellipsis_to_behind_the_style_posts( $excerpt ) {
+function sc_add_ellipsis_to_posts( $excerpt ) {
 	$ellipsis = '&nbsp;.&nbsp;.&nbsp;.';
-	if ( is_category( 'behind-the-style' ) && 0 === preg_match( "/\.\s?$/", $excerpt ) ) {
+	if ( is_category( array('behind-the-style','inside-the-classroom') ) && 0 === preg_match( "/\.\s?$/", $excerpt ) ) {
 		$excerpt .= $ellipsis;
 	}
 	return $excerpt;
 }
+
+
+add_filter( 'get_the_excerpt', __NAMESPACE__ . '\sc_add_ellipsis_to_posts' );
 
 
 
