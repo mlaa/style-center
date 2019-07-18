@@ -230,6 +230,8 @@ function sc_add_ellipsis_to_posts( $excerpt ) {
 	$ellipsis = '&nbsp;.&nbsp;.&nbsp;.';
 	if ( is_category( array('behind-the-style','inside-the-classroom') ) && 0 === preg_match( "/\.\s?$/", $excerpt ) ) {
 		$excerpt .= $ellipsis;
+	} elseif ( is_tag() && 0 === preg_match( "/\.\s?$/", $excerpt ) ) {
+		$excerpt .= $ellipsis;
 	}
 	return $excerpt;
 }
