@@ -9,6 +9,11 @@ get_header();
 ?>
 
 <div class="block-main no-post-author">
+	
+	<?php if ( function_exists('yoast_breadcrumb') ) :
+  	yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+	endif; ?>
+
 	<h1><?php the_title(); ?></h1>
 
 	<article class="type-page page tr-content">

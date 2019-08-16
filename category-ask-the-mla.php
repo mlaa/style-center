@@ -25,6 +25,10 @@ get_header();
 
 <div class="block-main <?php if ( isset( $_GET['s'] ) ): ?> faq-search-active<?php endif ?>">
 
+	<?php if ( function_exists('yoast_breadcrumb') ) :
+  	yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+	endif; ?>
+
 	<h1>
 		<?php echo wp_kses_post( ThemeHelper::get_page_title() ); ?>
 		<div class="tile-tag icon-faq">FAQ</div>

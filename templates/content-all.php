@@ -12,6 +12,12 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 <div class="block-main <?php if ( empty( $_GET['post_author'] ) ) echo 'no-post-author' ?>">
 
 	<?php if ( ( is_page() || is_category() ) && ! is_home() && ! is_front_page() ) : ?>
+	
+	
+	<?php if ( function_exists('yoast_breadcrumb') ) :
+  	yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+	endif; ?>
+
 	<h1>
 		<?php echo wp_kses_post( ThemeHelper::get_page_title() ); ?>
 		<?php if ( is_category( 'ask-the-mla' ) ): ?>
@@ -126,15 +132,23 @@ if ( have_posts() ) :
 	<div class="halves">
 <?php endif; ?>
 
+
 <article <?php post_class( "loop-$count" ); ?>>
+
+
 <?php
 
 	if ( ! ( is_category() || is_search() || is_front_page() ) ) :
 	?>
+		<?php if ( function_exists('yoast_breadcrumb') && ! is_page() && ! is_tag() ) :
+  	yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+	endif; ?>
+
 		<div class="tag-meta">
 			<?php echo wp_kses_post( ThemeHelper::get_category() ); ?>
 			<?php echo wp_kses_post( ThemeHelper::get_tags() ); ?>
 		</div>
+
 	<?php
 	endif;
 
