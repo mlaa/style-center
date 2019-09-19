@@ -144,7 +144,7 @@ if ( have_posts() ) :
 	) :
 	?>
 		<div class="post-thumbnail <?php echo $post_thumbnail_class; ?>">
-			<?php the_post_thumbnail(); ?>
+			<?php the_post_thumbnail( 'thumbnail' ); ?>
 		</div>
 	<?php
 	endif;
