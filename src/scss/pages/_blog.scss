@@ -251,10 +251,16 @@
   }
 }
 
+@media only screen and (max-width: 600px) {
+ .post-thumbnail {
+        overflow: hidden;
+  }
+}
+
+
 .post-thumbnail {
   margin: 1em 0;
   max-height: 300px;
-  overflow: hidden;
 
   img {
     height: auto;
