@@ -251,6 +251,11 @@
   }
 }
 
+.single-post-thumbnail {
+  overflow: hidden;
+}
+
+
 @media only screen and (max-width: 600px) {
  .post-thumbnail {
         overflow: hidden;
