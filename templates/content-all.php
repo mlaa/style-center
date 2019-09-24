@@ -138,14 +138,32 @@ if ( have_posts() ) :
 	<?php
 	endif;
 
-	if (
+	 if (
+                ( in_array( get_query_var('paged'), [1, 0] ) && is_category( 'behind-the-style' ) && $count == 1 && has_post_thumbnail() ) ||
+                ( ! is_category( 'behind-the-style' ) && has_post_thumbnail() && !is_single() )
+        ) :
+	?>
+                <div class="post-thumbnail <?php echo $post_thumbnail_class; ?>">
+                        <?php the_post_thumbnail(); ?>
+                </div>
+
+        <?php
+	
+	elseif (
 		( in_array( get_query_var('paged'), [1, 0] ) && is_category( 'behind-the-style' ) && $count < 4 && has_post_thumbnail() ) ||
-		( ! is_category( 'behind-the-style' ) && has_post_thumbnail() )
+		( ! is_category( 'behind-the-style' ) && has_post_thumbnail() && !is_single() )
 	) :
 	?>
 		<div class="post-thumbnail <?php echo $post_thumbnail_class; ?>">
 			<?php the_post_thumbnail( 'thumbnail' ); ?>
 		</div>
+	<?php
+	else :
+	?>
+	 	<div class="post-thumbnail single-post-thumbnail <?php echo $post_thumbnail_class; ?>">
+                        <?php the_post_thumbnail(); ?>
+                </div>
+
 	<?php
 	endif;
 
