@@ -364,3 +364,10 @@ function save_attachment_url_field( $post, $attachment) {
 
 add_filter( 'attachment_fields_to_save', __NAMESPACE__ .'\save_attachment_url_field', null, 2 );
 
+
+/* Add category support to attachment post type */
+function add_categories_to_attachments() {
+	register_taxonomy_for_object_type('category', 'attachment');
+}
+
+add_action('init', __NAMESPACE__ .'\add_categories_to_attachments');
