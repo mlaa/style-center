@@ -339,3 +339,28 @@ function my_editor_content( $content, $post ) {
 
 add_filter( 'default_content',  __NAMESPACE__ .'\my_editor_content', 10, 2 );
 
+
+/* Add custom field to attachment post type for adding associated link to The Source archive page */
+function add_attachment_url_field( $form_fields, $post ) {
+	$form_fields['assoc_url'] = array(
+		'label' => 'URL for Source archive link',
+		'input' => 'text',
+		'value' => get_post_meta( $post->ID, 'assoc_url', true),
+		'helps' => 'This is used to link thumbnails to corresponding Source archive web views'
+	);
+
+	return $form_fields;
+}
+
+add_filter( 'attachment_fields_to_edit', __NAMESPACE__ .'\add_attachment_url_field', null, 2);
+
+
+/* Save custom field created in function/hook above */
+function save_attachment_url_field( $post, $attachment) {
+	if( isset( $attachment['assoc_url'] ) )
+		update_post_meta( $post['ID'], 'assoc_url', $attachment['assoc_url']);
+	return $post;
+}
+
+add_filter( 'attachment_fields_to_save', __NAMESPACE__ .'\save_attachment_url_field', null, 2 );
+
