@@ -10,55 +10,83 @@ get_header();
 
 ?>
 
-<div class="block-main no-post-author feature-page">
+<div class="no-post-author feature-page source-archive">
   <h1><?php the_title(); ?></h1>
 
+  <p><?php the_content(); ?></p>
 
- <?php
-     wp_reset_postdata();
-    ?>
-    <?php 
-      $args = array(
-        'post_type' =>   'attachment',
-        'post_status' => 'any',
-        'category_name' => 'the source'
-      );
+  <div class="mailing-list mailing-list__top">
 
-      $source_images = new WP_Query($args);
+      <div class="mailing-list-inner">
 
+        <h2 class="icon-inline-tag icon-mail">Get MLA Style News from <em>The Source</em></h2>
+        <p>Be the first to read new posts and updates about MLA style.</p>
+
+        <?php
+          echo do_shortcode("[formassembly formid=4649903]");
+        ?>
+
+      </div>
+
+    </div>
+
+
+  <div class="row">
+   <?php
+       wp_reset_postdata();
       ?>
-        
-      <?php
+      <?php 
+        $args = array(
+          'post_type' =>   'attachment',
+          'post_status' => 'any',
+          'category_name' => 'the source',
+          'orderby' => 'date',
+          'order'  => 'DESC'
+        );
 
-      if ($source_images->have_posts() ) {
-        
-        while( $source_images->have_posts() ) {
-          $source_images->the_post();
-          ?>
+        $source_images = new WP_Query($args);
 
-            <article class="source-archive--issue">
-              <h2 class="source-archive--title">
-                <?php echo get_the_title(); ?>
-              </h2>
+        ?>
+          
+        <?php
 
-              <a href="<?php echo get_post_meta(get_the_ID(),'assoc_url',true); ?>">
-                <img src="<?php echo get_permalink(); ?>">
-              </a>
-            </article>
+        if ($source_images->have_posts() ) {
+          
+          while( $source_images->have_posts() ) {
+            $source_images->the_post();
+            ?>
 
-          <?php 
+              <?php if( $source_images->current_post < 3 ) {
+              ?>
+                <article class="source-archive--issue">
+                  <a href="<?php echo get_post_meta(get_the_ID(),'assoc_url',true); ?>">
+                    <h2 class="source-archive--title">
+                      <?php the_title(); ?>
+                    </h2>
+                  
+                    <img src="<?php echo get_permalink(); ?>">
+                  </a>
+                </article>
+              <?php
+              } else {
+              ?>
+                <article class="source-archive--issue__old">
+                  <a href="<?php echo get_post_meta(get_the_ID(),'assoc_url',true); ?>">
+                    <h2 class="source-archive--title">
+                      <?php the_title(); ?>
+                      <?php var_dump($source_images->current_post) ?>
+                    </h2> 
+                  </a>
+                </article>
+              <?php 
+            }
+          }
         }
-      }
-    ?>
-
-   
-
-  
-
-   
+      ?>
+   </div>
 </div> <!-- /.block-main -->
 
-<aside class="sidebar citation-sidebar">
+<!--<aside class="sidebar citation-sidebar">
   
   <div  class="citation-sidebar--sticky-block">
 
@@ -73,7 +101,7 @@ get_header();
 
 
 
-</aside>
+</aside>-->
 
 
 

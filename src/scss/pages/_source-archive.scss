@@ -1,0 +1,114 @@
+div.source-archive {
+	width: 100%;
+}
+
+div.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+article.source-archive--issue {
+  flex: 0 1 30%;
+  padding: 0 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+  	width: 100%;
+  }
+
+  a {
+  	margin-top: auto;
+
+  	&:hover {
+  		text-decoration: none;
+  	}
+
+  	img {
+  	width: 100%;
+  	}
+  }
+
+}
+
+article.source-archive--issue__old {
+	flex-basis: 100%;
+	padding: 0 1rem 1rem;
+
+	a:hover {
+		text-decoration: none;
+	}
+}
+
+.mailing-list__top {
+  background-color: $white;
+
+  h2 {
+   	color: #000000;
+    margin: 0 0 0.2em 0;
+
+    &::before {
+      background-color: #000000;
+      color: $white;
+      font-size: 75%;
+    }
+  }
+
+  .mailing-list-inner {
+    margin: 0 auto;
+   // padding: 2em 1em;
+
+    @include breakpoint(xs) {
+      max-width: 700px;
+      padding: 2em;
+    }
+
+    @include breakpoint(md) {
+      max-width: 900px;
+    }
+  }
+
+  .field-wrap {
+    display: inline;
+  }
+
+  .text-wrap.label-above input {
+    border: 0;
+    border-radius: 3px;
+    margin: 0 8px 10px 0;
+    padding: 8px;
+    width: 200px;
+
+    &::placeholder {
+      font-family: $default-font-family;
+    }
+  }
+
+  .text-wrap.label-above label {
+    display: none;
+  }
+
+  .field-wrap:after {
+    clear: none;
+    content: none;
+  }
+
+  .subscribe-wrap > div {
+    display: inline;
+  }
+
+  .subscribe {
+    @include button($white, $palette-blue);
+    border-color: $white;
+    border-style: solid;
+    border-width: 3px;
+    padding: 0.25em 0.75em;
+  }
+
+  p {
+    color: #bcbcbc;
+    font-weight: $default-font-bold;
+    margin: 0 0 1em 0;
+  }
+
+}
