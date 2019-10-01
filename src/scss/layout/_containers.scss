@@ -18,6 +18,10 @@
     display: flex;
   }
 
+  *[class^='tutor-col-'] {
+   box-sizing: border-box;
+  }
+
 }
 
 .block-main {
@@ -45,8 +49,4 @@
 
 #hcommons-network-footer {
   display: none;
-}
-
-.tutor-col-8 {
-  max-width:60%;
 }
