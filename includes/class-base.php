@@ -216,8 +216,8 @@ class Base {
 		foreach ( $this->styles as $item ) {
 			if ( ! $item['processed'] ) {
 				// Use file timestamp as version.
-				$mtime = filemtime( dirname( constant( 'ABSPATH' ) ) . str_replace( constant( 'WP_HOME' ), '', $item['path'] ) );
-				wp_enqueue_style( $item['name'], $item['path'], $item['dependencies'], $mtime );
+				//$mtime = filemtime( dirname( constant( 'ABSPATH' ) ) . str_replace( constant( 'WP_HOME' ), '', $item['path'] ) );
+				wp_enqueue_style( $item['name'], $item['path'], $item['dependencies'], time() );
 				$item['processed'] = true;
 			}
 		}

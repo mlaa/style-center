@@ -26,7 +26,7 @@ body.page-template-practice-template {
 
     aside.citation-sidebar {
       flex-basis: 35%;
-    }    
+    }
   }
 }
 
@@ -377,8 +377,8 @@ h6.info-box--label {
   span {
     padding: 3px 4px 0 4px;
     line-height: 1.75em;
-   
-    // The code below adds a space after each entry, 
+
+    // The code below adds a space after each entry,
     // but keeps the span empty as needed.
     &:after {
       //content: "\0020";
@@ -439,14 +439,14 @@ h6.info-box--label {
     }
   }
 
-  
+
 
 }
 
 .hovered {
       background: #f3f6f9;
       box-shadow: 2px 2px 12px #cccecf;
-    
+
     &.author-element, &.title-element {
       background-color: rgba($author-orange, 0.3);
     }
@@ -460,11 +460,11 @@ fieldset.container:nth-child(2) .container-element.hovered {
       background-color: rgba($container-one-blue, 0.4);
     }
 
-&fieldset.container:nth-child(3) .container-element.hovered {
+fieldset.container:nth-child(3) .container-element.hovered {
   background-color: rgba($container-two-blue, 0.5);
 }
 
-&fieldset:nth-child(4) .container-element.hovered {
+fieldset:nth-child(4) .container-element.hovered {
   background-color: rgba($container-three-blue, 0.6);
 }
 
