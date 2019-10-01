@@ -45,8 +45,8 @@ if ( have_posts() ) :
 		the_post();
 
 		$count++;
-
-		$post_category = get_the_category()[0];
+		$cat = get_the_category();
+		$post_category = !empty($cat[0])?$cat[0]:false;
 		$post_thumbnail_class = '';
 
 
@@ -68,7 +68,7 @@ if ( have_posts() ) :
 			$collection = false;
 			if (
 				! is_category() &&
-				! is_search() &&
+				! is_search() && !empty($post_category->slug) &&
 				in_array( $post_category->slug, ['behind-the-style', 'teaching-resources', 'style', 'research', 'writing'] ) // Teaching Resources posts have child categories, so calling 'teaching-resources' here does not work, because the child category is the return val of $post_category
 			) {
 				$authors = get_the_terms( get_the_ID(), 'mla_author' );
@@ -148,7 +148,7 @@ if ( have_posts() ) :
                 </div>
 
         <?php
-	
+
 	elseif (
 		( in_array( get_query_var('paged'), [1, 0] ) && is_category( 'behind-the-style' ) && $count < 4 && has_post_thumbnail() ) ||
 		( ! is_category( 'behind-the-style' ) && has_post_thumbnail() && !is_single() )
