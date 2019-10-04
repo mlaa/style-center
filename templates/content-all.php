@@ -170,7 +170,6 @@ if ( have_posts() ) :
 	?>
 		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<?php
-		echo "is_search";
 		foreach( (array)$post_author_html as $item ) {
 			echo $item;
 		}
@@ -181,11 +180,11 @@ if ( have_posts() ) :
 	?>
 		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<?php
-
-		foreach( (array)$post_author_html as $item ) {
+		if( !is_tag() ) {
+	            foreach( (array)$post_author_html as $item ) {
 			echo $item;
+		    }
 		}
-
 		endif;
 
 		//outputs excerpt if in tag page and content if in single page or front-page
