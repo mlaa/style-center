@@ -128,7 +128,6 @@ if ( have_posts() ) :
 
 <article <?php post_class( "loop-$count" ); ?>>
 <?php
-
 	if ( ! ( is_category() || is_search() || is_front_page() ) ) :
 	?>
 		<div class="tag-meta">
@@ -140,25 +139,25 @@ if ( have_posts() ) :
 
 	 if (
                 ( in_array( get_query_var('paged'), [1, 0] ) && is_category( 'behind-the-style' ) && $count == 1 && has_post_thumbnail() ) ||
-                ( ! is_category( 'behind-the-style' ) && has_post_thumbnail() && !is_single() )
+                ( ! is_category( 'behind-the-style' ) && has_post_thumbnail() && !is_single() ) && !is_tag()
         ) :
 	?>
                 <div class="post-thumbnail <?php echo $post_thumbnail_class; ?>">
                         <?php the_post_thumbnail(); ?>
                 </div>
 
-        <?php
-	
+	<?php
 	elseif (
 		( in_array( get_query_var('paged'), [1, 0] ) && is_category( 'behind-the-style' ) && $count < 4 && has_post_thumbnail() ) ||
-		( ! is_category( 'behind-the-style' ) && has_post_thumbnail() && !is_single() )
+		( ! is_category( 'behind-the-style' ) && has_post_thumbnail() && !is_single() ) && !is_tag()
 	) :
+
 	?>
 		<div class="post-thumbnail <?php echo $post_thumbnail_class; ?>">
 			<?php the_post_thumbnail( 'thumbnail' ); ?>
 		</div>
 	<?php
-	else :
+	elseif ( ( is_single() || is_tag() ) && has_post_thumbnail() ) :
 	?>
 	 	<div class="post-thumbnail single-post-thumbnail <?php echo $post_thumbnail_class; ?>">
                         <?php the_post_thumbnail(); ?>
@@ -171,7 +170,6 @@ if ( have_posts() ) :
 	?>
 		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<?php
-
 		foreach( (array)$post_author_html as $item ) {
 			echo $item;
 		}
@@ -182,11 +180,11 @@ if ( have_posts() ) :
 	?>
 		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<?php
-
-		foreach( (array)$post_author_html as $item ) {
+		if( !is_tag() ) {
+	            foreach( (array)$post_author_html as $item ) {
 			echo $item;
+		    }
 		}
-
 		endif;
 
 		//outputs excerpt if in tag page and content if in single page or front-page
@@ -194,13 +192,13 @@ if ( have_posts() ) :
 			the_content();
 
 		} else if( is_archive() ) {
-			the_excerpt();
-
+			echo wp_kses_post( ThemeHelper::get_search_snippet( get_the_content(), get_the_excerpt() ) );
 		} else if( is_front_page() ) {
 			the_content();
 		}
 
 		if ( ! is_page() ):
+
 			//if( ! is_null( the_date('j F Y') ) ) :
 			?>
 			<div class="pub_date">
