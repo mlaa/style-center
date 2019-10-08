@@ -260,7 +260,7 @@ class ThemeHelper extends Base {
 	 */
 	public static function get_search_snippet( $content, $excerpt ) {
 
-		if ( ! is_search() ) {
+		if ( ! is_search() && !is_tag() ) {
 			return $content;
 		}
 
