@@ -55,10 +55,7 @@ if ( have_posts() ) :
 
 
 
-			$post_thumbnail_class = (
-				isset( $custom_fields['autocrop_featured_image'] ) &&
-				'false' === $custom_fields['autocrop_featured_image'][0]
-			) ? 'no-crop' : '';
+			$post_thumbnail_class = 'no-crop';
 
 		}
 
