@@ -20,7 +20,8 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 				<p>Be the first to read new posts and updates about MLA style.</p>
 
 				<?php
-					echo do_shortcode("[formassembly formid=4649903]");
+					if( ! is_page('checkout')
+					    echo do_shortcode("[formassembly formid=4649903]");
 				?>
 
 			</div>
