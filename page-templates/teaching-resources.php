@@ -108,7 +108,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 				 <?php
                                                 $count = 0;
                                                 $writing_query = new WP_Query('cat=' . $writing_cat->term_id );
-                                                if( $writing_query->have_posts() ) : while( $writing_query->have_posts() ) : $writing_query->the_post$
+						if( $writing_query->have_posts() ) : while( $writing_query->have_posts() ) : $writing_query->the_post();
                                                 
                                        ?>
                                 
@@ -136,7 +136,7 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
                                         endif;
                                         wp_reset_postdata();
                                         ?>
-			</article>
+			      </article>
 
 			</div> <!-- /.open-category -->
 		</section> <!-- /.writing -->
