@@ -105,27 +105,39 @@ $writing_cat = get_term_by( 'slug', 'writing', 'category', 'OBJECT' );
 
 				<article class="type-page page tr-content">
 
-				
-				<ul>
-					<?php
-						$writing_query = new WP_Query('cat=' . $writing_cat->term_id );
+				 <?php
+                                                $count = 0;
+                                                $writing_query = new WP_Query('cat=' . $writing_cat->term_id );
 						if( $writing_query->have_posts() ) : while( $writing_query->have_posts() ) : $writing_query->the_post();
-					?>
-					<li>
-						<p><?php the_post_thumbnail('thumbnail') ?></p>
-						<h4><?php the_title(); ?></h4>
-						<div class="post_excerpt"><?php the_excerpt(); ?></div>
-						<div class="post_links">
-							<?php $writing_meta = get_post_meta( get_the_ID(), 'teaching_resources_links', true );
-								echo $writing_meta;
-							?>
-						</div> <!-- /.post_links -->
-					</li>
-					<?php endwhile;
-					endif;
-					wp_reset_postdata();
-					?>
-				</ul>
+                                                
+                                       ?>
+                                
+                                 <?php if (($count % 3) == 0) : ?>
+                                 <ul>
+                                 <?php endif; ?>
+
+                                        <li>
+                                                <p><?php the_post_thumbnail('thumbnail') ?></p>
+                                                <h4><?php the_title(); ?></h4>
+                                                <div class="post_excerpt"><?php the_excerpt(); ?></div>
+                                                <div class="post_links">
+                                                        <?php $writing_meta = get_post_meta( get_the_ID(), 'teaching_resources_links', true );
+                                                                echo $writing_meta;
+                                                        ?>
+                                                </div> <!-- /.post_links -->
+                                        </li>
+
+                                <?php if (($count % 3) == 2) : ?>
+                                </ul>
+                                <?php endif; ?>
+                                        <?php 
+                                             $count++;
+                                             endwhile;
+                                        endif;
+                                        wp_reset_postdata();
+                                        ?>
+			      </article>
+
 			</div> <!-- /.open-category -->
 		</section> <!-- /.writing -->
 
