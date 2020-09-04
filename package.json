@@ -38,7 +38,7 @@
     "gulp": "^3.9.1",
     "lity": "^1.6.3",
     "modui-popup": "^2.0.1",
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.13.1",
     "typeahead.js": "^0.11.1"
   },
   "devDependencies": {
