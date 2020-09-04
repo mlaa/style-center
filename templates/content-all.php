@@ -69,47 +69,85 @@ if ( have_posts() ) :
 				in_array( $post_category->slug, ['behind-the-style', 'teaching-resources', 'style', 'research', 'writing'] ) // Teaching Resources posts have child categories, so calling 'teaching-resources' here does not work, because the child category is the return val of $post_category
 			) {
 				$authors = get_the_terms( get_the_ID(), 'mla_author' );
-				if( count( $authors ) >= 1 ) {
 
-					$i = 0;
-                    $author_count = count( $authors );
+				$ordered_terms = get_post_meta( get_the_ID(), '_term_order', true );
+
+				   if( count( $authors ) >= 1 ) {
+
+					$terms = $ordered_terms[ 'term_order' ];
+                                        $term_ids = explode ( ",", $terms );
+
+					$j = 0;
+                                        $author_count = count( $authors );
 					$collection = array();
-					foreach( $authors as $author ) {
 
-						if( $i == 0 ) {
+					if( empty( $ordered_terms ) ) {
+					    foreach( $authors as $author ) {
+
+                        			if( $j == 0 ) {
+
+                            				$retval = 'By <a href="/category/%s?post_author=%s">%s</a>';
+
+                        			} else if( $j == $author_count - 1 ) {
+
+                            				if( $author_count == 2 ) {
+
+                                				$retval = ' and <a href="/category/%s?post_author=%s">%s</a>';
+
+                            				} else {
+
+                                				$retval = ', <a href="/category/%s?post_author=%s">%s</a>';
+
+                            	 			}
+
+                        			} else {
+
+                            			    $retval = ', <a href="/category/%s?post_author=%s">%s</a>';
+
+                        			}
+
+
+                        			$collection[] = sprintf( $retval, $post_category->slug, $author->slug, $author->name );
+
+                        			$j++;
+
+                    			    }
+					} else {
+					    for( $i = 0; $i < count ( $term_ids ); $i ++ ) {
+            					 $term = get_term( $term_ids[$i], $taxonomy, OBJECT);
+					   
+					       
+						 if( $j == 0 ) {
 
 							$retval = 'By <a href="/category/%s?post_author=%s">%s</a>';
 
-						} else if( $i == $author_count - 1 ) {
+						 } else if( $j == $author_count - 1 ) {
 
-                            if( $author_count == 2 ) {
+                            				if( $author_count == 2 ) {
 
-                                $retval = ' and <a href="/category/%s?post_author=%s">%s</a>';
+                                			    $retval = ' and <a href="/category/%s?post_author=%s">%s</a>';
 
-                            }
+                            				} else {
 
-                            else {
+                                			    $retval = ', and <a href="/category/%s?post_author=%s">%s</a>';
 
-                                $retval = ', <a href="/category/%s?post_author=%s">%s</a>';
+                            				}
 
-                            }
-
-						}
-
-                        else {
+						} else {
 
 							$retval = ', <a href="/category/%s?post_author=%s">%s</a>';
 
 						}
+		                                
+						$collection[] = sprintf( $retval, $post_category->slug, $term->slug, $term->name );
 
-
-						$collection[] = sprintf( $retval, $post_category->slug, $author->slug, $author->name );
-
-						$i++;
+						$j++;
 
 					}
 
 				}
+				
+                            }
 
 			}
 
