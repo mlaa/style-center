@@ -1,9 +1,10 @@
 
 <div class="handbook-ad">
 
-	
+
 	<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/handbook-covers.png" class="handbook-ad--image" alt="MLA Handbook, 8th edition">
-	<h2 class="handbook-ad--title"><em>MLA Handbook</em>, 8th&nbsp;edition</h2>
+	<h2 class="handbook-ad--title" style="margin-bottom: 0;"><em>MLA Handbook</em>, 8th&nbsp;edition</h2>
+	<p style="margin: 0; font-size: 0.8rem;">Available for fall 2020 and spring 2021 courses</p>
 
 	<div class="button-group">
 		<button class="button--slim button--left__dark" id="e-book-drop-down" role="button" aria-role="button" tabindex="0">Get the e-book <span class="rotate-90 select-handle dashicons dashicons-leftright"></span>
@@ -45,7 +46,7 @@
 		})
 
 
-		
+
 	</script>
 
 </div>
