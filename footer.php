@@ -395,16 +395,6 @@ namespace MLA\Commons\Theme\MLAStyleCenter;
 
 		<?php wp_footer(); ?>
 
-		<script type="text/javascript">
-    window._mfq = window._mfq || [];
-    (function() {
-        var mf = document.createElement("script");
-        mf.type = "text/javascript"; mf.async = true;
-        mf.src = "//cdn.mouseflow.com/projects/3cf9cbf9-c52b-40c8-b1fd-4f8fb870d1a4.js";
-        document.getElementsByTagName("head")[0].appendChild(mf);
-    })();
-</script>
-
 	</body>
 
 </html>
