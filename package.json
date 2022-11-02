@@ -35,7 +35,7 @@
   "dependencies": {
     "backbone.marionette": "^2.4.4",
     "bloodhound-js": "^1.2.3",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "lity": "^1.6.3",
     "modui-popup": "^2.0.1",
     "node-sass": "^4.10.0",
